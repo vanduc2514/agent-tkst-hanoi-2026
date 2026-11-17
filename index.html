@@ -66,14 +66,6 @@
     }
     .festival-note i { margin-top: 2px; }
     .festival-note a { color: #684715; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
-    .repo-link {
-      display: flex; align-items: center; gap: 8px; margin-top: 10px;
-      border: 1px solid #dce9e1; border-radius: 9px; padding: 9px 11px;
-      color: var(--green); background: #f5faf6; font-size: 11px; font-weight: 700;
-      text-decoration: none;
-    }
-    .repo-link:hover { border-color: #b7cfc0; background: #eef7f0; }
-    .repo-link small { margin-left: auto; color: #718078; font-size: 10px; font-weight: 500; }
     .ai-prompts { margin: 10px 0 0; border: 1px solid #dce9e1; border-radius: 9px; background: #f7faf8; }
     .ai-prompts summary {
       display: flex; align-items: center; gap: 8px; padding: 10px 11px;
@@ -200,9 +192,20 @@
     .map-actions { display: flex; gap: 8px; }
     .map-toggle { display: none; }
     .maplibregl-map { font-family: "DM Sans", sans-serif; }
-    .map-attribution {
+    .map-footer {
       position: absolute; z-index: 500; right: 8px; bottom: max(6px, env(safe-area-inset-bottom)); left: 8px;
-      overflow: hidden; color: #5b6862; font-size: 9px; line-height: 1.2; text-align: right;
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      color: #5b6862; text-shadow: 0 1px 0 #fff, 0 0 3px #fff;
+      pointer-events: none;
+    }
+    .map-repo-link {
+      display: inline-flex; flex: 0 0 auto; align-items: center; gap: 5px;
+      color: inherit; font-size: 9px; text-decoration: underline; text-underline-offset: 1px;
+      pointer-events: auto;
+    }
+    .map-repo-link:hover { color: var(--green); }
+    .map-attribution {
+      overflow: hidden; flex: 1; color: #5b6862; font-size: 9px; line-height: 1.2; text-align: right;
       text-overflow: ellipsis; white-space: nowrap; text-shadow: 0 1px 0 #fff, 0 0 3px #fff;
       pointer-events: none;
     }
@@ -343,7 +346,8 @@
       .event-pin-body { width: 24px; height: 24px; }
       .event-pin-body > span { font-size: 9px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      .map-attribution { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; font-size: 7px; }
+      .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
+      .map-repo-link, .map-attribution { font-size: 7px; }
       .event-detail { position: fixed; z-index: 2400; right: 0; bottom: 0; left: 0; width: 100%; max-height: 76dvh; border-radius: 18px 18px 0 0; border-bottom: 0; transition: none; }
       .event-detail.open { opacity: 1; visibility: visible; transform: none; }
       .detail-body { padding-bottom: max(17px, env(safe-area-inset-bottom)); }
@@ -371,14 +375,8 @@
           <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
           <span><strong>154 hoạt động lấy từ lịch chính thức của ban tổ chức</strong>, cập nhật 15/11/2026. <a href="https://lehoithietkesangtao.vn/su-kien" target="_blank" rel="noopener noreferrer">Xem lịch gốc</a>.</span>
         </div>
-        <a class="repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-github" aria-hidden="true"></i>
-          <span>Mã nguồn trên GitHub</span>
-          <small>agent-tkst-hanoi-2026</small>
-          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
         <details class="ai-prompts">
-          <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt theo vibe</summary>
+          <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt cho AI</summary>
           <div class="ai-prompts-content">
             <p class="ai-prompts-intro">Mở ChatGPT, Gemini hoặc Claude, sao chép prompt phù hợp rồi dán vào khung chat.</p>
             <div class="ai-prompt">
@@ -516,7 +514,12 @@
     <div class="mobile-scrim" id="mobile-scrim" aria-hidden="true"></div>
     <section class="map-area" aria-label="Bản đồ sự kiện">
       <div id="map" role="application" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
-      <div class="map-attribution"><a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · OpenMapTiles</div>
+      <footer class="map-footer">
+        <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" aria-label="Mã nguồn trên GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
+        </a>
+        <div class="map-attribution"><a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · OpenMapTiles</div>
+      </footer>
       <div class="map-topbar">
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện · 59 địa điểm</span></div>
