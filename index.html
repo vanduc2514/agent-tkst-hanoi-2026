@@ -240,7 +240,14 @@
     .event-pin::after { position: absolute; bottom: 2px; left: 50%; width: 7px; height: 3px; border-radius: 50%; background: #173a2e33; content: ""; transform: translateX(-50%); }
     .event-pin:hover .event-pin-body { transform: rotate(-45deg) scale(1.14); box-shadow: 0 5px 14px #173a2e66; }
     .event-pin.selected .event-pin-body { transform: rotate(-45deg) scale(1.16); box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--pin), 0 6px 16px #173a2e66; }
-    .route-marker { display: grid; width: 27px; height: 27px; place-items: center; border: 2px solid #fff; border-radius: 50%; color: #fff; background: #1c3f35; box-shadow: 0 2px 6px #173a2e55; font-size: 11px; font-weight: 800; }
+    .event-pin.in-route .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 4px 10px #173a2e66; }
+    .event-pin.in-route:hover .event-pin-body,
+    .event-pin.in-route.selected .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 6px 16px #173a2e66; }
+    .route-badge {
+      position: absolute; z-index: 2; top: -6px; right: -6px; display: grid; min-width: 17px; height: 17px; padding: 0 3px;
+      place-items: center; border: 2px solid #fff; border-radius: 9px; color: #fff; background: #1c3f35;
+      font-size: 9px; font-weight: 800; line-height: 1; pointer-events: none;
+    }
     .event-tooltip, .event-tooltip * { pointer-events: none !important; }
     .event-tooltip { border: 0; border-radius: 8px; padding: 7px 9px; color: #fff; background: #1f3b31; box-shadow: 0 7px 18px #10281f40; font-size: 10px; line-height: 1.5; }
     .event-tooltip .maplibregl-popup-content { padding: 7px 9px; background: #1f3b31; color: #fff; }
@@ -383,6 +390,7 @@
       .event-pin { width: 26px; height: 32px; }
       .event-pin-body { width: 24px; height: 24px; }
       .event-pin-body > span { font-size: 9px; }
+      .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
@@ -739,7 +747,6 @@
           map.fitBounds(bounds, { padding, maxZoom, duration: 0 });
         }
         const eventLayer = [];
-        const routeLayer = [];
         const markerByEvent = new Map();
         const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, filters: { query: "", date: "", cluster: "" } };
         const $ = (selector) => document.querySelector(selector);
@@ -836,7 +843,15 @@
           eventLayer.length = 0;
           markerByEvent.clear();
           hideHoverPopup();
-          renderIndividualMarkers(matching);
+          // Route stops keep their pin even when the current filter hides them, so a
+          // shared link still shows the whole itinerary on the map.
+          const shownIds = new Set(matching.map((event) => event.id));
+          const routeOnly = state.route
+            .filter((id) => !shownIds.has(id))
+            .map((id) => eventById[id])
+            .filter(Boolean);
+          renderIndividualMarkers(routeOnly.length ? [...matching, ...routeOnly] : matching);
+          syncRoutePins();
           $("#map-status").textContent = `${matching.length} sự kiện · ${new Set(matching.map((event) => event.placeId)).size} địa điểm`;
         }
 
@@ -938,6 +953,7 @@
             .addTo(map);
           marker.__pinEl = pin;
           marker.__eventIds = [event.id];
+          marker.__label = event.title;
           marker.__cancelPendingTap = () => {
             clearTimeout(pendingTap);
             pendingTap = 0;
@@ -1230,7 +1246,7 @@
           list.innerHTML = matching.map((event) => {
             const place = placesById[event.placeId];
             const cluster = clusters[event.clusterId];
-            const saved = state.route.some((item) => item.id === event.id);
+            const saved = state.route.includes(event.id);
             const dayLabel = scheduleLabel(event);
             return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="Xem chi tiết ${escapeHtml(event.title)}">
               <div class="event-topline"><span class="event-date">${escapeHtml(dayLabel)}</span>
@@ -1353,7 +1369,8 @@
         function openEventDetail(eventId) {
           const event = eventById[eventId];
           if (!event) return;
-          if (!filterEvents(state.filters).some((item) => item.id === eventId)) {
+          const visible = filterEvents(state.filters).some((item) => item.id === eventId);
+          if (!visible && !state.route.includes(eventId)) {
             showToast("Sự kiện này đang bị ẩn bởi bộ lọc.");
             return;
           }
@@ -1392,7 +1409,8 @@
 
         function syncDetailWithFilters() {
           if (!state.selectedEventId) return;
-          const visible = filterEvents(state.filters).some((event) => event.id === state.selectedEventId);
+          const visible = filterEvents(state.filters).some((event) => event.id === state.selectedEventId) ||
+            state.route.includes(state.selectedEventId);
           if (!visible) closeEventDetail();
           else renderDetail(eventById[state.selectedEventId]);
         }
@@ -1445,33 +1463,54 @@
         }
 
         function renderRouteLine(routeEvents) {
-          routeLayer.forEach((marker) => marker.remove());
-          routeLayer.length = 0;
           ensureRouteLayer();
+          syncRoutePins();
           if (!routeEvents.length) {
             const emptySource = map.getSource(routeSourceId);
             if (emptySource) emptySource.setData(routeShape([]));
             return;
           }
-          const coordinates = [];
-          routeEvents.forEach((event, index) => {
+          // Follow the pins the map already shows so the line meets each numbered badge
+          // instead of a venue centre that may sit under a spread-out group of pins.
+          const coordinates = routeEvents.map((event) => {
+            const marker = markerByEvent.get(event.id);
+            if (marker) {
+              const position = marker.getLngLat();
+              return [position.lat, position.lng];
+            }
             const place = placesById[event.placeId];
-            coordinates.push([place.lat, place.lng]);
-            const element = document.createElement("span");
-            element.className = "route-marker";
-            element.textContent = String(index + 1);
-            element.title = `${index + 1}. ${place.name}`;
-            const popup = new maplibregl.Popup({ offset: 16, closeButton: false })
-              .setHTML(`<p class="popup-title">${index + 1}. ${escapeHtml(event.title)}</p><span class="popup-sub">${escapeHtml(place.name)} · ${event.startTime}</span>`);
-            const marker = new maplibregl.Marker({ element, anchor: "center" })
-              .setLngLat([place.lng, place.lat])
-              .setPopup(popup)
-              .addTo(map);
-            routeLayer.push(marker);
+            return [place.lat, place.lng];
           });
           if (state.origin) coordinates.unshift([state.origin.lat, state.origin.lng]);
           const lineSource = map.getSource(routeSourceId);
           if (lineSource) lineSource.setData(routeShape(coordinates));
+        }
+
+        // Reuse the event pins for the route: mark the pins already on the map and add
+        // the stop order as a badge instead of stacking a second marker on the venue.
+        function syncRoutePins() {
+          const order = new Map(state.route.map((id, index) => [id, index + 1]));
+          markerByEvent.forEach((marker) => {
+            const pin = pinElement(marker);
+            if (!pin) return;
+            const eventId = (marker.__eventIds || [])[0];
+            const stop = order.get(eventId);
+            pin.classList.toggle("in-route", !!stop);
+            let badge = pin.querySelector(".route-badge");
+            if (!stop) {
+              if (badge) badge.remove();
+              pin.setAttribute("aria-label", marker.__label || "");
+              return;
+            }
+            if (!badge) {
+              badge = document.createElement("span");
+              badge.className = "route-badge";
+              badge.setAttribute("aria-hidden", "true");
+              pin.append(badge);
+            }
+            badge.textContent = String(stop);
+            pin.setAttribute("aria-label", `${marker.__label || ""} — điểm dừng ${stop}`);
+          });
         }
 
         function renderAll() {
@@ -1479,7 +1518,8 @@
           renderEventMarkers();
           renderRoute();
           if (state.selectedEventId) {
-            const selectedVisible = filterEvents(state.filters).some((event) => event.id === state.selectedEventId);
+            const selectedVisible = filterEvents(state.filters).some((event) => event.id === state.selectedEventId) ||
+              state.route.includes(state.selectedEventId);
             if (selectedVisible) renderDetail(eventById[state.selectedEventId]);
             else closeEventDetail();
           }
