@@ -60,46 +60,10 @@
       box-shadow: 0 4px 11px rgb(36 92 75 / 22%); font-size: 17px;
     }
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
-    .ai-prompts { width: 100%; margin: 14px 0 0; }
-    .ai-prompts summary {
-      display: flex; align-items: center; gap: 10px; width: 100%;
-      border: 1px solid #dce9e1; border-radius: 12px; padding: 10px 12px;
-      color: var(--green); background: linear-gradient(180deg, #fff 0%, #f7faf8 100%);
-      box-shadow: 0 2px 8px rgb(21 42 36 / 5%); cursor: pointer; list-style: none;
-      transition: border-color .16s, background .16s, box-shadow .16s;
-    }
-    .ai-prompts summary::-webkit-details-marker { display: none; }
-    .ai-prompts-badge {
-      display: grid; place-items: center; flex: none; width: 34px; height: 34px;
-      border-radius: 10px; color: var(--green); background: #eef7f0; font-size: 12px;
-    }
-    .ai-prompts-heading { display: grid; min-width: 0; gap: 1px; }
-    .ai-prompts-heading strong { font-size: 11.5px; }
-    .ai-prompts-heading small { color: #7c8b83; font-size: 9.5px; font-weight: 500; }
-    .ai-prompts-arrow {
-      display: grid; place-items: center; flex: none; width: 24px; height: 24px;
-      margin-left: auto; border-radius: 50%; color: #3f6f5e; background: #eef7f0;
-      transition: transform .18s, background .16s;
-    }
-    .ai-prompts-arrow::before { content: "\25BE"; font-size: 9px; line-height: 1; }
-    .ai-prompts summary:hover { border-color: #b7cfc0; background: #f1f9f4; box-shadow: 0 4px 12px rgb(21 42 36 / 8%); }
-    .ai-prompts summary:hover .ai-prompts-arrow { background: #e1f1e7; }
-    .ai-prompts summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-    .ai-prompts[open] summary { border-color: #b7cfc0; background: #f1f9f4; }
-    .ai-prompts[open] .ai-prompts-arrow { transform: rotate(180deg); background: #e1f1e7; }
-    .ai-prompts-content {
-      display: grid; gap: 12px; margin-top: 10px; border: 1px solid #e5ece7;
-      border-radius: 11px; padding: 12px; background: #fff;
-      box-shadow: 0 4px 12px rgb(21 42 36 / 5%);
-      max-height: min(40dvh, 380px); overflow-y: auto; overscroll-behavior: contain;
-      scrollbar-width: thin; scrollbar-color: #c9d8d0 transparent;
-    }
-    .ai-prompts-content::-webkit-scrollbar { width: 8px; }
-    .ai-prompts-content::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 8px; background: #c9d8d0; background-clip: content-box; }
+    .prompts-intro { margin: 0 0 12px; color: #718078; font-size: 10.5px; line-height: 1.5; }
     .ai-prompt-list { display: grid; gap: 12px; }
     .ai-prompts-loading { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompts-loading a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
-    .ai-prompts-intro { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
     .ai-prompt:first-child { border-top: 0; padding-top: 0; }
     .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
@@ -140,15 +104,17 @@
     .ai-prompt-status:not(:empty) { min-height: 15px; }
     .ai-prompt-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 380px) {
-      .ai-prompts-heading small { display: none; }
       .ai-prompt-copy span { display: none; }
       .ai-prompt-copy { min-height: 36px; min-width: 36px; justify-content: center; padding: 0; }
+      .tabs { gap: 4px; padding: 12px 12px 0; }
+      .tab-button { gap: 4px; padding: 7px 2px; font-size: 10.5px; }
+      .tab-button span { white-space: nowrap; }
     }
     .agent-hint {
       position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
       overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
     }
-    .tabs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; padding: 14px 18px 0; }
+    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 14px 18px 0; }
     .tab-button {
       display: flex; min-height: 43px; align-items: center; justify-content: center; gap: 7px;
       border: 0; border-radius: 9px 9px 0 0; padding: 8px 5px;
@@ -322,8 +288,24 @@
     .route-intro { padding: 17px 20px 14px; border-bottom: 1px solid #f0f2f0; }
     .route-intro h2 { margin: 0; font: 800 17px Manrope, sans-serif; letter-spacing: -.4px; }
     .route-intro p { margin: 6px 0 0; color: #7d8983; font-size: 11px; line-height: 1.55; }
-    .preset-wrap { padding: 14px 20px 13px; border-bottom: 1px solid #f0f2f0; }
-    .preset-select { display: grid; gap: 7px; margin-top: 9px; }
+    .preset-wrap { border-bottom: 1px solid #f0f2f0; }
+    .preset-wrap summary {
+      display: flex; align-items: center; gap: 8px; padding: 14px 20px;
+      color: #8c9793; font-size: 10px; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; cursor: pointer; list-style: none;
+    }
+    .preset-wrap summary::-webkit-details-marker { display: none; }
+    .preset-wrap summary:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; }
+    .preset-wrap[open] summary { padding-bottom: 10px; }
+    .preset-arrow {
+      display: grid; place-items: center; flex: none; width: 20px; height: 20px;
+      margin-left: auto; border-radius: 50%; color: #5d766a; background: #f0f5f1;
+      transition: transform .18s, background .16s;
+    }
+    .preset-arrow::before { content: "\25BE"; font-size: 8px; line-height: 1; }
+    .preset-wrap summary:hover .preset-arrow { background: #e5efe8; }
+    .preset-wrap[open] .preset-arrow { transform: rotate(180deg); }
+    .preset-select { display: grid; gap: 7px; padding: 0 20px 13px; }
     .preset-button { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; border: 1px solid #e6ece8; border-radius: 9px; padding: 9px 10px; color: #485851; background: #fff; text-align: left; }
     .preset-button:hover { border-color: #bfd2c7; background: #f8faf8; }
     .preset-button strong { display: block; font-size: 11px; }
@@ -400,6 +382,8 @@
       .brand-bar { padding-right: 17px; padding-left: 17px; }
       .panel-pad, .route-intro { padding-right: 16px; padding-left: 16px; }
       .event-list { padding-right: 16px; padding-left: 16px; }
+      .preset-wrap summary { padding-right: 16px; padding-left: 16px; }
+      .preset-select { padding-right: 16px; padding-left: 16px; }
     }
   </style>
 </head>
@@ -415,19 +399,6 @@
             </div>
           </div>
         </div>
-        <details class="ai-prompts">
-          <summary>
-            <span class="ai-prompts-badge"><i class="fa-regular fa-message" aria-hidden="true"></i></span>
-            <span class="ai-prompts-heading"><strong>Prompt cho AI</strong><small>Mở nhanh bằng ChatGPT, Claude hoặc Gemini</small></span>
-            <span class="ai-prompts-arrow" aria-hidden="true"></span>
-          </summary>
-          <div class="ai-prompts-content">
-            <p class="ai-prompts-intro">Chọn biểu tượng của ChatGPT, Claude hoặc Gemini để mở prompt với nội dung điền sẵn; hoặc sao chép để dán vào ứng dụng.</p>
-            <div class="ai-prompt-list" id="ai-prompt-list">
-              <p class="ai-prompts-loading">Đang tải prompt…</p>
-            </div>
-          </div>
-        </details>
         <!-- agent-hint:body:start -->
         <p class="agent-hint">
           <strong>Bản dành cho AI agent:</strong> toàn bộ 154 hoạt động ở dạng Markdown tại
@@ -441,6 +412,7 @@
       <nav class="tabs" role="tablist" aria-label="Các bảng điều khiển">
         <button class="tab-button active" id="tab-explore" role="tab" aria-selected="true" aria-controls="panel-explore" data-tab="explore"><i class="fa-solid fa-magnifying-glass"></i><span>Khám phá</span></button>
         <button class="tab-button" id="tab-route" role="tab" aria-selected="false" aria-controls="panel-route" data-tab="route"><i class="fa-solid fa-route"></i><span>Lộ trình <b id="route-count">0</b></span></button>
+        <button class="tab-button" id="tab-prompts" role="tab" aria-selected="false" aria-controls="panel-prompts" data-tab="prompts"><i class="fa-solid fa-comment-dots"></i><span>Hỏi AI</span></button>
       </nav>
 
       <section class="tab-panel active" id="panel-explore" role="tabpanel" aria-labelledby="tab-explore">
@@ -479,10 +451,13 @@
           <h2>Lộ trình của tôi</h2>
           <p>Thêm hoạt động từ Khám phá, sắp xếp điểm dừng và mở chỉ đường.</p>
         </div>
-        <div class="preset-wrap">
-          <p class="section-eyebrow">Thử một hành trình mẫu</p>
+        <details class="preset-wrap" id="preset-disclosure">
+          <summary class="preset-summary">
+            <span class="section-eyebrow">Hành trình gợi ý</span>
+            <span class="preset-arrow" aria-hidden="true"></span>
+          </summary>
           <div class="preset-select" id="preset-list"></div>
-        </div>
+        </details>
         <div class="route-summary"><span><strong id="route-stops">0 điểm dừng</strong></span><span id="route-distance">Chưa có tuyến</span></div>
         <div class="route-tools">
           <button class="small-button" id="optimize-route" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i>Tối ưu gần nhất</button>
@@ -490,6 +465,21 @@
         </div>
         <div class="panel-scroll"><div class="route-list" id="route-list"></div></div>
         <div class="route-bottom"><a class="directions-button" id="directions-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i>Mở chỉ đường Google Maps</a></div>
+      </section>
+
+      <section class="tab-panel" id="panel-prompts" role="tabpanel" aria-labelledby="tab-prompts">
+        <div class="panel-scroll">
+          <div class="panel-pad">
+            <div class="filter-heading">
+              <p class="section-eyebrow">Hỏi AI về lễ hội</p>
+              <span class="result-count" id="prompt-count"></span>
+            </div>
+            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini. Nội dung được điền sẵn trên web và sao chép vào bộ nhớ tạm để bạn dán vào ứng dụng.</p>
+            <div class="ai-prompt-list" id="ai-prompt-list">
+              <p class="ai-prompts-loading">Đang tải prompt…</p>
+            </div>
+          </div>
+        </div>
       </section>
     </aside>
 
@@ -1523,7 +1513,8 @@
           });
           $$(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.id === `panel-${tabId}`));
           if (tabId === "route") renderRoute();
-          if (window.innerWidth <= 760) $("#mobile-menu span").textContent = ({ explore: "Khám phá", route: "Lộ trình" })[tabId];
+          if (tabId === "prompts") requestAnimationFrame(sizePromptFields);
+          if (window.innerWidth <= 760) $("#mobile-menu span").textContent = ({ explore: "Khám phá", route: "Lộ trình", prompts: "Hỏi AI" })[tabId];
         }
 
         function openMobileSidebar() {
@@ -1638,6 +1629,8 @@
             fitToPoints(points, 80, 15);
           }
           closeMobileSidebar();
+          const disclosure = document.getElementById("preset-disclosure");
+          if (disclosure) disclosure.open = false;
           showToast(`Đã tải tuyến “${preset.name}”.`);
         }
 
@@ -1740,6 +1733,8 @@
         function renderPrompts(prompts) {
           const list = $("#ai-prompt-list");
           if (!list) return;
+          const count = $("#prompt-count");
+          if (count) count.textContent = `${prompts.length} gợi ý`;
           list.textContent = "";
           prompts.forEach((prompt) => {
             const item = document.createElement("div");
@@ -1801,6 +1796,8 @@
             renderPrompts(prompts);
           } catch (error) {
             console.error("Không tải được prompt", error);
+            const count = $("#prompt-count");
+            if (count) count.textContent = "";
             if (!list) return;
             list.textContent = "";
             const message = document.createElement("p");
