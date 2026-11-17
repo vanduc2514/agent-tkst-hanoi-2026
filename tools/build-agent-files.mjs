@@ -35,6 +35,101 @@ const hours = (e) =>
     ? "Cả ngày"
     : `${e.startTime}–${e.endTime}`;
 
+const TYPE_VI = {
+  Exhibition: "Triển lãm",
+  Pavilion: "Pavilion",
+  Event: "Sự kiện",
+  Workshop: "Workshop",
+  Performance: "Trình diễn",
+  Talk: "Tọa đàm",
+  Community: "Cộng đồng",
+  Tour: "Tour",
+  "": "Chưa phân loại",
+  "triển lãm": "Triển lãm",
+  "trình diễn": "Trình diễn",
+  workshop: "Workshop",
+  "tọa đàm": "Tọa đàm",
+  "sự kiện": "Sự kiện",
+  "cộng đồng": "Cộng đồng",
+  "trải nghiệm": "Trải nghiệm",
+  pavilion: "Pavilion",
+  tour: "Tour",
+  "chiếu phim": "Chiếu phim",
+  "trưng bày": "Trưng bày",
+  "sắp đặt": "Sắp đặt",
+  "lễ": "Lễ hội",
+  "trao đổi": "Trao đổi",
+};
+const TYPE_VI_BY_LOWER = new Map();
+for (const [key, value] of Object.entries(TYPE_VI)) {
+  TYPE_VI_BY_LOWER.set(key.toLowerCase(), value);
+  TYPE_VI_BY_LOWER.set(value.toLowerCase(), value);
+}
+
+// tags mix art-form words with venue names; only art forms carry genre signal
+const placeNames = new Set(places.map((p) => p.name));
+const isVenueTag = (tag) => placeNames.has(tag) || /\d/.test(tag) || /^(Chợ|Quảng trường|Công viên|Sân|Hội quán|Đình|Sở|Bảo tàng|Nhà|Trung tâm|Không gian|Tòa|Villa|Rạp|Bãi|Cạnh|COMPLEX)/.test(tag);
+
+// Single normalised "what kind of thing is this" list, official type first.
+const types = (e) => {
+  const official = (e.officialType || "")
+    .split(",")
+    .map((t) => t.trim())
+    .filter(Boolean)
+    .map((t) => TYPE_VI[t] || t);
+  const genres = (e.tags || []).filter((t) => !isVenueTag(t)).map((t) => TYPE_VI_BY_LOWER.get(t.toLowerCase()) || t);
+  const seen = new Set();
+  const out = [];
+  for (const t of [...official, ...genres]) {
+    const key = t.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(t);
+  }
+  return out;
+};
+const typeLabel = (e) => types(e).join(", ") || "Chưa phân loại";
+
+// Grounded pacing signals only: span and time of day.
+const pace = (e) => {
+  const span = e.days?.length
+    ? `${e.days.length} ngày rời rạc`
+    : e.dateEnd && e.dateEnd !== e.date
+      ? "nhiều ngày liên tục"
+      : "một ngày";
+  const dayPart =
+    e.startTime === "00:00" && e.endTime === "00:00"
+      ? "cả ngày"
+      : e.startTime >= "18:00"
+        ? "buổi tối"
+        : e.endTime >= "18:00"
+          ? "ban ngày đến tối"
+          : "ban ngày";
+  return `${span}, ${dayPart}`;
+};
+
+const BOILERPLATE = /^(Thông tin chi tiết|Thời gian:|Địa điểm:|Địa chỉ:)/i;
+const EXCERPT_CAP = 420;
+
+// Organiser prose with repeated schedule/venue lines removed, cut on a word boundary.
+const excerpt = (e) => {
+  const lines = (e.officialDetail || "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line && !BOILERPLATE.test(line));
+  let text = oneLine(lines.join(" "));
+  if (!text) return null;
+  const desc = oneLine(e.description).replace(/…$/, "").trim();
+  if (desc.length > 40 && text.toLowerCase().startsWith(desc.toLowerCase())) {
+    text = text.slice(desc.length).trim();
+    if (!text) return null;
+  }
+  if (text.length <= EXCERPT_CAP) return { text, truncated: false };
+  const cut = text.slice(0, EXCERPT_CAP);
+  const boundary = cut.lastIndexOf(" ");
+  return { text: `${(boundary > 200 ? cut.slice(0, boundary) : cut).trim()}…`, truncated: true };
+};
+
 const spotlights = events.filter((e) => e.spotlight);
 const clusterCounts = Object.keys(clusters)
   .map((id) => `${clusterName(id)} (${events.filter((e) => e.clusterId === id).length})`)
@@ -58,8 +153,10 @@ const header = [
   "",
   "## Cách dùng",
   "",
-  "- Bảng \"Danh sách hoạt động\" đủ để trả lời câu hỏi về lịch, khung giờ, địa điểm, cụm.",
-  "- Mục \"Chi tiết từng hoạt động\" có mô tả đầy đủ và link trang chính thức của ban tổ chức.",
+  "- Bảng \"Danh sách hoạt động\" đủ để trả lời câu hỏi về lịch, khung giờ, địa điểm, cụm và loại hình.",
+  "- Mục \"Chi tiết từng hoạt động\" thêm mô tả, hình thức nghệ thuật và nhịp diễn ra.",
+  "- Trường \"Trích nguồn\" là phần đầu nội dung gốc của ban tổ chức, đã lược bỏ các dòng lặp về thời gian và địa chỉ. Trường này bị cắt ở khoảng 420 ký tự.",
+  "- Khi cần chi tiết đầy đủ (thể lệ, đăng ký, giá vé, lịch chi tiết, danh sách tác phẩm), hãy mở trường \"Đầy đủ\" của hoạt động đó. Đó là URL gốc trên trang ban tổ chức và có nội dung chính xác hơn bản trích này.",
   "- Mục \"Địa điểm\" có địa chỉ và toạ độ để tính khoảng cách hoặc vẽ bản đồ.",
   "- Hoạt động diễn ra nhiều ngày rời rạc được liệt kê từng ngày trong cột \"Ngày\".",
   "",
@@ -68,11 +165,11 @@ const header = [
 const table = [
   "## Danh sách hoạt động",
   "",
-  "| # | Hoạt động | Ngày | Giờ | Địa điểm | Cụm |",
-  "|---:|---|---|---|---|---|",
+  "| # | Hoạt động | Loại | Ngày | Giờ | Địa điểm | Cụm |",
+  "|---:|---|---|---|---|---|---|",
   ...events.map(
     (e) =>
-      `| ${e.number} | ${cell(e.title)} | ${cell(formatDays(e))} | ${hours(e)} | ${cell(venue(e))} | ${cell(clusterName(e.clusterId))} |`,
+      `| ${e.number} | ${cell(e.title)} | ${cell(typeLabel(e))} | ${cell(formatDays(e))} | ${hours(e)} | ${cell(venue(e))} | ${cell(clusterName(e.clusterId))} |`,
   ),
   "",
 ];
@@ -106,18 +203,23 @@ const presetsSection = [
 const details = [
   "## Chi tiết từng hoạt động",
   "",
-  "Bảng trên đã có ngày, giờ và địa điểm. Phần này thêm mô tả đầy đủ, toạ độ và nguồn chính thức.",
+  "Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này thêm hình thức nghệ thuật, nhịp diễn ra, mô tả và một đoạn trích từ nội dung gốc của ban tổ chức.",
   "",
   ...events.flatMap((e) => {
     const place = placeById.get(e.placeId);
+    const quote = excerpt(e);
     return [
       `### ${e.number}. ${oneLine(e.title)}`,
       `- Id: ${e.id} · Ngày: ${formatDays(e)} · Giờ: ${hours(e)}`,
       `- Địa điểm: ${venue(e)}${place?.kind ? ` (${place.kind})` : ""} · Cụm: ${clusterName(e.clusterId)}`,
-      e.spotlight ? "- Suất đặc biệt: có" : null,
+      `- Loại: ${typeLabel(e)} · Nhịp: ${pace(e)}`,
+      e.spotlight ? "- Điểm nhấn: suất đặc biệt của lễ hội" : null,
       `- Mô tả: ${oneLine(e.description)}`,
+      quote ? `- Trích nguồn${quote.truncated ? " (còn nữa)" : ""}: ${quote.text}` : null,
       e.officialVenue && e.officialVenue !== venue(e) ? `- Khu vực theo ban tổ chức: ${e.officialVenue}` : null,
-      e.officialUrl ? `- Nguồn: ${e.officialUrl}` : null,
+      e.officialUrl
+        ? `- Đầy đủ: ${e.officialUrl}`
+        : "- Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này",
       "",
     ].filter((line) => line !== null);
   }),
@@ -133,8 +235,13 @@ const llms = [
   "",
   "## Files",
   "",
-  `- [index.md](${abs("index.md")}): toàn bộ lịch, địa điểm, mô tả và link chính thức ở dạng Markdown, dùng bản này để trả lời câu hỏi về lễ hội.`,
+  `- [index.md](${abs("index.md")}): toàn bộ lịch, loại hình, địa điểm, mô tả và một đoạn trích nội dung gốc của ban tổ chức, ở dạng Markdown. Dùng bản này để trả lời câu hỏi về lễ hội.`,
   `- [events.json](${abs("events.json")}): cùng dữ liệu ở dạng JSON có cấu trúc, dùng khi cần phân tích bằng code.`,
+  "",
+  "## Cách đọc",
+  "",
+  `- Mỗi hoạt động trong index.md có trường "Đầy đủ" trỏ tới trang gốc trên lehoithietkesangtao.vn.`,
+  "- Trường \"Trích nguồn\" chỉ là phần đầu của nội dung gốc (khoảng 420 ký tự). Khi câu hỏi cần thể lệ, đăng ký, giá vé, lịch chi tiết hoặc danh sách tác phẩm, hãy mở URL ở trường \"Đầy đủ\".",
   "",
   "## Optional",
   "",

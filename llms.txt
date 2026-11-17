@@ -4,8 +4,13 @@
 
 ## Files
 
-- [index.md](https://tkst.nvduc.dev/index.md): toàn bộ lịch, địa điểm, mô tả và link chính thức ở dạng Markdown, dùng bản này để trả lời câu hỏi về lễ hội.
+- [index.md](https://tkst.nvduc.dev/index.md): toàn bộ lịch, loại hình, địa điểm, mô tả và một đoạn trích nội dung gốc của ban tổ chức, ở dạng Markdown. Dùng bản này để trả lời câu hỏi về lễ hội.
 - [events.json](https://tkst.nvduc.dev/events.json): cùng dữ liệu ở dạng JSON có cấu trúc, dùng khi cần phân tích bằng code.
+
+## Cách đọc
+
+- Mỗi hoạt động trong index.md có trường "Đầy đủ" trỏ tới trang gốc trên lehoithietkesangtao.vn.
+- Trường "Trích nguồn" chỉ là phần đầu của nội dung gốc (khoảng 420 ký tự). Khi câu hỏi cần thể lệ, đăng ký, giá vé, lịch chi tiết hoặc danh sách tác phẩm, hãy mở URL ở trường "Đầy đủ".
 
 ## Optional
 
