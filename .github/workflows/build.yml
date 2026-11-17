@@ -34,17 +34,26 @@ jobs:
             exit 1
           fi
 
-      # ghcr.io on github.com, the Forgejo registry on the self-hosted instance.
+      # The registry host is a repository variable so self-hosted instances
+      # stay out of this file. Falls back to ghcr.io on github.com.
       - name: Resolve registry
         id: registry
+        env:
+          REGISTRY_VAR: ${{ vars.REGISTRY_HOST }}
         run: |
-          if [ "${GITHUB_SERVER_URL}" = "https://github.com" ]; then
+          if [ -n "${REGISTRY_VAR}" ]; then
+            host="${REGISTRY_VAR}"
+          elif [ "${GITHUB_SERVER_URL}" = "https://github.com" ]; then
             host=ghcr.io
-            user="${GITHUB_ACTOR}"
           else
-            host=registry.example.com
-            user="${GITHUB_REPOSITORY_OWNER}"
+            host="$(printf '%s' "${GITHUB_SERVER_URL}" | sed -E 's#^https?://##; s#/.*$##')"
           fi
+
+          case "${host}" in
+            ghcr.io) user="${GITHUB_ACTOR}" ;;
+            *) user="${GITHUB_REPOSITORY_OWNER}" ;;
+          esac
+
           repo="$(printf '%s' "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')"
           {
             echo "host=${host}"

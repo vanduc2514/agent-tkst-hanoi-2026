@@ -20,12 +20,10 @@ falls back to fetching `events.json` from disk.
 
 One workflow, `.github/workflows/build.yml`, runs on both platforms:
 
-| | GitHub | Forgejo |
-|---|---|---|
-| Registry | `ghcr.io/<owner>/<repo>` | `registry.example.com/<owner>/<repo>` |
-| Auth | `GITHUB_TOKEN` | secret `REGISTRY_TOKEN` |
-
-The registry is chosen from `GITHUB_SERVER_URL`, so no forking is needed. Every push to `main`
+The registry host comes from the repository variable `REGISTRY_HOST`, so a self-hosted
+instance never appears in this file. Without it the workflow uses `ghcr.io` on github.com
+and the instance hostname elsewhere. Authentication is `GITHUB_TOKEN` for ghcr.io and the
+`REGISTRY_TOKEN` secret for self-hosted registries. Every push to `main`
 publishes `:<git-sha>` and `:latest`, and the job fails if `index.md`, `llms.txt` or the
 `index.html` agent hints are out of date.
 
