@@ -1,0 +1,35 @@
+# Đây là công cụ cộng đồng cho Lễ hội Thiết kế Sáng tạo Hà Nội 2026.
+# Nội dung lấy từ lịch chính thức của ban tổ chức và được phép dùng để tra cứu,
+# trả lời câu hỏi và tạo chỉ dẫn cho người đọc, kể cả qua AI agent.
+
+User-agent: *
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Content-Signal: search=yes, ai-input=yes, ai-train=no
