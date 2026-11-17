@@ -91,8 +91,15 @@
     .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
     .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
     .ai-prompt-head strong { color: #34443b; font-size: 10px; }
-    .ai-prompt-copy { border: 1px solid #dce7df; border-radius: 6px; padding: 5px 8px; color: var(--green); background: #fff; font-size: 10px; font-weight: 700; }
+    .ai-prompt-copy {
+      display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 0 9px;
+      border: 1px solid #dce7df; border-radius: 7px; color: var(--green); background: #fff;
+      font-size: 10px; font-weight: 700; touch-action: manipulation;
+      transition: border-color .16s, background .16s;
+    }
     .ai-prompt-copy:hover { border-color: #b7cfc0; background: #eef7f0; }
+    .ai-prompt-copy:active { transform: translateY(1px); }
+    .ai-prompt-copy:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
     .ai-prompt-text {
       display: block; width: 100%; resize: none; overflow: hidden; field-sizing: content;
       border: 1px solid #e2e8e4; border-radius: 9px; padding: 10px 12px;
@@ -101,8 +108,31 @@
       transition: border-color .16s, box-shadow .16s;
     }
     .ai-prompt-text:focus { border-color: #9db8ac; box-shadow: 0 0 0 3px rgb(36 92 75 / 9%); }
-    .ai-prompt-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; }
+    .ai-prompt-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+    .ai-open {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      min-height: 40px; padding: 0 6px; border: 1px solid #dce7df; border-radius: 8px;
+      color: #34443b; background: #fff; font: 700 11px/1 "DM Sans", sans-serif;
+      touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+      transition: border-color .16s, background .16s;
+    }
+    .ai-open::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ai-dot, #9db8ac); }
+    .ai-open::after { content: "\2197"; margin-left: -2px; color: #8a998f; font-size: 10px; font-weight: 400; }
+    .ai-open:hover { border-color: var(--ai-border, #b7cfc0); background: var(--ai-bg, #eef7f0); }
+    .ai-open:active { transform: translateY(1px); }
+    .ai-open:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .ai-open-chatgpt { --ai-dot: #10a37f; --ai-bg: #eefaf5; --ai-border: #b9e2d3; }
+    .ai-open-claude { --ai-dot: #d4623a; --ai-bg: #fdf2ec; --ai-border: #efc7b6; }
+    .ai-open-gemini { --ai-dot: #4285f4; --ai-bg: #eef4fe; --ai-border: #bcd2f7; }
+    .ai-prompt-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; line-height: 1.45; }
     .ai-prompt-status:not(:empty) { min-height: 15px; }
+    .ai-prompt-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 380px) {
+      .ai-open { gap: 4px; padding: 0 4px; }
+      .ai-open::after { display: none; }
+      .ai-prompt-copy span { display: none; }
+      .ai-prompt-copy { min-height: 36px; min-width: 36px; justify-content: center; padding: 0; }
+    }
     .agent-hint {
       position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
       overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
@@ -377,70 +407,135 @@
         <details class="ai-prompts">
           <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt cho AI</summary>
           <div class="ai-prompts-content">
-            <p class="ai-prompts-intro">Mở ChatGPT, Gemini hoặc Claude, sao chép prompt phù hợp rồi dán vào khung chat.</p>
+            <p class="ai-prompts-intro">Chọn ChatGPT, Claude hoặc Gemini để mở prompt ngay trên web; hoặc sao chép để dán vào ứng dụng.</p>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động theo ngày</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-day">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm hoạt động theo ngày</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-day"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-day" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Liệt kê các hoạt động diễn ra ngày 20/11/2026, kèm giờ, địa điểm và link chi tiết của từng hoạt động.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-day" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-day" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-day" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Khám phá khu vực Hồ Gươm</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-area">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Khám phá khu vực Hồ Gươm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-area"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-area" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động ở khu vực Hồ Gươm và Tràng Tiền trong ngày 20/11/2026, rồi sắp xếp theo giờ bắt đầu.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-area" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-area" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-area" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Phố cổ gặp hơi thở hiện đại</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-old-modern">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Phố cổ gặp hơi thở hiện đại</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-old-modern"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-old-modern" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tôi muốn xem những tác phẩm lấy cảm hứng từ phố cổ Hà Nội nhưng có cách thể hiện hiện đại. Tìm các hoạt động phù hợp, giới thiệu ngắn gọn điểm giao thoa giữa nét xưa và cách nhìn mới, kèm địa điểm, thời gian diễn ra và link chi tiết.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-old-modern" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-old-modern" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-old-modern" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Đi dạo phố, ngắm nghệ thuật</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-art-walk">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Đi dạo phố, ngắm nghệ thuật</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-art-walk"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-art-walk" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Gợi ý vài hoạt động nghệ thuật để tôi vừa đi dạo vừa khám phá phố cổ Hà Nội. Ưu tiên những địa điểm gần nhau và cho biết giờ diễn ra, địa chỉ của từng nơi.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-art-walk" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-art-walk" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-art-walk" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Muốn xem Hà Nội xưa qua góc nhìn mới</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-hanoi-then-now">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Muốn xem Hà Nội xưa qua góc nhìn mới</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-hanoi-then-now"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-hanoi-then-now" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm những hoạt động gợi nhắc đến ký ức, nếp sống hoặc kiến trúc Hà Nội xưa nhưng được kể bằng ngôn ngữ sáng tạo hôm nay. Tóm tắt vì sao mỗi hoạt động hợp với chủ đề này và dẫn link chi tiết.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm thứ gì đó lạ mắt, khác thường</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-unusual">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm thứ gì đó lạ mắt, khác thường</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-unusual"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-unusual" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Chọn giúp tôi những hoạt động có ý tưởng hoặc cách trưng bày độc đáo, dễ khiến người xem bất ngờ. Mô tả ngắn điều thú vị ở mỗi hoạt động và cho biết địa điểm cùng thời gian diễn ra.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-unusual" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-unusual" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-unusual" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Muốn được tự tay trải nghiệm</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-hands-on">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Muốn được tự tay trải nghiệm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-hands-on"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-hands-on" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có phần trải nghiệm, tương tác hoặc workshop để người xem được tham gia thay vì chỉ ngắm nhìn. Cho tôi biết hoạt động nào phù hợp, diễn ra lúc nào và có thông tin đăng ký hay không.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-hands-on" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-hands-on" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-hands-on" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động buổi tối</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-evening">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm hoạt động buổi tối</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-evening"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-evening" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Có hoạt động nào bắt đầu từ 18 giờ trong ngày 21/11/2026 không? Cho tôi biết tên, giờ và địa điểm.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-evening" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-evening" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-evening" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm triển lãm</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-exhibitions">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm triển lãm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-exhibitions"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-exhibitions" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các triển lãm đang diễn ra ngày 22/11/2026 và cho biết địa điểm, giờ mở cửa.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-exhibitions" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-exhibitions" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-exhibitions" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm workshop</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-workshops">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm workshop</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-workshops"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-workshops" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các workshop trong ngày 23/11/2026. Với mỗi workshop, cho biết có cần đăng ký trước không và dẫn link để tôi xem thông tin.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-workshops" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-workshops" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-workshops" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Lên lịch đi chơi nửa ngày</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-itinerary">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Lên lịch đi chơi nửa ngày</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-itinerary"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-itinerary" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Gợi ý lịch tham quan nửa ngày ở khu vực phố cổ Hà Nội vào 24/11/2026, chọn các hoạt động có giờ diễn ra phù hợp và xếp theo thứ tự để tiện đi xem.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-itinerary" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-itinerary" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-itinerary" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động phù hợp cho gia đình</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-family">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Tìm hoạt động phù hợp cho gia đình</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-family"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-family" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Dựa vào phần mô tả, gợi ý một số hoạt động phù hợp để gia đình có trẻ nhỏ cùng tham gia. Nêu lý do và dẫn link từng hoạt động.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-family" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-family" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-family" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
             <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Kiểm tra thông tin đăng ký</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-registration">Sao chép</button></div>
+              <div class="ai-prompt-head"><strong>Kiểm tra thông tin đăng ký</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-registration"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
               <textarea class="ai-prompt-text" id="prompt-registration" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có yêu cầu đăng ký, kiểm tra thông tin trên trang chi tiết của ban tổ chức và cho tôi biết cách đăng ký. Nếu không thấy thông tin, hãy nói rõ.</textarea>
+              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
+                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-registration" data-provider="chatgpt">ChatGPT</button>
+                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-registration" data-provider="claude">Claude</button>
+                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-registration" data-provider="gemini">Gemini</button>
+              </div>
               <p class="ai-prompt-status" aria-live="polite"></p>
             </div>
           </div>
@@ -1687,6 +1782,12 @@
         if (document.fonts?.ready) document.fonts.ready.then(sizePromptFields);
         window.addEventListener("resize", sizePromptFields);
 
+        const PROMPT_PROVIDERS = {
+          chatgpt: { name: "ChatGPT", url: (prompt) => `https://chatgpt.com/?q=${encodeURIComponent(prompt)}` },
+          claude: { name: "Claude", url: (prompt) => `https://claude.ai/new?q=${encodeURIComponent(prompt)}` },
+          gemini: { name: "Gemini", url: (prompt) => `https://gemini.google.com/app?q=${encodeURIComponent(prompt)}` }
+        };
+
         function bindControls() {
           $$("[data-copy-prompt]").forEach((button) => {
             button.addEventListener("click", async () => {
@@ -1694,12 +1795,48 @@
               const status = button.closest(".ai-prompt").querySelector(".ai-prompt-status");
               try {
                 await navigator.clipboard.writeText(textarea.value);
-                status.textContent = "Đã sao chép prompt.";
+                status.textContent = "Đã sao chép prompt. Dán vào khung chat của ứng dụng.";
               } catch {
                 textarea.focus();
                 textarea.select();
                 status.textContent = "Không thể sao chép tự động; prompt đã được chọn để sao chép thủ công.";
               }
+            });
+          });
+          $$("[data-open-prompt]").forEach((button) => {
+            button.addEventListener("click", () => {
+              const textarea = document.getElementById(button.dataset.openPrompt);
+              const status = button.closest(".ai-prompt").querySelector(".ai-prompt-status");
+              const provider = PROMPT_PROVIDERS[button.dataset.provider];
+              const url = provider.url(textarea.value);
+              let copied = null;
+              try {
+                copied = navigator.clipboard?.writeText(textarea.value) || null;
+              } catch {
+                copied = null;
+              }
+              const tab = window.open(url, "_blank");
+              const openedMessage = `Đã mở ${provider.name} với prompt điền sẵn.`;
+              if (!tab) {
+                const link = document.createElement("a");
+                link.href = url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.textContent = `Mở ${provider.name}`;
+                status.textContent = "";
+                status.append("Trình duyệt đã chặn tab mới. ", link, " hoặc dùng nút Sao chép.");
+                return;
+              }
+              tab.opener = null;
+              status.textContent = `Đang mở ${provider.name}…`;
+              if (!copied) {
+                status.textContent = openedMessage;
+                return;
+              }
+              copied.then(
+                () => { status.textContent = `Đã sao chép prompt và mở ${provider.name} với prompt điền sẵn.`; },
+                () => { status.textContent = openedMessage; }
+              );
             });
           });
           $("#search-input").addEventListener("input", (event) => {
