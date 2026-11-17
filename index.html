@@ -89,8 +89,11 @@
     .ai-prompts summary:hover { background: #eef7f0; }
     .ai-prompts-content {
       display: grid; gap: 12px; padding: 0 11px 12px;
-      max-height: min(46dvh, 420px); overflow-y: auto; overscroll-behavior: contain;
+      max-height: min(40dvh, 380px); overflow-y: auto; overscroll-behavior: contain;
+      scrollbar-width: thin; scrollbar-color: #c9d8d0 transparent;
     }
+    .ai-prompts-content::-webkit-scrollbar { width: 8px; }
+    .ai-prompts-content::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 8px; background: #c9d8d0; background-clip: content-box; }
     .ai-prompts-intro { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
     .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
@@ -98,7 +101,7 @@
     .ai-prompt-copy { border: 1px solid #dce7df; border-radius: 6px; padding: 5px 8px; color: var(--green); background: #fff; font-size: 10px; font-weight: 700; }
     .ai-prompt-copy:hover { border-color: #b7cfc0; background: #eef7f0; }
     .ai-prompt-text {
-      display: block; width: 100%; min-height: 96px; max-height: 96px; resize: none;
+      display: block; width: 100%; resize: none; overflow: hidden; field-sizing: content;
       border: 1px solid #e2e8e4; border-radius: 9px; padding: 10px 12px;
       outline: none; color: var(--ink); background: #fff;
       font: 12px/1.55 "DM Sans", sans-serif;
@@ -1547,6 +1550,17 @@
           fitToPoints(points, 55, 14);
           closeEventDetail();
         }
+
+        function sizePromptFields() {
+          $$(".ai-prompt-text").forEach((field) => {
+            field.style.height = "auto";
+            field.style.height = `${field.scrollHeight + 2}px`;
+          });
+        }
+
+        sizePromptFields();
+        if (document.fonts?.ready) document.fonts.ready.then(sizePromptFields);
+        window.addEventListener("resize", sizePromptFields);
 
         function bindControls() {
           $$("[data-copy-prompt]").forEach((button) => {
