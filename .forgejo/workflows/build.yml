@@ -21,13 +21,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Verify generated agent files
         run: |
+          node --version
           node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
           if ! git diff --exit-code; then
             echo "index.md/llms.txt are stale. Run tools/build-agent-files.mjs and commit the result."
@@ -40,12 +36,12 @@ jobs:
       - name: Log in to Forgejo registry
         run: |
           echo "${{ secrets.REGISTRY_TOKEN || secrets.GITHUB_TOKEN }}" \
-            | docker login registry.example.com --username "${{ github.repository_owner }}" --password-stdin
+            | docker login registry.example.com --username nvduc --password-stdin
 
       - name: Build image
         run: |
           docker build \
-            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --label "org.opencontainers.image.source=https://registry.example.com/OWNER/tkst" \
             --label "org.opencontainers.image.revision=${{ github.sha }}" \
             --tag "$IMAGE:${{ github.sha }}" \
             --tag "$IMAGE:latest" \
