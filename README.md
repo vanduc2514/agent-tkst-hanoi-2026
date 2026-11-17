@@ -1,4 +1,4 @@
-# tkst
+# agent-tkst-hanoi-2026
 
 An unofficial companion for **Lễ hội Thiết kế Sáng tạo Hà Nội 2026** (Hanoi Design Festival,
 13–28 November 2026). It turns the organiser's published calendar into an interactive map, a
@@ -22,21 +22,6 @@ trip planner, and a Markdown document that AI agents can read and quote.
   using the site with a web-enabled AI agent without leaving the map. The data files are
   generated from the same source as the map, so they cannot drift apart.
 
-## How the pieces fit
-
-`events.json` is the single source of truth: festival metadata, clusters, venues, events and
-preset routes. It is a build input, not a published file. The image build inlines it into
-`index.html`, so the deployed site serves only:
-
-| Path | Purpose |
-|---|---|
-| `/` | the interactive map and planner |
-| `/index.md` | the whole programme as Markdown |
-| `/llms.txt` | a small index for AI agents |
-
-`tools/build-agent-files.mjs` derives `index.md`, `llms.txt` and the machine-readable hints
-embedded in `index.html`; `tools/embed-events.mjs` produces the page with its data inlined.
-
 ## Run it locally
 
 ```sh
@@ -57,9 +42,3 @@ block it falls back to reading `events.json` from the same folder, so no build i
 - Basemap: [OpenFreeMap](https://openfreemap.org) with data ©
   [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 - This is a community project, not an official festival site.
-
-## Deployment
-
-Pushes to `main` build and publish a container image in CI. The registry host is taken from the
-`REGISTRY_HOST` repository variable, falling back to `ghcr.io` on github.com. The workload that
-runs the site pins the image by tag and digest.
