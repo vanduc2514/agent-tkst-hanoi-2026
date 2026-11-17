@@ -11,7 +11,7 @@
 - Số địa điểm: 59
 - Cụm: Hồ Gươm & Tràng Tiền (31), Chợ Đồng Xuân & Hàng Đậu (32), Đình & Di tích Phố Cổ (49), Công viên Thống Nhất & Lân cận (30), Điểm Vệ tinh (12)
 - Suất đặc biệt (spotlight): 6
-- Tuyến gợi ý: Một vòng Phố cổ (Di sản & phố nghề); Ven hồ Gươm (Sân khấu & không gian sáng tạo); Ngày cao điểm 21/11 (Lịch dày nhất lễ hội)
+- Tuyến gợi ý: Một vòng Phố cổ (4 điểm · di sản & phố nghề (14–28/11)); Ven hồ Gươm (5 điểm · nghệ thuật & sáng tạo (14–28/11)); Ngày cao điểm 21/11 (3 điểm · phù hợp ngày 21–22/11); Chợ Đồng Xuân: di sản & sáng tạo (5 điểm · triển lãm & sắp đặt (14–28/11)); Theo dấu nghề thủ công (5 điểm · phố nghề & chất liệu thủ công (14–28/11)); Một vòng Công viên Thống Nhất (6 điểm · pavilion, triển lãm & thiên nhiên (14–22/11)); Âm thanh và ánh sáng sau giờ chiều (4 điểm · các hoạt động giao nhau từ 14–25/11); Dòng sông trong nhịp sống thành phố (3 điểm · phù hợp ngày 21/11); Nghệ thuật dọc phố cổ và Hồ Gươm (5 điểm · triển lãm & sắp đặt (17–28/11)); Từ di sản đến kiến trúc mới (5 điểm · các hoạt động giao nhau từ 21/11); Khám phá cùng gia đình (4 điểm · tương tác & thiên nhiên (14–22/11)); Một ngày nghe và xem Hà Nội (4 điểm · trình diễn ngày 21/11); Chợ và câu chuyện đô thị (3 điểm · hoạt động ngày 21–22/11)
 
 ## Cách dùng
 
@@ -250,26 +250,123 @@
 
 ### Một vòng Phố cổ
 
-Di sản & phố nghề
+4 điểm · di sản & phố nghề (14–28/11)
 
 1. Mở xưởng nghệ sĩ "Muôn màu kẻ chợ" — Hội quán Phúc Kiến, 40 Lãn Ông (2026-11-13 → 2026-11-28)
-2. Trình diễn âm nhạc x Toạ đàm “Ong Bay” (Flight of the Bumblebee II) — Rạp Đông Đô (2026-11-17)
-3. Kịch múa đương đại “Đối diện với vô cùng” — Rạp Hồng Hà (2026-11-20)
+2. Triển lãm "Chuyện phố nghề Đông Nam Dược Lãn Ông" — Hội quán Phúc Kiến, 40 Lãn Ông (2026-11-14 → 2026-11-28)
+3. Trưng bày "Nốt hương di sản" và các không gian di sản phố cổ — 28 Hàng Buồm (2026-11-14 → 2026-11-28)
+4. Trưng bày làng nghề Sơn Đồng — 22 Hàng Buồm (2026-11-14 → 2026-11-28)
 
 ### Ven hồ Gươm
 
-Sân khấu & không gian sáng tạo
+5 điểm · nghệ thuật & sáng tạo (14–28/11)
 
-1. Hội chợ hàng thủ công-thiết kế-minh họa: Chăm hoa đua nở — 45 Tràng Tiền (2026-11-13 → 2026-11-15)
-2. Pavilion Hồ Gương | UNESCO & SOVICO vì sự phát triển bền vững — Quảng trường Sáng tạo (2026-11-13 → 2026-11-28)
-3. Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng" — Bãi ven sông Hồng (2026-11-14, 2026-11-21, 2026-11-27)
+1. Pavilion Hồ Gương | UNESCO & SOVICO vì sự phát triển bền vững — Quảng trường Sáng tạo (2026-11-13 → 2026-11-28)
+2. Trưng bày "Văn hóa Việt Nam: Tinh hoa hội tụ" — 2 Lê Thái Tổ (2026-11-14 → 2026-11-28)
+3. Chuỗi hoạt động "Mũi Thêu Kẻ Nghệ" — Nhà trưng bày 61 Tràng Tiền (2026-11-14 → 2026-11-28)
+4. Giúp nhau làm nghề, Craft Toolkit Hà Nội 2026 — 47 Tràng Tiền (2026-11-14 → 2026-11-28)
+5. Pavilion Kiến trúc và Nghệ Thuật Art Hanoi 2026 — Quảng trường Sáng tạo (2026-11-14 → 2026-11-28)
 
 ### Ngày cao điểm 21/11
 
-Lịch dày nhất lễ hội
+3 điểm · phù hợp ngày 21–22/11
 
 1. Workshop 2 buổi "Màu của lá", Dự án giáo dục nghệ thuật PAI: The Living City — Đình Nam Hương, 75 Hàng Trống (2026-11-21, 2026-11-22)
 2. Hà Nội Mở 2 "Thành phố không lề" — COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (2026-11-21 → 2026-11-28)
+3. Trình tương tác "mười thương" — Chợ Đồng Xuân (2026-11-21, 2026-11-22)
+
+### Chợ Đồng Xuân: di sản & sáng tạo
+
+5 điểm · triển lãm & sắp đặt (14–28/11)
+
+1. Triển lãm "Đồng Đồng Xuân" — Sân mái chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+2. Kiot Zone Sáng tạo Đồng Xuân — Dãy kiot tầng 3, chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+3. Tác phẩm sắp đặt "Cột Điện Mainstream" — Chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+4. Triển lãm AR Faune "Thế giới động vật kỳ thú" — Chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+5. Triển lãm nghệ thuật "Chạm Đồng Xuân" — Chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+
+### Theo dấu nghề thủ công
+
+5 điểm · phố nghề & chất liệu thủ công (14–28/11)
+
+1. Mở xưởng nghệ sĩ "Muôn màu kẻ chợ" — Hội quán Phúc Kiến, 40 Lãn Ông (2026-11-13 → 2026-11-28)
+2. Triển lãm "Chuyện phố nghề Đông Nam Dược Lãn Ông" — Hội quán Phúc Kiến, 40 Lãn Ông (2026-11-14 → 2026-11-28)
+3. Workshop Trải nghiệm sơn mài — Đình Hà Vĩ, 11 Hàng Hòm (2026-11-14 → 2026-11-28)
+4. Triển lãm "Con đường sơn mài Việt - Nhật" — Sở Văn hoá, Thể thao và Du lịch Hà Nội (2026-11-14 → 2026-11-28)
+5. Triển lãm "Lưu dấu thủ mộc" — Sở Văn hoá, Thể thao và Du lịch Hà Nội (2026-11-14 → 2026-11-28)
+
+### Một vòng Công viên Thống Nhất
+
+6 điểm · pavilion, triển lãm & thiên nhiên (14–22/11)
+
+1. Pavilion "Mây" — Công viên Thống Nhất (2026-11-13 → 2026-11-28)
+2. Pavilion "Kén" — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
+3. Triển lãm "Chất Xưa, Chuyện Mới" — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
+4. Triển lãm "Cổng Đoài Làng Đường Lâm" — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
+5. Triển lãm Ý tưởng Sáng tạo Hà Nội 2026 — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
+6. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+
+### Âm thanh và ánh sáng sau giờ chiều
+
+4 điểm · các hoạt động giao nhau từ 14–25/11
+
+1. Sắp đặt ánh sáng "THAP: SANG" — Quảng trường Lotte, 54 Liễu Giai (2026-11-13 → 2027-01-30)
+2. "Tác phẩm "Tri Âm" thuộc Dự án "Ngỡ ngàng Hà Nội" — Phố Phùng Hưng (2026-11-14 → 2026-11-28)
+3. Sắp đặt âm thanh “Tháp Ẩn Ca” (The Tower of Hidden Songs) — Tháp nước Hàng Đậu (2026-11-14 → 2026-11-25)
+4. Tác phẩm "Cà Phê Trứng" thuộc Dự án "Ngỡ ngàng Hà Nội" — Quảng trường Sáng tạo (2026-11-14 → 2026-11-28)
+
+### Dòng sông trong nhịp sống thành phố
+
+3 điểm · phù hợp ngày 21/11
+
+1. Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng" — Bãi ven sông Hồng (2026-11-14, 2026-11-21, 2026-11-27)
+2. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+3. Triển lãm "Sống cùng dòng sông: Tuyến đường sinh thái sông Hồng" — Villa 49 Trần Hưng Đạo (2026-11-17 → 2026-12-13)
+
+### Nghệ thuật dọc phố cổ và Hồ Gươm
+
+5 điểm · triển lãm & sắp đặt (17–28/11)
+
+1. Trưng bày "Nốt hương di sản" và các không gian di sản phố cổ — 28 Hàng Buồm (2026-11-14 → 2026-11-28)
+2. Trưng bày "Nốt nhạc thanh trong lòng phố thị" và tranh thêu nghệ nhân Nguyễn Thị Hằng — Ngôi nhà Di sản 87 Mã Mây (2026-11-14 → 2026-11-28)
+3. Triển lãm "Đối thoại với tranh Hàng Trống" — Đình Nam Hương, 75 Hàng Trống (2026-11-14 → 2026-11-28)
+4. Triển lãm "Mạch sống vô hình" — Không gian đi bộ Hoàn Kiếm (2026-11-14 → 2026-11-28)
+5. Triển lãm "Nối miền Sáng tạo" — 45 Tràng Tiền (2026-11-17 → 2026-11-28)
+
+### Từ di sản đến kiến trúc mới
+
+5 điểm · các hoạt động giao nhau từ 21/11
+
+1. Triển lãm "Tổ nghề và Danh Nho nước Việt" — Văn Miếu – Quốc Tử Giám (2026-11-14 → 2026-11-28)
+2. Trưng bày "Văn hóa Việt Nam: Tinh hoa hội tụ" — 2 Lê Thái Tổ (2026-11-14 → 2026-11-28)
+3. Pavilion Kiến trúc và Nghệ Thuật Art Hanoi 2026 — Quảng trường Sáng tạo (2026-11-14 → 2026-11-28)
+4. Triển lãm Ý tưởng Sáng tạo Hà Nội 2026 — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
+5. Hà Nội Mở 2 "Thành phố không lề" — COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (2026-11-21 → 2026-11-28)
+
+### Khám phá cùng gia đình
+
+4 điểm · tương tác & thiên nhiên (14–22/11)
+
+1. "Làng Khai Cuộc" — Sân sau Chợ Đồng Xuân (2026-11-14, 2026-11-15, 2026-11-21, 2026-11-22, 2026-11-28)
+2. Gameplay "Trận Lục Bảo" — Làng Khai Cuộc và phố cổ (2026-11-14 → 2026-11-27)
+3. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+4. Triển lãm AR Faune "Thế giới động vật kỳ thú" — Chợ Đồng Xuân (2026-11-14 → 2026-11-28)
+
+### Một ngày nghe và xem Hà Nội
+
+4 điểm · trình diễn ngày 21/11
+
+1. Chuỗi sự kiện di sản "Chuyện Tuồng xưa, Chuyện Tuồng nay" — Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ (2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28)
+2. Trình diễn cộng đồng "Hà Nội sôi động" — Quảng trường Đông Kinh Nghĩa Thục (2026-11-21, 2026-11-22)
+3. Nhạc phục vụ cộng đồng — Sân mái chợ Đồng Xuân (2026-11-14, 2026-11-18, 2026-11-19, 2026-11-21, 2026-11-22, 2026-11-23, 2026-11-25, 2026-11-26, 2026-11-28)
+4. Chuỗi Culture Show: Xẩm, Ca trù — Quảng trường Lotte, 54 Liễu Giai (2026-11-15, 2026-11-21, 2026-11-28)
+
+### Chợ và câu chuyện đô thị
+
+3 điểm · hoạt động ngày 21–22/11
+
+1. Trưng bày mô hình kiến trúc và talk về nhà truyền thống các dân tộc — Sân mái chợ Đồng Xuân (2026-11-21)
+2. Tour 2 "Khám phá những khu chợ" — Chợ Châu Long (2026-11-21, 2026-11-22)
 3. Trình tương tác "mười thương" — Chợ Đồng Xuân (2026-11-21, 2026-11-22)
 
 

@@ -245,7 +245,7 @@ const llms = [
   "",
   "- Chỉ tạo liên kết khi câu trả lời thật sự có một lộ trình, tức là vài hoạt động được xếp theo thứ tự để đi liền nhau.",
   `- Định dạng: \`${base}/?tab=route&route=<id>,<id>,<id>\`, giữ đúng thứ tự điểm dừng. Lấy \`<id>\` ở trường "Id" trong mục "Chi tiết từng hoạt động" của index.md.`,
-  `- Thêm \`&origin=<vĩ độ>,<kinh độ>\` nếu biết điểm xuất phát. Ba tuyến gợi ý có sẵn: ${presets.map((p) => `\`${base}/?preset=${p.id}\` (${p.name})`).join(", ")}.`,
+  `- Thêm \`&origin=<vĩ độ>,<kinh độ>\` nếu biết điểm xuất phát. ${presets.length} tuyến gợi ý có sẵn: ${presets.map((p) => `\`${base}/?preset=${p.id}\` (${p.name})`).join(", ")}.`,
   "- Khi có liên kết, nói rõ người dùng có thể mở liên kết đó để xem toàn bộ lộ trình trên bản đồ của trang gốc, thay vì chỉ đọc danh sách trong câu trả lời.",
   "- Nếu câu trả lời chỉ liệt kê hoặc mô tả hoạt động mà không thành lộ trình, đừng thêm liên kết.",
   "",

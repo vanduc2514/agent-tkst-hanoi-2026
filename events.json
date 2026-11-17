@@ -3964,30 +3964,147 @@
     {
       "id": "old-town",
       "name": "Một vòng Phố cổ",
-      "note": "Di sản & phố nghề",
+      "note": "4 điểm · di sản & phố nghề (14–28/11)",
       "events": [
         "e01",
-        "e94",
-        "e109"
+        "e45",
+        "e16",
+        "e19"
       ]
     },
     {
       "id": "lake",
       "name": "Ven hồ Gươm",
-      "note": "Sân khấu & không gian sáng tạo",
+      "note": "5 điểm · nghệ thuật & sáng tạo (14–28/11)",
       "events": [
-        "e04",
         "e05",
-        "e11"
+        "e18",
+        "e25",
+        "e27",
+        "e29"
       ]
     },
     {
       "id": "peak",
       "name": "Ngày cao điểm 21/11",
-      "note": "Lịch dày nhất lễ hội",
+      "note": "3 điểm · phù hợp ngày 21–22/11",
       "events": [
         "e110",
         "e112",
+        "e126"
+      ]
+    },
+    {
+      "id": "dong-xuan",
+      "name": "Chợ Đồng Xuân: di sản & sáng tạo",
+      "note": "5 điểm · triển lãm & sắp đặt (14–28/11)",
+      "events": [
+        "e09",
+        "e54",
+        "e55",
+        "e60",
+        "e61"
+      ]
+    },
+    {
+      "id": "craft-streets",
+      "name": "Theo dấu nghề thủ công",
+      "note": "5 điểm · phố nghề & chất liệu thủ công (14–28/11)",
+      "events": [
+        "e01",
+        "e45",
+        "e51",
+        "e56",
+        "e58"
+      ]
+    },
+    {
+      "id": "thong-nhat",
+      "name": "Một vòng Công viên Thống Nhất",
+      "note": "6 điểm · pavilion, triển lãm & thiên nhiên (14–22/11)",
+      "events": [
+        "e02",
+        "e28",
+        "e35",
+        "e46",
+        "e48",
+        "e49"
+      ]
+    },
+    {
+      "id": "after-dark",
+      "name": "Âm thanh và ánh sáng sau giờ chiều",
+      "note": "4 điểm · các hoạt động giao nhau từ 14–25/11",
+      "events": [
+        "e03",
+        "e24",
+        "e31",
+        "e33"
+      ]
+    },
+    {
+      "id": "river-city",
+      "name": "Dòng sông trong nhịp sống thành phố",
+      "note": "3 điểm · phù hợp ngày 21/11",
+      "events": [
+        "e11",
+        "e49",
+        "e90"
+      ]
+    },
+    {
+      "id": "old-quarter-art",
+      "name": "Nghệ thuật dọc phố cổ và Hồ Gươm",
+      "note": "5 điểm · triển lãm & sắp đặt (17–28/11)",
+      "events": [
+        "e16",
+        "e17",
+        "e47",
+        "e59",
+        "e89"
+      ]
+    },
+    {
+      "id": "architecture",
+      "name": "Từ di sản đến kiến trúc mới",
+      "note": "5 điểm · các hoạt động giao nhau từ 21/11",
+      "events": [
+        "e13",
+        "e18",
+        "e29",
+        "e48",
+        "e112"
+      ]
+    },
+    {
+      "id": "family",
+      "name": "Khám phá cùng gia đình",
+      "note": "4 điểm · tương tác & thiên nhiên (14–22/11)",
+      "events": [
+        "e22",
+        "e26",
+        "e49",
+        "e60"
+      ]
+    },
+    {
+      "id": "performance",
+      "name": "Một ngày nghe và xem Hà Nội",
+      "note": "4 điểm · trình diễn ngày 21/11",
+      "events": [
+        "e10",
+        "e123",
+        "e67",
+        "e82"
+      ]
+    },
+    {
+      "id": "market-day",
+      "name": "Chợ và câu chuyện đô thị",
+      "note": "3 điểm · hoạt động ngày 21–22/11",
+      "events": [
+        "e114",
+        "e121",
         "e126"
       ]
     }

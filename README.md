@@ -18,8 +18,9 @@ trip planner, and a Markdown document that AI agents can read and quote.
   straight on the Lộ trình tab with those stops in that order; `&origin=<lat>,<lng>` adds a
   start point, and `?preset=old-town` opens a curated itinerary. The address bar follows any
   later change to the route, so it can be copied and shared.
-- **Preset routes** — three curated itineraries: a loop through the Old Quarter, the Hoàn Kiếm
-  lakeside, and the busiest day of the festival.
+- **Preset routes** — thirteen curated itineraries covering the Old Quarter, Hoàn Kiếm lakeside,
+  Đồng Xuân Market, traditional crafts, park installations, evening art, family visits, and
+  selected festival dates. Each route lists its stops and date range.
 - **Agent-readable output** — `index.md` holds the entire programme as Markdown (schedule
   table, venues with coordinates, per-event details and organiser excerpts), `llms.txt`
   is a short index pointing agents at it, and `prompts.json` lists the suggested questions
