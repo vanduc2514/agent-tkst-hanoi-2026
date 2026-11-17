@@ -109,20 +109,27 @@ const pace = (e) => {
 };
 
 const BOILERPLATE = /^(Thông tin chi tiết|Thời gian:|Địa điểm:|Địa chỉ:)/i;
+// Scraped schedule fragments that survive the labelled lines above.
+const SCHEDULE_NOISE = /^(và\s|\d{1,2}\/\d{1,2}|\d{1,2}:\d{2})/i;
+// Sectioned schedule blocks ("1. Thời gian / 2. Địa điểm") carry no prose.
+const SCHEDULE_BLOCK = /^\d+\.\s*(Thời gian|Thời lượng|Địa điểm|Địa chỉ)\b/i;
 const EXCERPT_CAP = 420;
+const EXCERPT_MIN = 60;
 
 // Organiser prose with repeated schedule/venue lines removed, cut on a word boundary.
 const excerpt = (e) => {
-  const lines = (e.officialDetail || "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter((line) => line && !BOILERPLATE.test(line));
+  const allLines = (e.officialDetail || "").split("\n").map((line) => line.trim()).filter(Boolean);
+  if (allLines.some((line) => SCHEDULE_BLOCK.test(line))) return null;
+  const lines = allLines.filter((line) => !BOILERPLATE.test(line) && !SCHEDULE_NOISE.test(line));
   let text = oneLine(lines.join(" "));
-  if (!text) return null;
-  const desc = oneLine(e.description).replace(/…$/, "").trim();
-  if (desc.length > 40 && text.toLowerCase().startsWith(desc.toLowerCase())) {
-    text = text.slice(desc.length).trim();
-    if (!text) return null;
+  if (text.length < EXCERPT_MIN) return null;
+  const rawDesc = oneLine(e.description);
+  const desc = rawDesc.replace(/…$/, "").trim();
+  // Only drop the duplicate prefix when the description is complete and the
+  // remainder still starts a sentence; otherwise the quote would begin mid-word.
+  if (!rawDesc.endsWith("…") && desc.length > 40 && text.toLowerCase().startsWith(desc.toLowerCase())) {
+    const rest = text.slice(desc.length).trim();
+    if (rest && /^[\p{Lu}0-9“"'(]/u.test(rest)) text = rest;
   }
   if (text.length <= EXCERPT_CAP) return { text, truncated: false };
   const cut = text.slice(0, EXCERPT_CAP);

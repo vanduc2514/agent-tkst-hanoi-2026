@@ -306,7 +306,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: 45 Tràng Tiền (Trung tâm triển lãm) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Sự kiện · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Hội chợ hàng thủ công – thiết kế – minh họa “Chăm hoa đua nở” (Makers Market 2026) diễn ra từ ngày 13 đến 15/11/2026 tại Nhà Thông tin Triển lãm, số 45 Tràng Tiền, Hà Nội. Do Hanoi Indie Troupe tổ chức trong khuôn khổ Lễ hội Thiết kế…
-- Trích nguồn (còn nữa): Sáng tạo Hà Nội 2026, chương trình mở cửa từ 15:00–21:00 ngày 13/11, 09:30–21:00 ngày 14/11 và 09:30–20:00 ngày 15/11. Hội chợ vào cửa tự do. Theo kế hoạch, 57 gian hàng giới thiệu những sản phẩm thuộc ba lĩnh vực thủ công, thiết kế và minh họa, với sự tham gia của Cam Anh Ng Illustration, Chạm Dó, Chuột Đất Books, Đan.lab, TVHiep Lettering cùng nhiều thương hiệu độc lập. Điều này đảm bảo “Chăm hoa đua nở” luôn có…
+- Trích nguồn (còn nữa): Hội chợ hàng thủ công – thiết kế – minh họa “Chăm hoa đua nở” (Makers Market 2026) diễn ra từ ngày 13 đến 15/11/2026 tại Nhà Thông tin Triển lãm, số 45 Tràng Tiền, Hà Nội. Do Hanoi Indie Troupe tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, chương trình mở cửa từ 15:00–21:00 ngày 13/11, 09:30–21:00 ngày 14/11 và 09:30–20:00 ngày 15/11. Hội chợ vào cửa tự do. Theo kế hoạch, 57 gian hàng giới thiệu…
 - Khu vực theo ban tổ chức: Không gian đi bộ Hoàn Kiếm
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/hoi-cho-hang-thu-cong-thiet-ke-minh-hoa-cham-hoa-dua-no.html
 
@@ -354,7 +354,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ (Trung tâm văn hoá) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Sự kiện · Nhịp: 7 ngày rời rạc, ban ngày
 - Mô tả: 19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật Địa điểm: Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ
-- Trích nguồn: Thông tin về sự kiện
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuoi-su-kien-di-san-chuyen-tuong-xua-chuyen-tuong-nay.html
 
@@ -363,7 +362,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Bãi ven sông Hồng (Không gian ven sông) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Cộng đồng · Nhịp: 3 ngày rời rạc, ban ngày
 - Mô tả: Chương trình trải nghiệm “Tuyến đường sinh thái bờ vở sông Hồng” diễn ra vào các ngày 14, 21 và 27/11/2026 tại phường Hồng Hà, Hà Nội. Do Doanh nghiệp xã hội Think Playgrounds tổ chức, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026,…
-- Trích nguồn (còn nữa): chương trình đưa công chúng khám phá tuyến đường dài hơn 2km nối Công viên rừng Phúc Tân và Công viên rừng Chương Dương, tìm hiểu thiên nhiên ven sông cùng những người đang góp sức gìn giữ không gian này. 06:00 - 08:00, ngày 21/11/2026 15:00 - 17:00, ngày 27/11/2026 Theo tư liệu chương trình, khu vực có khoảng 200 loài cây bản địa và 140 loài chim hoang dã, với các sinh cảnh rừng, đất ngập nước và vườn nông nghiệp.…
+- Trích nguồn (còn nữa): Chương trình trải nghiệm “Tuyến đường sinh thái bờ vở sông Hồng” diễn ra vào các ngày 14, 21 và 27/11/2026 tại phường Hồng Hà, Hà Nội. Do Doanh nghiệp xã hội Think Playgrounds tổ chức, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026, chương trình đưa công chúng khám phá tuyến đường dài hơn 2km nối Công viên rừng Phúc Tân và Công viên rừng Chương Dương, tìm hiểu thiên nhiên ven sông cùng những người đang góp sức gìn…
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuong-trinh-trai-nghiem-tuyen-duong-sinh-thai-bo-vo-song-hong.html
 
@@ -424,7 +423,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: 22 Hàng Buồm (Tuyến phố di sản) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Triển lãm, Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 14/11 đến 28/11/2026 19:00 - 22:00, tối thứ 6, thứ 7, Chủ nhật Địa điểm: Trung tâm Văn hóa nghệ thuật, 22 Hàng Buồm
-- Trích nguồn: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 14/11 đến 28/11/2026 19:00 - 22:00, tối thứ 6, thứ 7, Chủ nhật
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-bay-lang-nghe-son-dong-van-hoa-tra-viet-va-viet-phuc.html
 
@@ -440,7 +438,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Sự kiện · Nhịp: một ngày, ban ngày
 - Mô tả: 08:30 - 10:30, ngày 14/11 tại Quảng trường phía Đông hồ Hoàn Kiếm 13:30 - 16:00, ngày 14/11 tại Cửa hàng Phở Sướng, 36B Mai Hắc Đế
-- Trích nguồn: Thời gian và địa điểm tổ chức hoạt động 08:30 - 10:30, ngày 14/11 tại Quảng trường phía Đông hồ Hoàn Kiếm 13:30 - 16:00, ngày 14/11 tại Cửa hàng Phở Sướng, 36B Mai Hắc Đế
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/khai-mac-khu-trung-bay-khong-gian-sang-tao-di-san-pho-ha-noi-trao-giai-cuoc-thi-sang-tao-ip-van-hoa-tu-di-san-van-hoa-phi-vat-the-pho-ha-noi.html
 
@@ -463,7 +460,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Phố Phùng Hưng (Tuyến phố di sản) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Tác phẩm “Tri Âm” của Đoàn Minh Quân được giới thiệu từ ngày 13/11/2026 tại phố Phùng Hưng, Hà Nội. Thuộc dự án “Ngỡ ngàng Hà Nội” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, tác phẩm tôn vinh hai nhạc sĩ Văn Cao và Trịnh…
-- Trích nguồn (còn nữa): Công Sơn bằng ngôn ngữ nghệ thuật pixel. Đặt tại phố Phùng Hưng, nơi ký ức Hà Nội giao thoa với nhịp sống đương đại, “Tri Âm” đưa việc thưởng thức nghệ thuật vào hành trình đi qua thành phố. Những ô gạch mộc mạc được kết nối thành chân dung, như những mảnh ký ức nhỏ góp lại thành một di sản lớn. Người xem có thể dừng lại trước chân dung, nhớ về một giai điệu hoặc tìm thấy mối liên hệ với những cảm xúc của riêng…
+- Trích nguồn (còn nữa): Tác phẩm “Tri Âm” của Đoàn Minh Quân được giới thiệu từ ngày 13/11/2026 tại phố Phùng Hưng, Hà Nội. Thuộc dự án “Ngỡ ngàng Hà Nội” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, tác phẩm tôn vinh hai nhạc sĩ Văn Cao và Trịnh Công Sơn bằng ngôn ngữ nghệ thuật pixel. Đặt tại phố Phùng Hưng, nơi ký ức Hà Nội giao thoa với nhịp sống đương đại, “Tri Âm” đưa việc thưởng thức nghệ thuật vào hành trình đi qua thành…
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/tac-pham-tri-am-thuoc-du-an-ngo-ngang-ha-noi.html
 
@@ -472,7 +469,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Nhà trưng bày 61 Tràng Tiền (Không gian trưng bày) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Workshop · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Chuỗi hoạt động “Mũi Thêu Kẻ Nghệ” diễn ra từ ngày 14 đến 28/11/2026 tại Nhà trưng bày 61 Tràng Tiền, phường Cửa Nam, Hà Nội. Chương trình do Công ty TNHH Tinh Hoa Thủ Công Việt (Thơ Heritage House) thực hiện, hưởng ứng Lễ hội Thiết…
-- Trích nguồn (còn nữa): kế Sáng tạo Hà Nội 2026 với tên gọi “Thăng Long Kẻ Nghệ”. Trưng bày “Mũi thêu – Dấu ấn Việt” đưa người xem tiếp cận nghề thêu qua chất liệu, kỹ thuật và sản phẩm ứng dụng. Tơ lụa, chỉ thêu, dụng cụ và bản vẽ phác được giới thiệu cùng tranh thêu, khăn lụa, túi, phụ kiện của Thơ Heritage House và tư liệu về các làng thêu truyền thống. Tại góc thêu trực tiếp bên cửa sổ hướng ra phố, công chúng có thể quan sát thao tác…
+- Trích nguồn (còn nữa): Chuỗi hoạt động “Mũi Thêu Kẻ Nghệ” diễn ra từ ngày 14 đến 28/11/2026 tại Nhà trưng bày 61 Tràng Tiền, phường Cửa Nam, Hà Nội. Chương trình do Công ty TNHH Tinh Hoa Thủ Công Việt (Thơ Heritage House) thực hiện, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026 với tên gọi “Thăng Long Kẻ Nghệ”. Trưng bày “Mũi thêu – Dấu ấn Việt” đưa người xem tiếp cận nghề thêu qua chất liệu, kỹ thuật và sản phẩm ứng dụng. Tơ lụa, chỉ…
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuoi-hoat-dong-mui-theu-ke-nghe.html
 
@@ -669,7 +666,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Công viên Thống Nhất (Công viên cộng đồng) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: 14/11 đến 15/11 tại Hồ Hoàn Kiếm 17/11 đến 22/11 tại Công viên Thống nhất
-- Trích nguồn: và 9:00 - 21:00, từ ngày 17/11 đến 22/11/2026 14/11 đến 15/11 tại Hồ Hoàn Kiếm 17/11 đến 22/11 tại Công viên Thống nhất
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-tam-thien-nhien-luu-dong.html
 
 ### 50. Workshop "Sắc Quạt Chàng Sơn"
@@ -713,7 +709,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Chợ Đồng Xuân (Chợ truyền thống) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Triển lãm “Cột điện mainstream” tái hiện hình ảnh những cột điện đinh tán – chứng nhân lịch sử của Hà Nội - thông qua nghệ thuật sắp đặt và công nghệ số. Kết hợp các hoạt động tương tác, trải nghiệm âm thanh và lưu giữ ký ức cộng…
-- Trích nguồn (còn nữa): đồng, dự án hướng tới kết nối di sản đô thị với sáng tạo đương đại, khơi gợi tình yêu và niềm tự hào về những giá trị văn hóa Hà Nội. Triển lãm diễn ra xuyên suốt từ 14/11 tới 28/11. Mọi thông tin được cập nhật hàng giờ tại kênh truyền thông chính thức của triển lãm: instagram @themainstream.pole-- The exhibition brings Hanoi’s historic riveted utility poles to life through art installations and digital technology.…
+- Trích nguồn (còn nữa): Triển lãm “Cột điện mainstream” tái hiện hình ảnh những cột điện đinh tán – chứng nhân lịch sử của Hà Nội - thông qua nghệ thuật sắp đặt và công nghệ số. Kết hợp các hoạt động tương tác, trải nghiệm âm thanh và lưu giữ ký ức cộng đồng, dự án hướng tới kết nối di sản đô thị với sáng tạo đương đại, khơi gợi tình yêu và niềm tự hào về những giá trị văn hóa Hà Nội. Triển lãm diễn ra xuyên suốt từ 14/11 tới 28/11. Mọi…
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/tac-pham-sap-dat-cot-dien-mainstream.html
 
 ### 56. Triển lãm "Con đường sơn mài Việt - Nhật"
@@ -772,7 +768,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Trình diễn · Nhịp: một ngày, ban ngày
 - Mô tả: Sáng 14/11/2026, từ 10:30 đến 12:00, Quảng trường phía Đông hồ Hoàn Kiếm sẽ mở đầu ngày đầu tiên của Dấu Phố bằng tiếng đàn, tiếng sáo. “Tiếng Xưa Vọng Phố” là chương trình trình diễn nhạc cụ dân tộc của Cung Thiếu nhi Hà Nội và…
-- Trích nguồn (còn nữa): Trường Cao đẳng Nghệ thuật Hà Nội, được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, thuộc chuỗi hoạt động Dấu Phố do V-Art Space chủ trì. Buổi diễn chia làm hai phần. Từ 10:30, các em Cung Thiếu nhi Hà Nội mở màn bằng điệu múa “Máu đỏ da vàng”, rồi dàn nhạc dân tộc tiếp nối với “Trèo lên quán dốc”, “Tiếng hát giữa rừng Pắc Bó”, “Tiến về Hà Nội”, “Trống cơm”, “Đi cấy”. Từ 11:00, ban nhạc dân tộc của…
+- Trích nguồn (còn nữa): Sáng 14/11/2026, từ 10:30 đến 12:00, Quảng trường phía Đông hồ Hoàn Kiếm sẽ mở đầu ngày đầu tiên của Dấu Phố bằng tiếng đàn, tiếng sáo. “Tiếng Xưa Vọng Phố” là chương trình trình diễn nhạc cụ dân tộc của Cung Thiếu nhi Hà Nội và Trường Cao đẳng Nghệ thuật Hà Nội, được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, thuộc chuỗi hoạt động Dấu Phố do V-Art Space chủ trì. Buổi diễn chia làm hai phần. Từ…
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trinh-dien-tieng-xua-vong-pho.html
 
 ### 64. Tọa đàm "Giữ gìn hương vị phở Hà Nội"
@@ -831,7 +827,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 15/11 đến 28/11/2026 19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật Địa điểm: Đình Yên Thái, 8 Tạm Thương
-- Trích nguồn: 19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-bay-nghe-det-va-san-pham-lua-truyen-thong.html
 
@@ -847,7 +842,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Công viên Thống Nhất (Công viên cộng đồng) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Workshop · Nhịp: 3 ngày rời rạc, ban ngày
 - Mô tả: Đất Mẹ: 09:00 đến 11:00 ngày 15/11 Yoga chánh niệm: 16:00 đến 17:45 ngày 15/11 Vọng tiếng xưa nay: 09:00 đến 11:00 ngày 21/11 Yoga cười: 08:00 đến 09:45 ngày 22/11 2. Địa điểm Công viên Thống nhất: bãi cỏ bên trái tượng đài Nguyễn Văn…
-- Trích nguồn: 1. Thời gian Đất Mẹ: 09:00 đến 11:00 ngày 15/11 Yoga chánh niệm: 16:00 đến 17:45 ngày 15/11 Vọng tiếng xưa nay: 09:00 đến 11:00 ngày 21/11 Yoga cười: 08:00 đến 09:45 ngày 22/11 2. Địa điểm Công viên Thống nhất: bãi cỏ bên trái tượng đài Nguyễn Văn Trỗi (Đất Mẹ, Yoga); Pavilion Mây (Vọng tiếng xưa nay)
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuoi-workshop-van-o-day.html
 
 ### 74. Workshop nhuộm khăn lụa tơ tằm "Màu của nắng"
@@ -855,7 +849,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Workshop · Nhịp: 2 ngày rời rạc, ban ngày
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30 từ ngày 15/11 đến 28/11/2026 19:00 đến 22:00 các tối thứ 6, thứ 7, Chủ nhật Địa điểm: Đình Yên Thái, 8 Tạm Thương
-- Trích nguồn: Thời gian 08:00 - 12:00 và 13:30 - 17:30 từ ngày 15/11 đến 28/11/2026 19:00 đến 22:00 các tối thứ 6, thứ 7, Chủ nhật
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/workshop-nhuom-khan-lua-to-tam-mau-cua-nang.html
 
@@ -879,7 +872,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Trình diễn · Nhịp: một ngày, ban ngày
 - Mô tả: Sáng Chủ nhật 15/11/2026, từ 11:00 đến 12:00, sân khấu Quảng trường phía Đông hồ Hoàn Kiếm thuộc về các em nhỏ. “Vũ Khúc Gieo Nhịp” là chương trình biểu diễn của các nhóm nghệ thuật thiếu nhi, được tổ chức trong khuôn khổ Lễ hội Thiết…
-- Trích nguồn (còn nữa): kế Sáng tạo Hà Nội 2026, thuộc chuỗi hoạt động Dấu Phố, với sự hỗ trợ của V-Art Space. Đó sẽ là một giờ đầy ắp tiếng hát, điệu nhảy, điệu múa và những bước catwalk nhỏ xinh. Nhóm Ngôi Sao Nhỏ mở màn với “Hà Nội 12 mùa hoa”. Nhóm Năng Khiếu Tú Anh mang đến “Người Việt” và “RedRed”, Nhóm nghệ thuật Mặt Trời Đỏ trình bày “Yêu nụ cười Việt Nam”, ca sĩ Linh Chi cùng Nhóm Ngôi Sao Nhỏ biểu diễn “Ếch ngoài đáy giếng”, Bùi…
+- Trích nguồn (còn nữa): Sáng Chủ nhật 15/11/2026, từ 11:00 đến 12:00, sân khấu Quảng trường phía Đông hồ Hoàn Kiếm thuộc về các em nhỏ. “Vũ Khúc Gieo Nhịp” là chương trình biểu diễn của các nhóm nghệ thuật thiếu nhi, được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, thuộc chuỗi hoạt động Dấu Phố, với sự hỗ trợ của V-Art Space. Đó sẽ là một giờ đầy ắp tiếng hát, điệu nhảy, điệu múa và những bước catwalk nhỏ xinh. Nhóm Ngôi…
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trinh-dien-am-nhac-thieu-nhi-vu-khuc-gieo-nhip.html
 
 ### 78. Chuỗi "Gặp nghệ sĩ" triển lãm "Mạch sống vô hình"
@@ -1121,7 +1114,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Quảng trường Lotte, 54 Liễu Giai (Không gian đô thị) · Cụm: Điểm Vệ tinh
 - Loại: Trình diễn · Nhịp: một ngày, buổi tối
 - Mô tả: Sắp đặt nghệ thuật công nghệ “THAP:SANG - Hoà Thanh” – Tower of Festive Lights - Resonance hiện diện tại quảng trường LOTTE Center Hanoi, 54 Liễu Giai, Hà Nội. Do LOTTE Department Store phối hợp Fustic Studio thực hiện trong khuôn khổ…
-- Trích nguồn (còn nữa): LOTTE Art Week Vol. 4, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026, công trình cao 15 mét kết nối hình ảnh, ánh sáng, âm thanh với sự tham gia trực tiếp của công chúng. Mỗi người tham gia được mời tạo một dấu ấn riêng, cùng góp vào cuộc diễu hành thị giác lấy cảm hứng từ đời sống Hà Nội. Trải nghiệm bắt đầu tại các màn hình quanh công trình. Thông qua camera cảm biến chuyển động và micro tiếp nhận âm thanh, sự…
+- Trích nguồn (còn nữa): Sắp đặt nghệ thuật công nghệ “THAP:SANG - Hoà Thanh” – Tower of Festive Lights - Resonance hiện diện tại quảng trường LOTTE Center Hanoi, 54 Liễu Giai, Hà Nội. Do LOTTE Department Store phối hợp Fustic Studio thực hiện trong khuôn khổ LOTTE Art Week Vol. 4, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026, công trình cao 15 mét kết nối hình ảnh, ánh sáng, âm thanh với sự tham gia trực tiếp của công chúng. Mỗi người…
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/dem-re-imagine-x-fustic.html
 
@@ -1154,7 +1147,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Loại: Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Điểm nhấn: suất đặc biệt của lễ hội
 - Mô tả: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần" Thông tin chi tiết về sự kiện Thời gian: Từ ngày 21/11 - 28/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần"
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/ha-noi-mo-2-thanh-pho-khong-le.html
 
@@ -1163,7 +1155,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Làng Văn hóa các dân tộc, Đồng Mô (Không gian văn hoá) · Cụm: Điểm Vệ tinh
 - Loại: Sự kiện · Nhịp: 2 ngày rời rạc, ban ngày
 - Mô tả: 09:00 - 22:00 ngày 21/11/2026 08:00 - 10:00 ngày 22/11/2026 Địa điểm: Làng Văn hóa Du lịch các dân tộc Việt Nam, Đồng Mô, Sơn Tây
-- Trích nguồn: 09:00 - 22:00 ngày 21/11/2026 08:00 - 10:00 ngày 22/11/2026
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/le-hoi-xe-va-dam-me-2026.html
 
@@ -1179,7 +1170,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Workshop · Nhịp: 2 ngày rời rạc, ban ngày
 - Mô tả: 09:00 - 11:30 và 14:00 - 16:30 ngày 21/11/2026 09:00 - 11:30 ngày 22/11/2026 Địa điểm: Đình Yên Thái, 8 Tạm Thương
-- Trích nguồn: Thời gian tổ chức 09:00 - 11:30 và 14:00 - 16:30 ngày 21/11/2026 09:00 - 11:30 ngày 22/11/2026
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/workshop-ve-tranh-lua-truyen-thong.html
 
@@ -1203,7 +1193,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần" Thông tin chi tiết về sự kiện Thời gian: 10:00 - 20:00, từ ngày 21/11 đến 28/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần"
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/nghe-nghe-art-salon-mau-xua-sac-nay.html
 
@@ -1212,7 +1201,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Triển lãm · Nhịp: 3 ngày rời rạc, ban ngày
 - Mô tả: 14:00 - 20:00 từ ngày 24/11 đến 27/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần"
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/nhiep-anh-bang-uot-pop-up-studio.html
 
@@ -1221,7 +1209,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Cộng đồng · Nhịp: 2 ngày rời rạc, ban ngày đến tối
 - Mô tả: Thông tin về sự kiện Thời gian: 10:00 - 22:00, từ ngày 21/11 đến 22/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Thông tin về sự kiện
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/the-hop-spot-bia-thu-cong-va-am-thuc-dia-phuong.html
 
@@ -1259,7 +1246,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Trình diễn, Tọa đàm · Nhịp: 4 ngày rời rạc, ban ngày đến tối
 - Mô tả: Thời gian: 15:00 - 17:00, ngày 21/11 và 22/11/2026 19:00 - 21:00, ngày 24/11 và 26/11/2026 19:30 - 21:30, ngày 27/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần" 19:00 - 21:00, ngày 24/11 và 26/11/2026 19:30 - 21:30, ngày 27/11/2026
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chieu-phim-va-giao-luu-ve-nghe-thuat-bieu-dien-truyen-thong.html
 
@@ -1284,7 +1270,6 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Trình diễn · Nhịp: một ngày, buổi tối
 - Mô tả: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần" Thông tin chi tiết về sự kiện: Thời gian: 21:00 - 23:00, ngày 21/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
-- Trích nguồn: Sự kiện thuộc chuỗi COMPLEX Fest 2026 "Đồng Điệu Đa Tần"
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/dem-nhac-reggae-cung-best-friend-band.html
 
@@ -1351,7 +1336,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Địa điểm: Quảng trường Lotte, 54 Liễu Giai (Không gian đô thị) · Cụm: Điểm Vệ tinh
 - Loại: Trình diễn · Nhịp: 2 ngày rời rạc, buổi tối
 - Mô tả: Bước ra khỏi những phòng nhạc truyền thống, Street Jazz mang tinh thần phóng khoáng của nhạc jazz đến thẳng trái tim náo nhiệt của thành phố. Sự kết hợp sáng tạo cùng Hanoi Blues Note giúp chươnng trình mang đến một khía cạnh mới mẻ,…
-- Trích nguồn: trẻ trung và đầy năng lượng của jazz, nơi các âm điệu đương đại hoà quyện mượt mà với Funk, Hip-Hop và World Music. Với sự góp mặt của các ban nhạc trẻ đầy năng động, các buổi biểu diễn ngoài trời này phá vỡ ranh giới giữa sân khấu và khán giả - biến quảng trường đô thị thành một lễ hội tương tác tôn vinh nhịp sống đô thị sôi động. Street Jazz | The Phocal Street Jazz | Band Dattie & Thuỳ Linh Street Jazz | Bidband
+- Trích nguồn (còn nữa): Bước ra khỏi những phòng nhạc truyền thống, Street Jazz mang tinh thần phóng khoáng của nhạc jazz đến thẳng trái tim náo nhiệt của thành phố. Sự kết hợp sáng tạo cùng Hanoi Blues Note giúp chươnng trình mang đến một khía cạnh mới mẻ, trẻ trung và đầy năng lượng của jazz, nơi các âm điệu đương đại hoà quyện mượt mà với Funk, Hip-Hop và World Music. Với sự góp mặt của các ban nhạc trẻ đầy năng động, các buổi biểu diễn…
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/street-jazz.html
 
