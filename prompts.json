@@ -73,37 +73,37 @@
   },
   {
     "id": "prompt-hanoi-history",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Đang tò mò về Hà Nội xưa",
     "content": "Truy cập website https://tkst.nvduc.dev. Tìm các hoạt động giúp mình hiểu thêm về nếp sống, phố nghề, kiến trúc hoặc ký ức Hà Nội. Tóm tắt mỗi hoạt động kể câu chuyện gì và cho biết nơi nào gần {{LOCATION}} nhất."
   },
   {
     "id": "prompt-heritage-modern",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Di sản được làm mới ra sao?",
     "content": "Truy cập website https://tkst.nvduc.dev. Có hoạt động nào kết hợp di sản hoặc nghề truyền thống với cách làm hiện đại không? Chọn vài ví dụ cụ thể, chỉ ra phần truyền thống và phần mới, rồi cho biết lúc nào có thể ghé từ {{LOCATION}}."
   },
   {
     "id": "prompt-event-details",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Tìm hiểu hoạt động này",
     "content": "Truy cập website https://tkst.nvduc.dev. Mình muốn tìm hiểu về hoạt động {{EVENT}}. Tóm tắt nội dung, thời gian và địa điểm; kiểm tra trang của ban tổ chức xem có cần đăng ký, mất phí hoặc có lưu ý gì trước khi đến không. Nếu chưa chọn hoạt động nào, hãy để nguyên tên trong ngoặc vuông để mình tự điền."
   },
   {
     "id": "prompt-festival-theme",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Lễ hội năm nay nói về điều gì?",
     "content": "Truy cập website https://tkst.nvduc.dev. Giải thích ngắn chủ đề chính của Lễ hội Thiết kế Sáng tạo Hà Nội năm nay qua các hoạt động cụ thể. Chọn 3 hoạt động gần {{LOCATION}} hoặc dễ ghé cùng nhau và nói mỗi hoạt động thể hiện chủ đề theo cách nào."
   },
   {
     "id": "prompt-craft",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Tìm hiểu về nghề thủ công",
     "content": "Truy cập website https://tkst.nvduc.dev. Tìm hoạt động liên quan đến nghề thủ công hoặc nghệ nhân Hà Nội. Giới thiệu ngắn nghề hay câu chuyện được nhắc đến, ưu tiên nơi gần {{LOCATION}} và ghi giờ có thể ghé."
   },
   {
     "id": "prompt-public-space",
-    "group": "Tìm hiểu thêm",
+    "group": "Tìm hiểu",
     "title": "Không gian công cộng được biến đổi thế nào?",
     "content": "Truy cập website https://tkst.nvduc.dev. Tìm các hoạt động biến đổi hoặc khai thác không gian công cộng, phố, chợ hay công viên theo cách mới. Chọn ví dụ cụ thể, nói rõ địa điểm vốn là gì và hoạt động đang diễn ra ở đó."
   },

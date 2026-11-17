@@ -487,7 +487,7 @@
               <p class="section-eyebrow">Hỏi AI về lễ hội</p>
               <span class="result-count" id="prompt-count"></span>
             </div>
-            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini, hoặc bạn có thể copy prompt và dán vào khung chat. Thời gian sẽ tự cập nhật; để prompt biết vị trí, hãy chia sẻ GPS hoặc chọn một điểm trên bản đồ. Chọn một hoạt động để tự điền tên vào prompt tìm hiểu sự kiện.</p>
+            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini, hoặc bạn có thể copy prompt và dán vào khung chat. Thời gian sẽ tự cập nhật; để prompt biết vị trí chính xác của bạn, hãy chia sẻ GPS. Chọn một hoạt động để tìm hiểu thêm.</p>
             <div class="ai-prompt-list" id="ai-prompt-list">
               <p class="ai-prompts-loading">Đang tải prompt…</p>
             </div>
@@ -509,7 +509,6 @@
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện · 59 địa điểm</span></div>
         <div class="map-actions">
-          <button class="map-pill" id="locate-me" type="button" aria-label="Hiển thị vị trí hiện tại của tôi" title="Vị trí hiện tại"><i class="fa-solid fa-location-crosshairs"></i><span class="hidden sm:inline">Vị trí</span></button>
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
@@ -692,6 +691,15 @@
           pitchWithRotate: false
         });
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+        const navigationGroup = map.getContainer().querySelector(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
+        const locateButton = document.createElement("button");
+        locateButton.id = "locate-me";
+        locateButton.type = "button";
+        locateButton.className = "maplibregl-ctrl-icon maplibregl-ctrl-location";
+        locateButton.setAttribute("aria-label", "Hiển thị vị trí hiện tại của tôi");
+        locateButton.title = "Vị trí hiện tại";
+        locateButton.innerHTML = '<i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>';
+        navigationGroup.prepend(locateButton);
         // Zoom gestures are the ones that used to open a pin: the finger on the pin stays
         // still while the map scales under it, so screen movement alone cannot detect it.
         map.on("zoomstart", noteGesture);
@@ -1802,6 +1810,7 @@
         };
 
         const PROMPT_ORDER = ["chatgpt", "claude", "gemini"];
+        const PROMPT_GROUP_ORDER = ["Đi quanh đây", "Tìm hiểu", "Trải nghiệm", "Theo gu và tâm trạng", "Lên lịch"];
 
         let loadedPrompts = [];
 
@@ -1814,10 +1823,10 @@
           const gpsOrigin = state.origin?.id === "gps" ? state.origin : null;
           const center = map.getCenter();
           const location = gpsOrigin
-            ? `vị trí GPS bạn đã chia sẻ (${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)})`
+            ? `vị trí GPS chỗ mình đang đứng (${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)})`
             : state.origin?.id === "map"
               ? `điểm bạn đã chọn trên bản đồ (${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)})`
-              : `khu vực đang xem trên bản đồ, tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}; đây không phải vị trí GPS`;
+              : `khu vực đang xem trên bản đồ, tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}; đây là vị trí tương đối`;
           const selectedEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
           return {
             time: now,
@@ -1893,62 +1902,64 @@
             if (!groups.has(prompt.group)) groups.set(prompt.group, []);
             groups.get(prompt.group).push(prompt);
           });
-          groups.forEach((groupPrompts, groupName) => {
-            const group = document.createElement("section");
-            group.className = "ai-prompt-group";
-            const heading = document.createElement("h3");
-            heading.className = "ai-prompt-group-title";
-            heading.textContent = groupName;
-            const groupList = document.createElement("div");
-            groupList.className = "ai-prompt-group-list";
-            group.append(heading, groupList);
-            list.append(group);
-            groupPrompts.forEach((prompt) => {
-              const item = document.createElement("div");
-              item.className = "ai-prompt";
+          [...groups.entries()]
+            .sort(([a], [b]) => PROMPT_GROUP_ORDER.indexOf(a) - PROMPT_GROUP_ORDER.indexOf(b))
+            .forEach(([groupName, groupPrompts]) => {
+                const group = document.createElement("section");
+                group.className = "ai-prompt-group";
+                const heading = document.createElement("h3");
+                heading.className = "ai-prompt-group-title";
+                heading.textContent = groupName;
+                const groupList = document.createElement("div");
+                groupList.className = "ai-prompt-group-list";
+                group.append(heading, groupList);
+                list.append(group);
+                groupPrompts.forEach((prompt) => {
+                  const item = document.createElement("div");
+                  item.className = "ai-prompt";
 
-              const head = document.createElement("div");
-              head.className = "ai-prompt-head";
-              const title = document.createElement("strong");
-              title.textContent = prompt.title;
-              const copy = document.createElement("button");
-              copy.type = "button";
-              copy.className = "ai-prompt-copy";
-              copy.dataset.copyPrompt = prompt.id;
-              copy.setAttribute("aria-label", "Sao chép prompt");
-              copy.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span>';
-              head.append(title, copy);
+                  const head = document.createElement("div");
+                  head.className = "ai-prompt-head";
+                  const title = document.createElement("strong");
+                  title.textContent = prompt.title;
+                  const copy = document.createElement("button");
+                  copy.type = "button";
+                  copy.className = "ai-prompt-copy";
+                  copy.dataset.copyPrompt = prompt.id;
+                  copy.setAttribute("aria-label", "Sao chép prompt");
+                  copy.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span>';
+                  head.append(title, copy);
 
-              const textarea = document.createElement("textarea");
-              textarea.className = "ai-prompt-text";
-              textarea.id = prompt.id;
-              textarea.readOnly = true;
-              textarea.spellcheck = false;
-              textarea.value = promptContent(prompt);
+                  const textarea = document.createElement("textarea");
+                  textarea.className = "ai-prompt-text";
+                  textarea.id = prompt.id;
+                  textarea.readOnly = true;
+                  textarea.spellcheck = false;
+                  textarea.value = promptContent(prompt);
 
-              const actions = document.createElement("div");
-              actions.className = "ai-prompt-actions";
-              actions.setAttribute("role", "group");
-              actions.setAttribute("aria-label", "Mở prompt bằng dịch vụ AI");
-              PROMPT_ORDER.forEach((provider) => {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.className = `ai-open ai-open-${provider}`;
-                button.dataset.openPrompt = prompt.id;
-                button.dataset.provider = provider;
-                button.title = PROMPT_PROVIDERS[provider].name;
-                button.setAttribute("aria-label", `Mở bằng ${PROMPT_PROVIDERS[provider].name}`);
-                button.innerHTML = `${PROMPT_ICONS[provider]}<span class="ai-open-arrow" aria-hidden="true">↗</span>`;
-                actions.append(button);
-              });
+                  const actions = document.createElement("div");
+                  actions.className = "ai-prompt-actions";
+                  actions.setAttribute("role", "group");
+                  actions.setAttribute("aria-label", "Mở prompt bằng dịch vụ AI");
+                  PROMPT_ORDER.forEach((provider) => {
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.className = `ai-open ai-open-${provider}`;
+                    button.dataset.openPrompt = prompt.id;
+                    button.dataset.provider = provider;
+                    button.title = PROMPT_PROVIDERS[provider].name;
+                    button.setAttribute("aria-label", `Mở bằng ${PROMPT_PROVIDERS[provider].name}`);
+                    button.innerHTML = `${PROMPT_ICONS[provider]}<span class="ai-open-arrow" aria-hidden="true">↗</span>`;
+                    actions.append(button);
+                  });
 
-              const status = document.createElement("p");
-              status.className = "ai-prompt-status";
-              status.setAttribute("aria-live", "polite");
+                  const status = document.createElement("p");
+                  status.className = "ai-prompt-status";
+                  status.setAttribute("aria-live", "polite");
 
-              item.append(head, textarea, actions, status);
-              groupList.append(item);
-            });
+                  item.append(head, textarea, actions, status);
+                  groupList.append(item);
+                });
           });
           sizePromptFields();
           bindPromptControls();
