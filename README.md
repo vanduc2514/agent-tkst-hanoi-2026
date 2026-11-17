@@ -18,8 +18,9 @@ trip planner, and a Markdown document that AI agents can read and quote.
   lakeside, and the busiest day of the festival.
 - **Agent-readable output** — `index.md` holds the entire programme as Markdown (schedule
   table, venues with coordinates, per-event details and organiser excerpts), and `llms.txt`
-  is a short index pointing agents at it. Both are generated from the same data as the map,
-  so they cannot drift apart.
+  is a short index pointing agents at it. The Explore panel includes copyable prompts for
+  using the site with a web-enabled AI agent without leaving the map. The data files are
+  generated from the same source as the map, so they cannot drift apart.
 
 ## How the pieces fit
 
