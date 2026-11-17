@@ -3,85 +3,85 @@
     "id": "prompt-nearby",
     "group": "Đi quanh đây",
     "title": "Có gì hay quanh đây?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn khám phá quanh {{LOCATION}}. Tìm vài hoạt động lễ hội còn mở hoặc sắp bắt đầu gần khu vực này. Xếp theo khoảng cách, ghi giờ và địa chỉ; nếu không có gì phù hợp thì gợi ý khu vực gần nhất có hoạt động."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn khám phá quanh {{LOCATION}}. Tìm vài hoạt động lễ hội còn mở hoặc sắp bắt đầu gần khu vực này. Xếp theo khoảng cách, ghi giờ và địa chỉ; nếu không có gì phù hợp thì gợi ý khu vực gần nhất có hoạt động. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-walk",
     "group": "Đi quanh đây",
     "title": "Một vòng đi bộ vừa đủ",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Từ {{LOCATION}}, gợi ý một vòng đi bộ khoảng 1–2 tiếng để xem 2–3 hoạt động đang mở. Ưu tiên các điểm gần nhau, ghi thứ tự ghé và giờ mở cửa."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Từ {{LOCATION}}, gợi ý một vòng đi bộ khoảng 1–2 tiếng để xem 2–3 hoạt động đang mở. Ưu tiên các điểm gần nhau, ghi thứ tự ghé và giờ mở cửa. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-open-now",
     "group": "Đi quanh đây",
     "title": "Chỗ nào còn mở lúc này?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm hoạt động còn mở hoặc sắp bắt đầu gần {{LOCATION}}. Ghi rõ giờ hoạt động để mình biết có kịp ghé không; đừng gợi ý nơi đã đóng cửa."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm hoạt động còn mở hoặc sắp bắt đầu gần {{LOCATION}}. Ghi rõ giờ hoạt động để mình biết có kịp ghé không; đừng gợi ý nơi đã đóng cửa. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-evening",
     "group": "Đi quanh đây",
     "title": "Tối nay có gì xem được?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các hoạt động diễn ra tối nay, ưu tiên những nơi có thể ghé từ bây giờ trở đi và bắt đầu sau 18:00. Ưu tiên gần {{LOCATION}}; ghi giờ bắt đầu, giờ kết thúc và địa chỉ."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các hoạt động diễn ra tối nay, ưu tiên những nơi có thể ghé từ bây giờ trở đi và bắt đầu sau 18:00. Ưu tiên gần {{LOCATION}}; ghi giờ bắt đầu, giờ kết thúc và địa chỉ. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-family",
     "group": "Đi quanh đây",
     "title": "Đi cùng trẻ nhỏ",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý hoạt động còn mở hôm nay, phù hợp để gia đình có trẻ nhỏ đi cùng, ưu tiên gần {{LOCATION}}. Chỉ dựa vào mô tả của ban tổ chức; nêu rõ lý do và nói thẳng nếu thông tin về độ tuổi hoặc khả năng tham gia chưa có."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý hoạt động còn mở hôm nay, phù hợp để gia đình có trẻ nhỏ đi cùng, ưu tiên gần {{LOCATION}}. Chỉ dựa vào mô tả của ban tổ chức; nêu rõ lý do và nói thẳng nếu thông tin về độ tuổi hoặc khả năng tham gia chưa có. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-nearby-exhibitions",
     "group": "Đi quanh đây",
     "title": "Triển lãm nào đang mở gần đây?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm triển lãm còn mở hôm nay gần {{LOCATION}}. Cho biết nội dung chính, giờ đóng cửa và địa chỉ để mình chọn nơi ghé."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm triển lãm còn mở hôm nay gần {{LOCATION}}. Cho biết nội dung chính, giờ đóng cửa và địa chỉ để mình chọn nơi ghé. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-unusual",
     "group": "Theo gu và tâm trạng",
     "title": "Muốn xem thứ gì đó thật lạ",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn xem tác phẩm hoặc cách trưng bày có ý tưởng lạ, không quá quen thuộc. Tìm vài hoạt động phù hợp gần {{LOCATION}}, giải thích ngắn điều gì làm chúng khác biệt và cho biết hôm nay còn xem được không."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn xem tác phẩm hoặc cách trưng bày có ý tưởng lạ, không quá quen thuộc. Tìm vài hoạt động phù hợp gần {{LOCATION}}, giải thích ngắn điều gì làm chúng khác biệt và cho biết hôm nay còn xem được không. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-visual-art",
     "group": "Theo gu và tâm trạng",
     "title": "Hôm nay muốn xem nghệ thuật gì",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các hoạt động thiên về sắp đặt, thiết kế, kiến trúc, minh hoạ hoặc nghệ thuật thị giác có thể xem từ bây giờ trở đi. Ưu tiên gần {{LOCATION}} và giải thích ngắn mỗi hoạt động có gì đáng xem."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các hoạt động thiên về sắp đặt, thiết kế, kiến trúc, minh hoạ hoặc nghệ thuật thị giác có thể xem từ bây giờ trở đi. Ưu tiên gần {{LOCATION}} và giải thích ngắn mỗi hoạt động có gì đáng xem. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-slow",
     "group": "Theo gu và tâm trạng",
     "title": "Một buổi đi chơi nhẹ nhàng",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn đi xem gì đó thong thả, không cần chạy nhiều điểm. Gợi ý một hoặc hai hoạt động phù hợp gần {{LOCATION}}, còn mở trong hôm nay và có thể dành thời gian ngắm kỹ."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình muốn đi xem gì đó thong thả, không cần chạy nhiều điểm. Gợi ý một hoặc hai hoạt động phù hợp gần {{LOCATION}}, còn mở trong hôm nay và có thể dành thời gian ngắm kỹ. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-lively",
     "group": "Theo gu và tâm trạng",
     "title": "Muốn chỗ có không khí sôi nổi",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm hoạt động có trình diễn, âm nhạc hoặc không khí đông vui đang diễn ra hay sắp bắt đầu gần {{LOCATION}}. Mô tả điều gì tạo nên không khí đó, kèm giờ và địa chỉ."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm hoạt động có trình diễn, âm nhạc hoặc không khí đông vui đang diễn ra hay sắp bắt đầu gần {{LOCATION}}. Mô tả điều gì tạo nên không khí đó, kèm giờ và địa chỉ. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-photogenic",
     "group": "Theo gu và tâm trạng",
     "title": "Tìm chỗ có thiết kế đẹp",
-    "content": "Truy cập website https://tkst.nvduc.dev. Mình muốn xem không gian hoặc tác phẩm có thiết kế, kiến trúc hay sắp đặt đáng chú ý. Gợi ý vài điểm gần {{LOCATION}}, giải thích ngắn điểm nhìn thị giác thú vị và cho biết hôm nay mở cửa lúc nào."
+    "content": "Truy cập website https://tkst.nvduc.dev. Mình muốn xem không gian hoặc tác phẩm có thiết kế, kiến trúc hay sắp đặt đáng chú ý. Gợi ý vài điểm gần {{LOCATION}}, giải thích ngắn điểm nhìn thị giác thú vị và cho biết hôm nay mở cửa lúc nào. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-sound-light",
     "group": "Theo gu và tâm trạng",
     "title": "Tìm trải nghiệm âm thanh hoặc ánh sáng",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm tác phẩm hoặc hoạt động có yếu tố âm thanh, ánh sáng hay trình chiếu còn xem được hôm nay. Ưu tiên gần {{LOCATION}} và ghi rõ khung giờ vì những trải nghiệm này có thể diễn ra theo suất."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm tác phẩm hoặc hoạt động có yếu tố âm thanh, ánh sáng hay trình chiếu còn xem được hôm nay. Ưu tiên gần {{LOCATION}} và ghi rõ khung giờ vì những trải nghiệm này có thể diễn ra theo suất. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-hanoi-history",
     "group": "Tìm hiểu",
     "title": "Đang tò mò về Hà Nội xưa",
-    "content": "Truy cập website https://tkst.nvduc.dev. Tìm các hoạt động giúp mình hiểu thêm về nếp sống, phố nghề, kiến trúc hoặc ký ức Hà Nội. Tóm tắt mỗi hoạt động kể câu chuyện gì và cho biết nơi nào gần {{LOCATION}} nhất."
+    "content": "Truy cập website https://tkst.nvduc.dev. Tìm các hoạt động giúp mình hiểu thêm về nếp sống, phố nghề, kiến trúc hoặc ký ức Hà Nội. Tóm tắt mỗi hoạt động kể câu chuyện gì và cho biết nơi nào gần {{LOCATION}} nhất. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-heritage-modern",
     "group": "Tìm hiểu",
     "title": "Di sản được làm mới ra sao?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Có hoạt động nào kết hợp di sản hoặc nghề truyền thống với cách làm hiện đại không? Chọn vài ví dụ cụ thể, chỉ ra phần truyền thống và phần mới, rồi cho biết lúc nào có thể ghé từ {{LOCATION}}."
+    "content": "Truy cập website https://tkst.nvduc.dev. Có hoạt động nào kết hợp di sản hoặc nghề truyền thống với cách làm hiện đại không? Chọn vài ví dụ cụ thể, chỉ ra phần truyền thống và phần mới, rồi cho biết lúc nào có thể ghé từ {{LOCATION}}. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-event-details",
@@ -93,13 +93,13 @@
     "id": "prompt-festival-theme",
     "group": "Tìm hiểu",
     "title": "Lễ hội năm nay nói về điều gì?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Giải thích ngắn chủ đề chính của Lễ hội Thiết kế Sáng tạo Hà Nội năm nay qua các hoạt động cụ thể. Chọn 3 hoạt động gần {{LOCATION}} hoặc dễ ghé cùng nhau và nói mỗi hoạt động thể hiện chủ đề theo cách nào."
+    "content": "Truy cập website https://tkst.nvduc.dev. Giải thích ngắn chủ đề chính của Lễ hội Thiết kế Sáng tạo Hà Nội năm nay qua các hoạt động cụ thể. Chọn 3 hoạt động gần {{LOCATION}} hoặc dễ ghé cùng nhau và nói mỗi hoạt động thể hiện chủ đề theo cách nào. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-craft",
     "group": "Tìm hiểu",
     "title": "Tìm hiểu về nghề thủ công",
-    "content": "Truy cập website https://tkst.nvduc.dev. Tìm hoạt động liên quan đến nghề thủ công hoặc nghệ nhân Hà Nội. Giới thiệu ngắn nghề hay câu chuyện được nhắc đến, ưu tiên nơi gần {{LOCATION}} và ghi giờ có thể ghé."
+    "content": "Truy cập website https://tkst.nvduc.dev. Tìm hoạt động liên quan đến nghề thủ công hoặc nghệ nhân Hà Nội. Giới thiệu ngắn nghề hay câu chuyện được nhắc đến, ưu tiên nơi gần {{LOCATION}} và ghi giờ có thể ghé. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-public-space",
@@ -111,49 +111,49 @@
     "id": "prompt-itinerary-short",
     "group": "Lên lịch",
     "title": "Lên lịch đi chơi khoảng hai tiếng",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Lên lịch xem 2–3 hoạt động trong khoảng hai tiếng, bắt đầu từ {{LOCATION}}. Chỉ chọn nơi còn mở và đủ thời gian di chuyển; ghi thứ tự, giờ ghé và địa chỉ."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Lên lịch xem 2–3 hoạt động trong khoảng hai tiếng, bắt đầu từ {{LOCATION}}. Chỉ chọn nơi còn mở và đủ thời gian di chuyển; ghi thứ tự, giờ ghé và địa chỉ. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-itinerary-halfday",
     "group": "Lên lịch",
     "title": "Lên lịch đi chơi nửa ngày",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý lịch tham quan nửa ngày, bắt đầu từ {{LOCATION}}, chọn tối đa 4 hoạt động có giờ diễn ra phù hợp và xếp theo thứ tự để tiện đi xem. Ghi thời gian dự kiến ở mỗi điểm và link chi tiết."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý lịch tham quan nửa ngày, bắt đầu từ {{LOCATION}}, chọn tối đa 4 hoạt động có giờ diễn ra phù hợp và xếp theo thứ tự để tiện đi xem. Ghi thời gian dự kiến ở mỗi điểm và link chi tiết. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-after-work",
     "group": "Lên lịch",
     "title": "Tan làm ghé đâu được?",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý một kế hoạch ngắn sau giờ làm từ {{LOCATION}}: chỉ chọn hoạt động còn mở hoặc bắt đầu trong buổi tối nay, ưu tiên các điểm gần nhau. Ghi giờ và địa chỉ."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý một kế hoạch ngắn sau giờ làm từ {{LOCATION}}: chỉ chọn hoạt động còn mở hoặc bắt đầu trong buổi tối nay, ưu tiên các điểm gần nhau. Ghi giờ và địa chỉ. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-event-order",
     "group": "Lên lịch",
     "title": "Xếp thứ tự các điểm muốn ghé",
-    "content": "Truy cập website https://tkst.nvduc.dev. Mình muốn ghé các hoạt động {{EVENT}}. Dựa trên giờ mở cửa và khoảng cách từ {{LOCATION}}, xếp thứ tự hợp lý, chỉ ra điểm nào không kịp ghé cùng ngày và dẫn link chi tiết từng hoạt động."
+    "content": "Truy cập website https://tkst.nvduc.dev. Mình muốn ghé các hoạt động {{EVENT}}. Dựa trên giờ mở cửa và khoảng cách từ {{LOCATION}}, xếp thứ tự hợp lý, chỉ ra điểm nào không kịp ghé cùng ngày và dẫn link chi tiết từng hoạt động. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-rainy-day",
     "group": "Lên lịch",
     "title": "Ưu tiên hoạt động trong nhà",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý hoạt động diễn ra trong nhà hoặc tại không gian có địa chỉ rõ ràng, còn mở hôm nay và gần {{LOCATION}}. Chỉ xếp loại không gian dựa trên thông tin địa điểm hoặc mô tả."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Gợi ý hoạt động diễn ra trong nhà hoặc tại không gian có địa chỉ rõ ràng, còn mở hôm nay và gần {{LOCATION}}. Chỉ xếp loại không gian dựa trên thông tin địa điểm hoặc mô tả. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-flexible",
     "group": "Lên lịch",
     "title": "Chọn một điểm dễ ghé ngay",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình chưa muốn lên lịch dài; chọn một hoạt động gần {{LOCATION}} mà mình có thể ghé ngay hoặc trong một tiếng tới. Ghi giờ mở cửa, địa chỉ và thời gian nên dành cho chuyến ghé."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Mình chưa muốn lên lịch dài; chọn một hoạt động gần {{LOCATION}} mà mình có thể ghé ngay hoặc trong một tiếng tới. Ghi giờ mở cửa, địa chỉ và thời gian nên dành cho chuyến ghé. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-hands-on",
     "group": "Trải nghiệm",
     "title": "Muốn tự tay làm thử",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm workshop hoặc hoạt động tương tác mà khách có thể trực tiếp tham gia, không chỉ đứng xem. Ưu tiên hoạt động còn diễn ra sau thời điểm này và gần {{LOCATION}}; ghi rõ có cần đăng ký hay không, chỉ kết luận dựa trên thông tin tìm thấy."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm workshop hoặc hoạt động tương tác mà khách có thể trực tiếp tham gia, không chỉ đứng xem. Ưu tiên hoạt động còn diễn ra sau thời điểm này và gần {{LOCATION}}; ghi rõ có cần đăng ký hay không, chỉ kết luận dựa trên thông tin tìm thấy. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-workshop",
     "group": "Trải nghiệm",
     "title": "Tìm workshop hôm nay",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm workshop diễn ra hôm nay mà mình còn kịp tham gia, ưu tiên gần {{LOCATION}}. Cho biết giờ bắt đầu, có cần đăng ký trước hay không và dẫn link thông tin chính thức."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm workshop diễn ra hôm nay mà mình còn kịp tham gia, ưu tiên gần {{LOCATION}}. Cho biết giờ bắt đầu, có cần đăng ký trước hay không và dẫn link thông tin chính thức. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-registration",
@@ -165,13 +165,13 @@
     "id": "prompt-live-show",
     "group": "Trải nghiệm",
     "title": "Tìm buổi diễn còn kịp xem",
-    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các buổi diễn hoặc hoạt động có giờ bắt đầu cụ thể mà mình còn kịp xem hôm nay, ưu tiên gần {{LOCATION}}. Ghi giờ diễn, địa điểm và link chi tiết."
+    "content": "Truy cập website https://tkst.nvduc.dev. Bây giờ là {{TIME}}. Tìm các buổi diễn hoặc hoạt động có giờ bắt đầu cụ thể mà mình còn kịp xem hôm nay, ưu tiên gần {{LOCATION}}. Ghi giờ diễn, địa điểm và link chi tiết. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-exhibitions",
     "group": "Trải nghiệm",
     "title": "Tìm triển lãm muốn xem kỹ",
-    "content": "Truy cập website https://tkst.nvduc.dev. Tìm triển lãm đang diễn ra hôm nay, ưu tiên nội dung hợp với người thích thiết kế, nghệ thuật hoặc thủ công. Tóm tắt mỗi triển lãm một câu, ghi giờ mở cửa và nơi gần {{LOCATION}} nhất."
+    "content": "Truy cập website https://tkst.nvduc.dev. Tìm triển lãm đang diễn ra hôm nay, ưu tiên nội dung hợp với người thích thiết kế, nghệ thuật hoặc thủ công. Tóm tắt mỗi triển lãm một câu, ghi giờ mở cửa và nơi gần {{LOCATION}} nhất. Gợi ý cho mình lộ trình nhé"
   },
   {
     "id": "prompt-kids-hands-on",
