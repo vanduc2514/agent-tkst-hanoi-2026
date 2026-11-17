@@ -487,7 +487,7 @@
               <p class="section-eyebrow">Hỏi AI về lễ hội</p>
               <span class="result-count" id="prompt-count"></span>
             </div>
-            <p class="prompts-intro">Prompt tự cập nhật thời gian và vùng bản đồ đang xem; nếu bạn đã chia sẻ vị trí GPS, prompt sẽ dùng vị trí đó. Chọn một hoạt động để tự điền tên vào prompt tìm hiểu sự kiện.</p>
+            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini, hoặc bạn có thể copy prompt và dán vào khung chat. Thời gian sẽ tự cập nhật; để prompt biết vị trí, hãy chia sẻ GPS hoặc chọn một điểm trên bản đồ. Chọn một hoạt động để tự điền tên vào prompt tìm hiểu sự kiện.</p>
             <div class="ai-prompt-list" id="ai-prompt-list">
               <p class="ai-prompts-loading">Đang tải prompt…</p>
             </div>
@@ -531,6 +531,7 @@
       <p>Cho phép trang dùng vị trí hiện tại để hiển thị bạn trên bản đồ và tính khoảng cách tới các hoạt động. Vị trí chỉ được xử lý trong trình duyệt và không được lưu lại.</p>
       <div class="location-prompt-actions">
         <button class="small-button" id="location-deny" type="button">Để sau</button>
+        <button class="small-button" id="location-pick-map" type="button"><i class="fa-solid fa-map-pin"></i>Chọn điểm trên bản đồ</button>
         <button class="directions-button" id="location-allow" type="button"><i class="fa-solid fa-crosshairs"></i>Chia sẻ vị trí</button>
       </div>
       <p class="location-prompt-status" id="location-prompt-status" aria-live="polite"></p>
@@ -732,7 +733,7 @@
         const eventLayer = [];
         const routeLayer = [];
         const markerByEvent = new Map();
-        const state = { tab: "explore", origin: null, route: [], selectedEventId: null, filters: { query: "", date: "", cluster: "" } };
+        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, filters: { query: "", date: "", cluster: "" } };
         const $ = (selector) => document.querySelector(selector);
         const $$ = (selector) => [...document.querySelectorAll(selector)];
         let toastTimer;
@@ -1624,19 +1625,20 @@
           }
         }
 
-        function renderUserLocation(lat, lng) {
+        function renderUserLocation(lat, lng, label = "Vị trí hiện tại của bạn") {
           if (!userLocationMarker) {
             const element = document.createElement("div");
             element.className = "user-location-marker";
             element.innerHTML = '<span class="user-location-ring" aria-hidden="true"></span><span class="user-location-dot" aria-hidden="true"></span>';
             element.setAttribute("role", "img");
-            element.setAttribute("aria-label", "Vị trí hiện tại của bạn");
+            element.setAttribute("aria-label", label);
             userLocationMarker = new maplibregl.Marker({ element, anchor: "center" })
               .setLngLat([lng, lat])
               .addTo(map);
             return;
           }
           userLocationMarker.setLngLat([lng, lat]);
+          userLocationMarker.getElement().setAttribute("aria-label", label);
         }
 
         const geolocationErrorMessages = {
@@ -1723,6 +1725,13 @@
 
           $("#location-allow").addEventListener("click", () => requestLocation());
           $("#location-deny").addEventListener("click", hidePrompt);
+          $("#location-pick-map").addEventListener("click", () => {
+            hidePrompt();
+            closeMobileSidebar();
+            closeEventDetail();
+            state.pickingOrigin = true;
+            showToast("Chạm vào bản đồ để chọn điểm xuất phát.");
+          });
           prompt.addEventListener("click", (event) => {
             if (event.target === prompt) hidePrompt();
           });
@@ -1806,7 +1815,9 @@
           const center = map.getCenter();
           const location = gpsOrigin
             ? `vị trí GPS bạn đã chia sẻ (${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)})`
-            : `khu vực đang xem trên bản đồ, tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}; đây không phải vị trí GPS`;
+            : state.origin?.id === "map"
+              ? `điểm bạn đã chọn trên bản đồ (${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)})`
+              : `khu vực đang xem trên bản đồ, tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}; đây không phải vị trí GPS`;
           const selectedEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
           return {
             time: now,
@@ -1996,7 +2007,16 @@
           });
           $("#show-all").addEventListener("click", showAllPlaces);
           $("#detail-close").addEventListener("click", closeEventDetail);
-          map.on("click", () => {
+          map.on("click", (event) => {
+            if (state.pickingOrigin) {
+              state.pickingOrigin = false;
+              const { lat, lng } = event.lngLat;
+              const label = "Điểm đã chọn trên bản đồ";
+              renderUserLocation(lat, lng, label);
+              setOrigin({ id: "map", label, lat, lng });
+              showToast("Đã chọn điểm xuất phát trên bản đồ.");
+              return;
+            }
             if (performance.now() < suppressMapCloseUntil) return;
             closeEventDetail();
           });
