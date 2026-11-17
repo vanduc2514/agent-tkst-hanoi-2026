@@ -76,17 +76,35 @@
     }
     .repo-link:hover { border-color: #b7cfc0; background: #eef7f0; }
     .repo-link small { margin-left: auto; color: #718078; font-size: 10px; font-weight: 500; }
-    .ai-prompts { margin: 0 0 14px; border: 1px solid #dce9e1; border-radius: 9px; background: #f7faf8; }
-    .ai-prompts summary { padding: 10px 11px; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+    .ai-prompts { margin: 10px 0 0; border: 1px solid #dce9e1; border-radius: 9px; background: #f7faf8; }
+    .ai-prompts summary {
+      display: flex; align-items: center; gap: 8px; padding: 10px 11px;
+      color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer;
+      list-style: none;
+    }
+    .ai-prompts summary::-webkit-details-marker { display: none; }
+    .ai-prompts summary::after { content: "\25BE"; margin-left: auto; font-size: 10px; transition: transform .16s; }
+    .ai-prompts[open] summary { margin-bottom: 10px; border-bottom: 1px solid #e4ece6; }
+    .ai-prompts[open] summary::after { transform: rotate(180deg); }
     .ai-prompts summary:hover { background: #eef7f0; }
-    .ai-prompts-content { display: grid; gap: 12px; padding: 0 11px 12px; }
+    .ai-prompts-content {
+      display: grid; gap: 12px; padding: 0 11px 12px;
+      max-height: min(46dvh, 420px); overflow-y: auto; overscroll-behavior: contain;
+    }
     .ai-prompts-intro { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
     .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
     .ai-prompt-head strong { color: #34443b; font-size: 10px; }
     .ai-prompt-copy { border: 1px solid #dce7df; border-radius: 6px; padding: 5px 8px; color: var(--green); background: #fff; font-size: 10px; font-weight: 700; }
     .ai-prompt-copy:hover { border-color: #b7cfc0; background: #eef7f0; }
-    .ai-prompt-text { display: block; width: 100%; min-height: 82px; resize: vertical; border: 1px solid #e2e8e4; border-radius: 7px; padding: 8px; color: #44524b; background: #fff; font: 10px/1.5 "DM Sans", sans-serif; }
+    .ai-prompt-text {
+      display: block; width: 100%; min-height: 96px; max-height: 96px; resize: none;
+      border: 1px solid #e2e8e4; border-radius: 9px; padding: 10px 12px;
+      outline: none; color: var(--ink); background: #fff;
+      font: 12px/1.55 "DM Sans", sans-serif;
+      transition: border-color .16s, box-shadow .16s;
+    }
+    .ai-prompt-text:focus { border-color: #9db8ac; box-shadow: 0 0 0 3px rgb(36 92 75 / 9%); }
     .ai-prompt-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; }
     .ai-prompt-status:not(:empty) { min-height: 15px; }
     .agent-hint {
@@ -360,6 +378,32 @@
           <small>agent-tkst-hanoi-2026</small>
           <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
         </a>
+        <details class="ai-prompts">
+          <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt mẫu dùng với AI agent</summary>
+          <div class="ai-prompts-content">
+            <p class="ai-prompts-intro">Mở ChatGPT, bật duyệt web, rồi sao chép prompt phù hợp. Bạn vẫn ở trên bản đồ khi xem và sao chép prompt.</p>
+            <div class="ai-prompt">
+              <div class="ai-prompt-head"><strong>Hỏi thông tin chính xác</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-general">Sao chép</button></div>
+              <textarea class="ai-prompt-text" id="prompt-general" readonly spellcheck="false">Hãy dùng tính năng duyệt web để truy cập https://tkst.nvduc.dev và tìm thông tin về Lễ hội Thiết kế Sáng tạo Hà Nội 2026. Chỉ dùng dữ liệu trên website này và các trang chính thức được liên kết trong trường “Đầy đủ”. Trả lời bằng tiếng Việt, ghi rõ ngày và giờ theo giờ Hà Nội (UTC+7), dẫn link nguồn phù hợp, không tự suy diễn thông tin còn thiếu. Nếu không truy cập hoặc xác minh được nguồn, hãy nói rõ điều đó. Câu hỏi của tôi: [viết câu hỏi tại đây]</textarea>
+              <p class="ai-prompt-status" aria-live="polite"></p>
+            </div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-head"><strong>Tìm hoạt động theo ngày hoặc chủ đề</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-events">Sao chép</button></div>
+              <textarea class="ai-prompt-text" id="prompt-events" readonly spellcheck="false">Dùng dữ liệu tại https://tkst.nvduc.dev để tìm các hoạt động phù hợp với yêu cầu sau: [ngày, khu vực/cụm, chủ đề hoặc loại hình]. Liệt kê tên hoạt động, ngày diễn ra, giờ, địa điểm và mô tả ngắn; chỉ đưa thông tin có trong nguồn. Nếu có nhiều kết quả, sắp xếp theo ngày rồi theo giờ. Kèm link “Đầy đủ” của từng hoạt động để tôi kiểm tra thông tin gốc; đừng tự thêm giá vé hay yêu cầu đăng ký nếu nguồn không nêu.</textarea>
+              <p class="ai-prompt-status" aria-live="polite"></p>
+            </div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-head"><strong>Gợi ý lịch trình tham quan</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-itinerary">Sao chép</button></div>
+              <textarea class="ai-prompt-text" id="prompt-itinerary" readonly spellcheck="false">Dựa trên dữ liệu tại https://tkst.nvduc.dev, gợi ý lịch trình tham quan cho [ngày] với khoảng [số giờ] giờ, bắt đầu ở [điểm xuất phát] và ưu tiên [cụm/chủ đề]. Chọn các hoạt động thực sự diễn ra trong ngày đó, kiểm tra giờ hoạt động để tránh xếp lịch trùng nhau, và trình bày theo thứ tự thời gian kèm địa chỉ cùng link nguồn. Dữ liệu không cung cấp thời lượng tham quan hoặc thời gian di chuyển, vì vậy hãy nêu rõ các giả định và không khẳng định tuyến đường là tối ưu.</textarea>
+              <p class="ai-prompt-status" aria-live="polite"></p>
+            </div>
+            <div class="ai-prompt">
+              <div class="ai-prompt-head"><strong>Kiểm tra thể lệ, đăng ký hoặc giá vé</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-official">Sao chép</button></div>
+              <textarea class="ai-prompt-text" id="prompt-official" readonly spellcheck="false">Tìm hoạt động “[tên hoạt động]” trong https://tkst.nvduc.dev, mở link “Đầy đủ” để kiểm tra trang gốc của ban tổ chức, rồi tóm tắt thông tin về [đăng ký/giá vé/thể lệ/giờ cụ thể]. Phân biệt rõ nội dung xác nhận được trên trang chính thức với thông tin chỉ có trong bản tóm tắt tkst. Trích link nguồn và thời điểm kiểm tra; nếu trang gốc không nêu thông tin cần tìm hoặc không truy cập được, hãy nói rõ, không phỏng đoán.</textarea>
+              <p class="ai-prompt-status" aria-live="polite"></p>
+            </div>
+          </div>
+        </details>
         <!-- agent-hint:body:start -->
         <p class="agent-hint">
           <strong>Bản dành cho AI agent:</strong> toàn bộ 154 hoạt động ở dạng Markdown tại
@@ -400,32 +444,6 @@
                 </select>
               </label>
             </div>
-            <details class="ai-prompts">
-              <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt mẫu dùng với AI agent</summary>
-              <div class="ai-prompts-content">
-                <p class="ai-prompts-intro">Mở ChatGPT, bật duyệt web, rồi sao chép prompt phù hợp. Bạn vẫn ở trên bản đồ khi xem và sao chép prompt.</p>
-                <div class="ai-prompt">
-                  <div class="ai-prompt-head"><strong>Hỏi thông tin chính xác</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-general">Sao chép</button></div>
-                  <textarea class="ai-prompt-text" id="prompt-general" readonly spellcheck="false">Hãy dùng tính năng duyệt web để truy cập https://tkst.nvduc.dev/llms.txt, sau đó đọc https://tkst.nvduc.dev/index.md để tìm thông tin về Lễ hội Thiết kế Sáng tạo Hà Nội 2026. Chỉ dùng dữ liệu trên website này và các trang chính thức được liên kết trong trường “Đầy đủ”. Trả lời bằng tiếng Việt, ghi rõ ngày và giờ theo giờ Hà Nội (UTC+7), dẫn link nguồn phù hợp, không tự suy diễn thông tin còn thiếu. Nếu không truy cập hoặc xác minh được nguồn, hãy nói rõ điều đó. Câu hỏi của tôi: [viết câu hỏi tại đây]</textarea>
-                  <p class="ai-prompt-status" aria-live="polite"></p>
-                </div>
-                <div class="ai-prompt">
-                  <div class="ai-prompt-head"><strong>Tìm hoạt động theo ngày hoặc chủ đề</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-events">Sao chép</button></div>
-                  <textarea class="ai-prompt-text" id="prompt-events" readonly spellcheck="false">Dùng dữ liệu tại https://tkst.nvduc.dev/index.md để tìm các hoạt động phù hợp với yêu cầu sau: [ngày, khu vực/cụm, chủ đề hoặc loại hình]. Liệt kê tên hoạt động, ngày diễn ra, giờ, địa điểm và mô tả ngắn; chỉ đưa thông tin có trong nguồn. Nếu có nhiều kết quả, sắp xếp theo ngày rồi theo giờ. Kèm link “Đầy đủ” của từng hoạt động để tôi kiểm tra thông tin gốc; đừng tự thêm giá vé hay yêu cầu đăng ký nếu nguồn không nêu.</textarea>
-                  <p class="ai-prompt-status" aria-live="polite"></p>
-                </div>
-                <div class="ai-prompt">
-                  <div class="ai-prompt-head"><strong>Gợi ý lịch trình tham quan</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-itinerary">Sao chép</button></div>
-                  <textarea class="ai-prompt-text" id="prompt-itinerary" readonly spellcheck="false">Dựa trên danh sách tại https://tkst.nvduc.dev/index.md, gợi ý lịch trình tham quan cho [ngày] với khoảng [số giờ] giờ, bắt đầu ở [điểm xuất phát] và ưu tiên [cụm/chủ đề]. Chọn các hoạt động thực sự diễn ra trong ngày đó, kiểm tra giờ hoạt động để tránh xếp lịch trùng nhau, và trình bày theo thứ tự thời gian kèm địa chỉ cùng link nguồn. Dữ liệu không cung cấp thời lượng tham quan hoặc thời gian di chuyển, vì vậy hãy nêu rõ các giả định và không khẳng định tuyến đường là tối ưu.</textarea>
-                  <p class="ai-prompt-status" aria-live="polite"></p>
-                </div>
-                <div class="ai-prompt">
-                  <div class="ai-prompt-head"><strong>Kiểm tra thể lệ, đăng ký hoặc giá vé</strong><button class="ai-prompt-copy" type="button" data-copy-prompt="prompt-official">Sao chép</button></div>
-                  <textarea class="ai-prompt-text" id="prompt-official" readonly spellcheck="false">Tìm hoạt động “[tên hoạt động]” trong https://tkst.nvduc.dev/index.md, mở link “Đầy đủ” để kiểm tra trang gốc của ban tổ chức, rồi tóm tắt thông tin về [đăng ký/giá vé/thể lệ/giờ cụ thể]. Phân biệt rõ nội dung xác nhận được trên trang chính thức với thông tin chỉ có trong bản tóm tắt tkst. Trích link nguồn và thời điểm kiểm tra; nếu trang gốc không nêu thông tin cần tìm hoặc không truy cập được, hãy nói rõ, không phỏng đoán.</textarea>
-                  <p class="ai-prompt-status" aria-live="polite"></p>
-                </div>
-              </div>
-            </details>
             <div class="cluster-key" id="cluster-key" aria-label="Chú giải màu sắc cụm"></div>
           </div>
           <div class="event-list" id="event-list" aria-live="polite"></div>
