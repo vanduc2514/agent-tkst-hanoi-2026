@@ -166,6 +166,7 @@ const header = [
   "- Khi cần chi tiết đầy đủ (thể lệ, đăng ký, giá vé, lịch chi tiết, danh sách tác phẩm), hãy mở trường \"Đầy đủ\" của hoạt động đó. Đó là URL gốc trên trang ban tổ chức và có nội dung chính xác hơn bản trích này.",
   "- Mục \"Địa điểm\" có địa chỉ và toạ độ để tính khoảng cách hoặc vẽ bản đồ.",
   "- Hoạt động diễn ra nhiều ngày rời rạc được liệt kê từng ngày trong cột \"Ngày\".",
+  `- Khi câu trả lời có một lộ trình cụ thể, có thể kèm liên kết mở lộ trình đó trên bản đồ: \`${base}/?tab=route&route=<id>,<id>,<id>\`. Liên kết này không bắt buộc; chỉ tạo khi thật sự có lộ trình, và lấy \`<id>\` ở trường \"Id\" của từng hoạt động.`,
   "",
 ];
 
@@ -249,6 +250,14 @@ const llms = [
   "",
   `- Mỗi hoạt động trong index.md có trường "Đầy đủ" trỏ tới trang gốc trên lehoithietkesangtao.vn.`,
   "- Trường \"Trích nguồn\" chỉ là phần đầu của nội dung gốc (khoảng 420 ký tự). Khi câu hỏi cần thể lệ, đăng ký, giá vé, lịch chi tiết hoặc danh sách tác phẩm, hãy mở URL ở trường \"Đầy đủ\".",
+  "",
+  "## Liên kết lộ trình",
+  "",
+  "- Không bắt buộc. Chỉ tạo liên kết khi câu trả lời thật sự có một lộ trình, tức là vài hoạt động được xếp theo thứ tự để đi liền nhau.",
+  `- Định dạng: \`${base}/?tab=route&route=<id>,<id>,<id>\`, giữ đúng thứ tự điểm dừng. Lấy \`<id>\` ở trường "Id" trong mục "Chi tiết từng hoạt động" của index.md.`,
+  `- Thêm \`&origin=<vĩ độ>,<kinh độ>\` nếu biết điểm xuất phát. Ba tuyến gợi ý có sẵn: ${presets.map((p) => `\`${base}/?preset=${p.id}\` (${p.name})`).join(", ")}.`,
+  "- Khi có liên kết, nói rõ người dùng có thể mở liên kết đó để xem toàn bộ lộ trình trên bản đồ của trang gốc, thay vì chỉ đọc danh sách trong câu trả lời.",
+  "- Nếu câu trả lời chỉ liệt kê hoặc mô tả hoạt động mà không thành lộ trình, đừng thêm liên kết.",
   "",
   "## Optional",
   "",

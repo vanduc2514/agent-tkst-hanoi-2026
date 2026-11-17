@@ -14,6 +14,10 @@ trip planner, and a Markdown document that AI agents can read and quote.
   link to the official page.
 - **Plan a route** — collect events into a route, order the stops nearest-first from a chosen
   start point or the browser's location, and send the whole itinerary to Google Maps.
+- **Shareable route links** — a link such as `?tab=route&route=e01,e94,e109` opens the map
+  straight on the Lộ trình tab with those stops in that order; `&origin=<lat>,<lng>` adds a
+  start point, and `?preset=old-town` opens a curated itinerary. The address bar follows any
+  later change to the route, so it can be copied and shared.
 - **Preset routes** — three curated itineraries: a loop through the Old Quarter, the Hoàn Kiếm
   lakeside, and the busiest day of the festival.
 - **Agent-readable output** — `index.md` holds the entire programme as Markdown (schedule

@@ -1476,6 +1476,7 @@
             if (selectedVisible) renderDetail(eventById[state.selectedEventId]);
             else closeEventDetail();
           }
+          syncUrlState();
         }
 
         function applyFilters() {
@@ -1513,6 +1514,75 @@
           renderAll();
         }
 
+        const ROUTE_PARAM_MAX = 40;
+
+        function parseRouteIds(value) {
+          if (!value) return [];
+          const seen = new Set();
+          return value.split(",")
+            .map((id) => id.trim().toLowerCase())
+            .filter((id) => {
+              if (!eventById[id] || seen.has(id)) return false;
+              seen.add(id);
+              return true;
+            })
+            .slice(0, ROUTE_PARAM_MAX);
+        }
+
+        function parseOriginParam(value) {
+          if (!value) return null;
+          const [lat, lng] = value.split(",").map(Number);
+          if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
+          if (Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+          return { id: "link", label: "Điểm bắt đầu", lat, lng };
+        }
+
+        function applyUrlState() {
+          const params = new URLSearchParams(window.location.search);
+          const routeIds = parseRouteIds(params.get("route"));
+          if (routeIds.length) {
+            state.route = routeIds;
+          } else {
+            const preset = presets.find((item) => item.id === params.get("preset"));
+            if (preset) state.route = preset.events.filter((id) => eventById[id]);
+          }
+          const origin = parseOriginParam(params.get("origin"));
+          if (origin) state.origin = origin;
+          if (params.get("optimize") === "1" && state.route.length > 1) {
+            const start = state.origin || placesById[eventById[state.route[0]].placeId];
+            state.route = optimizeNearest(state.route.map((id) => eventById[id]), start).map((event) => event.id);
+          }
+          const tab = params.get("tab");
+          if (["explore", "route", "prompts"].includes(tab)) return tab;
+          return state.route.length ? "route" : "explore";
+        }
+
+        function syncUrlState() {
+          const params = new URLSearchParams(window.location.search);
+          if (state.route.length) params.set("route", state.route.join(","));
+          else params.delete("route");
+          params.delete("preset");
+          params.delete("optimize");
+          if (state.tab === "explore") params.delete("tab");
+          else params.set("tab", state.tab);
+          if (state.origin) params.set("origin", `${state.origin.lat},${state.origin.lng}`);
+          else params.delete("origin");
+          const query = params.toString();
+          const next = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+          if (next !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+            window.history.replaceState(null, "", next);
+          }
+        }
+
+        function fitRouteView() {
+          const points = state.route.map((id) => {
+            const place = placesById[eventById[id].placeId];
+            return [place.lat, place.lng];
+          });
+          if (state.origin) points.unshift([state.origin.lat, state.origin.lng]);
+          if (points.length) fitToPoints(points, 80, 15);
+        }
+
         function setTab(tabId) {
           state.tab = tabId;
           $$(".tab-button").forEach((button) => {
@@ -1524,6 +1594,7 @@
           if (tabId === "route") renderRoute();
           if (tabId === "prompts") requestAnimationFrame(sizePromptFields);
           if (window.innerWidth <= 760) $("#mobile-menu span").textContent = ({ explore: "Khám phá", route: "Lộ trình", prompts: "Hỏi AI" })[tabId];
+          syncUrlState();
         }
 
         function openMobileSidebar() {
@@ -1847,6 +1918,8 @@
           });
         }
 
+        const initialTab = applyUrlState();
+        state.tab = initialTab;
         renderFilters();
         renderEventMarkers();
         buildPresets();
@@ -1854,6 +1927,11 @@
         loadPrompts();
         setupLocationSharing();
         renderAll();
+        setTab(initialTab);
+        if (state.route.length) {
+          if (map.isStyleLoaded()) fitRouteView();
+          else map.once("load", fitRouteView);
+        }
         setTimeout(() => map.resize(), 100);
       }
 

@@ -21,6 +21,7 @@
 - Khi cần chi tiết đầy đủ (thể lệ, đăng ký, giá vé, lịch chi tiết, danh sách tác phẩm), hãy mở trường "Đầy đủ" của hoạt động đó. Đó là URL gốc trên trang ban tổ chức và có nội dung chính xác hơn bản trích này.
 - Mục "Địa điểm" có địa chỉ và toạ độ để tính khoảng cách hoặc vẽ bản đồ.
 - Hoạt động diễn ra nhiều ngày rời rạc được liệt kê từng ngày trong cột "Ngày".
+- Khi câu trả lời có một lộ trình cụ thể, có thể kèm liên kết mở lộ trình đó trên bản đồ: `https://tkst.nvduc.dev/?tab=route&route=<id>,<id>,<id>`. Liên kết này không bắt buộc; chỉ tạo khi thật sự có lộ trình, và lấy `<id>` ở trường "Id" của từng hoạt động.
 
 ## Danh sách hoạt động
 

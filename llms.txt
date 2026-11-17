@@ -12,6 +12,14 @@
 - Mỗi hoạt động trong index.md có trường "Đầy đủ" trỏ tới trang gốc trên lehoithietkesangtao.vn.
 - Trường "Trích nguồn" chỉ là phần đầu của nội dung gốc (khoảng 420 ký tự). Khi câu hỏi cần thể lệ, đăng ký, giá vé, lịch chi tiết hoặc danh sách tác phẩm, hãy mở URL ở trường "Đầy đủ".
 
+## Liên kết lộ trình
+
+- Không bắt buộc. Chỉ tạo liên kết khi câu trả lời thật sự có một lộ trình, tức là vài hoạt động được xếp theo thứ tự để đi liền nhau.
+- Định dạng: `https://tkst.nvduc.dev/?tab=route&route=<id>,<id>,<id>`, giữ đúng thứ tự điểm dừng. Lấy `<id>` ở trường "Id" trong mục "Chi tiết từng hoạt động" của index.md.
+- Thêm `&origin=<vĩ độ>,<kinh độ>` nếu biết điểm xuất phát. Ba tuyến gợi ý có sẵn: `https://tkst.nvduc.dev/?preset=old-town` (Một vòng Phố cổ), `https://tkst.nvduc.dev/?preset=lake` (Ven hồ Gươm), `https://tkst.nvduc.dev/?preset=peak` (Ngày cao điểm 21/11).
+- Khi có liên kết, nói rõ người dùng có thể mở liên kết đó để xem toàn bộ lộ trình trên bản đồ của trang gốc, thay vì chỉ đọc danh sách trong câu trả lời.
+- Nếu câu trả lời chỉ liệt kê hoặc mô tả hoạt động mà không thành lộ trình, đừng thêm liên kết.
+
 ## Optional
 
 - [Bản đồ tương tác](https://tkst.nvduc.dev): giao diện cho người dùng, có bản đồ, lọc theo ngày và lập tuyến.
