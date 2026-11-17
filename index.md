@@ -2,7 +2,7 @@
 
 > Lễ hội Thiết kế Sáng tạo Hà Nội 2026 — 154 hoạt động tại 59 địa điểm, 2026-11-13 đến 2026-11-28, Hà Nội.
 > Giờ theo Asia/Ho_Chi_Minh (UTC+7). Ngày theo định dạng YYYY-MM-DD.
-> Bản văn bản máy đọc của https://tkst.nvduc.dev. Nguồn dữ liệu: https://tkst.nvduc.dev/events.json.
+> Bản văn bản máy đọc của https://tkst.nvduc.dev.
 
 ## Tóm tắt
 

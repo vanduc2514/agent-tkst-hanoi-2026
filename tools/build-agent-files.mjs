@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Derives agent-facing markdown from events.json.
-// events.json stays the canonical machine format; index.md and llms.txt are the
-// formats LLM agents actually consume. Pass --base to rewrite the agent-hint
-// blocks in index.html to absolute URLs.
+// events.json stays the canonical source but is never published; index.md and
+// llms.txt are the formats LLM agents actually consume. Pass --base to rewrite
+// the agent-hint blocks in index.html to absolute URLs.
 //
 // Usage: node tools/build-agent-files.mjs [--base https://your-domain.vn]
 
@@ -140,7 +140,7 @@ const header = [
   "",
   `> ${oneLine(festival.name)} — ${events.length} hoạt động tại ${places.length} địa điểm, ${festival.start} đến ${festival.end}, Hà Nội.`,
   "> Giờ theo Asia/Ho_Chi_Minh (UTC+7). Ngày theo định dạng YYYY-MM-DD.",
-  `> Bản văn bản máy đọc của ${base || "trang bản đồ lễ hội"}. Nguồn dữ liệu: ${abs("events.json")}.`,
+  `> Bản văn bản máy đọc của ${base || "trang bản đồ lễ hội"}.`,
   "",
   "## Tóm tắt",
   "",
@@ -236,7 +236,6 @@ const llms = [
   "## Files",
   "",
   `- [index.md](${abs("index.md")}): toàn bộ lịch, loại hình, địa điểm, mô tả và một đoạn trích nội dung gốc của ban tổ chức, ở dạng Markdown. Dùng bản này để trả lời câu hỏi về lễ hội.`,
-  `- [events.json](${abs("events.json")}): cùng dữ liệu ở dạng JSON có cấu trúc, dùng khi cần phân tích bằng code.`,
   "",
   "## Cách đọc",
   "",
@@ -263,8 +262,8 @@ await writeFile(join(root, "llms.txt"), llms, "utf8");
     "<!-- agent-hint:body:start -->",
     '        <p class="agent-hint">',
     "          <strong>Bản dành cho AI agent:</strong> toàn bộ 154 hoạt động ở dạng Markdown tại",
-    `          <a href="${abs("index.md")}">${abs("index.md")}</a> · chỉ mục tệp tại <a href="${abs("llms.txt")}">${abs("llms.txt")}</a> · dữ liệu gốc tại`,
-    `          <a href="${abs("events.json")}">${abs("events.json")}</a>. Trang này cần JavaScript để hiển thị bản đồ và danh sách.`,
+    `          <a href="${abs("index.md")}">${abs("index.md")}</a> · chỉ mục tệp tại <a href="${abs("llms.txt")}">${abs("llms.txt")}</a>.`,
+    `          Trang này cần JavaScript để hiển thị bản đồ và danh sách.`,
     `          <br>For AI agents: full programme in Markdown at ${abs("index.md")}, file index at ${abs("llms.txt")}.`,
     "        </p>",
     "        <!-- agent-hint:body:end -->",

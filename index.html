@@ -336,8 +336,8 @@
         <!-- agent-hint:body:start -->
         <p class="agent-hint">
           <strong>Bản dành cho AI agent:</strong> toàn bộ 154 hoạt động ở dạng Markdown tại
-          <a href="https://tkst.nvduc.dev/index.md">https://tkst.nvduc.dev/index.md</a> · chỉ mục tệp tại <a href="https://tkst.nvduc.dev/llms.txt">https://tkst.nvduc.dev/llms.txt</a> · dữ liệu gốc tại
-          <a href="https://tkst.nvduc.dev/events.json">https://tkst.nvduc.dev/events.json</a>. Trang này cần JavaScript để hiển thị bản đồ và danh sách.
+          <a href="https://tkst.nvduc.dev/index.md">https://tkst.nvduc.dev/index.md</a> · chỉ mục tệp tại <a href="https://tkst.nvduc.dev/llms.txt">https://tkst.nvduc.dev/llms.txt</a>.
+          Trang này cần JavaScript để hiển thị bản đồ và danh sách.
           <br>For AI agents: full programme in Markdown at https://tkst.nvduc.dev/index.md, file index at https://tkst.nvduc.dev/llms.txt.
         </p>
         <!-- agent-hint:body:end -->
@@ -1529,9 +1529,15 @@
       }
 
       async function loadFestivalData() {
-        const response = await fetch("events.json", { cache: "no-cache" });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
+        // The published page embeds its data; events.json is only read during local development.
+        const embedded = document.querySelector("#events-data");
+        const data = embedded
+          ? JSON.parse(embedded.textContent)
+          : await (async () => {
+              const response = await fetch("events.json", { cache: "no-cache" });
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              return response.json();
+            })();
         clusters = data.clusters;
         places = data.places;
         events = data.events;
@@ -1555,12 +1561,12 @@
       }
 
       function showDataError(error) {
-        console.error("Không tải được events.json", error);
+        console.error("Không tải được dữ liệu sự kiện", error);
         const status = document.querySelector("#map-status");
         if (status) status.textContent = "Không tải được dữ liệu sự kiện";
         const list = document.querySelector("#event-list");
         if (list) {
-          list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không tải được <b>events.json</b>.<br>Hãy mở trang qua máy chủ (http/https) thay vì mở trực tiếp tệp.</div>';
+          list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không tải được dữ liệu sự kiện.<br>Hãy tải lại trang.</div>';
         }
       }
 

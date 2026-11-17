@@ -1,0 +1,81 @@
+name: Build site image
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - .gitignore
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    name: Build and push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify generated files
+        run: |
+          node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
+          if ! git diff --exit-code; then
+            echo "index.md, llms.txt or the index.html agent hints are stale."
+            echo "Run node tools/build-agent-files.mjs --base https://tkst.nvduc.dev and commit the result."
+            exit 1
+          fi
+
+      # ghcr.io on github.com, the Forgejo registry on the self-hosted instance.
+      - name: Resolve registry
+        id: registry
+        run: |
+          if [ "${GITHUB_SERVER_URL}" = "https://github.com" ]; then
+            host=ghcr.io
+            user="${GITHUB_ACTOR}"
+          else
+            host=registry.example.com
+            user="${GITHUB_REPOSITORY_OWNER}"
+          fi
+          repo="$(printf '%s' "${GITHUB_REPOSITORY}" | tr '[:upper:]' '[:lower:]')"
+          {
+            echo "host=${host}"
+            echo "image=${host}/${repo}"
+            echo "user=${user}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Log in to the registry
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORGEJO_TOKEN: ${{ secrets.REGISTRY_TOKEN }}
+        run: |
+          if [ "${{ steps.registry.outputs.host }}" = "ghcr.io" ]; then
+            token="${GHCR_TOKEN}"
+          else
+            token="${FORGEJO_TOKEN}"
+          fi
+          echo "${token}" | docker login "${{ steps.registry.outputs.host }}" \
+            --username "${{ steps.registry.outputs.user }}" --password-stdin
+
+      - name: Build image
+        run: |
+          docker build \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
+            --tag "${{ steps.registry.outputs.image }}:${GITHUB_SHA}" \
+            --tag "${{ steps.registry.outputs.image }}:latest" \
+            .
+
+      - name: Push image
+        run: |
+          docker push "${{ steps.registry.outputs.image }}:${GITHUB_SHA}"
+          docker push "${{ steps.registry.outputs.image }}:latest"
+          docker image inspect --format '{{json .RepoDigests}}' "${{ steps.registry.outputs.image }}:${GITHUB_SHA}"
