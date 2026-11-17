@@ -60,19 +60,28 @@
       box-shadow: 0 4px 11px rgb(36 92 75 / 22%); font-size: 17px;
     }
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
-    .ai-prompts { margin: 10px 0 0; border: 1px solid #dce9e1; border-radius: 9px; background: #f7faf8; }
+    .ai-prompts { width: 100%; margin: 14px auto 0; }
     .ai-prompts summary {
-      display: flex; align-items: center; gap: 8px; padding: 10px 11px;
-      color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer;
-      list-style: none;
+      position: relative; display: flex; width: min(100%, 250px); min-height: 42px;
+      align-items: center; justify-content: center; gap: 8px; margin: 0 auto;
+      border: 1px solid #dce9e1; border-radius: 10px; padding: 9px 36px 9px 14px;
+      color: var(--green); background: #f7faf8; box-shadow: 0 2px 6px rgb(21 42 36 / 4%);
+      font-size: 11px; font-weight: 700; cursor: pointer; list-style: none;
+      transition: border-color .16s, background .16s, box-shadow .16s;
     }
     .ai-prompts summary::-webkit-details-marker { display: none; }
-    .ai-prompts summary::after { content: "\25BE"; margin-left: auto; font-size: 10px; transition: transform .16s; }
-    .ai-prompts[open] summary { margin-bottom: 10px; border-bottom: 1px solid #e4ece6; }
+    .ai-prompts summary::after {
+      position: absolute; right: 14px; content: "\25BE"; color: #718078;
+      font-size: 11px; transition: transform .16s;
+    }
+    .ai-prompts summary:hover { border-color: #b7cfc0; background: #eef7f0; box-shadow: 0 3px 9px rgb(21 42 36 / 7%); }
+    .ai-prompts summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .ai-prompts[open] summary { border-color: #b7cfc0; background: #eef7f0; }
     .ai-prompts[open] summary::after { transform: rotate(180deg); }
-    .ai-prompts summary:hover { background: #eef7f0; }
     .ai-prompts-content {
-      display: grid; gap: 12px; padding: 0 11px 12px;
+      display: grid; gap: 12px; margin-top: 10px; border: 1px solid #e5ece7;
+      border-radius: 11px; padding: 12px; background: #fff;
+      box-shadow: 0 4px 12px rgb(21 42 36 / 5%);
       max-height: min(40dvh, 380px); overflow-y: auto; overscroll-behavior: contain;
       scrollbar-width: thin; scrollbar-color: #c9d8d0 transparent;
     }
