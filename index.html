@@ -54,18 +54,12 @@
     .brand-bar { padding: 23px 24px 18px; border-bottom: 1px solid var(--line); }
     .brand-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
     .brand-mark {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 38px; height: 38px; border-radius: 12px;
-      color: #fff; background: var(--green); font-size: 15px;
+      display: inline-flex; flex: 0 0 42px; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: 14px;
+      color: #fff; background: linear-gradient(145deg, #34765f, #194a3b);
+      box-shadow: 0 4px 11px rgb(36 92 75 / 22%); font-size: 17px;
     }
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
-    .festival-note {
-      display: flex; align-items: flex-start; gap: 9px; margin-top: 17px;
-      border: 1px solid #f0dfc0; border-radius: 10px; padding: 10px 11px;
-      color: #72521e; background: #fffaf0; font-size: 11px; line-height: 1.45;
-    }
-    .festival-note i { margin-top: 2px; }
-    .festival-note a { color: #684715; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
     .ai-prompts { margin: 10px 0 0; border: 1px solid #dce9e1; border-radius: 9px; background: #f7faf8; }
     .ai-prompts summary {
       display: flex; align-items: center; gap: 8px; padding: 10px 11px;
@@ -365,15 +359,11 @@
       <header class="brand-bar">
         <div class="brand-row">
           <div class="flex items-center gap-3">
-            <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-compass"></i></span>
+            <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
             <div>
               <h1 class="brand-title">Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026</h1>
             </div>
           </div>
-        </div>
-        <div class="festival-note">
-          <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-          <span><strong>154 hoạt động lấy từ lịch chính thức của ban tổ chức</strong>, cập nhật 15/11/2026. <a href="https://lehoithietkesangtao.vn/su-kien" target="_blank" rel="noopener noreferrer">Xem lịch gốc</a>.</span>
         </div>
         <details class="ai-prompts">
           <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt cho AI</summary>
