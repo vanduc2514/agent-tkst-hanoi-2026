@@ -243,6 +243,7 @@ const llms = [
   "## Files",
   "",
   `- [index.md](${abs("index.md")}): toàn bộ lịch, loại hình, địa điểm, mô tả và một đoạn trích nội dung gốc của ban tổ chức, ở dạng Markdown. Dùng bản này để trả lời câu hỏi về lễ hội.`,
+  `- [prompts.json](${abs("prompts.json")}): danh sách prompt gợi ý sẵn, mỗi mục có tiêu đề và nội dung, để hỏi một AI agent về lễ hội.`,
   "",
   "## Cách đọc",
   "",

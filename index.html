@@ -60,24 +60,33 @@
       box-shadow: 0 4px 11px rgb(36 92 75 / 22%); font-size: 17px;
     }
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
-    .ai-prompts { width: 100%; margin: 14px auto 0; }
+    .ai-prompts { width: 100%; margin: 14px 0 0; }
     .ai-prompts summary {
-      position: relative; display: flex; width: min(100%, 250px); min-height: 42px;
-      align-items: center; justify-content: center; gap: 8px; margin: 0 auto;
-      border: 1px solid #dce9e1; border-radius: 10px; padding: 9px 36px 9px 14px;
-      color: var(--green); background: #f7faf8; box-shadow: 0 2px 6px rgb(21 42 36 / 4%);
-      font-size: 11px; font-weight: 700; cursor: pointer; list-style: none;
+      display: flex; align-items: center; gap: 10px; width: 100%;
+      border: 1px solid #dce9e1; border-radius: 12px; padding: 10px 12px;
+      color: var(--green); background: linear-gradient(180deg, #fff 0%, #f7faf8 100%);
+      box-shadow: 0 2px 8px rgb(21 42 36 / 5%); cursor: pointer; list-style: none;
       transition: border-color .16s, background .16s, box-shadow .16s;
     }
     .ai-prompts summary::-webkit-details-marker { display: none; }
-    .ai-prompts summary::after {
-      position: absolute; right: 14px; content: "\25BE"; color: #718078;
-      font-size: 11px; transition: transform .16s;
+    .ai-prompts-badge {
+      display: grid; place-items: center; flex: none; width: 34px; height: 34px;
+      border-radius: 10px; color: var(--green); background: #eef7f0; font-size: 12px;
     }
-    .ai-prompts summary:hover { border-color: #b7cfc0; background: #eef7f0; box-shadow: 0 3px 9px rgb(21 42 36 / 7%); }
+    .ai-prompts-heading { display: grid; min-width: 0; gap: 1px; }
+    .ai-prompts-heading strong { font-size: 11.5px; }
+    .ai-prompts-heading small { color: #7c8b83; font-size: 9.5px; font-weight: 500; }
+    .ai-prompts-arrow {
+      display: grid; place-items: center; flex: none; width: 24px; height: 24px;
+      margin-left: auto; border-radius: 50%; color: #3f6f5e; background: #eef7f0;
+      transition: transform .18s, background .16s;
+    }
+    .ai-prompts-arrow::before { content: "\25BE"; font-size: 9px; line-height: 1; }
+    .ai-prompts summary:hover { border-color: #b7cfc0; background: #f1f9f4; box-shadow: 0 4px 12px rgb(21 42 36 / 8%); }
+    .ai-prompts summary:hover .ai-prompts-arrow { background: #e1f1e7; }
     .ai-prompts summary:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-    .ai-prompts[open] summary { border-color: #b7cfc0; background: #eef7f0; }
-    .ai-prompts[open] summary::after { transform: rotate(180deg); }
+    .ai-prompts[open] summary { border-color: #b7cfc0; background: #f1f9f4; }
+    .ai-prompts[open] .ai-prompts-arrow { transform: rotate(180deg); background: #e1f1e7; }
     .ai-prompts-content {
       display: grid; gap: 12px; margin-top: 10px; border: 1px solid #e5ece7;
       border-radius: 11px; padding: 12px; background: #fff;
@@ -87,8 +96,12 @@
     }
     .ai-prompts-content::-webkit-scrollbar { width: 8px; }
     .ai-prompts-content::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 8px; background: #c9d8d0; background-clip: content-box; }
+    .ai-prompt-list { display: grid; gap: 12px; }
+    .ai-prompts-loading { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
+    .ai-prompts-loading a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
     .ai-prompts-intro { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
+    .ai-prompt:first-child { border-top: 0; padding-top: 0; }
     .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
     .ai-prompt-head strong { color: #34443b; font-size: 10px; }
     .ai-prompt-copy {
@@ -108,16 +121,15 @@
       transition: border-color .16s, box-shadow .16s;
     }
     .ai-prompt-text:focus { border-color: #9db8ac; box-shadow: 0 0 0 3px rgb(36 92 75 / 9%); }
-    .ai-prompt-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 8px; }
+    .ai-prompt-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
     .ai-open {
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-      min-height: 40px; padding: 0 6px; border: 1px solid #dce7df; border-radius: 8px;
-      color: #34443b; background: #fff; font: 700 11px/1 "DM Sans", sans-serif;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 42px; padding: 0; border: 1px solid #dce7df; border-radius: 10px;
+      color: var(--ai-dot, #34443b); background: #fff;
       touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-      transition: border-color .16s, background .16s;
+      transition: border-color .16s, background .16s, transform .16s;
     }
-    .ai-open::before { content: ""; flex: none; width: 7px; height: 7px; border-radius: 50%; background: var(--ai-dot, #9db8ac); }
-    .ai-open::after { content: "\2197"; margin-left: -2px; color: #8a998f; font-size: 10px; font-weight: 400; }
+    .ai-open svg { display: block; width: 18px; height: 18px; }
     .ai-open:hover { border-color: var(--ai-border, #b7cfc0); background: var(--ai-bg, #eef7f0); }
     .ai-open:active { transform: translateY(1px); }
     .ai-open:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
@@ -128,8 +140,7 @@
     .ai-prompt-status:not(:empty) { min-height: 15px; }
     .ai-prompt-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
     @media (max-width: 380px) {
-      .ai-open { gap: 4px; padding: 0 4px; }
-      .ai-open::after { display: none; }
+      .ai-prompts-heading small { display: none; }
       .ai-prompt-copy span { display: none; }
       .ai-prompt-copy { min-height: 36px; min-width: 36px; justify-content: center; padding: 0; }
     }
@@ -405,138 +416,15 @@
           </div>
         </div>
         <details class="ai-prompts">
-          <summary><i class="fa-regular fa-message" aria-hidden="true"></i> Prompt cho AI</summary>
+          <summary>
+            <span class="ai-prompts-badge"><i class="fa-regular fa-message" aria-hidden="true"></i></span>
+            <span class="ai-prompts-heading"><strong>Prompt cho AI</strong><small>Mở nhanh bằng ChatGPT, Claude hoặc Gemini</small></span>
+            <span class="ai-prompts-arrow" aria-hidden="true"></span>
+          </summary>
           <div class="ai-prompts-content">
-            <p class="ai-prompts-intro">Chọn ChatGPT, Claude hoặc Gemini để mở prompt ngay trên web; hoặc sao chép để dán vào ứng dụng.</p>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động theo ngày</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-day"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-day" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Liệt kê các hoạt động diễn ra ngày 20/11/2026, kèm giờ, địa điểm và link chi tiết của từng hoạt động.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-day" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-day" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-day" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Khám phá khu vực Hồ Gươm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-area"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-area" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động ở khu vực Hồ Gươm và Tràng Tiền trong ngày 20/11/2026, rồi sắp xếp theo giờ bắt đầu.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-area" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-area" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-area" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Phố cổ gặp hơi thở hiện đại</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-old-modern"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-old-modern" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tôi muốn xem những tác phẩm lấy cảm hứng từ phố cổ Hà Nội nhưng có cách thể hiện hiện đại. Tìm các hoạt động phù hợp, giới thiệu ngắn gọn điểm giao thoa giữa nét xưa và cách nhìn mới, kèm địa điểm, thời gian diễn ra và link chi tiết.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-old-modern" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-old-modern" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-old-modern" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Đi dạo phố, ngắm nghệ thuật</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-art-walk"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-art-walk" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Gợi ý vài hoạt động nghệ thuật để tôi vừa đi dạo vừa khám phá phố cổ Hà Nội. Ưu tiên những địa điểm gần nhau và cho biết giờ diễn ra, địa chỉ của từng nơi.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-art-walk" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-art-walk" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-art-walk" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Muốn xem Hà Nội xưa qua góc nhìn mới</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-hanoi-then-now"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-hanoi-then-now" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm những hoạt động gợi nhắc đến ký ức, nếp sống hoặc kiến trúc Hà Nội xưa nhưng được kể bằng ngôn ngữ sáng tạo hôm nay. Tóm tắt vì sao mỗi hoạt động hợp với chủ đề này và dẫn link chi tiết.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-hanoi-then-now" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm thứ gì đó lạ mắt, khác thường</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-unusual"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-unusual" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Chọn giúp tôi những hoạt động có ý tưởng hoặc cách trưng bày độc đáo, dễ khiến người xem bất ngờ. Mô tả ngắn điều thú vị ở mỗi hoạt động và cho biết địa điểm cùng thời gian diễn ra.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-unusual" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-unusual" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-unusual" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Muốn được tự tay trải nghiệm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-hands-on"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-hands-on" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có phần trải nghiệm, tương tác hoặc workshop để người xem được tham gia thay vì chỉ ngắm nhìn. Cho tôi biết hoạt động nào phù hợp, diễn ra lúc nào và có thông tin đăng ký hay không.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-hands-on" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-hands-on" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-hands-on" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động buổi tối</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-evening"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-evening" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Có hoạt động nào bắt đầu từ 18 giờ trong ngày 21/11/2026 không? Cho tôi biết tên, giờ và địa điểm.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-evening" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-evening" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-evening" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm triển lãm</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-exhibitions"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-exhibitions" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các triển lãm đang diễn ra ngày 22/11/2026 và cho biết địa điểm, giờ mở cửa.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-exhibitions" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-exhibitions" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-exhibitions" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm workshop</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-workshops"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-workshops" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các workshop trong ngày 23/11/2026. Với mỗi workshop, cho biết có cần đăng ký trước không và dẫn link để tôi xem thông tin.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-workshops" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-workshops" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-workshops" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Lên lịch đi chơi nửa ngày</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-itinerary"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-itinerary" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Gợi ý lịch tham quan nửa ngày ở khu vực phố cổ Hà Nội vào 24/11/2026, chọn các hoạt động có giờ diễn ra phù hợp và xếp theo thứ tự để tiện đi xem.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-itinerary" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-itinerary" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-itinerary" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Tìm hoạt động phù hợp cho gia đình</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-family"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-family" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Dựa vào phần mô tả, gợi ý một số hoạt động phù hợp để gia đình có trẻ nhỏ cùng tham gia. Nêu lý do và dẫn link từng hoạt động.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-family" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-family" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-family" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
-            </div>
-            <div class="ai-prompt">
-              <div class="ai-prompt-head"><strong>Kiểm tra thông tin đăng ký</strong><button class="ai-prompt-copy" type="button" aria-label="Sao chép prompt" data-copy-prompt="prompt-registration"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button></div>
-              <textarea class="ai-prompt-text" id="prompt-registration" readonly spellcheck="false">Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có yêu cầu đăng ký, kiểm tra thông tin trên trang chi tiết của ban tổ chức và cho tôi biết cách đăng ký. Nếu không thấy thông tin, hãy nói rõ.</textarea>
-              <div class="ai-prompt-actions" role="group" aria-label="Mở prompt bằng dịch vụ AI">
-                <button class="ai-open ai-open-chatgpt" type="button" data-open-prompt="prompt-registration" data-provider="chatgpt">ChatGPT</button>
-                <button class="ai-open ai-open-claude" type="button" data-open-prompt="prompt-registration" data-provider="claude">Claude</button>
-                <button class="ai-open ai-open-gemini" type="button" data-open-prompt="prompt-registration" data-provider="gemini">Gemini</button>
-              </div>
-              <p class="ai-prompt-status" aria-live="polite"></p>
+            <p class="ai-prompts-intro">Chọn biểu tượng của ChatGPT, Claude hoặc Gemini để mở prompt với nội dung điền sẵn; hoặc sao chép để dán vào ứng dụng.</p>
+            <div class="ai-prompt-list" id="ai-prompt-list">
+              <p class="ai-prompts-loading">Đang tải prompt…</p>
             </div>
           </div>
         </details>
@@ -1788,7 +1676,15 @@
           gemini: { name: "Gemini", url: (prompt) => `https://gemini.google.com/app?q=${encodeURIComponent(prompt)}` }
         };
 
-        function bindControls() {
+        const PROMPT_ICONS = {
+          chatgpt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.2A2.2 2.2 0 0 1 6.2 4h11.6A2.2 2.2 0 0 1 20 6.2v7.6a2.2 2.2 0 0 1-2.2 2.2H9.4l-4.2 3.2V16H6.2"/><path d="M8.5 8.4h7M8.5 11.6h4.4"/></svg>',
+          claude: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 3.2v17.6M4.4 7.6l15.2 8.8M19.6 7.6 4.4 16.4"/></svg>',
+          gemini: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.4c.55 4.9 2.5 6.85 7.4 7.4-4.9.55-6.85 2.5-7.4 7.4-.55-4.9-2.5-6.85-7.4-7.4 4.9-.55 6.85-2.5 7.4-7.4Z"/><path d="M18.8 15.3c.3 2.1 1.1 2.9 3.2 3.2-2.1.3-2.9 1.1-3.2 3.2-.3-2.1-1.1-2.9-3.2-3.2 2.1-.3 2.9-1.1 3.2-3.2Z" opacity=".55"/></svg>'
+        };
+
+        const PROMPT_ORDER = ["chatgpt", "claude", "gemini"];
+
+        function bindPromptControls() {
           $$("[data-copy-prompt]").forEach((button) => {
             button.addEventListener("click", async () => {
               const textarea = document.getElementById(button.dataset.copyPrompt);
@@ -1839,6 +1735,86 @@
               );
             });
           });
+        }
+
+        function renderPrompts(prompts) {
+          const list = $("#ai-prompt-list");
+          if (!list) return;
+          list.textContent = "";
+          prompts.forEach((prompt) => {
+            const item = document.createElement("div");
+            item.className = "ai-prompt";
+
+            const head = document.createElement("div");
+            head.className = "ai-prompt-head";
+            const title = document.createElement("strong");
+            title.textContent = prompt.title;
+            const copy = document.createElement("button");
+            copy.type = "button";
+            copy.className = "ai-prompt-copy";
+            copy.dataset.copyPrompt = prompt.id;
+            copy.setAttribute("aria-label", "Sao chép prompt");
+            copy.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span>';
+            head.append(title, copy);
+
+            const textarea = document.createElement("textarea");
+            textarea.className = "ai-prompt-text";
+            textarea.id = prompt.id;
+            textarea.readOnly = true;
+            textarea.spellcheck = false;
+            textarea.value = prompt.content;
+
+            const actions = document.createElement("div");
+            actions.className = "ai-prompt-actions";
+            actions.setAttribute("role", "group");
+            actions.setAttribute("aria-label", "Mở prompt bằng dịch vụ AI");
+            PROMPT_ORDER.forEach((provider) => {
+              const button = document.createElement("button");
+              button.type = "button";
+              button.className = `ai-open ai-open-${provider}`;
+              button.dataset.openPrompt = prompt.id;
+              button.dataset.provider = provider;
+              button.title = PROMPT_PROVIDERS[provider].name;
+              button.setAttribute("aria-label", `Mở bằng ${PROMPT_PROVIDERS[provider].name}`);
+              button.innerHTML = PROMPT_ICONS[provider];
+              actions.append(button);
+            });
+
+            const status = document.createElement("p");
+            status.className = "ai-prompt-status";
+            status.setAttribute("aria-live", "polite");
+
+            item.append(head, textarea, actions, status);
+            list.append(item);
+          });
+          sizePromptFields();
+          bindPromptControls();
+        }
+
+        async function loadPrompts() {
+          const list = $("#ai-prompt-list");
+          try {
+            const response = await fetch("prompts.json", { cache: "no-cache" });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const prompts = await response.json();
+            if (!Array.isArray(prompts)) throw new Error("Invalid prompt list");
+            renderPrompts(prompts);
+          } catch (error) {
+            console.error("Không tải được prompt", error);
+            if (!list) return;
+            list.textContent = "";
+            const message = document.createElement("p");
+            message.className = "ai-prompts-loading";
+            message.append("Không tải được prompt. ");
+            const link = document.createElement("a");
+            link.href = "prompts.json";
+            link.textContent = "Mở tệp prompts.json";
+            message.append(link, ".");
+            list.append(message);
+          }
+        }
+
+        function bindControls() {
           $("#search-input").addEventListener("input", (event) => {
             state.filters.query = event.target.value;
             applyFilters();
@@ -1884,6 +1860,7 @@
         renderEventMarkers();
         buildPresets();
         bindControls();
+        loadPrompts();
         setupLocationSharing();
         renderAll();
         setTimeout(() => map.resize(), 100);

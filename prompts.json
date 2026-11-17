@@ -1,0 +1,67 @@
+[
+  {
+    "id": "prompt-day",
+    "title": "Tìm hoạt động theo ngày",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Liệt kê các hoạt động diễn ra ngày 20/11/2026, kèm giờ, địa điểm và link chi tiết của từng hoạt động."
+  },
+  {
+    "id": "prompt-area",
+    "title": "Khám phá khu vực Hồ Gươm",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động ở khu vực Hồ Gươm và Tràng Tiền trong ngày 20/11/2026, rồi sắp xếp theo giờ bắt đầu."
+  },
+  {
+    "id": "prompt-old-modern",
+    "title": "Phố cổ gặp hơi thở hiện đại",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tôi muốn xem những tác phẩm lấy cảm hứng từ phố cổ Hà Nội nhưng có cách thể hiện hiện đại. Tìm các hoạt động phù hợp, giới thiệu ngắn gọn điểm giao thoa giữa nét xưa và cách nhìn mới, kèm địa điểm, thời gian diễn ra và link chi tiết."
+  },
+  {
+    "id": "prompt-art-walk",
+    "title": "Đi dạo phố, ngắm nghệ thuật",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Gợi ý vài hoạt động nghệ thuật để tôi vừa đi dạo vừa khám phá phố cổ Hà Nội. Ưu tiên những địa điểm gần nhau và cho biết giờ diễn ra, địa chỉ của từng nơi."
+  },
+  {
+    "id": "prompt-hanoi-then-now",
+    "title": "Muốn xem Hà Nội xưa qua góc nhìn mới",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm những hoạt động gợi nhắc đến ký ức, nếp sống hoặc kiến trúc Hà Nội xưa nhưng được kể bằng ngôn ngữ sáng tạo hôm nay. Tóm tắt vì sao mỗi hoạt động hợp với chủ đề này và dẫn link chi tiết."
+  },
+  {
+    "id": "prompt-unusual",
+    "title": "Tìm thứ gì đó lạ mắt, khác thường",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Chọn giúp tôi những hoạt động có ý tưởng hoặc cách trưng bày độc đáo, dễ khiến người xem bất ngờ. Mô tả ngắn điều thú vị ở mỗi hoạt động và cho biết địa điểm cùng thời gian diễn ra."
+  },
+  {
+    "id": "prompt-hands-on",
+    "title": "Muốn được tự tay trải nghiệm",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có phần trải nghiệm, tương tác hoặc workshop để người xem được tham gia thay vì chỉ ngắm nhìn. Cho tôi biết hoạt động nào phù hợp, diễn ra lúc nào và có thông tin đăng ký hay không."
+  },
+  {
+    "id": "prompt-evening",
+    "title": "Tìm hoạt động buổi tối",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Có hoạt động nào bắt đầu từ 18 giờ trong ngày 21/11/2026 không? Cho tôi biết tên, giờ và địa điểm."
+  },
+  {
+    "id": "prompt-exhibitions",
+    "title": "Tìm triển lãm",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm các triển lãm đang diễn ra ngày 22/11/2026 và cho biết địa điểm, giờ mở cửa."
+  },
+  {
+    "id": "prompt-workshops",
+    "title": "Tìm workshop",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm các workshop trong ngày 23/11/2026. Với mỗi workshop, cho biết có cần đăng ký trước không và dẫn link để tôi xem thông tin."
+  },
+  {
+    "id": "prompt-itinerary",
+    "title": "Lên lịch đi chơi nửa ngày",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Gợi ý lịch tham quan nửa ngày ở khu vực phố cổ Hà Nội vào 24/11/2026, chọn các hoạt động có giờ diễn ra phù hợp và xếp theo thứ tự để tiện đi xem."
+  },
+  {
+    "id": "prompt-family",
+    "title": "Tìm hoạt động phù hợp cho gia đình",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Dựa vào phần mô tả, gợi ý một số hoạt động phù hợp để gia đình có trẻ nhỏ cùng tham gia. Nêu lý do và dẫn link từng hoạt động."
+  },
+  {
+    "id": "prompt-registration",
+    "title": "Kiểm tra thông tin đăng ký",
+    "content": "Truy cập trang web https://tkst.nvduc.dev. Tìm các hoạt động có yêu cầu đăng ký, kiểm tra thông tin trên trang chi tiết của ban tổ chức và cho tôi biết cách đăng ký. Nếu không thấy thông tin, hãy nói rõ."
+  }
+]

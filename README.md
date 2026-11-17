@@ -17,10 +17,11 @@ trip planner, and a Markdown document that AI agents can read and quote.
 - **Preset routes** — three curated itineraries: a loop through the Old Quarter, the Hoàn Kiếm
   lakeside, and the busiest day of the festival.
 - **Agent-readable output** — `index.md` holds the entire programme as Markdown (schedule
-  table, venues with coordinates, per-event details and organiser excerpts), and `llms.txt`
-  is a short index pointing agents at it. The Explore panel includes prompts you can send to
-  ChatGPT, Claude or Gemini in one click — the prompt opens in the chosen web chat already
-  filled in and is copied to the clipboard as a backup. The data files are
+  table, venues with coordinates, per-event details and organiser excerpts), `llms.txt`
+  is a short index pointing agents at it, and `prompts.json` lists the suggested questions
+  with a title and prompt body. The Explore panel renders those prompts from JSON and offers
+  one-tap icon buttons for ChatGPT, Claude and Gemini; the prompt opens in the chosen web
+  chat already filled in and is copied to the clipboard as a backup. The data files are
   generated from the same source as the map, so they cannot drift apart.
 
 ## Run it locally
