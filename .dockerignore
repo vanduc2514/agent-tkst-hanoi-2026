@@ -1,0 +1,6 @@
+.git
+.forgejo
+tools
+README.md
+Dockerfile
+.dockerignore

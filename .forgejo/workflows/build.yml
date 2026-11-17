@@ -1,0 +1,58 @@
+name: Build and push site image
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE: registry.example.com/OWNER/tkst
+
+jobs:
+  build:
+    name: Build and push
+    runs-on: ubuntu-20.04-x86
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Verify generated agent files
+        run: |
+          node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
+          if ! git diff --exit-code; then
+            echo "index.md/llms.txt are stale. Run tools/build-agent-files.mjs and commit the result."
+            exit 1
+          fi
+
+      - name: Log in to Forgejo registry
+        run: |
+          echo "${{ secrets.REGISTRY_TOKEN || secrets.GITHUB_TOKEN }}" \
+            | docker login registry.example.com --username "${{ github.actor }}" --password-stdin
+
+      - name: Build image
+        run: |
+          docker build \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --label "org.opencontainers.image.revision=${{ github.sha }}" \
+            --tag "$IMAGE:${{ github.sha }}" \
+            --tag "$IMAGE:latest" \
+            .
+
+      - name: Push image
+        id: push
+        run: |
+          docker push "$IMAGE:${{ github.sha }}"
+          docker push "$IMAGE:latest"
+          digest="$(docker inspect --format '{{index .RepoDigests 0}}' "$IMAGE:${{ github.sha }}")"
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+          echo "Pushed $digest"
