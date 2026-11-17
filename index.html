@@ -388,6 +388,7 @@
       .map-repo-link, .map-attribution { font-size: 7px; }
       .event-detail { position: fixed; z-index: 2400; right: 0; bottom: 0; left: 0; width: 100%; max-height: 76dvh; border-radius: 18px 18px 0 0; border-bottom: 0; transition: none; }
       .event-detail.open { opacity: 1; visibility: visible; transform: none; }
+      .event-detail.behind-mobile-sidebar { z-index: 1000; }
       .detail-body { padding-bottom: max(17px, env(safe-area-inset-bottom)); }
     }
     @media (max-width: 390px) {
@@ -423,8 +424,8 @@
 
       <nav class="tabs" role="tablist" aria-label="Các bảng điều khiển">
         <button class="tab-button active" id="tab-explore" role="tab" aria-selected="true" aria-controls="panel-explore" data-tab="explore"><i class="fa-solid fa-magnifying-glass"></i><span>Khám phá</span></button>
-        <button class="tab-button" id="tab-route" role="tab" aria-selected="false" aria-controls="panel-route" data-tab="route"><i class="fa-solid fa-route"></i><span>Lộ trình <b id="route-count">0</b></span></button>
         <button class="tab-button" id="tab-prompts" role="tab" aria-selected="false" aria-controls="panel-prompts" data-tab="prompts"><i class="fa-solid fa-comment-dots"></i><span>Hỏi AI</span></button>
+        <button class="tab-button" id="tab-route" role="tab" aria-selected="false" aria-controls="panel-route" data-tab="route"><i class="fa-solid fa-route"></i><span>Lộ trình <b id="route-count">0</b></span></button>
       </nav>
 
       <section class="tab-panel active" id="panel-explore" role="tabpanel" aria-labelledby="tab-explore">
@@ -508,6 +509,7 @@
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện · 59 địa điểm</span></div>
         <div class="map-actions">
+          <button class="map-pill" id="locate-me" type="button" aria-label="Hiển thị vị trí hiện tại của tôi" title="Vị trí hiện tại"><i class="fa-solid fa-location-crosshairs"></i><span class="hidden sm:inline">Vị trí</span></button>
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
@@ -702,15 +704,6 @@
         };
         document.addEventListener("pointerup", releaseTouchPointer, true);
         document.addEventListener("pointercancel", releaseTouchPointer, true);
-        const navigationGroup = map.getContainer().querySelector(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
-        const locateButton = document.createElement("button");
-        locateButton.id = "locate-me";
-        locateButton.type = "button";
-        locateButton.className = "maplibregl-ctrl-icon maplibregl-ctrl-location";
-        locateButton.setAttribute("aria-label", "Hiển thị vị trí hiện tại của tôi");
-        locateButton.title = "Vị trí hiện tại";
-        locateButton.innerHTML = '<i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>';
-        navigationGroup.prepend(locateButton);
         const routeSourceId = "route-line";
         function routeShape(coordinates) {
           return {
@@ -1608,12 +1601,14 @@
         function openMobileSidebar() {
           $("#sidebar").classList.add("mobile-open");
           $("#mobile-scrim").classList.add("visible");
+          $("#event-detail").classList.add("behind-mobile-sidebar");
           $("#mobile-menu").setAttribute("aria-expanded", "true");
         }
 
         function closeMobileSidebar() {
           $("#sidebar").classList.remove("mobile-open");
           $("#mobile-scrim").classList.remove("visible");
+          $("#event-detail").classList.remove("behind-mobile-sidebar");
           $("#mobile-menu").setAttribute("aria-expanded", "false");
         }
 
@@ -1685,24 +1680,43 @@
               status.textContent = "Trình duyệt này không hỗ trợ định vị GPS.";
               return;
             }
+            if (!window.isSecureContext) {
+              showPrompt();
+              status.textContent = "Chia sẻ vị trí chỉ hoạt động trên trang HTTPS hoặc localhost.";
+              return;
+            }
             if (asking) return;
             asking = true;
             status.textContent = "Đang lấy vị trí…";
+            const showPosition = (position) => {
+              asking = false;
+              const { latitude, longitude } = position.coords;
+              renderUserLocation(latitude, longitude);
+              setOrigin({ id: "gps", label: "Vị trí hiện tại của bạn", lat: latitude, lng: longitude });
+              map.flyTo({ center: [longitude, latitude], zoom: 15, duration: 600 });
+              hidePrompt();
+              showToast("Đã hiển thị vị trí của bạn trên bản đồ.");
+            };
+            const showLocationError = (error) => {
+              asking = false;
+              showPrompt();
+              status.textContent = geolocationErrorMessages[error.code] || "Không thể lấy vị trí hiện tại.";
+            };
+            const retryApproximatePosition = (error) => {
+              if (error.code !== 2 && error.code !== 3) {
+                showLocationError(error);
+                return;
+              }
+              status.textContent = "Chưa lấy được GPS chính xác, đang thử vị trí gần đúng…";
+              navigator.geolocation.getCurrentPosition(
+                showPosition,
+                showLocationError,
+                { enableHighAccuracy: false, timeout: 20000, maximumAge: 300000 }
+              );
+            };
             navigator.geolocation.getCurrentPosition(
-              (position) => {
-                asking = false;
-                const { latitude, longitude } = position.coords;
-                renderUserLocation(latitude, longitude);
-                setOrigin({ id: "gps", label: "Vị trí hiện tại của bạn", lat: latitude, lng: longitude });
-                map.flyTo({ center: [longitude, latitude], zoom: 15, duration: 600 });
-                hidePrompt();
-                showToast("Đã hiển thị vị trí của bạn trên bản đồ.");
-              },
-              (error) => {
-                asking = false;
-                showPrompt();
-                status.textContent = geolocationErrorMessages[error.code] || "Không thể lấy vị trí hiện tại.";
-              },
+              showPosition,
+              retryApproximatePosition,
               { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
             );
           };
