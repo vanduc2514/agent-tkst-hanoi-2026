@@ -686,6 +686,16 @@
 
 
       function init() {
+        // Touch releases are not taps on their own: pinching to zoom or dragging the map
+        // also ends with a pointerup that can land on a pin. A real tap is short,
+        // single-finger, nearly motionless, and no map gesture may have run underneath it.
+        const TAP_MOVE_LIMIT = 12; // px
+        const TAP_MAP_DRIFT = 3; // px the map may slide under the finger
+        const TAP_MAX_DURATION = 600; // ms
+        const DOUBLE_TAP_WINDOW = 300; // ms
+        let gestureEpoch = 0;
+        const activeTouchPointers = new Set();
+        const noteGesture = () => { gestureEpoch += 1; };
         const map = new maplibregl.Map({
           container: "map",
           style: "https://tiles.openfreemap.org/styles/bright",
@@ -697,6 +707,19 @@
           pitchWithRotate: false
         });
         map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+        // Zoom gestures are the ones that used to open a pin: the finger on the pin stays
+        // still while the map scales under it, so screen movement alone cannot detect it.
+        map.on("zoomstart", noteGesture);
+        document.addEventListener("pointerdown", (event) => {
+          if (event.pointerType !== "touch") return;
+          activeTouchPointers.add(event.pointerId);
+          if (activeTouchPointers.size > 1) noteGesture();
+        }, true);
+        const releaseTouchPointer = (event) => {
+          if (event.pointerType === "touch") activeTouchPointers.delete(event.pointerId);
+        };
+        document.addEventListener("pointerup", releaseTouchPointer, true);
+        document.addEventListener("pointercancel", releaseTouchPointer, true);
         const navigationGroup = map.getContainer().querySelector(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
         const locateButton = document.createElement("button");
         locateButton.id = "locate-me";
@@ -825,7 +848,7 @@
 
         function renderEventMarkers() {
           const matching = filterEvents(state.filters);
-          eventLayer.forEach((marker) => marker.remove());
+          eventLayer.forEach((marker) => { marker.__cancelPendingTap?.(); marker.remove(); });
           eventLayer.length = 0;
           markerByEvent.clear();
           hideHoverPopup();
@@ -844,20 +867,30 @@
           pin.setAttribute("aria-label", event.title);
           pin.title = event.title;
           const hoverHtml = `<strong>${escapeHtml(event.title)}</strong><br><span>${event.startTime}–${event.endTime} · ${escapeHtml(place.name)}</span>`;
-          const openFromTap = (domEvent) => {
-            domEvent.preventDefault();
-            domEvent.stopPropagation();
+          const activate = () => {
             suppressMapCloseUntil = performance.now() + 450;
             hideHoverPopup();
             openEventDetail(event.id);
           };
+          let tapStart = null;
+          let pendingTap = 0;
+          let ignoreClickUntil = 0;
           pin.addEventListener("mouseenter", () => {
             hoverPopup.setLngLat([lngLat.lng, lngLat.lat]).setHTML(hoverHtml).addTo(map);
           });
           pin.addEventListener("mouseleave", hideHoverPopup);
           pin.addEventListener("click", (domEvent) => {
+            // Touch taps are handled from pointer events; their compatibility click must
+            // not open the card a second time.
+            if (performance.now() < ignoreClickUntil) {
+              domEvent.preventDefault();
+              domEvent.stopPropagation();
+              return;
+            }
             if (domEvent.detail === 0) {
-              openFromTap(domEvent);
+              domEvent.preventDefault();
+              domEvent.stopPropagation();
+              activate();
               return;
             }
             domEvent.stopPropagation();
@@ -865,16 +898,66 @@
             openEventDetail(event.id);
           });
           pin.addEventListener("pointerdown", (domEvent) => {
-            if (domEvent.pointerType === "touch") domEvent.stopPropagation();
+            if (domEvent.pointerType !== "touch") return;
+            // Swallow the compatibility click of every touch press so a pinch, pan or
+            // long press that ends on the pin cannot fall through to the click handler.
+            ignoreClickUntil = performance.now() + TAP_MAX_DURATION + 600;
+            if (pendingTap) {
+              // A second tap inside the double-tap window means the user is zooming
+              // in over this pin, so drop the card the first tap queued.
+              clearTimeout(pendingTap);
+              pendingTap = 0;
+              tapStart = null;
+              return;
+            }
+            tapStart = {
+              pointerId: domEvent.pointerId,
+              x: domEvent.clientX,
+              y: domEvent.clientY,
+              time: performance.now(),
+              gestures: gestureEpoch,
+              center: map.getCenter(),
+              zoom: map.getZoom()
+            };
+            domEvent.stopPropagation();
+          });
+          pin.addEventListener("pointermove", (domEvent) => {
+            if (!tapStart || domEvent.pointerId !== tapStart.pointerId) return;
+            if (Math.hypot(domEvent.clientX - tapStart.x, domEvent.clientY - tapStart.y) > TAP_MOVE_LIMIT) tapStart = null;
           });
           pin.addEventListener("pointerup", (domEvent) => {
-            if (domEvent.pointerType === "touch") openFromTap(domEvent);
+            if (domEvent.pointerType !== "touch") return;
+            const start = tapStart;
+            tapStart = null;
+            if (!start || start.pointerId !== domEvent.pointerId) return;
+            if (gestureEpoch !== start.gestures) return; // map zoomed or panned under the finger
+            if (activeTouchPointers.size > 1) return; // another finger is still pinching
+            if (Math.abs(map.getZoom() - start.zoom) > 0.0005) return;
+            const from = map.project(start.center);
+            const to = map.project(map.getCenter());
+            if (Math.hypot(from.x - to.x, from.y - to.y) > TAP_MAP_DRIFT) return;
+            if (performance.now() - start.time > TAP_MAX_DURATION) return;
+            if (Math.hypot(domEvent.clientX - start.x, domEvent.clientY - start.y) > TAP_MOVE_LIMIT) return;
+            ignoreClickUntil = performance.now() + 500;
+            // Hold the open for one double-tap window: a zoom gesture that starts right
+            // here cancels it instead of leaving the card open under the fingers.
+            const gestures = gestureEpoch;
+            pendingTap = setTimeout(() => {
+              pendingTap = 0;
+              if (gestureEpoch !== gestures || activeTouchPointers.size > 1) return;
+              activate();
+            }, DOUBLE_TAP_WINDOW);
           });
+          pin.addEventListener("pointercancel", () => { tapStart = null; });
           const marker = new maplibregl.Marker({ element: host, anchor: "bottom", offset: [0, 2] })
             .setLngLat([lngLat.lng, lngLat.lat])
             .addTo(map);
           marker.__pinEl = pin;
           marker.__eventIds = [event.id];
+          marker.__cancelPendingTap = () => {
+            clearTimeout(pendingTap);
+            pendingTap = 0;
+          };
           eventLayer.push(marker);
           markerByEvent.set(event.id, marker);
         }
