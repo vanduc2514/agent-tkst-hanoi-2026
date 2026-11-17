@@ -478,7 +478,7 @@
               <p class="section-eyebrow">Hỏi AI về lễ hội</p>
               <span class="result-count" id="prompt-count"></span>
             </div>
-            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini. Nội dung được điền sẵn trên web và sao chép vào bộ nhớ tạm để bạn dán vào ứng dụng.</p>
+            <p class="prompts-intro">Chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini, hoặc bạn có thể copy prompt và dán vào khung chat.</p>
             <div class="ai-prompt-list" id="ai-prompt-list">
               <p class="ai-prompts-loading">Đang tải prompt…</p>
             </div>
@@ -1702,14 +1702,7 @@
               const status = button.closest(".ai-prompt").querySelector(".ai-prompt-status");
               const provider = PROMPT_PROVIDERS[button.dataset.provider];
               const url = provider.url(textarea.value);
-              let copied = null;
-              try {
-                copied = navigator.clipboard?.writeText(textarea.value) || null;
-              } catch {
-                copied = null;
-              }
               const tab = window.open(url, "_blank");
-              const openedMessage = `Đã mở ${provider.name} với prompt điền sẵn.`;
               if (!tab) {
                 const link = document.createElement("a");
                 link.href = url;
@@ -1721,15 +1714,7 @@
                 return;
               }
               tab.opener = null;
-              status.textContent = `Đang mở ${provider.name}…`;
-              if (!copied) {
-                status.textContent = openedMessage;
-                return;
-              }
-              copied.then(
-                () => { status.textContent = `Đã sao chép prompt và mở ${provider.name} với prompt điền sẵn.`; },
-                () => { status.textContent = openedMessage; }
-              );
+              status.textContent = `Đã mở ${provider.name} với prompt điền sẵn.`;
             });
           });
         }

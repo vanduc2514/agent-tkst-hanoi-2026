@@ -21,8 +21,9 @@ trip planner, and a Markdown document that AI agents can read and quote.
   is a short index pointing agents at it, and `prompts.json` lists the suggested questions
   with a title and prompt body. The Explore panel renders those prompts from JSON and offers
   one-tap icon buttons for ChatGPT, Claude and Gemini; the prompt opens in the chosen web
-  chat already filled in and is copied to the clipboard as a backup. The data files are
-  generated from the same source as the map, so they cannot drift apart.
+  chat already filled in. A copy button keeps the prompt available for pasting into a
+  native app. The data files are generated from the same source as the map, so they cannot
+  drift apart.
 
 ## Run it locally
 
