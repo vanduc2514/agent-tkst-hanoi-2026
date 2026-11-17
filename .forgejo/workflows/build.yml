@@ -34,10 +34,13 @@ jobs:
             exit 1
           fi
 
+      - name: Check Docker
+        run: docker version
+
       - name: Log in to Forgejo registry
         run: |
           echo "${{ secrets.REGISTRY_TOKEN || secrets.GITHUB_TOKEN }}" \
-            | docker login registry.example.com --username "${{ github.actor }}" --password-stdin
+            | docker login registry.example.com --username "${{ github.repository_owner }}" --password-stdin
 
       - name: Build image
         run: |
