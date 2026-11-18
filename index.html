@@ -2179,15 +2179,15 @@
             : `Thời điểm dự kiến: ${formatPromptDate(selectedDate)}.`;
           const gpsOrigin = state.origin?.id === "gps" ? state.origin : null;
           const center = map.getCenter();
-          const locationBullet = gpsOrigin
-            ? `- Vị trí của mình tại ${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)}.`
+          const locationContext = gpsOrigin
+            ? `Vị trí của mình tại ${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)}.`
             : state.origin?.id === "map"
-              ? `- Địa điểm trên bản đồ đã chọn: ${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)}.`
-              : `- Tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}.`;
+              ? `Địa điểm trên bản đồ đã chọn: ${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)}.`
+              : `Tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}.`;
           const selectedEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
           return {
             timeContext,
-            locationBullet,
+            locationContext,
             event: selectedEvent?.title || "[tên hoạt động bạn quan tâm]",
             eventDetailsTask: selectedEvent
               ? `Tìm hiểu hoạt động "${selectedEvent.title}"`
