@@ -56,6 +56,13 @@ const hoursByDay = (e) => {
   return [...groups.entries()].map(([time, dates]) => `${dates.join(", ")}: ${time}`);
 };
 
+// Curated per-act schedule (events.json `lineup`), independent of the slot blocks.
+const shortDay = (date) => `${date.slice(8, 10)}/${date.slice(5, 7)}`;
+const lineupRows = (e) =>
+  [...(e.lineup || [])]
+    .sort((a, b) => `${a.date} ${a.start}`.localeCompare(`${b.date} ${b.start}`))
+    .map((slot) => `${shortDay(slot.date)} ${slot.start}–${slot.end} ${oneLine(slot.act)}`);
+
 const TYPE_VI = {
   Exhibition: "Triển lãm",
   Pavilion: "Pavilion",
@@ -242,6 +249,7 @@ const details = [
       `### ${e.number}. ${oneLine(e.title)}`,
       `- Id: ${e.id} · Ngày: ${formatDays(e)} · Giờ: ${hours(e)}`,
       ...(hoursByDay(e) ? [`- Giờ theo ngày: ${hoursByDay(e).join("; ")}`] : []),
+      ...(e.lineup?.length ? [`- Lịch biểu diễn: ${lineupRows(e).join("; ")}`] : []),
       `- Địa điểm: ${venue(e)}${place?.kind ? ` (${place.kind})` : ""} · Cụm: ${clusterName(e.clusterId)}`,
       `- Loại: ${typeLabel(e)} · Nhịp: ${pace(e)}`,
       e.spotlight ? "- Điểm nhấn: suất đặc biệt của lễ hội" : null,

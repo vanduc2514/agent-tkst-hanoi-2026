@@ -2552,30 +2552,129 @@
     {
       "id": "e67",
       "number": 67,
-      "date": "2026-11-14",
+      "date": "2026-11-15",
       "dateEnd": "2026-11-28",
       "days": [
-        "2026-11-14",
+        "2026-11-15",
+        "2026-11-16",
         "2026-11-18",
         "2026-11-19",
         "2026-11-21",
         "2026-11-22",
         "2026-11-23",
+        "2026-11-24",
         "2026-11-25",
-        "2026-11-26",
         "2026-11-28"
       ],
       "title": "Nhạc phục vụ cộng đồng",
       "placeId": "p60",
       "clusterId": "g2",
       "startTime": "18:00",
-      "endTime": "18:30",
+      "endTime": "21:15",
+      "lineup": [
+        {
+          "date": "2026-11-15",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Vũ Yến Trang & Đường Trần"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "19:00",
+          "end": "19:30",
+          "act": "Vũ Yến Trang & Đường Trần"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "20:00",
+          "end": "20:30",
+          "act": "Vũ Yến Trang & Đường Trần"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Hà Anh & Nam Sơl"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Hà Anh & Nam Sơl"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Hà Anh & Nam Sơl"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "18:30",
+          "end": "19:00",
+          "act": "Viet Modes"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "19:15",
+          "end": "19:45",
+          "act": "Hoàng Hiệp & Đường Trần"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "20:00",
+          "end": "20:30",
+          "act": "Hoàng Hiệp & Đường Trần"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "20:45",
+          "end": "21:15",
+          "act": "NaCl"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Viet Modes"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Dàn nhạc giao hưởng trẻ V-Sym"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Dàn nhạc giao hưởng trẻ V-Sym"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "19:00",
+          "end": "19:30",
+          "act": "band Headstones"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "20:00",
+          "end": "20:30",
+          "act": "band Headstones"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "18:00",
+          "end": "18:30",
+          "act": "Hà Anh & Nam Sơl"
+        }
+      ],
       "spotlight": false,
       "tags": [
         "trình diễn",
         "Sân mái chợ Đồng Xuân"
       ],
-      "description": "Mở cửa 18:00–18:30 hằng ngày, từ 14/11 đến 28/11, tại Sân mái chợ Đồng Xuân."
+      "description": "Chuỗi suất biểu diễn 30 phút tại Sân mái chợ Đồng Xuân: 18:00–21:15 các ngày 15, 16, 18, 19, 21–25 và 28/11/2026."
     },
     {
       "id": "e68",

@@ -67,8 +67,9 @@ is enough; it writes `index.md` and `llms.txt` into the working tree, where git 
 
 Then open http://localhost:8080.
 
-To edit the page itself, open `index.html` directly in a browser: without the inlined data
-block it falls back to reading `events.json` from the same folder, so no build is needed.
+To edit the page itself there is no build step: serve the folder over HTTP as above and
+reload. Opening `index.html` straight from disk will not work, because the page fetches
+`events.json` and browsers block that request on `file://`.
 
 ## Data and credits
 
@@ -79,6 +80,9 @@ block it falls back to reading `events.json` from the same folder, so no build i
   sessions. `events.json` is the source of truth for those times; edit it directly. Four
   activities (e62, e102, e105, e140) publish no time text at all, so they keep the listing
   values.
+- When one activity runs as a series of named sets, `lineup` holds
+  `{ date, start, end, act }` entries. The page lists them under "Lịch biểu diễn" and the
+  search box matches the act names.
 - Basemap: [OpenFreeMap](https://openfreemap.org) with data ©
   [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 - This is a community project, not an official festival site.

@@ -773,6 +773,7 @@
           event.startTime,
           event.endTime,
           ...(event.slots || []).flatMap((slot) => [slot.date, slot.start, slot.end]),
+          ...(event.lineup || []).flatMap((slot) => [slot.date, slot.start, slot.end, slot.act]),
           dateText,
           event.spotlight ? "suất đặc biệt spotlight" : "",
           ...(event.tags || []),
@@ -1484,6 +1485,9 @@
           const cluster = clusters[event.clusterId];
           const inRoute = state.route.includes(event.id);
           const timeRows = eventTimeRows(event);
+          // Curated per-act schedule; the flat start/end pair only bounds it.
+          const lineup = [...(event.lineup || [])].sort((a, b) =>
+            `${a.date} ${a.start}`.localeCompare(`${b.date} ${b.start}`));
           $("#event-detail").style.setProperty("--cluster", cluster.color);
           $("#detail-head").style.background = `linear-gradient(135deg, ${cluster.color}1f, #fff 72%)`;
           $("#detail-head-info").innerHTML = `
@@ -1499,6 +1503,10 @@
                 <h3 class="detail-times-title"><i class="fa-regular fa-clock"></i>Giờ mở theo ngày</h3>
                 ${timeRows.map((row) => `<p class="detail-times-row"><span>${escapeHtml(row.when)}</span><strong>${escapeHtml(row.time)}</strong></p>`).join("")}
               </section>` : ""}
+              ${lineup.length ? `<section class="detail-times">
+                <h3 class="detail-times-title"><i class="fa-solid fa-music"></i>Lịch biểu diễn</h3>
+                ${lineup.map((slot) => `<p class="detail-times-row"><span>${escapeHtml(formatDayList([slot.date]))} · ${escapeHtml(slot.start)}–${escapeHtml(slot.end)}</span><strong>${escapeHtml(slot.act)}</strong></p>`).join("")}
+              </section>` : ""}
               ${event.officialDetail || event.officialType || event.officialUrl ? `<section class="detail-official">
                 <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>Thông tin từ ban tổ chức</h3>
                 ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong>${escapeHtml(event.officialType)}</strong></p>` : ""}
@@ -1512,7 +1520,7 @@
                 <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${inRoute ? "Bỏ khỏi tuyến" : "Thêm vào tuyến"}</button>
                 <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>Chỉ đường</a>
               </div>
-              <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 15/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
+              <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
             </div>`;
           $("#detail-content").querySelector(".detail-route").addEventListener("click", () => {
             if (inRoute) removeFromRoute(event.id);
