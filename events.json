@@ -690,8 +690,8 @@
       "title": "Hội chợ hàng thủ công-thiết kế-minh họa: Chăm hoa đua nở",
       "placeId": "p43",
       "clusterId": "g1",
-      "startTime": "15:00",
-      "endTime": "20:00",
+      "startTime": "09:30",
+      "endTime": "21:00",
       "spotlight": false,
       "tags": [
         "sự kiện",
@@ -702,7 +702,24 @@
       "officialType": "Event",
       "officialDetail": "Hội chợ hàng thủ công – thiết kế – minh họa “Chăm hoa đua nở” (Makers Market 2026) diễn ra từ ngày 13 đến 15/11/2026 tại Nhà Thông tin Triển lãm, số 45 Tràng Tiền, Hà Nội. Do Hanoi Indie Troupe tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, chương trình mở cửa từ 15:00–21:00 ngày 13/11, 09:30–21:00 ngày 14/11 và 09:30–20:00 ngày 15/11. Hội chợ vào cửa tự do.\nTheo kế hoạch, 57 gian hàng giới thiệu những sản phẩm thuộc ba lĩnh vực thủ công, thiết kế và minh họa, với sự tham gia của Cam Anh Ng Illustration, Chạm Dó, Chuột Đất Books, Đan.lab, TVHiep Lettering cùng nhiều thương hiệu độc lập. Điều này đảm bảo “Chăm hoa đua nở” luôn có dải sản phẩm vô cùng đa dạng cho mọi lứa tuổi. Việc tuyển chọn các gian hàng chú trọng sáng tạo nguyên bản, phong cách cá nhân và khả năng làm chủ kỹ thuật, quy trình sản xuất. Với sản phẩm thủ công, người làm trực tiếp biến đổi nguyên liệu, thực hiện những công đoạn tạo nên công năng và thẩm mỹ của thành phẩm.\nBên cạnh trải nghiệm tham quan, lựa chọn sản phẩm, hội chợ hướng tới xây dựng một không gian thương mại sôi nổi, lành mạnh và công bằng, nhằm thúc đẩy nền kinh tế sáng tạo cho nghệ sĩ độc lập, doanh nghiệp sáng tạo nhỏ và siêu nhỏ. Đây cũng là dịp để những người làm nghề ở các lĩnh vực gặp gỡ, hình thành kết nối, tạo nên một mạng lưới vô hình và dày đặc giữa các nghệ sĩ, nhà sản xuất độc lập để trao đổi và học hỏi. Tại địa điểm trung tâm thành phố, người dân và du khách có thể khám phá nghệ thuật, thủ công đương đại địa phương qua những sản phẩm mang dấu ấn riêng.\n“Chăm hoa đua nở” với thông điệp: để có “trăm hoa đua nở”, mỗi người sáng tạo đều phải kiên trì chăm chút từ cảm hứng, ý tưởng đến lựa chọn chất liệu và hoàn thiện sản phẩm, như người làm vườn chờ ngày thu hoạch. Tinh thần ấy được thể hiện trong hình ảnh nhận diện mang phong cách retro, với hoa sen, hoa lan, hoa cúc cùng những mảng màu nổi bật. Những bông hoa trở thành hình ảnh cho sự đa dạng và công sức nuôi dưỡng từng sáng tạo.\n--\nThe craft, design and illustration fair “Chăm hoa đua nở” (Makers Market 2026) takes place from 13 to 15 November 2026 at the Information and Exhibition Centre, 45 Tràng Tiền, Hanoi. Organised by Hanoi Indie Troupe as part of the Hanoi Festival of Creative Design 2026, the fair opens from 15:00–21:00 on 13 November, 09:30–21:00 on 14 November and 09:30–20:00 on 15 November. The fair is open to the public with free admission.\nThe fair is set to feature 57 stalls showcasing products across craft, design and illustration, with participants including Cam Anh Ng Illustration, Chạm Dó, Chuột Đất Books, Đan.lab, TVHiep Lettering and other independent brands. This ensures that “Chăm Hoa Đua Nở” consistently offers a highly diverse range of products for all age groups. The selection of stalls places a strong emphasis on original creativity, personal style, and mastery of production techniques and processes. For handcrafted items, the makers directly transform the raw materials and execute key steps that define both the functionality and aesthetics of the final product\nBeyond the sightseeing and shopping experience, the fair aims to build a vibrant, healthy, and fair commercial space to promote the creative economy for independent artists as well as small and micro creative enterprises. It also serves as an opportunity for practitioners across various fields to meet and establish connections, forming a dense, invisible network among independent artists and producers for exchange and learning. Situated in a central downtown location, local residents and tourists can discover local contemporary arts and crafts through unique, distinctively branded products.\n“Chăm Hoa Đua Nở” comes with the message: to achieve a \"hundred flowers in full bloom\" every creator must patiently nurture their work, from inspiration and ideas to material selection and final touches, much like a gardener awaiting harvest day. This spirit is reflected in the retro-style visual identity, featuring lotus, orchid, and chrysanthemum motifs alongside vibrant color blocks. The flowers serve as a metaphor for diversity and the dedicated effort poured into cultivating each creative work.",
       "officialVenueAddress": "Hoàn Kiếm, Hà Nội",
-      "officialVenue": "Không gian đi bộ Hoàn Kiếm"
+      "officialVenue": "Không gian đi bộ Hoàn Kiếm",
+      "slots": [
+        {
+          "date": "2026-11-13",
+          "start": "15:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "09:30",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "09:30",
+          "end": "20:00"
+        }
+      ]
     },
     {
       "id": "e05",
@@ -713,7 +730,7 @@
       "title": "Pavilion Hồ Gương | UNESCO & SOVICO vì sự phát triển bền vững",
       "placeId": "p05",
       "clusterId": "g1",
-      "startTime": "15:29",
+      "startTime": "09:00",
       "endTime": "19:00",
       "spotlight": false,
       "tags": [
@@ -776,8 +793,8 @@
       "title": "Triển lãm \"Chuyện Đình Cổ Vũ\"",
       "placeId": "p40",
       "clusterId": "g3",
-      "startTime": "00:00",
-      "endTime": "00:00",
+      "startTime": "09:00",
+      "endTime": "17:00",
       "spotlight": false,
       "tags": [
         "workshop",
@@ -825,7 +842,7 @@
       "placeId": "p56",
       "clusterId": "g3",
       "startTime": "08:00",
-      "endTime": "17:30",
+      "endTime": "22:00",
       "spotlight": false,
       "tags": [
         "sự kiện",
@@ -835,7 +852,114 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/chuoi-su-kien-di-san-chuyen-tuong-xua-chuyen-tuong-nay.html",
       "officialType": "Event",
       "officialDetail": "Thông tin về sự kiện\nThời gian: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 14/11 đến 28/1119:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật\nĐịa điểm: Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "19:00",
+          "end": "22:00"
+        }
+      ]
     },
     {
       "id": "e11",
@@ -850,7 +974,7 @@
       "title": "Chương trình trải nghiệm \"Tuyến đường sinh thái bờ vở sông Hồng\"",
       "placeId": "p36",
       "clusterId": "g2",
-      "startTime": "08:00",
+      "startTime": "06:00",
       "endTime": "17:00",
       "spotlight": false,
       "tags": [
@@ -861,7 +985,24 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/chuong-trinh-trai-nghiem-tuyen-duong-sinh-thai-bo-vo-song-hong.html",
       "officialType": "Community",
       "officialDetail": "Chương trình trải nghiệm “Tuyến đường sinh thái bờ vở sông Hồng” diễn ra vào các ngày 14, 21 và 27/11/2026 tại phường Hồng Hà, Hà Nội. Do Doanh nghiệp xã hội Think Playgrounds tổ chức, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026, chương trình đưa công chúng khám phá tuyến đường dài hơn 2km nối Công viên rừng Phúc Tân và Công viên rừng Chương Dương, tìm hiểu thiên nhiên ven sông cùng những người đang góp sức gìn giữ không gian này.\nThông tin chi tiết về chương trình\nThời gian: 08:00 - 10:00, ngày 14/11/2026\n06:00 - 08:00, ngày 21/11/2026\n15:00 - 17:00, ngày 27/11/2026\nĐịa điểm: Tuyến đường sinh thái bờ vở sông Hồng, phường Hồng Hà (nối Công viên rừng Phúc Tân và Công viên rừng Chương Dương)\nTheo tư liệu chương trình, khu vực có khoảng 200 loài cây bản địa và 140 loài chim hoang dã, với các sinh cảnh rừng, đất ngập nước và vườn nông nghiệp. Những chuyến đi mở ra cơ hội quan sát cây cối, tìm hiểu bãi bồi và thế giới loài chim ngay trong thành phố. Câu chuyện về sự chung tay của cộng đồng địa phương trong bảo tồn, thúc đẩy tái sinh tự nhiên cũng được chia sẻ trên hành trình, giúp người tham gia hiểu thêm mối liên hệ giữa sinh thái và đời sống ven sông.\nBa buổi trải nghiệm có chủ đề và thời điểm khác nhau. Buổi ngày 14/11, từ 08:00 đến 10:00, kết hợp tour “Sinh thái bờ vở sông Hồng” với thực hành hướng dẫn viên cộng đồng, quy mô 25 khách. Buổi ngày 21/11 dành cho hoạt động quan sát chim hoang dã, diễn ra từ 06:00 đến 08:00 với 20 khách. Ngày 27/11, tour sinh thái tiếp tục từ 15:00 đến 17:00, dành cho 25 khách. Từ sáng sớm đến buổi chiều, các khung giờ tạo điều kiện tiếp cận cảnh quan ven sông ở những thời điểm khác nhau.\nĐồng hành với người tham gia là đội ngũ Think Playgrounds, chuyên gia sinh thái Nguyễn Hoàng Hào, Hội Phụ nữ và cộng đồng dân cư phường Hồng Hà; riêng buổi 27/11 có thêm Nguyễn Hữu Minh, một nhà bảo tồn thiên nhiên trẻ. Chương trình được hỗ trợ bởi Đại sứ quán Pháp và Viện Pháp tại Việt Nam trong dự án “Sống cùng dòng sông” (Vivre avec les Fleuves), cùng UNDP Việt Nam trong dự án BIOFIN. \n--\nThe “Ecological Trail along the Red River” experience programme takes place on 14, 21 and 27 November 2026 in Hồng Hà Ward, Hanoi. Organised by the social enterprise Think Playgrounds in support of the Hanoi Festival of Creative Design 2026, the programme invites participants to explore a trail stretching over 2 km between Phúc Tân Forest Park and Chương Dương Forest Park, discovering riverside nature alongside those helping to protect this space.\nAccording to programme materials, the area is home to around 200 native plant species and 140 wild bird species, with habitats ranging from woodland and wetlands to cultivated plots. The tours offer opportunities to observe plants and discover alluvial habitats and birdlife within the city. Along the way, participants hear stories of local communities working together to conserve the area and encourage natural regeneration, gaining a deeper understanding of the relationship between ecology and riverside life.\nThe three sessions offer different themes and time slots. On 14 November, from 08:00 to 10:00, the “Red Riverbank Ecology” tour combines ecological exploration with practical training for community guides, with space for 25 participants. The session on 21 November focuses on birdwatching, running from 06:00 to 08:00 for 20 participants. On 27 November, another ecology tour takes place from 15:00 to 17:00 for 25 participants. From early morning to the afternoon, these time slots offer opportunities to experience the riverside landscape at different times of day.\nParticipants are accompanied by the Think Playgrounds team, ecologist Nguyễn Hoàng Hào, the Hồng Hà Ward Women’s Union and local residents. Young nature conservationist Nguyễn Hữu Minh also joins the session on 27 November. The programme is supported by the French Embassy and the French Institute in Vietnam through the “Living with Rivers” project (Vivre avec les Fleuves), alongside UNDP Vietnam through the BIOFIN project.",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "08:00",
+          "end": "10:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "06:00",
+          "end": "08:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "15:00",
+          "end": "17:00"
+        }
+      ]
     },
     {
       "id": "e12",
@@ -1007,7 +1148,7 @@
       "placeId": "p23",
       "clusterId": "g3",
       "startTime": "08:00",
-      "endTime": "17:30",
+      "endTime": "22:00",
       "spotlight": false,
       "tags": [
         "triển lãm",
@@ -1018,7 +1159,194 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trung-bay-lang-nghe-son-dong-van-hoa-tra-viet-va-viet-phuc.html",
       "officialType": "Exhibition, Community",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: \n08:00 - 12:00 và 13:30 - 17:30, từ ngày 14/11 đến 28/11/2026\n19:00 - 22:00, tối thứ 6, thứ 7, Chủ nhật\n\nĐịa điểm: Trung tâm Văn hóa nghệ thuật, 22 Hàng Buồm",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "19:00",
+          "end": "22:00"
+        }
+      ]
     },
     {
       "id": "e20",
@@ -1060,7 +1388,19 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/khai-mac-khu-trung-bay-khong-gian-sang-tao-di-san-pho-ha-noi-trao-giai-cuoc-thi-sang-tao-ip-van-hoa-tu-di-san-van-hoa-phi-vat-the-pho-ha-noi.html",
       "officialType": "Event",
       "officialDetail": "Thời gian và địa điểm tổ chức hoạt động\n08:30 - 10:30, ngày 14/11 tại Quảng trường phía Đông hồ Hoàn Kiếm\n13:30 - 16:00, ngày 14/11 tại Cửa hàng Phở Sướng, 36B Mai Hắc Đế",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "08:30",
+          "end": "10:30"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "13:30",
+          "end": "16:00"
+        }
+      ]
     },
     {
       "id": "e22",
@@ -1270,7 +1610,129 @@
       "officialType": "Exhibition",
       "officialDetail": "(English Below)\n\n“Tháp Ẩn Ca” (The Tower of Hidden Songs) là tác phẩm sắp đặt âm thanh tại Tháp nước Hàng Đậu, thuộc dự án “Hà Nội Sáng Đèn” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra từ ngày 14 đến 25/11/2026, trong các khung giờ 09:00- 12:00 và 14:00-22:00 hằng ngày.\n\nTác phẩm do Patrick Kessler, nghệ sĩ contrabass, nhà soạn nhạc và giám tuyển người Thụy Sĩ, sáng tạo và chỉ đạo nghệ thuật. Thực hành của ông trải rộng từ trình diễn, ngẫu hứng, sáng tác đến sắp đặt âm thanh, trong đó có các dự án cùng Chuchchepati Orchestra, một dàn nhạc sắp đặt mà hệ thống loa là một phần cấu thành của tác phẩm. Phần sáng tác từ các bản ghi côn trùng, cùng việc tuyển chọn và biên tập các bản ghi, do Ludwig Berger, nghệ sĩ âm thanh và nhà soạn nhạc người Đức gốc Canada, đảm nhiệm. Johannes Rühl, nhà dân tộc nhạc học và giám tuyển người Thụy Sĩ, tham gia dự án với vai trò giám tuyển và quản lý sản xuất cùng Patrick Kessler.\n\nLấy cảm hứng từ lĩnh vực nghiên cứu giao tiếp bằng rung động (biotremology), các nghệ sĩ đưa vào “Tháp Ẩn Ca” 59 bản ghi âm khoa học của 13 nhà khoa học tại 10 viện nghiên cứu thuộc 8 quốc gia và vùng lãnh thổ. Qua phần sáng tác từ các bản ghi của Ludwig Berger, những tín hiệu ấy trở thành chất liệu cho một bố cục âm thanh đa hướng. Kết hợp hiệu ứng chiếu sáng do nghệ sĩ Nguyễn Đức Phương (Phương Giò) phụ trách, hệ loa treo trong lòng tháp tạo nên một “cơn mưa âm thanh”, để những rung động mong manh, những mô thức tiết tấu và các cuộc đối thoại tinh vi của côn trùng và nhện dần hiện lên đầy mê hoặc. Các bản ghi trải dài từ những khúc song ca ve vãn đầy tinh tế cho đến các tín hiệu báo động và tự vệ, mở ra cánh cửa bước vào hệ sinh thái âm học phong phú của thế giới côn trùng.\n\nBước vào Tháp Ẩn Ca, công chúng có thể lắng nghe những sinh vật nhỏ bé theo một cách vừa quen thuộc, lại vừa mới mẻ, trải nghiệm sự kết nối thực hành khoa học với cảm nhận nghệ thuật, cảm nhận mối liên hệ của con người với thế giới tự nhiên. Hoạt động mở cửa tự do từ ngày 14 đến 25/11/2026, mỗi lượt khoảng 15 phút với 20–30 khách. Giờ tham quan hằng ngày từ 09:00–12:00 và 14:00–22:00. Riêng ngày đầu - 14/11, sau lễ khai trương (10:00), công chúng có thể vào tham quan từ 14:00.\n\nCác bản ghi khoa học được cung cấp bởi Sabina Avosani (Đại học Fribourg, Thụy Sĩ), Julien Bota (Viện Nghiên cứu Tuyết và Tuyết lở WSL SLF, Davos, Thụy Sĩ), Taina Conrad (Đại học Bayreuth, Đức), Asaf Ben David (Đại học Tel Aviv, Israel), Monika Eberhard (Đại học Hamburg, Đức), Lionel Feugère và Gabriella Gibson (Đại học Greenwich, Vương quốc Anh), Juan José López Díez, Behare Rexhepi và Meta Virant-Doberlet (Viện Sinh học Quốc gia, Slovenia), Yi-Chang Liao (Đại học Quốc gia Chung Hsing, Đài Trung, Đài Loan), Matías Muñoz (Đại học Vrije Amsterdam, Hà Lan) và Daniel Torrico (Universidad del Desarrollo, Chile).\n---\n“Tháp Ẩn Ca” (The Tower of Hidden Songs) is a sound installation at the Hang Dau Water Tower, presented as part of the “Hà Nội Sáng Đèn” (Hanoi Lights Up) project within the Hanoi Festival of Creative Design 2026. The installation runs from November 14 to 25, 2026, daily during the time slots of 9:00 AM – 12:00 PM and 2:00 PM – 10:00 PM.\nThe work is created and artistically directed by Patrick Kessler, a Swiss double bassist, composer, and curator. His practice spans performance, improvisation, composition, and sound installation, including projects with the Chuchchepati Orchestra - an installation orchestra in which the speaker system forms an integral part of the piece. The composition based on insect recordings, as well as their curation and editing, is by Ludwig Berger, a German-Canadian sound artist and composer. Johannes Rühl, a Swiss ethnomusicologist and curator, joins the project as co-curator and production manager alongside Patrick Kessler.\nUnlike humans, many insect species do not communicate through airborne sound waves, but rather through mechanical vibrations transmitted across plants, soil, water, or spiderwebs - a hidden realm of signals largely imperceptible to human ears without specialized equipment.\nInspired by the study of vibrational communication (biotremology), the artists incorporated 59 scientific recordings into the Tower of Hidden Songs, sourced from 13 researchers across 10 institutes in 8 countries and territories. Through Ludwig Berger's composition built on these recordings, the signals become raw material for a multi-directional sound environment. Enhanced by lighting design from artist Nguyen Duc Phuong (Phuong Gio), a suspended speaker system inside the tower creates a \"rain of sound\", allowing the fragile vibrations, rhythmic patterns, and intricate dialogues of insects and spiders to emerge in captivating detail. Ranging from delicate courtship duets to alarm and defense signals, the recordings offer a glimpse into the rich acoustic ecosystem of the insect world.\nStepping into the Tower of Hidden Songs, visitors can listen to tiny creatures in a way that feels both familiar and entirely new, experiencing the bridge between scientific practice and artistic expression while connecting deeply with the natural world. Admission is free from November 14 to 25, 2026, with each 15-minute visit accommodating 20–30 guests. Daily visiting hours are 9:00 AM – 12:00 PM and 2:00 PM – 10:00 PM. On opening day (November 14), following the opening ceremony at 10:00 AM, public admission will begin at 2:00 PM.\n\nThe scientific recordings were provided by Sabina Avosani (University of Fribourg, Switzerland), Julien Bota (WSL Institute for Snow and Avalanche Research SLF, Davos, Switzerland), Taina Conrad (University of Bayreuth, Germany), Asaf Ben David (Tel Aviv University, Israel), Monika Eberhard (University of Hamburg, Germany), Lionel Feugère and Gabriella Gibson (University of Greenwich, UK), Juan José López Díez, Behare Rexhepi, and Meta Virant-Doberlet (National Institute of Biology, Slovenia), Yi-Chang Liao (National Chung Hsing University, Taichung, Taiwan), Matías Muñoz (Vrije Universiteit Amsterdam, Netherlands), and Daniel Torrico (Universidad del Desarrollo, Chile).\n\n#HFCD2026 #lehoithietkesangtaohanoi #HanoiCreativeCity #ThangLongKeNghe",
       "officialVenueAddress": "Phố Hàng Đậu, Phường Ba Đình, Hà Nội",
-      "officialVenue": "Tháp nước Hàng Đậu"
+      "officialVenue": "Tháp nước Hàng Đậu",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "14:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "14:00",
+          "end": "22:00"
+        }
+      ]
     },
     {
       "id": "e32",
@@ -1643,7 +2105,16 @@
       "number": 49,
       "date": "2026-11-14",
       "dateEnd": "2026-11-22",
-      "days": null,
+      "days": [
+        "2026-11-14",
+        "2026-11-15",
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19",
+        "2026-11-20",
+        "2026-11-21",
+        "2026-11-22"
+      ],
       "title": "Trung tâm Thiên nhiên Lưu động",
       "placeId": "p06",
       "clusterId": "g4",
@@ -1658,7 +2129,49 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trung-tam-thien-nhien-luu-dong.html",
       "officialType": "Community",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: 9:00 - 22:00, từ ngày 14/11 đến 15/11/2026\nvà 9:00 - 21:00, từ ngày 17/11 đến 22/11/2026\nĐịa điểm: \n14/11 đến 15/11 tại Hồ Hoàn Kiếm\n17/11 đến 22/11 tại Công viên Thống nhất",
-      "officialVenue": "Công viên Thống Nhất"
+      "officialVenue": "Công viên Thống Nhất",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "09:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "09:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "09:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "09:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "09:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "09:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "09:00",
+          "end": "21:00"
+        }
+      ]
     },
     {
       "id": "e50",
@@ -2057,8 +2570,8 @@
       "title": "Trình diễn \"Âm nhạc xứ Mường\"",
       "placeId": "p05",
       "clusterId": "g1",
-      "startTime": "19:00",
-      "endTime": "08:30",
+      "startTime": "15:00",
+      "endTime": "18:30",
       "spotlight": false,
       "tags": [
         "trình diễn",
@@ -2068,7 +2581,19 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/dem-nhac-muong-am-vang-xu-muong.html",
       "officialType": "Performance",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: 15:00 - 17:00 (Diễu hành quanh hồ), 17:00 - 18:30 (Biểu diễn tại sân khấu) \nĐịa điểm: Hồ Hoàn Kiếm, Hà Nội",
-      "officialVenue": "Quảng trường Sáng tạo"
+      "officialVenue": "Quảng trường Sáng tạo",
+      "slots": [
+        {
+          "date": "2026-11-14",
+          "start": "15:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-14",
+          "start": "17:00",
+          "end": "18:30"
+        }
+      ]
     },
     {
       "id": "e69",
@@ -2109,7 +2634,79 @@
       "officialType": "Exhibition",
       "officialSummary": "Triển lãm \"Vén Lớp Hoạ Điệp\" kết nối di sản tranh Đông Hồ với câu chuyện về lao động, sự ghi nhận và bình đẳng. Triển lãm được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, đồng thời là hoạt động trọng tâm của Tuần lễ Giới 2026.",
       "officialDetail": "Lúc 14:00 ngày 15/11/2026, Hội quán Phúc Kiến, số 40 Lãn Ông, Hà Nội sẽ khai mạc không gian sắp đặt và tương tác “Vén lớp hoạ điệp”, mở cửa đến 30/11, từ 08:00 - 20:00 hằng ngày, mở cửa sớm có giới hạn từ 17:00 - 20:00 ngày 15/11. Được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, thuộc chuỗi hoạt động Dấu Phố, chương trình đồng thời là hoạt động trọng tâm của Tuần lễ Giới 2026, kết nối di sản tranh Đông Hồ với câu chuyện về lao động, sự ghi nhận và bình đẳng.\nTrong không gian hội quán xưa, tranh dân gian Đông Hồ nguyên bản và những dụng cụ làm tranh của nghệ nhân được đặt cạnh các sáng tác đương đại cùng chung nguồn cảm hứng. Phạm Thuỷ Tiên góp mặt với “Nở rộ”, sắp đặt giấy dó và hoa đỏ; “Vô diện”, hình nhân bồi giấy dó để khách viết lên giấy điệp rồi dán lên đèn; cùng “Thiên hạ thái bình”. Bên cạnh là “Ván mới”, 7 tranh kỹ thuật số của Nguyễn Hoàng Anh; “Đối thoại” của Minh Nguyễn trên mâm gỗ cũ; “Khác biệt hoàn toàn”, sắp đặt giấy điệp của Trịnh Ngọc Lê; bộ 9 tranh của Nguyễn Thị Tuệ Thư và tác phẩm của Nguyễn Thanh Xuân, Hoàng Phạm. Qua giấy dó, lụa, giấy in, ảnh chụp và tượng thạch cao, những hình ảnh về đời sống, niềm tin và ước vọng của người dân Đồng bằng Bắc Bộ được kể lại bằng ngôn ngữ hôm nay.\nMột bức tranh Đông Hồ là nhiều lớp chồng lên nhau: Lớp điệp quét lên giấy, lớp màu in qua từng bản khắc, và công sức của bao người trong gia đình, trong làng nghề. “Vén lớp hoạ điệp” mời người xem lật giở những lớp ấy, để thấy những đóng góp nằm sau một tác phẩm hoàn thiện. Ở đây, người xem được viết, được dán, được góp tay vào tác phẩm, và từ câu chuyện lao động tập thể, nhìn lại những công việc thầm lặng ít khi được ghi nhận.\nTuần lễ Giới 2026 do ECUE-VGEM và Nhà Nhiều Cột đồng tổ chức. Trong mạch hoạt động văn hóa, nghệ thuật và đối thoại cộng đồng ấy, “Vén lớp hoạ điệp” là lời mời nhìn lại cách chúng ta chia sẻ trách nhiệm, quan tâm và ghi nhận đóng góp của nhau, để gia đình, nơi làm việc và cộng đồng trở nên bình đẳng hơn.\n--\nAt 14:00 on 15 November 2026, Phúc Kiến Assembly Hall, 40 Lãn Ông, Hanoi, opens the installation and interactive space “Vén lớp hoạ điệp” (Unveiling the Layers), running until November 30, open daily from 08:00 - 20:00. Held within the framework of the Hanoi Festival of Creative Design 2026 as part of the Dấu Phố programme, it is also a central activity of Gender Week 2026, connecting Đông Hồ folk painting heritage with questions of labour, recognition and equality.\nWithin the old assembly hall, original Đông Hồ folk prints and the tools of the artisans who made them sit beside contemporary works drawn from the same source. Phạm Thuỷ Tiên presents “Nở rộ” (Blooming), an installation of dó paper and red flowers; “Vô diện” (Faceless), a dó-paper figure on which visitors write on shell-powder paper and attach their notes to the lantern; and “Thiên hạ thái bình”. Alongside them are “Ván mới” (A New Meaning), seven digital paintings by Nguyễn Hoàng Anh; “Đối thoại” (Dialogue) by Minh Nguyễn on an old wooden tray; “Khác biệt hoàn toàn”, a shell-powder paper installation by Trịnh Ngọc Lê; a series of nine paintings by Nguyễn Thị Tuệ Thư; and works by Nguyễn Thanh Xuân and Hoàng Phạm. Through dó paper, silk, printing paper, photography and plaster sculpture, images of the lives, beliefs and hopes of people in the Red River Delta are retold in today's language.\nA Đông Hồ painting is made of many layers: the shell-powder coat brushed onto paper, the colours printed from each woodblock, and the effort of many hands across families and craft villages. “Vén lớp hoạ điệp” invites visitors to peel back those layers and see the contributions behind a finished work. Here, visitors write, attach and add their own hand to the works, and through a story of collective labour, look again at invisible forms of work that are rarely acknowledged.\nGender Week 2026 is jointly organised by the ECUE-VGEM and Nhà Nhiều Cột. Within this programme of culture, art and community dialogue, “Vén lớp hoạ điệp” is an invitation to reconsider how we share responsibilities, care for one another and recognise each other's contributions, so that families, workplaces and communities can become more gender-equal.",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-15",
+          "start": "17:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "08:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "08:00",
+          "end": "20:00"
+        }
+      ]
     },
     {
       "id": "e71",
@@ -2131,7 +2728,179 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trung-bay-nghe-det-va-san-pham-lua-truyen-thong.html",
       "officialType": "Exhibition",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 15/11 đến 28/11/2026\n19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật\nĐịa điểm: Đình Yên Thái, 8 Tạm Thương",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-15",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-16",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "19:00",
+          "end": "22:00"
+        }
+      ]
     },
     {
       "id": "e72",
@@ -2168,8 +2937,8 @@
       "title": "Chuỗi workshop \"Vẫn Ở Đây\"",
       "placeId": "p06",
       "clusterId": "g4",
-      "startTime": "09:00",
-      "endTime": "09:45",
+      "startTime": "08:00",
+      "endTime": "17:45",
       "spotlight": false,
       "tags": [
         "workshop",
@@ -2179,7 +2948,29 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/chuoi-workshop-van-o-day.html",
       "officialType": "Workshop",
       "officialDetail": "Thông tin chi tiết về chuỗi workshop\n1. Thời gian\nĐất Mẹ: 09:00 đến 11:00 ngày 15/11\nYoga chánh niệm: 16:00 đến 17:45 ngày 15/11\nVọng tiếng xưa nay: 09:00 đến 11:00 ngày 21/11\nYoga cười: 08:00 đến 09:45 ngày 22/11\n2. Địa điểm\nCông viên Thống nhất: bãi cỏ bên trái tượng đài Nguyễn Văn Trỗi (Đất Mẹ, Yoga); Pavilion Mây (Vọng tiếng xưa nay)",
-      "officialVenue": "Công viên Thống Nhất"
+      "officialVenue": "Công viên Thống Nhất",
+      "slots": [
+        {
+          "date": "2026-11-15",
+          "start": "09:00",
+          "end": "11:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "16:00",
+          "end": "17:45"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "11:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "09:45"
+        }
+      ]
     },
     {
       "id": "e74",
@@ -2193,8 +2984,8 @@
       "title": "Workshop nhuộm khăn lụa tơ tằm \"Màu của nắng\"",
       "placeId": "p41",
       "clusterId": "g3",
-      "startTime": "09:00",
-      "endTime": "17:30",
+      "startTime": "08:00",
+      "endTime": "22:00",
       "spotlight": false,
       "tags": [
         "workshop",
@@ -2204,7 +2995,39 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-nhuom-khan-lua-to-tam-mau-cua-nang.html",
       "officialType": "Workshop",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian\n08:00 - 12:00 và 13:30 - 17:30 từ ngày 15/11 đến 28/11/2026\n19:00 đến 22:00 các tối thứ 6, thứ 7, Chủ nhật\nĐịa điểm: Đình Yên Thái, 8 Tạm Thương",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-15",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-15",
+          "start": "19:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "08:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "13:30",
+          "end": "17:30"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "19:00",
+          "end": "22:00"
+        }
+      ]
     },
     {
       "id": "e75",
@@ -2284,7 +3107,7 @@
       "title": "Chuỗi \"Gặp nghệ sĩ\" triển lãm \"Mạch sống vô hình\"",
       "placeId": "p42",
       "clusterId": "g1",
-      "startTime": "14:00",
+      "startTime": "10:00",
       "endTime": "16:00",
       "spotlight": false,
       "tags": [
@@ -2295,7 +3118,24 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/chuoi-gap-nghe-si-trien-lam-mach-song-vo-hinh.html",
       "officialType": "Event",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: \nBuổi 1: 14:00 đến 16:00 ngày 15/11, nghệ sĩ Ngô Đình Bảo Châu và Kiều LamBuổi 2: 10:00 đến 12:00 ngày 22/11, nghệ sĩ Fustic. và Phạm Ngọc Lân\nBuổi 3: 14:00 đến 16:00 ngày 22/11, nghệ sĩ Linh San và Bách Vũ\nĐịa điểm: Tòa nhà Di sản, 24 Lý Thái Tổ",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-15",
+          "start": "14:00",
+          "end": "16:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "10:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "14:00",
+          "end": "16:00"
+        }
+      ]
     },
     {
       "id": "e79",
@@ -2544,7 +3384,7 @@
       "placeId": "p44",
       "clusterId": "g1",
       "startTime": "09:00",
-      "endTime": "18:00",
+      "endTime": "17:00",
       "spotlight": false,
       "tags": [
         "triển lãm",
@@ -2554,7 +3394,279 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trien-lam-song-cung-dong-song-tuyen-duong-sinh-thai-song-hong.html",
       "officialType": "Exhibition",
       "officialDetail": "Thông tin chi tiết về triển lãm\nThời gian: 9:00 - 12:00 và 14:00 - 17:00, từ ngày 17/11 đến ngày 13/12/2026\nĐịa điểm: Biệt thự Di sản, số 49 Trần Hưng Đạo, phường Cửa Nam, Hà Nội",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-17",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-17",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-18",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-19",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-20",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-23",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-29",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-29",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-30",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-30",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-01",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-01",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-02",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-02",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-03",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-03",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-04",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-04",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-05",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-05",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-06",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-06",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-07",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-07",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-08",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-08",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-09",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-09",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-10",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-10",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-11",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-11",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-12",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-12",
+          "start": "14:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-12-13",
+          "start": "09:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-12-13",
+          "start": "14:00",
+          "end": "17:00"
+        }
+      ]
     },
     {
       "id": "e91",
@@ -2566,7 +3678,7 @@
       "placeId": "p01",
       "clusterId": "g2",
       "startTime": "14:00",
-      "endTime": "17:00",
+      "endTime": "15:00",
       "spotlight": false,
       "tags": [
         "workshop",
@@ -2762,14 +3874,14 @@
     {
       "id": "e100",
       "number": 100,
-      "date": "2026-11-19",
-      "dateEnd": "2026-11-19",
+      "date": "2026-11-18",
+      "dateEnd": "2026-11-18",
       "days": null,
       "title": "Điền dã “Gió Gió Mây Mây”",
       "placeId": "p19",
       "clusterId": "g5",
-      "startTime": "07:00",
-      "endTime": "20:30",
+      "startTime": "19:30",
+      "endTime": "20:00",
       "spotlight": false,
       "tags": [
         "sự kiện",
@@ -3049,15 +4161,12 @@
       "number": 113,
       "date": "2026-11-21",
       "dateEnd": "2026-11-22",
-      "days": [
-        "2026-11-21",
-        "2026-11-22"
-      ],
+      "days": null,
       "title": "Lễ hội xe và đam mê 2026",
       "placeId": "p46",
       "clusterId": "g5",
-      "startTime": "09:00",
-      "endTime": "10:00",
+      "startTime": "08:00",
+      "endTime": "22:00",
       "spotlight": false,
       "tags": [
         "sự kiện",
@@ -3067,7 +4176,19 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/le-hoi-xe-va-dam-me-2026.html",
       "officialType": "Event",
       "officialDetail": "Thời gian: \n09:00 - 22:00 ngày 21/11/2026\n08:00 - 10:00 ngày 22/11/2026\n\nĐịa điểm: Làng Văn hóa Du lịch các dân tộc Việt Nam, Đồng Mô, Sơn Tây",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "22:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "08:00",
+          "end": "10:00"
+        }
+      ]
     },
     {
       "id": "e114",
@@ -3092,15 +4213,12 @@
       "number": 115,
       "date": "2026-11-21",
       "dateEnd": "2026-11-22",
-      "days": [
-        "2026-11-21",
-        "2026-11-22"
-      ],
+      "days": null,
       "title": "Workshop \"Vẽ tranh lụa truyền thống\"",
       "placeId": "p41",
       "clusterId": "g3",
       "startTime": "09:00",
-      "endTime": "11:30",
+      "endTime": "16:30",
       "spotlight": false,
       "tags": [
         "workshop",
@@ -3110,7 +4228,24 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-ve-tranh-lua-truyen-thong.html",
       "officialType": "Workshop",
       "officialDetail": "Thời gian tổ chức\n09:00 - 11:30 và 14:00 - 16:30 ngày 21/11/2026\n09:00 - 11:30 ngày 22/11/2026\n\nĐịa điểm: Đình Yên Thái, 8 Tạm Thương",
-      "officialVenue": "Đền và Di tích Phố Cổ"
+      "officialVenue": "Đền và Di tích Phố Cổ",
+      "slots": [
+        {
+          "date": "2026-11-21",
+          "start": "09:00",
+          "end": "11:30"
+        },
+        {
+          "date": "2026-11-21",
+          "start": "14:00",
+          "end": "16:30"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "09:00",
+          "end": "11:30"
+        }
+      ]
     },
     {
       "id": "e116",
@@ -3190,13 +4325,17 @@
       "days": [
         "2026-11-21",
         "2026-11-22",
+        "2026-11-24",
+        "2026-11-25",
+        "2026-11-26",
+        "2026-11-27",
         "2026-11-28"
       ],
       "title": "Nhiếp ảnh bảng ướt Pop-up Studio",
       "placeId": "p32",
       "clusterId": "g4",
       "startTime": "10:00",
-      "endTime": "14:00",
+      "endTime": "20:00",
       "spotlight": false,
       "tags": [
         "triển lãm",
@@ -3206,7 +4345,44 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/nhiep-anh-bang-uot-pop-up-studio.html",
       "officialType": "Exhibition",
       "officialDetail": "Sự kiện thuộc chuỗi COMPLEX Fest 2026 \"Đồng Điệu Đa Tần\"\nThông tin chi tiết:\nThời gian: 10:00 - 20:00 ngày 21/11, 22/11 và 28/11/202614:00 - 20:00 từ ngày 24/11 đến 27/11/2026\nĐịa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-21",
+          "start": "10:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "10:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "14:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-25",
+          "start": "14:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "14:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "14:00",
+          "end": "20:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "10:00",
+          "end": "20:00"
+        }
+      ]
     },
     {
       "id": "e120",
@@ -3319,12 +4495,13 @@
       "id": "e125",
       "number": 125,
       "date": "2026-11-21",
-      "dateEnd": "2026-11-26",
+      "dateEnd": "2026-11-27",
       "days": [
         "2026-11-21",
         "2026-11-22",
         "2026-11-24",
-        "2026-11-26"
+        "2026-11-26",
+        "2026-11-27"
       ],
       "title": "Chiếu phim và Giao lưu về Nghệ thuật biểu diễn truyền thống",
       "placeId": "p32",
@@ -3341,7 +4518,34 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/chieu-phim-va-giao-luu-ve-nghe-thuat-bieu-dien-truyen-thong.html",
       "officialType": "Performance, Talk",
       "officialDetail": "Sự kiện thuộc chuỗi COMPLEX Fest 2026 \"Đồng Điệu Đa Tần\" \n\nThông tin chi tiết về sự kiện: Thời gian: 15:00 - 17:00, ngày 21/11 và 22/11/2026\n19:00 - 21:00, ngày 24/11 và 26/11/2026\n19:30 - 21:30, ngày 27/11/2026\nĐịa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-21",
+          "start": "15:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "15:00",
+          "end": "17:00"
+        },
+        {
+          "date": "2026-11-24",
+          "start": "19:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-26",
+          "start": "19:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-27",
+          "start": "19:30",
+          "end": "21:30"
+        }
+      ]
     },
     {
       "id": "e126",
@@ -3514,7 +4718,19 @@
       "officialType": "Performance",
       "officialDetail": "Thông tin chi tiết về sự kiện\nThời gian: 11:00 - 12:00 và 14:00 -16:00, ngày 22/11/2026\nĐịa điểm: Xuất phát và kết thúc tại Đài phun nước, khu vực trung tâm Chợ Đồng Xuân",
       "officialVenueAddress": "Hà Nội",
-      "officialVenue": "Chợ Đồng Xuân"
+      "officialVenue": "Chợ Đồng Xuân",
+      "slots": [
+        {
+          "date": "2026-11-22",
+          "start": "11:00",
+          "end": "12:00"
+        },
+        {
+          "date": "2026-11-22",
+          "start": "14:00",
+          "end": "16:00"
+        }
+      ]
     },
     {
       "id": "e134",
@@ -3598,7 +4814,19 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/street-jazz.html",
       "officialType": "Performance",
       "officialDetail": "Bước ra khỏi những phòng nhạc truyền thống, Street Jazz mang tinh thần phóng khoáng của nhạc jazz đến thẳng trái tim náo nhiệt của thành phố. Sự kết hợp sáng tạo cùng Hanoi Blues Note giúp chươnng trình mang đến một khía cạnh mới mẻ, trẻ trung và đầy năng lượng của jazz, nơi các âm điệu đương đại hoà quyện mượt mà với Funk, Hip-Hop và World Music. Với sự góp mặt của các ban nhạc trẻ đầy năng động, các buổi biểu diễn ngoài trời này phá vỡ ranh giới giữa sân khấu và khán giả - biến quảng trường đô thị thành một lễ hội tương tác tôn vinh nhịp sống đô thị sôi động. \n\nThông tin chi tiết về các sự kiện\nStreet Jazz | The Phocal \nThời gian: 20:00 - 21:00, ngày 22/11/2026\nĐịa điểm: Quảng trường Lotte Center Hanoi, 54 Liễu Giai \n\nStreet Jazz | Band Dattie & Thuỳ Linh\nThời gian: 22:00 - 23:00, ngày 28/11/2026\nĐịa điểm: Không gian triển lãm Galerie Futur, tầng 2 Lotte Department Store, 54 Liễu Giai \n\nStreet Jazz | Bidband\nThời gian: 20:00 - 21:00, ngày 29/11/2026\nĐịa điểm: Cổng Đào Tấn, Lotte Department Store, 54 Liễu Giai",
-      "officialVenue": "Địa điểm cộng hưởng"
+      "officialVenue": "Địa điểm cộng hưởng",
+      "slots": [
+        {
+          "date": "2026-11-22",
+          "start": "20:00",
+          "end": "21:00"
+        },
+        {
+          "date": "2026-11-28",
+          "start": "22:00",
+          "end": "23:00"
+        }
+      ]
     },
     {
       "id": "e138",
@@ -3944,8 +5172,8 @@
       "title": "Gala bế mạc “Hà Nội Những Vang Động”",
       "placeId": "p01",
       "clusterId": "g2",
-      "startTime": "19:00",
-      "endTime": "21:00",
+      "startTime": "19:30",
+      "endTime": "21:30",
       "spotlight": false,
       "tags": [
         "sự kiện",

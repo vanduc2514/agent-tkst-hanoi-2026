@@ -52,6 +52,11 @@ block it falls back to reading `events.json` from the same folder, so no build i
 
 - Schedule, descriptions and links come from the organiser's official site,
   <https://lehoithietkesangtao.vn>.
+- Playing times are curated per date in `events.json` (`slots`) wherever the organiser's
+  write-up splits a day into two blocks, changes the window per date, or lists separate
+  sessions. `node tools/apply-time-slots.mjs` reapplies that curation, and `--check` verifies
+  it. Four activities (e62, e102, e105, e140) publish no time text at all, so they keep the
+  listing values.
 - Basemap: [OpenFreeMap](https://openfreemap.org) with data ©
   [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 - This is a community project, not an official festival site.

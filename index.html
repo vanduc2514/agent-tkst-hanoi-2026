@@ -328,6 +328,11 @@
     .detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 13px; border-top: 1px solid #eef2ef; }
     .detail-actions .small-button, .detail-actions .directions-button { min-height: 39px; font-size: 10.5px; }
     .detail-actions .small-button.saved { border-color: #d5e8dc; color: #237148; background: #f1f8f3; }
+    .detail-times { margin-top: 13px; border: 1px solid #e8eee9; border-radius: 10px; padding: 10px 12px; background: #fbfdfb; }
+    .detail-times-title { margin: 0 0 7px; color: #47584f; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .detail-times-title i { margin-right: 5px; color: var(--green); }
+    .detail-times-row { display: flex; justify-content: space-between; gap: 10px; margin: 0; padding: 3px 0; color: #6d7a74; font-size: 10.5px; line-height: 1.45; }
+    .detail-times-row strong { color: #34443d; font-weight: 700; text-align: right; }
     .detail-note { margin: 11px 0 0; color: #98a29d; font-size: 9px; line-height: 1.55; }
     .map-area.detail-open .maplibregl-ctrl-group { opacity: 0; pointer-events: none; }
     .maplibregl-ctrl-location { display: grid; place-items: center; color: #52605a; background-image: none; font-size: 13px; }
@@ -658,13 +663,44 @@
         return events.filter((event) => happensOn(event, date));
       }
 
+      // Slots are the fine-grained playing times for one date. Events without them open
+      // for the whole startTime-endTime window; curated events carry two blocks a day
+      // (with a lunch break) or a different window on each date.
+      function eventSlotsOn(event, date) {
+        if (event.slots && event.slots.length) {
+          return event.slots
+            .filter((slot) => slot.date === date)
+            .map((slot) => [slot.start, slot.end]);
+        }
+        return happensOn(event, date) ? [[event.startTime, event.endTime]] : [];
+      }
+
+      const slotClose = (end) => (end === "00:00" ? "23:59" : end);
+
       // Live mode keeps only what a visitor can still reach today: events that are on
       // now and have not finished yet, using Hanoi wall-clock time.
       function eventOpenNow(event, now) {
         if (!happensOn(event, now.date)) return false;
-        if (event.startTime === "00:00" && event.endTime === "00:00") return true;
-        const end = event.endTime === "00:00" ? "23:59" : event.endTime;
-        return now.time < end;
+        return eventSlotsOn(event, now.date).some(([start, end]) => {
+          if (start === "00:00" && end === "00:00") return true;
+          return now.time < slotClose(end);
+        });
+      }
+
+      // "08:00-12:00, 13:30-17:30" for the whole event, with a note when the blocks
+      // change from day to day.
+      function eventTimeLabel(event, date) {
+        if (!event.slots || !event.slots.length) return `${event.startTime}–${event.endTime}`;
+        const rangesFor = (day) => event.slots
+          .filter((slot) => slot.date === day)
+          .map((slot) => `${slot.start}–${slot.end}`)
+          .sort()
+          .join(", ");
+        if (date) return rangesFor(date) || `${event.startTime}–${event.endTime}`;
+        const days = [...new Set(event.slots.map((slot) => slot.date))];
+        const patterns = new Set(days.map(rangesFor));
+        const ranges = [...new Set(event.slots.map((slot) => `${slot.start}–${slot.end}`))].sort();
+        return patterns.size > 1 ? `${ranges.join(", ")} (theo ngày)` : ranges.join(", ");
       }
 
       // Vietnamese search tolerates missing diacritics: "trien lam" has to find
@@ -708,6 +744,7 @@
           event.officialDetail || "",
           event.startTime,
           event.endTime,
+          ...(event.slots || []).flatMap((slot) => [slot.date, slot.start, slot.end]),
           dateText,
           event.spotlight ? "suất đặc biệt spotlight" : "",
           ...(event.tags || []),
@@ -899,13 +936,40 @@
         }
 
         // "/" marks events that only run on the listed days, "–" marks an unbroken run.
+        // One row per distinct time pattern, used by the enlarged detail panel and the
+        // "Thời gian" block on the card. Lives inside init() because it formats dates.
+        function eventTimeRows(event) {
+          const schedule = event.days ? formatDayList(event.days) : (event.dateEnd !== event.date
+            ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}`
+            : formatLongDate(event.date));
+          if (!event.slots || !event.slots.length) {
+            return [{ when: schedule, time: eventTimeLabel(event) }];
+          }
+          const byDay = new Map();
+          for (const slot of event.slots) {
+            if (!byDay.has(slot.date)) byDay.set(slot.date, []);
+            byDay.get(slot.date).push(`${slot.start}–${slot.end}`);
+          }
+          const groups = new Map();
+          for (const [day, ranges] of [...byDay.entries()].sort()) {
+            const time = ranges.sort().join(", ");
+            if (!groups.has(time)) groups.set(time, []);
+            groups.get(time).push(day);
+          }
+          if (groups.size === 1) return [{ when: schedule, time: [...groups.keys()][0] }];
+          return [...groups.entries()].map(([time, days]) => ({ when: formatDayList(days), time }));
+        }
+
         function scheduleLabel(event, withTime = true) {
-          const time = withTime ? ` · ${event.startTime}—${event.endTime}` : "";
+          const time = withTime ? ` · ${eventTimeLabel(event)}` : "";
           if (event.days) return `${formatDayList(event.days)}${time}`;
           if (event.dateEnd !== event.date) {
-            return `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}${withTime ? ` · ${event.startTime}—${event.endTime} hằng ngày` : ""}`;
+            const suffix = !withTime ? "" : (event.slots && event.slots.length
+              ? ` · ${eventTimeLabel(event)}`
+              : ` · ${eventTimeLabel(event)} hằng ngày`);
+            return `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}${suffix}`;
           }
-          return `${formatDate(event.date)}${time}`;
+          return `${formatDate(event.date)}${event.slots && event.slots.length ? ` · ${eventTimeLabel(event, event.date)}` : time}`;
         }
 
         function showToast(message) {
@@ -1040,7 +1104,7 @@
           const pin = host.firstElementChild;
           pin.setAttribute("aria-label", event.title);
           pin.title = event.title;
-          const hoverHtml = `<strong>${escapeHtml(event.title)}</strong><br><span>${event.startTime}–${event.endTime} · ${escapeHtml(place.name)}</span>`;
+          const hoverHtml = `<strong>${escapeHtml(event.title)}</strong><br><span>${escapeHtml(eventTimeLabel(event))} · ${escapeHtml(place.name)}</span>`;
           const activate = () => {
             suppressMapCloseUntil = performance.now() + 450;
             hideHoverPopup();
@@ -1379,8 +1443,9 @@
         function moreInfoHtml(event) {
           const place = placesById[event.placeId];
           const blocks = [];
-          const schedule = event.days ? formatDayList(event.days) : (event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date));
-          blocks.push(`<p><span class="event-more-label">Thời gian:</span> ${escapeHtml(schedule)} · ${escapeHtml(event.startTime)} – ${escapeHtml(event.endTime)}</p>`);
+          for (const row of eventTimeRows(event)) {
+            blocks.push(`<p><span class="event-more-label">Thời gian:</span> ${escapeHtml(row.when)} · ${escapeHtml(row.time)}</p>`);
+          }
           if (place.address) {
             blocks.push(`<p><span class="event-more-label">Địa chỉ:</span> ${escapeHtml(place.address)}</p>`);
           }
@@ -1489,9 +1554,13 @@
           $("#detail-content").innerHTML = `
             <div class="detail-body">
               <div class="detail-facts">
-                <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${event.startTime} – ${event.endTime}${event.dateEnd !== event.date && !event.days ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
+                <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !(event.slots && event.slots.length) ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
                 <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(place.kind)}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>
               </div>
+              ${eventTimeRows(event).length > 1 ? `<section class="detail-times">
+                <h3 class="detail-times-title"><i class="fa-regular fa-clock"></i>Giờ mở theo ngày</h3>
+                ${eventTimeRows(event).map((row) => `<p class="detail-times-row"><span>${escapeHtml(row.when)}</span><strong>${escapeHtml(row.time)}</strong></p>`).join("")}
+              </section>` : ""}
               ${event.officialDetail || event.officialType || event.officialUrl ? `<section class="detail-official">
                 <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>Thông tin từ ban tổ chức</h3>
                 ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong>${escapeHtml(event.officialType)}</strong></p>` : ""}

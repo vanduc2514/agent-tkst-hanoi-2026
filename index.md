@@ -30,14 +30,14 @@
 | 1 | Mở xưởng nghệ sĩ "Muôn màu kẻ chợ" | Triển lãm | 2026-11-13 → 2026-11-28 | 09:00–17:00 | Hội quán Phúc Kiến, 40 Lãn Ông | Đình & Di tích Phố Cổ |
 | 2 | Pavilion "Mây" | Pavilion | 2026-11-13 → 2026-11-28 | 09:00–18:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 3 | Sắp đặt ánh sáng "THAP: SANG" | Sắp đặt | 2026-11-13 → 2027-01-30 | 09:00–22:00 | Quảng trường Lotte, 54 Liễu Giai | Điểm Vệ tinh |
-| 4 | Hội chợ hàng thủ công-thiết kế-minh họa: Chăm hoa đua nở | Sự kiện | 2026-11-13 → 2026-11-15 | 15:00–20:00 | 45 Tràng Tiền | Hồ Gươm & Tràng Tiền |
-| 5 | Pavilion Hồ Gương \| UNESCO & SOVICO vì sự phát triển bền vững | Pavilion | 2026-11-13 → 2026-11-28 | 15:29–19:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
+| 4 | Hội chợ hàng thủ công-thiết kế-minh họa: Chăm hoa đua nở | Sự kiện | 2026-11-13 → 2026-11-15 | 09:30–20:00, 09:30–21:00, 15:00–21:00 | 45 Tràng Tiền | Hồ Gươm & Tràng Tiền |
+| 5 | Pavilion Hồ Gương \| UNESCO & SOVICO vì sự phát triển bền vững | Pavilion | 2026-11-13 → 2026-11-28 | 09:00–19:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 6 | Lễ khai mạc, chương trình nghệ thuật “Thăng Long Kẻ Nghệ” | Trình diễn, Sự kiện | 2026-11-13 | 17:30–19:15 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 7 | "Sắc mưa" | Trình diễn | 2026-11-13 → 2026-11-14 | 20:00–21:00 | Nhà hát Tuổi Trẻ | Công viên Thống Nhất & Lân cận |
-| 8 | Triển lãm "Chuyện Đình Cổ Vũ" | Workshop | 2026-11-14 → 2026-11-28 | Cả ngày | Đình Cổ Vũ, 85 Hàng Gai | Đình & Di tích Phố Cổ |
+| 8 | Triển lãm "Chuyện Đình Cổ Vũ" | Workshop | 2026-11-14 → 2026-11-28 | 09:00–17:00 | Đình Cổ Vũ, 85 Hàng Gai | Đình & Di tích Phố Cổ |
 | 9 | Triển lãm "Đồng Đồng Xuân" | Triển lãm | 2026-11-14 → 2026-11-28 | 06:00–21:00 | Sân mái chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
-| 10 | Chuỗi sự kiện di sản "Chuyện Tuồng xưa, Chuyện Tuồng nay" | Sự kiện | 2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28 | 08:00–17:30 | Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ | Đình & Di tích Phố Cổ |
-| 11 | Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng" | Cộng đồng | 2026-11-14, 2026-11-21, 2026-11-27 | 08:00–17:00 | Bãi ven sông Hồng | Chợ Đồng Xuân & Hàng Đậu |
+| 10 | Chuỗi sự kiện di sản "Chuyện Tuồng xưa, Chuyện Tuồng nay" | Sự kiện | 2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28 | 08:00–12:00, 13:30–17:30, 19:00–22:00 | Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ | Đình & Di tích Phố Cổ |
+| 11 | Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng" | Cộng đồng | 2026-11-14, 2026-11-21, 2026-11-27 | 06:00–08:00, 08:00–10:00, 15:00–17:00 | Bãi ven sông Hồng | Chợ Đồng Xuân & Hàng Đậu |
 | 12 | Sắp đặt "Xe và đam mê" | Triển lãm | 2026-11-14 → 2026-11-15 | 08:00–22:00 | Cạnh Nhà hàng Thuỷ Tạ, 1 Lê Thái Tổ | Hồ Gươm & Tràng Tiền |
 | 13 | Triển lãm "Tổ nghề và Danh Nho nước Việt" | Triển lãm | 2026-11-14 → 2026-11-28 | 08:00–17:00 | Văn Miếu – Quốc Tử Giám | Điểm Vệ tinh |
 | 14 | Triển lãm MR "Ngàn năm kính kỳ qua lăng kính tem số" | Triển lãm | 2026-11-14 → 2026-11-15 | 08:00–17:30 | Bưu điện Hà Nội, 75 Đinh Tiên Hoàng | Hồ Gươm & Tràng Tiền |
@@ -45,9 +45,9 @@
 | 16 | Trưng bày "Nốt hương di sản" và các không gian di sản phố cổ | Trưng bày | 2026-11-14 → 2026-11-28 | 08:00–17:30 | 28 Hàng Buồm | Đình & Di tích Phố Cổ |
 | 17 | Trưng bày "Nốt nhạc thanh trong lòng phố thị" và tranh thêu nghệ nhân Nguyễn Thị Hằng | Trưng bày | 2026-11-14 → 2026-11-28 | 08:00–17:00 | Ngôi nhà Di sản 87 Mã Mây | Đình & Di tích Phố Cổ |
 | 18 | Trưng bày "Văn hóa Việt Nam: Tinh hoa hội tụ" | Trưng bày | 2026-11-14 → 2026-11-28 | 08:00–17:30 | 2 Lê Thái Tổ | Hồ Gươm & Tràng Tiền |
-| 19 | Trưng bày làng nghề Sơn Đồng | Triển lãm, Cộng đồng | 2026-11-14 → 2026-11-28 | 08:00–17:30 | 22 Hàng Buồm | Đình & Di tích Phố Cổ |
+| 19 | Trưng bày làng nghề Sơn Đồng | Triển lãm, Cộng đồng | 2026-11-14 → 2026-11-28 | 08:00–12:00, 13:30–17:30, 19:00–22:00 | 22 Hàng Buồm | Đình & Di tích Phố Cổ |
 | 20 | Trưng bày nghệ thuật giới thiệu sản phẩm thêu của nghệ nhân Nguyễn Thị Hằng, kết hợp các hoạt động trải nghiệm | Triển lãm | 2026-11-14 → 2026-11-28 | 08:00–17:00 | Đền và Di tích Phố Cổ | Đình & Di tích Phố Cổ |
-| 21 | Khai mạc khu trưng bày không gian sáng tạo di sản Phở Hà Nội, trao giải Cuộc thi Sáng tạo IP văn hóa từ di sản văn hóa phi vật thể "Phở" Hà Nội | Sự kiện | 2026-11-14 | 08:30–16:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
+| 21 | Khai mạc khu trưng bày không gian sáng tạo di sản Phở Hà Nội, trao giải Cuộc thi Sáng tạo IP văn hóa từ di sản văn hóa phi vật thể "Phở" Hà Nội | Sự kiện | 2026-11-14 | 08:30–10:30, 13:30–16:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 22 | "Làng Khai Cuộc" | Trải nghiệm | 2026-11-14, 2026-11-15, 2026-11-21, 2026-11-22, 2026-11-28 | 09:00–20:00 | Sân sau Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 23 | "Một chữ, 15 phút" | Triển lãm | 2026-11-14 → 2026-11-19 | 09:00–18:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 24 | "Tác phẩm "Tri Âm" thuộc Dự án "Ngỡ ngàng Hà Nội" | Triển lãm | 2026-11-14 → 2026-11-28 | 09:00–23:00 | Phố Phùng Hưng | Đình & Di tích Phố Cổ |
@@ -57,7 +57,7 @@
 | 28 | Pavilion "Kén" | Pavilion | 2026-11-14 → 2026-11-28 | 09:00–18:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 29 | Pavilion Kiến trúc và Nghệ Thuật Art Hanoi 2026 | Pavilion | 2026-11-14 → 2026-11-28 | 09:00–19:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 30 | Phiên khai mạc trưng bày "Mũi thêu, Dấu ấn Việt" | Lễ hội | 2026-11-14 | 09:00–19:00 | Nhà trưng bày 61 Tràng Tiền | Hồ Gươm & Tràng Tiền |
-| 31 | Sắp đặt âm thanh “Tháp Ẩn Ca” (The Tower of Hidden Songs) | Triển lãm | 2026-11-14 → 2026-11-25 | 09:00–22:00 | Tháp nước Hàng Đậu | Chợ Đồng Xuân & Hàng Đậu |
+| 31 | Sắp đặt âm thanh “Tháp Ẩn Ca” (The Tower of Hidden Songs) | Triển lãm | 2026-11-14 → 2026-11-25 | 09:00–12:00, 14:00–22:00 | Tháp nước Hàng Đậu | Chợ Đồng Xuân & Hàng Đậu |
 | 32 | Sắp đặt trưng bày ánh sáng "Đe đất" | Sắp đặt | 2026-11-14 → 2026-11-15 | 09:00–19:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 33 | Tác phẩm "Cà Phê Trứng" thuộc Dự án "Ngỡ ngàng Hà Nội" | Triển lãm | 2026-11-14 → 2026-11-28 | 09:00–23:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 34 | Tour di sản "Chuyện Đình Trong Phố" | Tour | 2026-11-14, 2026-11-15, 2026-11-21, 2026-11-22, 2026-11-28 | 09:00–14:00 | Các đình trong phố cổ | Đình & Di tích Phố Cổ |
@@ -75,7 +75,7 @@
 | 46 | Triển lãm "Cổng Đoài Làng Đường Lâm" | Triển lãm | 2026-11-14 → 2026-11-28 | 09:00–18:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 47 | Triển lãm "Đối thoại với tranh Hàng Trống" | Sự kiện | 2026-11-14 → 2026-11-28 | 09:00–17:00 | Đình Nam Hương, 75 Hàng Trống | Đình & Di tích Phố Cổ |
 | 48 | Triển lãm Ý tưởng Sáng tạo Hà Nội 2026 | Triển lãm | 2026-11-14 → 2026-11-28 | 09:00–18:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
-| 49 | Trung tâm Thiên nhiên Lưu động | Cộng đồng | 2026-11-14 → 2026-11-22 | 09:00–22:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
+| 49 | Trung tâm Thiên nhiên Lưu động | Cộng đồng | 2026-11-14, 2026-11-15, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22 | 09:00–21:00, 09:00–22:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 50 | Workshop "Sắc Quạt Chàng Sơn" | Workshop | 2026-11-14, 2026-11-21 | 09:00–10:30 | Đình Xuân Phiến Thị, 4 Hàng Quạt | Đình & Di tích Phố Cổ |
 | 51 | Workshop Trải nghiệm sơn mài | Workshop | 2026-11-14 → 2026-11-28 | 09:00–17:00 | Đình Hà Vĩ, 11 Hàng Hòm | Đình & Di tích Phố Cổ |
 | 52 | Workshop Tranh khắc gỗ | Workshop | 2026-11-14, 2026-11-15, 2026-11-21, 2026-11-22, 2026-11-28 | 09:00–17:00 | Đình Cổ Vũ, 85 Hàng Gai | Đình & Di tích Phố Cổ |
@@ -94,17 +94,17 @@
 | 65 | Tour 1 "Theo dấu các phố Hàng" | Tour | 2026-11-14, 2026-11-15 | 14:00–16:30 | 50 Đào Duy Từ | Đình & Di tích Phố Cổ |
 | 66 | Trà đá Pavilion | Trao đổi | 2026-11-14, 2026-11-28 | 14:00–17:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 67 | Nhạc phục vụ cộng đồng | Trình diễn | 2026-11-14, 2026-11-18, 2026-11-19, 2026-11-21, 2026-11-22, 2026-11-23, 2026-11-25, 2026-11-26, 2026-11-28 | 18:00–18:30 | Sân mái chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
-| 68 | Trình diễn "Âm nhạc xứ Mường" | Trình diễn | 2026-11-14 | 19:00–08:30 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
+| 68 | Trình diễn "Âm nhạc xứ Mường" | Trình diễn | 2026-11-14 | 15:00–17:00, 17:00–18:30 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
 | 69 | "Xướng Khúc Khai Âm" | Trình diễn | 2026-11-14 | 20:00–22:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
-| 70 | Triển lãm "Vén Lớp Hoạ Điệp" | Triển lãm | 2026-11-15 → 2026-11-28 | 08:00–20:00 | Hội quán Phúc Kiến, 40 Lãn Ông | Đình & Di tích Phố Cổ |
-| 71 | Trưng bày nghề dệt và sản phẩm lụa truyền thống | Triển lãm | 2026-11-15 → 2026-11-28 | 08:00–22:00 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
+| 70 | Triển lãm "Vén Lớp Hoạ Điệp" | Triển lãm | 2026-11-15 → 2026-11-28 | 08:00–20:00, 17:00–20:00 | Hội quán Phúc Kiến, 40 Lãn Ông | Đình & Di tích Phố Cổ |
+| 71 | Trưng bày nghề dệt và sản phẩm lụa truyền thống | Triển lãm | 2026-11-15 → 2026-11-28 | 08:00–12:00, 13:30–17:30, 19:00–22:00 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
 | 72 | Lễ trao giải Giải thưởng Loa Thành 2026 | Sự kiện | 2026-11-15 | 08:30–10:30 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
-| 73 | Chuỗi workshop "Vẫn Ở Đây" | Workshop | 2026-11-15, 2026-11-21, 2026-11-22 | 09:00–09:45 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
-| 74 | Workshop nhuộm khăn lụa tơ tằm "Màu của nắng" | Workshop | 2026-11-15, 2026-11-21 | 09:00–17:30 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
+| 73 | Chuỗi workshop "Vẫn Ở Đây" | Workshop | 2026-11-15, 2026-11-21, 2026-11-22 | 08:00–09:45, 09:00–11:00, 16:00–17:45 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
+| 74 | Workshop nhuộm khăn lụa tơ tằm "Màu của nắng" | Workshop | 2026-11-15, 2026-11-21 | 08:00–12:00, 13:30–17:30, 19:00–22:00 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
 | 75 | Phiên khai mạc Craft Toolkit Hà Nội 2026 | Lễ hội | 2026-11-15 | 10:00–11:00 | 47 Tràng Tiền | Hồ Gươm & Tràng Tiền |
 | 76 | Tour Nghệ thuật "Chạm Đồng Xuân" | Tour | 2026-11-15, 2026-11-22 | 10:00–12:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 77 | Trình diễn Âm nhạc Thiếu nhi "Vũ Khúc Gieo Nhịp" | Trình diễn | 2026-11-15 | 11:00–12:00 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
-| 78 | Chuỗi "Gặp nghệ sĩ" triển lãm "Mạch sống vô hình" | Sự kiện | 2026-11-15, 2026-11-22 | 14:00–16:00 | Tòa nhà Di sản, 24 Lý Thái Tổ | Hồ Gươm & Tràng Tiền |
+| 78 | Chuỗi "Gặp nghệ sĩ" triển lãm "Mạch sống vô hình" | Sự kiện | 2026-11-15, 2026-11-22 | 10:00–12:00, 14:00–16:00 | Tòa nhà Di sản, 24 Lý Thái Tổ | Hồ Gươm & Tràng Tiền |
 | 79 | Lớp thực hành cắt giấy "Thế giới Động thực vật Tương lai" | Workshop | 2026-11-15 | 14:00–17:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 80 | "Lụa Đào Nhuộm Dáng" | Trình diễn | 2026-11-15 | 15:00–17:00 | 42 Tràng Tiền | Hồ Gươm & Tràng Tiền |
 | 81 | "Âm Hưởng Hội Tụ" | Trình diễn | 2026-11-15 | 19:30–21:30 | Quảng trường Sáng tạo | Hồ Gươm & Tràng Tiền |
@@ -116,8 +116,8 @@
 | 87 | Tọa đàm: Nghệ thuật liên ngành – Kết nối thực hành sáng tạo với chiến lược đào tạo đương đại | Tọa đàm | 2026-11-16 | 14:00–17:00 | 19 Hàng Buồm, Hoàn Kiếm | Đình & Di tích Phố Cổ |
 | 88 | Bộ hành "Phố cổ Thong dong" | Trải nghiệm | 2026-11-17, 2026-11-19, 2026-11-24 | 08:30–16:30 | Khu Phố cổ, Đồng Xuân | Đình & Di tích Phố Cổ |
 | 89 | Triển lãm "Nối miền Sáng tạo" | Triển lãm | 2026-11-17 → 2026-11-28 | 08:30–20:00 | 45 Tràng Tiền | Hồ Gươm & Tràng Tiền |
-| 90 | Triển lãm "Sống cùng dòng sông: Tuyến đường sinh thái sông Hồng" | Triển lãm | 2026-11-17 → 2026-12-13 | 09:00–18:00 | Villa 49 Trần Hưng Đạo | Hồ Gươm & Tràng Tiền |
-| 91 | Lớp thực hành "Lắng nghe sâu" | Workshop | 2026-11-17 | 14:00–17:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
+| 90 | Triển lãm "Sống cùng dòng sông: Tuyến đường sinh thái sông Hồng" | Triển lãm | 2026-11-17 → 2026-12-13 | 09:00–12:00, 14:00–17:00 | Villa 49 Trần Hưng Đạo | Hồ Gươm & Tràng Tiền |
+| 91 | Lớp thực hành "Lắng nghe sâu" | Workshop | 2026-11-17 | 14:00–15:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 92 | Yoga cộng đồng: Yoga Cười | Trải nghiệm | 2026-11-17 | 15:00–15:40 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 93 | Chiếu phim cộng đồng | Trải nghiệm | 2026-11-17, 2026-11-20, 2026-11-24, 2026-11-27 | 19:00–21:30 | Sân mái chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 94 | Trình diễn âm nhạc x Toạ đàm “Ong Bay” (Flight of the Bumblebee II) | Trình diễn | 2026-11-17 | 19:30–20:10 | Rạp Đông Đô | Đình & Di tích Phố Cổ |
@@ -126,7 +126,7 @@
 | 97 | Trao đổi chuyên môn "Khao Khát Nguyên Bản" | Tọa đàm | 2026-11-18 | 14:00–17:00 | Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ | Đình & Di tích Phố Cổ |
 | 98 | Vẽ kí họa đa chất liệu cùng HWA | Workshop | 2026-11-18, 2026-11-25 | 14:00–17:00 | Công viên Thống Nhất | Công viên Thống Nhất & Lân cận |
 | 99 | Múa đương đại “Thu Hương” | Trình diễn | 2026-11-18 | 20:00–21:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
-| 100 | Điền dã “Gió Gió Mây Mây” | Sự kiện | 2026-11-19 | 07:00–20:30 | Đình làng Triều Khúc, Thanh Liệt | Điểm Vệ tinh |
+| 100 | Điền dã “Gió Gió Mây Mây” | Sự kiện | 2026-11-18 | 19:30–20:00 | Đình làng Triều Khúc, Thanh Liệt | Điểm Vệ tinh |
 | 101 | Lớp thực hành "Trình diễn đọc và nghe sâu" | Cộng đồng | 2026-11-19 | 14:00–16:00 | Tòa nhà Di sản, 24 Lý Thái Tổ | Hồ Gươm & Tràng Tiền |
 | 102 | Trình diễn "Hoa giấy đung đưa" | Trình diễn | 2026-11-20 | 08:00–00:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 103 | Triển lãm "Hà Nội qua nét vẽ: Những góc nhìn sáng tạo giao thoa" | Triển lãm | 2026-11-20 | 09:00–18:00 | Villa 49 Trần Hưng Đạo | Hồ Gươm & Tràng Tiền |
@@ -139,19 +139,19 @@
 | 110 | Workshop 2 buổi "Màu của lá", Dự án giáo dục nghệ thuật PAI: The Living City | Workshop | 2026-11-21, 2026-11-22 | 08:30–16:30 | Đình Nam Hương, 75 Hàng Trống | Đình & Di tích Phố Cổ |
 | 111 | Design Exchange Booth | Trải nghiệm | 2026-11-21, 2026-11-22 | 09:00–18:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 112 | Hà Nội Mở 2 "Thành phố không lề" | Cộng đồng | 2026-11-21 → 2026-11-28 | 09:00–20:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
-| 113 | Lễ hội xe và đam mê 2026 | Sự kiện | 2026-11-21, 2026-11-22 | 09:00–10:00 | Làng Văn hóa các dân tộc, Đồng Mô | Điểm Vệ tinh |
+| 113 | Lễ hội xe và đam mê 2026 | Sự kiện | 2026-11-21 → 2026-11-22 | 08:00–10:00, 09:00–22:00 | Làng Văn hóa các dân tộc, Đồng Mô | Điểm Vệ tinh |
 | 114 | Trưng bày mô hình kiến trúc và talk về nhà truyền thống các dân tộc | Triển lãm | 2026-11-21 | 09:00–11:00 | Sân mái chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
-| 115 | Workshop "Vẽ tranh lụa truyền thống" | Workshop | 2026-11-21, 2026-11-22 | 09:00–11:30 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
+| 115 | Workshop "Vẽ tranh lụa truyền thống" | Workshop | 2026-11-21 → 2026-11-22 | 09:00–11:30, 14:00–16:30 | Đình Yên Thái, 8 ngõ Tạm Thương | Đình & Di tích Phố Cổ |
 | 116 | Workshop in tranh Mộc Bản 12 con giáp | Workshop | 2026-11-21, 2026-11-22 | 09:00–17:00 | Đình Nam Hương, 75 Hàng Trống | Đình & Di tích Phố Cổ |
 | 117 | Workshop in ảnh Cyanotype | Workshop | 2026-11-21, 2026-11-22 | 09:30–12:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
 | 118 | Nghề Nghệ Art Salon "Màu xưa, Sắc nay" | Triển lãm | 2026-11-21 → 2026-11-28 | 10:00–20:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
-| 119 | Nhiếp ảnh bảng ướt Pop-up Studio | Triển lãm | 2026-11-21, 2026-11-22, 2026-11-28 | 10:00–14:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
+| 119 | Nhiếp ảnh bảng ướt Pop-up Studio | Triển lãm | 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-25, 2026-11-26, 2026-11-27, 2026-11-28 | 10:00–20:00, 14:00–20:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
 | 120 | The HOP Spot: Bia thủ công và ẩm thực địa phương | Cộng đồng | 2026-11-21, 2026-11-22 | 10:00–22:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
 | 121 | Tour 2 "Khám phá những khu chợ" | Tour | 2026-11-21, 2026-11-22 | 14:00–16:30 | Chợ Châu Long | Chợ Đồng Xuân & Hàng Đậu |
 | 122 | Talkshow kết hợp workshop "Làm màu có lý" | Sự kiện | 2026-11-21 | 14:30–17:00 | 40 Tăng Bạt Hổ | Công viên Thống Nhất & Lân cận |
 | 123 | Trình diễn cộng đồng "Hà Nội sôi động" | Trình diễn | 2026-11-21, 2026-11-22 | 14:30–17:00 | Quảng trường Đông Kinh Nghĩa Thục | Hồ Gươm & Tràng Tiền |
 | 124 | Chiếu phim "Đoạn Trường Vinh Hoa" | Chiếu phim | 2026-11-21 | 15:00–17:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
-| 125 | Chiếu phim và Giao lưu về Nghệ thuật biểu diễn truyền thống | Trình diễn, Tọa đàm | 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-26 | 15:00–21:30 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
+| 125 | Chiếu phim và Giao lưu về Nghệ thuật biểu diễn truyền thống | Trình diễn, Tọa đàm | 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-26, 2026-11-27 | 15:00–17:00, 19:00–21:00, 19:30–21:30 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
 | 126 | Trình tương tác "mười thương" | Trình diễn | 2026-11-21, 2026-11-22 | 17:00–19:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 127 | Múa đương đại “Näss” | Trình diễn | 2026-11-21 | 20:00–21:40 | Nhà hát Tuổi Trẻ | Công viên Thống Nhất & Lân cận |
 | 128 | Đêm nhạc Reggae cùng Best Friend Band | Trình diễn | 2026-11-21 | 21:00–23:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
@@ -159,11 +159,11 @@
 | 130 | Trao đổi chuyên môn "Trình diễn thơ - Vượt qua đường biên chữ" | Tọa đàm | 2026-11-22 | 09:00–12:00 | Sở Văn hoá, Thể thao và Du lịch Hà Nội | Đình & Di tích Phố Cổ |
 | 131 | Trao đổi chuyên môn "Di sản tự sinh" | Tọa đàm | 2026-11-22 | 10:00–11:30 | Bảo tàng Hà Nội | Điểm Vệ tinh |
 | 132 | Diễu hành Việt phục "Bách Hoa Bộ Hạnh" | Trình diễn | 2026-11-22 | 11:00–13:00 | Quảng trường, Phố cổ | Đình & Di tích Phố Cổ |
-| 133 | Trình diễn "Dòng sông quá vãng" | Trình diễn | 2026-11-22 | 11:00–16:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
+| 133 | Trình diễn "Dòng sông quá vãng" | Trình diễn | 2026-11-22 | 11:00–12:00, 14:00–16:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 | 134 | Trao đổi chuyên môn "Cổ vật chuyển động" | Tọa đàm | 2026-11-22 | 14:00–17:00 | Bảo tàng Hà Nội | Điểm Vệ tinh |
 | 135 | Chiếu phim "Hạ Hồi" và giao lưu | Chiếu phim | 2026-11-22 | 15:00–17:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
 | 136 | Talk Thiết kế đồ đạc "Câu chuyện chiếc ghế" | Tọa đàm | 2026-11-22 | 15:00–18:00 | Sân mái chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
-| 137 | Street Jazz | Trình diễn | 2026-11-22, 2026-11-28 | 20:00–23:00 | Quảng trường Lotte, 54 Liễu Giai | Điểm Vệ tinh |
+| 137 | Street Jazz | Trình diễn | 2026-11-22, 2026-11-28 | 20:00–21:00, 22:00–23:00 | Quảng trường Lotte, 54 Liễu Giai | Điểm Vệ tinh |
 | 138 | Trình diễn “Trôi” | Trình diễn | 2026-11-22 | 20:00–22:00 | Bảo tàng Hà Nội | Điểm Vệ tinh |
 | 139 | Trình diễn âm thanh “Truyện ở chân trời mờ, mơ sự kiện” | Trình diễn | 2026-11-23 | 20:00–21:00 | Rạp Chuông Vàng | Đình & Di tích Phố Cổ |
 | 140 | Ngày Di sản SIS 2026 | Cộng đồng | 2026-11-24 | 09:00–00:00 | COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên | Công viên Thống Nhất & Lân cận |
@@ -180,7 +180,7 @@
 | 151 | Trao đổi chuyên môn "Lao động sáng tạo trong bối cảnh phát triển Công nghiệp văn hóa" | Tọa đàm | 2026-11-28 | 08:00–12:00 | Bảo tàng Hà Nội | Điểm Vệ tinh |
 | 152 | Workshop "Chợ phiên" thuộc dự án "Tò mò chuyện Trò" | Workshop | 2026-11-28 | 08:00–12:00 | Hội quán Phúc Kiến, 40 Lãn Ông | Đình & Di tích Phố Cổ |
 | 153 | Trao đổi chuyên môn "Kế thừa và kiến tạo trong phát triển kiến trúc Việt Nam" | Tọa đàm | 2026-11-28 | 08:30–12:00 | 40 Tăng Bạt Hổ | Công viên Thống Nhất & Lân cận |
-| 154 | Gala bế mạc “Hà Nội Những Vang Động” | Sự kiện, Trình diễn | 2026-11-28 | 19:00–21:00 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
+| 154 | Gala bế mạc “Hà Nội Những Vang Động” | Sự kiện, Trình diễn | 2026-11-28 | 19:30–21:30 | Chợ Đồng Xuân | Chợ Đồng Xuân & Hàng Đậu |
 
 ## Địa điểm
 
@@ -304,7 +304,7 @@
 3. Triển lãm "Chất Xưa, Chuyện Mới" — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
 4. Triển lãm "Cổng Đoài Làng Đường Lâm" — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
 5. Triển lãm Ý tưởng Sáng tạo Hà Nội 2026 — Công viên Thống Nhất (2026-11-14 → 2026-11-28)
-6. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+6. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14, 2026-11-15, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22)
 
 ### Âm thanh và ánh sáng sau giờ chiều
 
@@ -320,7 +320,7 @@
 3 điểm · phù hợp ngày 21/11
 
 1. Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng" — Bãi ven sông Hồng (2026-11-14, 2026-11-21, 2026-11-27)
-2. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+2. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14, 2026-11-15, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22)
 3. Triển lãm "Sống cùng dòng sông: Tuyến đường sinh thái sông Hồng" — Villa 49 Trần Hưng Đạo (2026-11-17 → 2026-12-13)
 
 ### Nghệ thuật dọc phố cổ và Hồ Gươm
@@ -349,7 +349,7 @@
 
 1. "Làng Khai Cuộc" — Sân sau Chợ Đồng Xuân (2026-11-14, 2026-11-15, 2026-11-21, 2026-11-22, 2026-11-28)
 2. Gameplay "Trận Lục Bảo" — Làng Khai Cuộc và phố cổ (2026-11-14 → 2026-11-27)
-3. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14 → 2026-11-22)
+3. Trung tâm Thiên nhiên Lưu động — Công viên Thống Nhất (2026-11-14, 2026-11-15, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22)
 4. Triển lãm AR Faune "Thế giới động vật kỳ thú" — Chợ Đồng Xuân (2026-11-14 → 2026-11-28)
 
 ### Một ngày nghe và xem Hà Nội
@@ -400,7 +400,8 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 4. Hội chợ hàng thủ công-thiết kế-minh họa: Chăm hoa đua nở
-- Id: e04 · Ngày: 2026-11-13 → 2026-11-15 · Giờ: 15:00–20:00
+- Id: e04 · Ngày: 2026-11-13 → 2026-11-15 · Giờ: 09:30–20:00, 09:30–21:00, 15:00–21:00
+- Giờ theo ngày: 2026-11-13: 15:00–21:00; 2026-11-14: 09:30–21:00; 2026-11-15: 09:30–20:00
 - Địa điểm: 45 Tràng Tiền (Trung tâm triển lãm) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Sự kiện · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Hội chợ hàng thủ công – thiết kế – minh họa “Chăm hoa đua nở” (Makers Market 2026) diễn ra từ ngày 13 đến 15/11/2026 tại Nhà Thông tin Triển lãm, số 45 Tràng Tiền, Hà Nội. Do Hanoi Indie Troupe tổ chức trong khuôn khổ Lễ hội Thiết kế…
@@ -409,7 +410,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/hoi-cho-hang-thu-cong-thiet-ke-minh-hoa-cham-hoa-dua-no.html
 
 ### 5. Pavilion Hồ Gương | UNESCO & SOVICO vì sự phát triển bền vững
-- Id: e05 · Ngày: 2026-11-13 → 2026-11-28 · Giờ: 15:29–19:00
+- Id: e05 · Ngày: 2026-11-13 → 2026-11-28 · Giờ: 09:00–19:00
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Pavilion · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Pavilion “Hồ Gương” đón công chúng từ 09:00 đến 19:00 hằng ngày, từ ngày 13 đến 28/11/2026 tại cụm triển lãm Quảng trường Sáng tạo phía Đông hồ Hoàn Kiếm, Hà Nội trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026. Tác phẩm là sắp…
@@ -432,9 +433,9 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 8. Triển lãm "Chuyện Đình Cổ Vũ"
-- Id: e08 · Ngày: 2026-11-14 → 2026-11-28 · Giờ: Cả ngày
+- Id: e08 · Ngày: 2026-11-14 → 2026-11-28 · Giờ: 09:00–17:00
 - Địa điểm: Đình Cổ Vũ, 85 Hàng Gai (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
-- Loại: Workshop · Nhịp: nhiều ngày liên tục, cả ngày
+- Loại: Workshop · Nhịp: nhiều ngày liên tục, ban ngày
 - Mô tả: Triển lãm “Chuyện Đình Cổ Vũ” mở cửa từ 09:00 đến 17:00 hằng ngày, từ ngày 14 đến 28/11/2026, tại đình Cổ Vũ, 85 phố Hàng Gai, Hà Nội. Nằm trong chuỗi hoạt động của dự án “Chuyện Đình trong Phố” do nghệ sĩ Nguyễn Thế Sơn phát triển và…
 - Trích nguồn (còn nữa): (English Below) Triển lãm “Chuyện Đình Cổ Vũ” mở cửa từ 09:00 đến 17:00 hằng ngày, từ ngày 14 đến 28/11/2026, tại đình Cổ Vũ, 85 phố Hàng Gai, Hà Nội. Nằm trong chuỗi hoạt động của dự án “Chuyện Đình trong Phố” do nghệ sĩ Nguyễn Thế Sơn phát triển và giám tuyển từ năm 2024 đến nay, chương trình giới thiệu tranh khắc gỗ, ván khắc mộc bản và tranh in của các nghệ sĩ, nghệ nhân trong không gian ngôi đình giữa phố cổ.…
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
@@ -448,15 +449,16 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 10. Chuỗi sự kiện di sản "Chuyện Tuồng xưa, Chuyện Tuồng nay"
-- Id: e10 · Ngày: 2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28 · Giờ: 08:00–17:30
+- Id: e10 · Ngày: 2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28 · Giờ: 08:00–12:00, 13:30–17:30, 19:00–22:00
 - Địa điểm: Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ (Trung tâm văn hoá) · Cụm: Đình & Di tích Phố Cổ
-- Loại: Sự kiện · Nhịp: 7 ngày rời rạc, ban ngày
+- Loại: Sự kiện · Nhịp: 7 ngày rời rạc, ban ngày đến tối
 - Mô tả: 19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật Địa điểm: Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuoi-su-kien-di-san-chuyen-tuong-xua-chuyen-tuong-nay.html
 
 ### 11. Chương trình trải nghiệm "Tuyến đường sinh thái bờ vở sông Hồng"
-- Id: e11 · Ngày: 2026-11-14, 2026-11-21, 2026-11-27 · Giờ: 08:00–17:00
+- Id: e11 · Ngày: 2026-11-14, 2026-11-21, 2026-11-27 · Giờ: 06:00–08:00, 08:00–10:00, 15:00–17:00
+- Giờ theo ngày: 2026-11-14: 08:00–10:00; 2026-11-21: 06:00–08:00; 2026-11-27: 15:00–17:00
 - Địa điểm: Bãi ven sông Hồng (Không gian ven sông) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Cộng đồng · Nhịp: 3 ngày rời rạc, ban ngày
 - Mô tả: Chương trình trải nghiệm “Tuyến đường sinh thái bờ vở sông Hồng” diễn ra vào các ngày 14, 21 và 27/11/2026 tại phường Hồng Hà, Hà Nội. Do Doanh nghiệp xã hội Think Playgrounds tổ chức, hưởng ứng Lễ hội Thiết kế Sáng tạo Hà Nội 2026,…
@@ -517,9 +519,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 19. Trưng bày làng nghề Sơn Đồng
-- Id: e19 · Ngày: 2026-11-14 → 2026-11-28 · Giờ: 08:00–17:30
+- Id: e19 · Ngày: 2026-11-14 → 2026-11-28 · Giờ: 08:00–12:00, 13:30–17:30, 19:00–22:00
+- Giờ theo ngày: 2026-11-14, 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28: 08:00–12:00, 13:30–17:30, 19:00–22:00; 2026-11-16, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-23, 2026-11-24, 2026-11-25, 2026-11-26: 08:00–12:00, 13:30–17:30
 - Địa điểm: 22 Hàng Buồm (Tuyến phố di sản) · Cụm: Đình & Di tích Phố Cổ
-- Loại: Triển lãm, Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày
+- Loại: Triển lãm, Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 14/11 đến 28/11/2026 19:00 - 22:00, tối thứ 6, thứ 7, Chủ nhật Địa điểm: Trung tâm Văn hóa nghệ thuật, 22 Hàng Buồm
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-bay-lang-nghe-son-dong-van-hoa-tra-viet-va-viet-phuc.html
@@ -532,7 +535,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-bay-nghe-thuat-gioi-thieu-san-pham-theu-cua-nghe-nhan-nguyen-thi-hang-ket-hop-cac-hoat-dong-trai-nghiem.html
 
 ### 21. Khai mạc khu trưng bày không gian sáng tạo di sản Phở Hà Nội, trao giải Cuộc thi Sáng tạo IP văn hóa từ di sản văn hóa phi vật thể "Phở" Hà Nội
-- Id: e21 · Ngày: 2026-11-14 · Giờ: 08:30–16:00
+- Id: e21 · Ngày: 2026-11-14 · Giờ: 08:30–10:30, 13:30–16:00
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Sự kiện · Nhịp: một ngày, ban ngày
 - Mô tả: 08:30 - 10:30, ngày 14/11 tại Quảng trường phía Đông hồ Hoàn Kiếm 13:30 - 16:00, ngày 14/11 tại Cửa hàng Phở Sướng, 36B Mai Hắc Đế
@@ -611,7 +614,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 31. Sắp đặt âm thanh “Tháp Ẩn Ca” (The Tower of Hidden Songs)
-- Id: e31 · Ngày: 2026-11-14 → 2026-11-25 · Giờ: 09:00–22:00
+- Id: e31 · Ngày: 2026-11-14 → 2026-11-25 · Giờ: 09:00–12:00, 14:00–22:00
 - Địa điểm: Tháp nước Hàng Đậu (Di sản công nghiệp) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: “Tháp Ẩn Ca” (The Tower of Hidden Songs) là tác phẩm sắp đặt âm thanh tại Tháp nước Hàng Đậu, thuộc dự án “Hà Nội Sáng Đèn” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra từ ngày 14 đến 25/11/2026, trong các khung giờ…
@@ -760,9 +763,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 49. Trung tâm Thiên nhiên Lưu động
-- Id: e49 · Ngày: 2026-11-14 → 2026-11-22 · Giờ: 09:00–22:00
+- Id: e49 · Ngày: 2026-11-14, 2026-11-15, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22 · Giờ: 09:00–21:00, 09:00–22:00
+- Giờ theo ngày: 2026-11-14, 2026-11-15: 09:00–22:00; 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22: 09:00–21:00
 - Địa điểm: Công viên Thống Nhất (Công viên cộng đồng) · Cụm: Công viên Thống Nhất & Lân cận
-- Loại: Cộng đồng · Nhịp: nhiều ngày liên tục, ban ngày đến tối
+- Loại: Cộng đồng · Nhịp: 8 ngày rời rạc, ban ngày đến tối
 - Mô tả: 14/11 đến 15/11 tại Hồ Hoàn Kiếm 17/11 đến 22/11 tại Công viên Thống nhất
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trung-tam-thien-nhien-luu-dong.html
 
@@ -898,9 +902,9 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 68. Trình diễn "Âm nhạc xứ Mường"
-- Id: e68 · Ngày: 2026-11-14 · Giờ: 19:00–08:30
+- Id: e68 · Ngày: 2026-11-14 · Giờ: 15:00–17:00, 17:00–18:30
 - Địa điểm: Quảng trường Sáng tạo (Không gian sáng tạo) · Cụm: Hồ Gươm & Tràng Tiền
-- Loại: Trình diễn · Nhịp: một ngày, buổi tối
+- Loại: Trình diễn · Nhịp: một ngày, ban ngày đến tối
 - Mô tả: Trình diễn trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Hồ Hoàn Kiếm, Hà Nội.
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/dem-nhac-muong-am-vang-xu-muong.html
 
@@ -912,7 +916,8 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 70. Triển lãm "Vén Lớp Hoạ Điệp"
-- Id: e70 · Ngày: 2026-11-15 → 2026-11-28 · Giờ: 08:00–20:00
+- Id: e70 · Ngày: 2026-11-15 → 2026-11-28 · Giờ: 08:00–20:00, 17:00–20:00
+- Giờ theo ngày: 2026-11-15: 17:00–20:00; 2026-11-16, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-23, 2026-11-24, 2026-11-25, 2026-11-26, 2026-11-27, 2026-11-28: 08:00–20:00
 - Địa điểm: Hội quán Phúc Kiến, 40 Lãn Ông (Di tích hội quán) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: Triển lãm "Vén Lớp Hoạ Điệp" kết nối di sản tranh Đông Hồ với câu chuyện về lao động, sự ghi nhận và bình đẳng. Triển lãm được tổ chức trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, đồng thời là hoạt động trọng tâm của Tuần lễ…
@@ -921,7 +926,8 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trien-lam-ven-lop-hoa-diep.html
 
 ### 71. Trưng bày nghề dệt và sản phẩm lụa truyền thống
-- Id: e71 · Ngày: 2026-11-15 → 2026-11-28 · Giờ: 08:00–22:00
+- Id: e71 · Ngày: 2026-11-15 → 2026-11-28 · Giờ: 08:00–12:00, 13:30–17:30, 19:00–22:00
+- Giờ theo ngày: 2026-11-15, 2026-11-20, 2026-11-21, 2026-11-22, 2026-11-27, 2026-11-28: 08:00–12:00, 13:30–17:30, 19:00–22:00; 2026-11-16, 2026-11-17, 2026-11-18, 2026-11-19, 2026-11-23, 2026-11-24, 2026-11-25, 2026-11-26: 08:00–12:00, 13:30–17:30
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
 - Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30, từ ngày 15/11 đến 28/11/2026 19:00 - 22:00 tối thứ 6, thứ 7, Chủ nhật Địa điểm: Đình Yên Thái, 8 Tạm Thương
@@ -936,16 +942,17 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/le-trao-giai-giai-thuong-loa-thanh-2026.html
 
 ### 73. Chuỗi workshop "Vẫn Ở Đây"
-- Id: e73 · Ngày: 2026-11-15, 2026-11-21, 2026-11-22 · Giờ: 09:00–09:45
+- Id: e73 · Ngày: 2026-11-15, 2026-11-21, 2026-11-22 · Giờ: 08:00–09:45, 09:00–11:00, 16:00–17:45
+- Giờ theo ngày: 2026-11-15: 09:00–11:00, 16:00–17:45; 2026-11-21: 09:00–11:00; 2026-11-22: 08:00–09:45
 - Địa điểm: Công viên Thống Nhất (Công viên cộng đồng) · Cụm: Công viên Thống Nhất & Lân cận
 - Loại: Workshop · Nhịp: 3 ngày rời rạc, ban ngày
 - Mô tả: Đất Mẹ: 09:00 đến 11:00 ngày 15/11 Yoga chánh niệm: 16:00 đến 17:45 ngày 15/11 Vọng tiếng xưa nay: 09:00 đến 11:00 ngày 21/11 Yoga cười: 08:00 đến 09:45 ngày 22/11 2. Địa điểm Công viên Thống nhất: bãi cỏ bên trái tượng đài Nguyễn Văn…
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chuoi-workshop-van-o-day.html
 
 ### 74. Workshop nhuộm khăn lụa tơ tằm "Màu của nắng"
-- Id: e74 · Ngày: 2026-11-15, 2026-11-21 · Giờ: 09:00–17:30
+- Id: e74 · Ngày: 2026-11-15, 2026-11-21 · Giờ: 08:00–12:00, 13:30–17:30, 19:00–22:00
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
-- Loại: Workshop · Nhịp: 2 ngày rời rạc, ban ngày
+- Loại: Workshop · Nhịp: 2 ngày rời rạc, ban ngày đến tối
 - Mô tả: 08:00 - 12:00 và 13:30 - 17:30 từ ngày 15/11 đến 28/11/2026 19:00 đến 22:00 các tối thứ 6, thứ 7, Chủ nhật Địa điểm: Đình Yên Thái, 8 Tạm Thương
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/workshop-nhuom-khan-lua-to-tam-mau-cua-nang.html
@@ -974,7 +981,8 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trinh-dien-am-nhac-thieu-nhi-vu-khuc-gieo-nhip.html
 
 ### 78. Chuỗi "Gặp nghệ sĩ" triển lãm "Mạch sống vô hình"
-- Id: e78 · Ngày: 2026-11-15, 2026-11-22 · Giờ: 14:00–16:00
+- Id: e78 · Ngày: 2026-11-15, 2026-11-22 · Giờ: 10:00–12:00, 14:00–16:00
+- Giờ theo ngày: 2026-11-15: 14:00–16:00; 2026-11-22: 10:00–12:00, 14:00–16:00
 - Địa điểm: Tòa nhà Di sản, 24 Lý Thái Tổ (Không gian trưng bày) · Cụm: Hồ Gươm & Tràng Tiền
 - Loại: Sự kiện · Nhịp: 2 ngày rời rạc, ban ngày
 - Mô tả: Buổi 2: 10:00 đến 12:00 ngày 22/11, nghệ sĩ Fustic. và Phạm Ngọc Lân Buổi 3: 14:00 đến 16:00 ngày 22/11, nghệ sĩ Linh San và Bách Vũ Địa điểm: Tòa nhà Di sản, 24 Lý Thái Tổ
@@ -1069,15 +1077,15 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trien-lam-noi-mien-sang-tao.html
 
 ### 90. Triển lãm "Sống cùng dòng sông: Tuyến đường sinh thái sông Hồng"
-- Id: e90 · Ngày: 2026-11-17 → 2026-12-13 · Giờ: 09:00–18:00
+- Id: e90 · Ngày: 2026-11-17 → 2026-12-13 · Giờ: 09:00–12:00, 14:00–17:00
 - Địa điểm: Villa 49 Trần Hưng Đạo (Biệt thự di sản) · Cụm: Hồ Gươm & Tràng Tiền
-- Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày đến tối
+- Loại: Triển lãm · Nhịp: nhiều ngày liên tục, ban ngày
 - Mô tả: Triển lãm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Biệt thự Di sản, số 49 Trần Hưng Đạo, phường Cửa Nam, Hà Nội.
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/trien-lam-song-cung-dong-song-tuyen-duong-sinh-thai-song-hong.html
 
 ### 91. Lớp thực hành "Lắng nghe sâu"
-- Id: e91 · Ngày: 2026-11-17 · Giờ: 14:00–17:00
+- Id: e91 · Ngày: 2026-11-17 · Giờ: 14:00–15:00
 - Địa điểm: Chợ Đồng Xuân (Chợ truyền thống) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Workshop · Nhịp: một ngày, ban ngày
 - Mô tả: Lớp thực hành “Lắng nghe sâu” của nghệ sĩ Claudia Robles-Angel (Đức) tại Chợ Đồng Xuân diễn ra vào 14:00-17:00 ngày 17/11/2026 tại Chợ Đồng Xuân. Chương trình do Heritage Art Space tổ chức trong khuôn khổ triển lãm “Chạm Đồng Xuân”,…
@@ -1146,9 +1154,9 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/mua-duong-dai-thu-huong.html
 
 ### 100. Điền dã “Gió Gió Mây Mây”
-- Id: e100 · Ngày: 2026-11-19 · Giờ: 07:00–20:30
+- Id: e100 · Ngày: 2026-11-18 · Giờ: 19:30–20:00
 - Địa điểm: Đình làng Triều Khúc, Thanh Liệt (Làng nghề truyền thống) · Cụm: Điểm Vệ tinh
-- Loại: Sự kiện · Nhịp: một ngày, ban ngày đến tối
+- Loại: Sự kiện · Nhịp: một ngày, buổi tối
 - Mô tả: “Gió Gió Mây Mây” là dự án nghiên cứu và phát triển tiềm năng của nghệ thuật sân khấu truyền thống, diễn xướng dân gian Việt Nam do Lên Ngàn khởi xướng, với Tú Hoàng đảm nhiệm biên đạo và giám tuyển. Thuộc dự án “Hà Nội Sáng Đèn”…
 - Trích nguồn (còn nữa): (English Below) “Gió Gió Mây Mây” là dự án nghiên cứu và phát triển tiềm năng của nghệ thuật sân khấu truyền thống, diễn xướng dân gian Việt Nam do Lên Ngàn khởi xướng, với Tú Hoàng đảm nhiệm biên đạo và giám tuyển. Thuộc dự án “Hà Nội Sáng Đèn” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, Gió Gió Mây Mây sẽ có buổi trình diễn độc đáo và duy nhất với thời lượng khoảng 30 phút, vào 19:30 ngày 18/11/2026, tại…
 - Khu vực theo ban tổ chức: Làng Triều Khúc
@@ -1249,9 +1257,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/ha-noi-mo-2-thanh-pho-khong-le.html
 
 ### 113. Lễ hội xe và đam mê 2026
-- Id: e113 · Ngày: 2026-11-21, 2026-11-22 · Giờ: 09:00–10:00
+- Id: e113 · Ngày: 2026-11-21 → 2026-11-22 · Giờ: 08:00–10:00, 09:00–22:00
+- Giờ theo ngày: 2026-11-21: 09:00–22:00; 2026-11-22: 08:00–10:00
 - Địa điểm: Làng Văn hóa các dân tộc, Đồng Mô (Không gian văn hoá) · Cụm: Điểm Vệ tinh
-- Loại: Sự kiện · Nhịp: 2 ngày rời rạc, ban ngày
+- Loại: Sự kiện · Nhịp: nhiều ngày liên tục, ban ngày đến tối
 - Mô tả: 09:00 - 22:00 ngày 21/11/2026 08:00 - 10:00 ngày 22/11/2026 Địa điểm: Làng Văn hóa Du lịch các dân tộc Việt Nam, Đồng Mô, Sơn Tây
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/le-hoi-xe-va-dam-me-2026.html
@@ -1264,9 +1273,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 115. Workshop "Vẽ tranh lụa truyền thống"
-- Id: e115 · Ngày: 2026-11-21, 2026-11-22 · Giờ: 09:00–11:30
+- Id: e115 · Ngày: 2026-11-21 → 2026-11-22 · Giờ: 09:00–11:30, 14:00–16:30
+- Giờ theo ngày: 2026-11-21: 09:00–11:30, 14:00–16:30; 2026-11-22: 09:00–11:30
 - Địa điểm: Đình Yên Thái, 8 ngõ Tạm Thương (Đình cổ phố cổ) · Cụm: Đình & Di tích Phố Cổ
-- Loại: Workshop · Nhịp: 2 ngày rời rạc, ban ngày
+- Loại: Workshop · Nhịp: nhiều ngày liên tục, ban ngày
 - Mô tả: 09:00 - 11:30 và 14:00 - 16:30 ngày 21/11/2026 09:00 - 11:30 ngày 22/11/2026 Địa điểm: Đình Yên Thái, 8 Tạm Thương
 - Khu vực theo ban tổ chức: Đền và Di tích Phố Cổ
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/workshop-ve-tranh-lua-truyen-thong.html
@@ -1295,9 +1305,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/nghe-nghe-art-salon-mau-xua-sac-nay.html
 
 ### 119. Nhiếp ảnh bảng ướt Pop-up Studio
-- Id: e119 · Ngày: 2026-11-21, 2026-11-22, 2026-11-28 · Giờ: 10:00–14:00
+- Id: e119 · Ngày: 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-25, 2026-11-26, 2026-11-27, 2026-11-28 · Giờ: 10:00–20:00, 14:00–20:00
+- Giờ theo ngày: 2026-11-21, 2026-11-22, 2026-11-28: 10:00–20:00; 2026-11-24, 2026-11-25, 2026-11-26, 2026-11-27: 14:00–20:00
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
-- Loại: Triển lãm · Nhịp: 3 ngày rời rạc, ban ngày
+- Loại: Triển lãm · Nhịp: 7 ngày rời rạc, ban ngày đến tối
 - Mô tả: 14:00 - 20:00 từ ngày 24/11 đến 27/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/nhiep-anh-bang-uot-pop-up-studio.html
@@ -1340,9 +1351,10 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 125. Chiếu phim và Giao lưu về Nghệ thuật biểu diễn truyền thống
-- Id: e125 · Ngày: 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-26 · Giờ: 15:00–21:30
+- Id: e125 · Ngày: 2026-11-21, 2026-11-22, 2026-11-24, 2026-11-26, 2026-11-27 · Giờ: 15:00–17:00, 19:00–21:00, 19:30–21:30
+- Giờ theo ngày: 2026-11-21, 2026-11-22: 15:00–17:00; 2026-11-24, 2026-11-26: 19:00–21:00; 2026-11-27: 19:30–21:30
 - Địa điểm: COMPLEX 01, 29 ngách 31 ngõ 167 Tây Sơn, Kim Liên (Tổ hợp sáng tạo) · Cụm: Công viên Thống Nhất & Lân cận
-- Loại: Trình diễn, Tọa đàm · Nhịp: 4 ngày rời rạc, ban ngày đến tối
+- Loại: Trình diễn, Tọa đàm · Nhịp: 5 ngày rời rạc, ban ngày đến tối
 - Mô tả: Thời gian: 15:00 - 17:00, ngày 21/11 và 22/11/2026 19:00 - 21:00, ngày 24/11 và 26/11/2026 19:30 - 21:30, ngày 27/11/2026 Địa điểm: Tổ hợp Cộng đồng COMPLEX 01, số 29 ngách 31 ngõ 167, phường Kim Liên
 - Khu vực theo ban tổ chức: Địa điểm cộng hưởng
 - Đầy đủ: https://lehoithietkesangtao.vn/su-kien/chieu-phim-va-giao-luu-ve-nghe-thuat-bieu-dien-truyen-thong.html
@@ -1401,7 +1413,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 133. Trình diễn "Dòng sông quá vãng"
-- Id: e133 · Ngày: 2026-11-22 · Giờ: 11:00–16:00
+- Id: e133 · Ngày: 2026-11-22 · Giờ: 11:00–12:00, 14:00–16:00
 - Địa điểm: Chợ Đồng Xuân (Chợ truyền thống) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Trình diễn · Nhịp: một ngày, ban ngày
 - Mô tả: Trình diễn trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Xuất phát và kết thúc tại Đài phun nước, khu vực trung tâm Chợ Đồng Xuân.
@@ -1430,7 +1442,8 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 137. Street Jazz
-- Id: e137 · Ngày: 2026-11-22, 2026-11-28 · Giờ: 20:00–23:00
+- Id: e137 · Ngày: 2026-11-22, 2026-11-28 · Giờ: 20:00–21:00, 22:00–23:00
+- Giờ theo ngày: 2026-11-22: 20:00–21:00; 2026-11-28: 22:00–23:00
 - Địa điểm: Quảng trường Lotte, 54 Liễu Giai (Không gian đô thị) · Cụm: Điểm Vệ tinh
 - Loại: Trình diễn · Nhịp: 2 ngày rời rạc, buổi tối
 - Mô tả: Bước ra khỏi những phòng nhạc truyền thống, Street Jazz mang tinh thần phóng khoáng của nhạc jazz đến thẳng trái tim náo nhiệt của thành phố. Sự kết hợp sáng tạo cùng Hanoi Blues Note giúp chươnng trình mang đến một khía cạnh mới mẻ,…
@@ -1560,7 +1573,7 @@ Bảng trên đã có ngày, giờ, địa điểm và loại hình. Phần này
 - Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này
 
 ### 154. Gala bế mạc “Hà Nội Những Vang Động”
-- Id: e154 · Ngày: 2026-11-28 · Giờ: 19:00–21:00
+- Id: e154 · Ngày: 2026-11-28 · Giờ: 19:30–21:30
 - Địa điểm: Chợ Đồng Xuân (Chợ truyền thống) · Cụm: Chợ Đồng Xuân & Hàng Đậu
 - Loại: Sự kiện, Trình diễn · Nhịp: một ngày, buổi tối
 - Mô tả: “Hà Nội, những vang động” là chương trình Gala nghệ thuật bế mạc Lễ hội Thiết kế Sáng tạo Hà Nội 2026 (19:30 - 21:30, thứ bảy, ngày 28/11/2026), tại sân khấu mặt tiền chợ Đồng Xuân. Với ý tưởng chủ đạo “Kẻ Chợ dưới vầng trăng sáng”,…

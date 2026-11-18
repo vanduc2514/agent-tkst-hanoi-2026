@@ -30,10 +30,30 @@ const oneLine = (text) => String(text ?? "").replace(/\s+/g, " ").trim();
 const cell = (text) => oneLine(text).replace(/\|/g, "\\|");
 const venue = (e) => placeById.get(e.placeId)?.name || e.officialVenue || e.placeId;
 const address = (e) => placeById.get(e.placeId)?.address || "";
-const hours = (e) =>
-  e.startTime === "00:00" && e.endTime === "00:00"
-    ? "Cả ngày"
-    : `${e.startTime}–${e.endTime}`;
+// Slots win over the flat start/end pair: they carry the two-block days and the
+// per-date windows curated in tools/apply-time-slots.mjs.
+const slotRanges = (e) => [...new Set((e.slots || []).map((s) => `${s.start}–${s.end}`))].sort();
+const hours = (e) => {
+  const ranges = slotRanges(e);
+  if (ranges.length) return ranges.join(", ");
+  return e.startTime === "00:00" && e.endTime === "00:00" ? "Cả ngày" : `${e.startTime}–${e.endTime}`;
+};
+const hoursByDay = (e) => {
+  if (!e.slots || !e.slots.length) return null;
+  const byDay = new Map();
+  for (const slot of e.slots) {
+    if (!byDay.has(slot.date)) byDay.set(slot.date, []);
+    byDay.get(slot.date).push(`${slot.start}–${slot.end}`);
+  }
+  const groups = new Map();
+  for (const [date, ranges] of [...byDay.entries()].sort()) {
+    const time = ranges.sort().join(", ");
+    if (!groups.has(time)) groups.set(time, []);
+    groups.get(time).push(date);
+  }
+  if (groups.size === 1) return null; // the table already says the same thing
+  return [...groups.entries()].map(([time, dates]) => `${dates.join(", ")}: ${time}`);
+};
 
 const TYPE_VI = {
   Exhibition: "Triển lãm",
@@ -219,6 +239,7 @@ const details = [
     return [
       `### ${e.number}. ${oneLine(e.title)}`,
       `- Id: ${e.id} · Ngày: ${formatDays(e)} · Giờ: ${hours(e)}`,
+      ...(hoursByDay(e) ? [`- Giờ theo ngày: ${hoursByDay(e).join("; ")}`] : []),
       `- Địa điểm: ${venue(e)}${place?.kind ? ` (${place.kind})` : ""} · Cụm: ${clusterName(e.clusterId)}`,
       `- Loại: ${typeLabel(e)} · Nhịp: ${pace(e)}`,
       e.spotlight ? "- Điểm nhấn: suất đặc biệt của lễ hội" : null,
