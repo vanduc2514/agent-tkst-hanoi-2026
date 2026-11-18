@@ -274,6 +274,28 @@
     .event-pin:hover .event-pin-body { transform: rotate(-45deg) scale(1.14); box-shadow: 0 5px 14px #173a2e66; }
     .event-pin.selected .event-pin-body { transform: rotate(-45deg) scale(1.16); box-shadow: 0 0 0 4px #fff, 0 0 0 7px var(--pin), 0 6px 16px #173a2e66; }
     .event-pin.in-route .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 4px 10px #173a2e66; }
+    /* Ongoing events advertise themselves with an expanding ring around the pin head.
+       The ring lives on ::before in unrotated pin space, so it stays a circle while the
+       pin body keeps its teardrop rotation, and it does not fight the box-shadow rings
+       used for the selected and in-route states. */
+    .event-pin.now-live::before {
+      position: absolute; z-index: 0; top: 37%; left: 50%; width: 30px; height: 30px;
+      border: 3px solid rgb(34 197 94 / 85%); border-radius: 50%;
+      background: rgb(34 197 94 / 10%);
+      content: ""; pointer-events: none;
+      transform: translate(-50%, -50%) scale(1);
+      animation: pin-now-ring 2.2s cubic-bezier(.2, .6, .3, 1) infinite;
+    }
+    .event-pin.now-live .event-pin-body { z-index: 1; }
+    @keyframes pin-now-ring {
+      0% { opacity: .9; transform: translate(-50%, -50%) scale(.78); }
+      70% { opacity: 0; transform: translate(-50%, -50%) scale(1.7); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.7); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .event-pin.now-live::before { animation: none; opacity: .55; }
+    }
+
     .event-pin.in-route:hover .event-pin-body,
     .event-pin.in-route.selected .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 6px 16px #173a2e66; }
     .route-badge {
@@ -382,7 +404,15 @@
     .route-list { display: grid; gap: 8px; padding: 0 20px 18px; }
     .route-item { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; border: 1px solid #e9eeeb; border-radius: 10px; padding: 9px; background: #fff; }
     .route-number { display: grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; color: #fff; background: #315d4d; font-size: 10px; font-weight: 800; }
-    .route-item-title { overflow: hidden; color: #394840; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    .route-item-title { display: flex; align-items: center; gap: 6px; overflow: hidden; color: #394840; font-size: 11px; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
+    .route-item-title > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .route-live-dot {
+      flex: none; width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+      animation: live-pulse 1.8s ease-out infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .route-live-dot { animation: none; }
+    }
     .route-item-sub { margin-top: 3px; color: #88938d; font-size: 9px; }
     .route-item-actions { display: flex; gap: 3px; }
     .route-item-actions .icon-button { min-width: 26px; width: 26px; height: 26px; padding: 0; border-radius: 6px; }
@@ -435,6 +465,7 @@
       .pin-host { width: 26px; height: 32px; }
       .event-pin { width: 26px; height: 32px; }
       .event-pin-body { width: 24px; height: 24px; }
+      .event-pin.now-live::before { width: 26px; height: 26px; border-width: 2.5px; }
       .event-pin-body > span { font-size: 9px; }
       .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -688,6 +719,14 @@
         if (!happensOn(event, now.date)) return false;
         return eventSlotsOn(event, now.date).some(([start, end]) =>
           openAllDay(start, end) || now.time < slotClose(end));
+      }
+
+      // Distinct from "still open": this is an event whose block has already started and
+      // has not finished, which is what the pin ring advertises.
+      function eventHappeningNow(event, now) {
+        if (!happensOn(event, now.date)) return false;
+        return eventSlotsOn(event, now.date).some(([start, end]) =>
+          openAllDay(start, end) || (start <= now.time && now.time < slotClose(end)));
       }
 
       // "08:00-12:00, 13:30-17:30" for the whole event, with a note when the blocks
@@ -1094,6 +1133,7 @@
             .filter(Boolean);
           renderIndividualMarkers(routeOnly.length ? [...matching, ...routeOnly] : matching);
           syncRoutePins();
+          syncLivePins();
           $("#map-status").textContent = `${matching.length} sự kiện · ${new Set(matching.map((event) => event.placeId)).size} địa điểm`;
         }
 
@@ -1683,10 +1723,12 @@
           if (!routeEvents.length) {
             list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-route"></i>Chưa có điểm dừng.<br>Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.</div>';
           } else {
+            const now = hanoiDateTime(new Date());
             list.innerHTML = routeEvents.map((event, index) => {
               const place = placesById[event.placeId];
+              const happening = eventHappeningNow(event, now);
               return `<div class="route-item" data-index="${index}">
-                <span class="route-number">${index + 1}</span><div><div class="route-item-title">${escapeHtml(event.title)}</div><div class="route-item-sub">${escapeHtml(place.name)} · ${escapeHtml(scheduleLabel(event, false))}</div></div>
+                <span class="route-number">${index + 1}</span><div><div class="route-item-title"><span>${escapeHtml(event.title)}</span>${happening ? '<i class="route-live-dot" role="img" aria-label="Đang diễn ra"></i>' : ""}</div><div class="route-item-sub">${escapeHtml(place.name)} · ${escapeHtml(scheduleLabel(event, false))}</div></div>
                 <div class="route-item-actions">
                   <button class="icon-button move-up" type="button" aria-label="Di chuyển ${escapeHtml(event.title)} lên" ${index === 0 ? "disabled" : ""}><i class="fa-solid fa-chevron-up"></i></button>
                   <button class="icon-button move-down" type="button" aria-label="Di chuyển ${escapeHtml(event.title)} xuống" ${index === routeEvents.length - 1 ? "disabled" : ""}><i class="fa-solid fa-chevron-down"></i></button>
@@ -1733,6 +1775,19 @@
           if (state.origin) coordinates.unshift([state.origin.lat, state.origin.lng]);
           const lineSource = map.getSource(routeSourceId);
           if (lineSource) lineSource.setData(routeShape(coordinates));
+        }
+
+        // Ring the pins of events that are playing right now. Runs after every marker
+        // render and on each live refresh, so the ring follows the clock and is present
+        // on the route tab as well, because both views share the same pins.
+        function syncLivePins() {
+          const now = hanoiDateTime(new Date());
+          markerByEvent.forEach((marker, eventId) => {
+            const pin = pinElement(marker);
+            if (!pin) return;
+            const event = eventById[eventId];
+            pin.classList.toggle("now-live", !!event && eventHappeningNow(event, now));
+          });
         }
 
         // Reuse the event pins for the route: mark the pins already on the map and add
