@@ -21,6 +21,7 @@ const { festival, clusters, places, events, presets } = data;
 const placeById = new Map(places.map((p) => [p.id, p]));
 const clusterName = (id) => clusters[id]?.name ?? id;
 const eventById = new Map(events.map((e) => [e.id, e]));
+const eventCount = events.length;
 
 const formatDate = (start, end) =>
   end && end !== start ? `${start} → ${end}` : start;
@@ -290,6 +291,11 @@ await writeFile(join(root, "llms.txt"), llms, "utf8");
 {
   const htmlPath = join(root, "index.html");
   const html = await readFile(htmlPath, "utf8");
+  const meta = [
+    "<!-- agent-hint:meta:start -->",
+    `  <meta name="description" content="Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026 — ${eventCount} hoạt động từ lịch chính thức, địa điểm và gợi ý tuyến.">`,
+    "  <!-- agent-hint:meta:end -->",
+  ].join("\n");
   const head = [
     "<!-- agent-hint:head:start -->",
     `  <link rel="alternate" type="text/markdown" href="${abs("index.md")}" title="Toàn bộ lịch lễ hội ở dạng Markdown">`,
@@ -299,7 +305,7 @@ await writeFile(join(root, "llms.txt"), llms, "utf8");
   const body = [
     "<!-- agent-hint:body:start -->",
     '        <p class="agent-hint">',
-    "          <strong>Bản dành cho AI agent:</strong> toàn bộ 154 hoạt động ở dạng Markdown tại",
+    "          <strong>Bản dành cho AI agent:</strong> toàn bộ " + eventCount + " hoạt động ở dạng Markdown tại",
     `          <a href="${abs("index.md")}">${abs("index.md")}</a> · chỉ mục tệp tại <a href="${abs("llms.txt")}">${abs("llms.txt")}</a>.`,
     `          Trang này cần JavaScript để hiển thị bản đồ và danh sách.`,
     `          <br>For AI agents: full programme in Markdown at ${abs("index.md")}, file index at ${abs("llms.txt")}.`,
@@ -311,7 +317,7 @@ await writeFile(join(root, "llms.txt"), llms, "utf8");
       new RegExp(`<!-- agent-hint:${marker}:start -->[\\s\\S]*?<!-- agent-hint:${marker}:end -->`),
       () => replacement,
     );
-  const patched = patch(patch(html, "head", head), "body", body);
+  const patched = patch(patch(patch(html, "meta", meta), "head", head), "body", body);
   if (patched !== html) await writeFile(htmlPath, patched, "utf8");
   console.log(
     base

@@ -36,12 +36,16 @@ trip planner, and a Markdown document that AI agents can read and quote.
   one-tap icon buttons for ChatGPT, Claude and Gemini; the prompt opens in the chosen web
   chat already filled in. A copy button keeps the prompt available for pasting into a
   native app. The data files are generated from the same source as the map, so they cannot
-  drift apart.
+  drift apart. The same script also owns three marked regions of `index.html`: the meta
+  description, the `<link rel="alternate">` / `<link rel="describedby">` pair, and the
+  no-JavaScript hint paragraph. Their event counts come from `events.json`; only the URLs
+  change with `--base`. Committed output is checked in CI, so a stale count or the wrong
+  base URL fails the build.
 
 ## Run it locally
 
 ```sh
-node tools/build-agent-files.mjs --base https://example.com   # regenerate index.md + llms.txt
+node tools/build-agent-files.mjs --base https://example.com   # regenerate index.md, llms.txt and the index.html hints
 docker build -t tkst:local .
 docker run --rm -p 8080:8080 tkst:local
 ```

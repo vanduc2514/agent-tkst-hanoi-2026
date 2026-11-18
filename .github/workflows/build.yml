@@ -25,14 +25,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Verify generated files
-        run: |
-          node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
-          if ! git diff --exit-code; then
-            echo "index.md, llms.txt or the index.html agent hints are stale."
-            echo "Run node tools/build-agent-files.mjs --base https://tkst.nvduc.dev and commit the result."
-            exit 1
-          fi
+      # index.md, llms.txt and the index.html agent hints are generated inside
+      # the image build (see the build stage in the Dockerfile), so there is
+      # nothing to verify against the checkout.
 
       # The registry host is a repository variable so self-hosted instances
       # stay out of this file. Falls back to ghcr.io on github.com.
