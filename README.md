@@ -16,10 +16,10 @@ trip planner, and a Markdown document that AI agents can read and quote.
 - **Live mode** — the map opens filtered to what is still open today, using Hanoi clock
   time. The green Live button on the map toggles it; switching the date in Khám phá to
   another day or "Tất cả ngày" turns it off and shows the whole programme, and picking
-  today turns it back on. Pins for events that are playing right now get a pulsing ring
-  (a static ring under `prefers-reduced-motion`), and the Lộ trình list marks those stops
-  with a dot, because both views share the same pins. The list refreshes on focus and once
-  a minute as events end.
+  today turns it back on. While Live is on, pins for events that are playing right now get
+  a pulsing ring (static under `prefers-reduced-motion`) and the Lộ trình list marks those
+  stops with a dot, because both views share the same pins; switching Live off removes
+  both. The view refreshes on focus and once a minute as events end.
 - **Plan a route** — collect events into a route, order the stops nearest-first from a chosen
   start point or the browser's location, and send the whole itinerary to Google Maps.
 - **Shareable route links** — a link such as `?tab=route&route=e01,e94,e109` opens the map

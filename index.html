@@ -1724,9 +1724,10 @@
             list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-route"></i>Chưa có điểm dừng.<br>Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.</div>';
           } else {
             const now = hanoiDateTime(new Date());
+            const liveOn = !!state.live;
             list.innerHTML = routeEvents.map((event, index) => {
               const place = placesById[event.placeId];
-              const happening = eventHappeningNow(event, now);
+              const happening = liveOn && eventHappeningNow(event, now);
               return `<div class="route-item" data-index="${index}">
                 <span class="route-number">${index + 1}</span><div><div class="route-item-title"><span>${escapeHtml(event.title)}</span>${happening ? '<i class="route-live-dot" role="img" aria-label="Đang diễn ra"></i>' : ""}</div><div class="route-item-sub">${escapeHtml(place.name)} · ${escapeHtml(scheduleLabel(event, false))}</div></div>
                 <div class="route-item-actions">
@@ -1782,11 +1783,12 @@
         // on the route tab as well, because both views share the same pins.
         function syncLivePins() {
           const now = hanoiDateTime(new Date());
+          const liveOn = !!state.live;
           markerByEvent.forEach((marker, eventId) => {
             const pin = pinElement(marker);
             if (!pin) return;
             const event = eventById[eventId];
-            pin.classList.toggle("now-live", !!event && eventHappeningNow(event, now));
+            pin.classList.toggle("now-live", liveOn && !!event && eventHappeningNow(event, now));
           });
         }
 
@@ -1833,6 +1835,9 @@
         function applyFilters() {
           renderEvents();
           renderEventMarkers();
+          // The route list marks stops that are on right now, and that depends on the
+          // live toggle, so it has to follow filter and live changes too.
+          renderRoute();
           syncDetailWithFilters();
         }
 
