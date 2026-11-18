@@ -455,7 +455,7 @@
             </div>
             <label class="search-wrap" for="search-input">
               <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <input class="search-input" id="search-input" type="search" placeholder="Tên sự kiện, địa điểm, từ khóa..." autocomplete="off">
+              <input class="search-input" id="search-input" type="search" placeholder="Tên, nghệ sĩ, địa điểm, từ khóa — không cần dấu..." autocomplete="off">
             </label>
             <div class="filter-grid">
               <label>
@@ -621,16 +621,81 @@
         return events.filter((event) => happensOn(event, date));
       }
 
+      // Vietnamese search tolerates missing diacritics: "trien lam" has to find
+      // "Triển lãm", and "đ" folds to "d" (NFD leaves it as a single code point).
+      const SEARCH_STRIP_MARKS = /[\u0300-\u036f]/g;
+
+      function foldForSearch(value) {
+        return String(value ?? "")
+          .normalize("NFD")
+          .replace(SEARCH_STRIP_MARKS, "")
+          .replace(/đ/g, "d")
+          .replace(/Đ/g, "d")
+          .toLocaleLowerCase("vi")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      let searchIndexById = null;
+
+      const searchDayMonth = (date) => {
+        const [, month, day] = String(date || "").split("-");
+        return month && day ? `${day}/${month}` : "";
+      };
+
+      // Every searchable string for one event: names, artists and programme text from
+      // the organiser's write-up, venue details, type, dates and times.
+      function eventSearchText(event) {
+        const place = placesById[event.placeId] || {};
+        const dateText = [
+          event.date,
+          event.dateEnd,
+          ...(event.days || []),
+          searchDayMonth(event.date),
+          searchDayMonth(event.dateEnd)
+        ].join(" ");
+        return foldForSearch([
+          event.title,
+          event.description,
+          event.officialType || "",
+          event.officialVenue || "",
+          event.officialDetail || "",
+          event.startTime,
+          event.endTime,
+          dateText,
+          event.spotlight ? "suất đặc biệt spotlight" : "",
+          ...(event.tags || []),
+          clusters[event.clusterId]?.name || "",
+          place.name || "",
+          place.kind || "",
+          place.area || "",
+          place.address || ""
+        ].join(" "));
+      }
+
+      function ensureSearchIndex() {
+        if (searchIndexById) return searchIndexById;
+        searchIndexById = new Map(events.map((event) => [event.id, eventSearchText(event)]));
+        return searchIndexById;
+      }
+
       function filterEvents(filters = {}) {
-        const query = (filters.query || "").trim().toLocaleLowerCase("vi");
-        return events.filter((event) => {
-          const place = placesById[event.placeId];
-          const searchable = [event.title, event.description, place.name, place.kind, place.area || "", ...event.tags, clusters[event.clusterId].name, event.spotlight ? "suất đặc biệt" : ""]
-            .join(" ").toLocaleLowerCase("vi");
-          const activeOnFilterDate = !filters.date || happensOn(event, filters.date);
-          return (!query || searchable.includes(query)) &&
-            activeOnFilterDate &&
-            (!filters.cluster || event.clusterId === filters.cluster);
+        const tokens = foldForSearch(filters.query).split(" ").filter(Boolean);
+        const index = ensureSearchIndex();
+        const candidates = events.filter((event) =>
+          (!filters.date || happensOn(event, filters.date)) &&
+          (!filters.cluster || event.clusterId === filters.cluster));
+        if (!tokens.length) return candidates;
+        // An exact phrase wins when it exists: "nguyễn thế sơn" should return that
+        // artist's events, not every event whose text separately contains "nguyen",
+        // "the" and "son". Otherwise require every word somewhere in the event, in any
+        // order and without diacritics, so "workshop gom" still finds gốm workshops.
+        const phrase = tokens.join(" ");
+        const phraseHits = candidates.filter((event) => (index.get(event.id) || "").includes(phrase));
+        if (phraseHits.length) return phraseHits;
+        return candidates.filter((event) => {
+          const haystack = index.get(event.id) || "";
+          return tokens.every((token) => haystack.includes(token));
         });
       }
 
@@ -2129,6 +2194,7 @@
         FESTIVAL_END = data.festival.end;
         placesById = Object.fromEntries(places.map((place) => [place.id, place]));
         eventById = Object.fromEntries(events.map((event) => [event.id, event]));
+        searchIndexById = null;
         spotlightIds = new Set(events.filter((event) => event.spotlight).map((event) => event.id));
         window.HanoiFestivalMap = Object.freeze({
           clusters,

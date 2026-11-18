@@ -9,9 +9,10 @@ trip planner, and a Markdown document that AI agents can read and quote.
 - **154 activities at 59 venues**, grouped into five clusters: Hồ Gươm & Tràng Tiền,
   Chợ Đồng Xuân & Hàng Đậu, Đình & Di tích Phố Cổ, Công viên Thống Nhất & Lân cận, and
   Điểm Vệ tinh.
-- **Explore** — search by title, venue or keyword, filter by date and cluster, and open any
-  pin or card for the full address, opening hours, and the organiser's own write-up with a
-  link to the official page.
+- **Explore** — search by title, artist, description, type, venue or keyword without
+  typing Vietnamese diacritics ("trien lam" finds "Triển lãm"), filter by date and cluster,
+  and open any pin or card for the full address, opening hours, and the organiser's own
+  write-up with a link to the official page.
 - **Plan a route** — collect events into a route, order the stops nearest-first from a chosen
   start point or the browser's location, and send the whole itinerary to Google Maps.
 - **Shareable route links** — a link such as `?tab=route&route=e01,e94,e109` opens the map
