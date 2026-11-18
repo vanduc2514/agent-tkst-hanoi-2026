@@ -56,8 +56,7 @@ be wrong.
 
 ```sh
 node tools/build-agent-files.mjs --base https://tkst.nvduc.dev   # parses events.json, reports the counts
-node tools/render-text-html.mjs
 ```
 
-Both run clean after the change. `events.json` still has 154 events and 59 places, and the only modified field across
+It runs clean after the change. `events.json` still has 154 events and 59 places, and the only modified field across
 the file is `officialType`.

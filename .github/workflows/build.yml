@@ -30,9 +30,7 @@ jobs:
       - name: Generate site files
         env:
           SITE_BASE: https://tkst.nvduc.dev
-        run: |
-          node tools/build-agent-files.mjs --base "${SITE_BASE}"
-          node tools/render-text-html.mjs
+        run: node tools/build-agent-files.mjs --base "${SITE_BASE}"
 
       # The registry host is a repository variable so self-hosted instances
       # stay out of this file. Falls back to ghcr.io on github.com.

@@ -53,17 +53,16 @@ enough to browse the map:
 python3 -m http.server 8080     # then open http://localhost:8080
 ```
 
-To build the image, produce the generated files first — the same two commands CI runs:
+To build the image, produce the generated files first — the same command CI runs:
 
 ```sh
-node tools/build-agent-files.mjs --base https://tkst.nvduc.dev   # index.md + llms.txt
-node tools/render-text-html.mjs                                  # index.md.html + llms.txt.html
+node tools/build-agent-files.mjs --base https://tkst.nvduc.dev   # index.md, llms.txt + HTML wrappers
 docker build -t tkst:local .
 docker run --rm -p 8080:8080 tkst:local
 ```
 
-To only inspect the Markdown, `node tools/build-agent-files.mjs --base https://example.com`
-is enough; it writes `index.md` and `llms.txt` into the working tree, where git ignores them.
+That one command writes `index.md`, `llms.txt`, `index.md.html` and `llms.txt.html` into the
+working tree, where git ignores them.
 
 Then open http://localhost:8080.
 
