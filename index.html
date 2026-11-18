@@ -598,7 +598,7 @@
       </footer>
       <div class="map-topbar">
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
-        <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện · 59 địa điểm</span></div>
+        <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
         <div class="map-actions">
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
@@ -1137,7 +1137,7 @@
           // Live narrows the map to what is still running or about to start today, so the
           // pill says so instead of implying the whole programme is on screen.
           const label = state.live ? "sự kiện đang và sẽ diễn ra" : "sự kiện";
-          $("#map-status").textContent = `${matching.length} ${label} · ${new Set(matching.map((event) => event.placeId)).size} địa điểm`;
+          $("#map-status").textContent = `${matching.length} ${label}`;
         }
 
         function addEventMarker(event, lngLat) {
