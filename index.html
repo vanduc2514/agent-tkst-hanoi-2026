@@ -1134,7 +1134,10 @@
           renderIndividualMarkers(routeOnly.length ? [...matching, ...routeOnly] : matching);
           syncRoutePins();
           syncLivePins();
-          $("#map-status").textContent = `${matching.length} sự kiện · ${new Set(matching.map((event) => event.placeId)).size} địa điểm`;
+          // Live narrows the map to what is still running or about to start today, so the
+          // pill says so instead of implying the whole programme is on screen.
+          const label = state.live ? "sự kiện đang và sẽ diễn ra" : "sự kiện";
+          $("#map-status").textContent = `${matching.length} ${label} · ${new Set(matching.map((event) => event.placeId)).size} địa điểm`;
         }
 
         function addEventMarker(event, lngLat) {
