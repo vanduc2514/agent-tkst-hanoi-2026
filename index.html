@@ -2197,24 +2197,19 @@
 
         function promptContent(prompt) {
           const context = promptContext();
-          const isEventDetailsPrompt = prompt.id === "prompt-event-details";
-          const timeContext = isEventDetailsPrompt ? "" : ` ${context.timeContext}`;
           let content = prompt.content
             .replace(/\n- Thời điểm hiện tại: \{\{TIME\}\}\./g, "")
-            .replaceAll("Truy cập website https://tkst.nvduc.dev.", `Truy cập website https://tkst.nvduc.dev.${timeContext}`)
+            .replaceAll(
+              "Truy cập website https://tkst.nvduc.dev.",
+              `Truy cập website https://tkst.nvduc.dev. ${context.timeContext} ${context.locationContext}`
+            )
             .replaceAll("gần {{LOCATION}}", "quanh địa điểm trên")
             .replaceAll("{{LOCATION}}", "địa điểm trên")
             .replaceAll("{{EVENT}}", context.event)
             .replaceAll("{{EVENT_DETAILS_TASK}}", context.eventDetailsTask)
             .replaceAll("{{EVENT_DETAILS_FOLLOWUP}}", "");
 
-          if (!isEventDetailsPrompt && prompt.content.includes("{{LOCATION}}")) {
-            const lines = content.split("\n");
-            lines.splice(2, 0, context.locationBullet);
-            content = lines.join("\n");
-          }
-
-          if (!state.live && !isEventDetailsPrompt) {
+          if (!state.live && prompt.id !== "prompt-event-details") {
             content = content
               .replaceAll("còn mở hoặc sắp bắt đầu", "có lịch diễn ra vào ngày đã chọn")
               .replaceAll("còn mở trong hôm nay", "có lịch hoạt động vào ngày đã chọn")
