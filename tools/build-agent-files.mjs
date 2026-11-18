@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Derives agent-facing markdown from events.json.
 // events.json stays the canonical source but is never published; index.md and
-// llms.txt are the formats LLM agents actually consume. Pass --base to rewrite
-// the agent-hint blocks in index.html to absolute URLs.
+// llms.txt are the formats LLM agents actually consume. Pass --base to make the
+// links inside llms.txt absolute; index.html is left untouched and fills its
+// agent hints at runtime.
 //
 // Usage: node tools/build-agent-files.mjs [--base https://your-domain.vn]
 
@@ -21,7 +22,6 @@ const { festival, clusters, places, events, presets } = data;
 const placeById = new Map(places.map((p) => [p.id, p]));
 const clusterName = (id) => clusters[id]?.name ?? id;
 const eventById = new Map(events.map((e) => [e.id, e]));
-const eventCount = events.length;
 
 const formatDate = (start, end) =>
   end && end !== start ? `${start} → ${end}` : start;
@@ -32,7 +32,7 @@ const cell = (text) => oneLine(text).replace(/\|/g, "\\|");
 const venue = (e) => placeById.get(e.placeId)?.name || e.officialVenue || e.placeId;
 const address = (e) => placeById.get(e.placeId)?.address || "";
 // Slots win over the flat start/end pair: they carry the two-block days and the
-// per-date windows curated in tools/apply-time-slots.mjs.
+// per-date windows already stored in events.json.
 const slotRanges = (e) => [...new Set((e.slots || []).map((s) => `${s.start}–${s.end}`))].sort();
 const hours = (e) => {
   const ranges = slotRanges(e);
@@ -287,44 +287,6 @@ const llms = [
   "",
 ].join("\n");
 await writeFile(join(root, "llms.txt"), llms, "utf8");
-
-{
-  const htmlPath = join(root, "index.html");
-  const html = await readFile(htmlPath, "utf8");
-  const meta = [
-    "<!-- agent-hint:meta:start -->",
-    `  <meta name="description" content="Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026 — ${eventCount} hoạt động từ lịch chính thức, địa điểm và gợi ý tuyến.">`,
-    "  <!-- agent-hint:meta:end -->",
-  ].join("\n");
-  const head = [
-    "<!-- agent-hint:head:start -->",
-    `  <link rel="alternate" type="text/markdown" href="${abs("index.md")}" title="Toàn bộ lịch lễ hội ở dạng Markdown">`,
-    `  <link rel="describedby" type="text/markdown" href="${abs("llms.txt")}" title="Chỉ mục tệp dành cho AI agent">`,
-    "  <!-- agent-hint:head:end -->",
-  ].join("\n");
-  const body = [
-    "<!-- agent-hint:body:start -->",
-    '        <p class="agent-hint">',
-    "          <strong>Bản dành cho AI agent:</strong> toàn bộ " + eventCount + " hoạt động ở dạng Markdown tại",
-    `          <a href="${abs("index.md")}">${abs("index.md")}</a> · chỉ mục tệp tại <a href="${abs("llms.txt")}">${abs("llms.txt")}</a>.`,
-    `          Trang này cần JavaScript để hiển thị bản đồ và danh sách.`,
-    `          <br>For AI agents: full programme in Markdown at ${abs("index.md")}, file index at ${abs("llms.txt")}.`,
-    "        </p>",
-    "        <!-- agent-hint:body:end -->",
-  ].join("\n");
-  const patch = (source, marker, replacement) =>
-    source.replace(
-      new RegExp(`<!-- agent-hint:${marker}:start -->[\\s\\S]*?<!-- agent-hint:${marker}:end -->`),
-      () => replacement,
-    );
-  const patched = patch(patch(patch(html, "meta", meta), "head", head), "body", body);
-  if (patched !== html) await writeFile(htmlPath, patched, "utf8");
-  console.log(
-    base
-      ? "index.html  agent hints rewritten to absolute URLs"
-      : "index.html  agent hints rewritten to relative URLs (pass --base <url> for absolute)",
-  );
-}
 
 const tokens = (text) => Math.ceil(text.length / 3.6);
 console.log(`index.md    ${markdown.length} chars  ~${tokens(markdown)} tokens`);

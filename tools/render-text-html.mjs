@@ -3,7 +3,7 @@
 // Browsers and readers that ask for text/html get the wrapper; everyone else
 // keeps getting the raw text. Content is never altered, only escaped.
 //
-// Usage: node tools/render-text-html.mjs [--out dist]
+// Usage: node tools/render-text-html.mjs [--out <dir>]   (default: next to the sources)
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -11,7 +11,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outArgIndex = process.argv.indexOf("--out");
-const outDir = join(root, outArgIndex > -1 ? process.argv[outArgIndex + 1] : "dist");
+const outDir = join(root, outArgIndex > -1 ? process.argv[outArgIndex + 1] : ".");
 
 const files = [
   { source: "index.md", title: "Lễ hội Thiết kế Sáng tạo Hà Nội 2026 — bản Markdown" },

@@ -25,9 +25,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # index.md, llms.txt and the index.html agent hints are generated inside
-      # the image build (see the build stage in the Dockerfile), so there is
-      # nothing to verify against the checkout.
+      # index.md, llms.txt and the two HTML wrappers are not committed, so they
+      # are produced here before the image build copies them.
+      - name: Generate site files
+        env:
+          SITE_BASE: https://tkst.nvduc.dev
+        run: |
+          node tools/build-agent-files.mjs --base "${SITE_BASE}"
+          node tools/render-text-html.mjs
 
       # The registry host is a repository variable so self-hosted instances
       # stay out of this file. Falls back to ghcr.io on github.com.

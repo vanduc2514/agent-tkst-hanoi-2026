@@ -36,19 +36,31 @@ trip planner, and a Markdown document that AI agents can read and quote.
   one-tap icon buttons for ChatGPT, Claude and Gemini; the prompt opens in the chosen web
   chat already filled in. A copy button keeps the prompt available for pasting into a
   native app. The data files are generated from the same source as the map, so they cannot
-  drift apart. The same script also owns three marked regions of `index.html`: the meta
-  description, the `<link rel="alternate">` / `<link rel="describedby">` pair, and the
-  no-JavaScript hint paragraph. Their event counts come from `events.json`; only the URLs
-  change with `--base`. Committed output is checked in CI, so a stale count or the wrong
-  base URL fails the build.
+  drift apart. `index.md`, `llms.txt` and their HTML wrappers are not committed: CI
+  regenerates them before the image build, so they cannot go stale in the repository. The
+  agent hint in the sidebar is plain HTML with relative links for readers without
+  JavaScript, and the page fills in the event total and absolute URLs at runtime.
 
 ## Run it locally
 
+`index.html` fetches `events.json` from the same folder, so opening the file over HTTP is
+enough to browse the map:
+
 ```sh
-node tools/build-agent-files.mjs --base https://example.com   # regenerate index.md, llms.txt and the index.html hints
+python3 -m http.server 8080     # then open http://localhost:8080
+```
+
+To build the image, produce the generated files first — the same two commands CI runs:
+
+```sh
+node tools/build-agent-files.mjs --base https://tkst.nvduc.dev   # index.md + llms.txt
+node tools/render-text-html.mjs                                  # index.md.html + llms.txt.html
 docker build -t tkst:local .
 docker run --rm -p 8080:8080 tkst:local
 ```
+
+To only inspect the Markdown, `node tools/build-agent-files.mjs --base https://example.com`
+is enough; it writes `index.md` and `llms.txt` into the working tree, where git ignores them.
 
 Then open http://localhost:8080.
 
@@ -61,9 +73,9 @@ block it falls back to reading `events.json` from the same folder, so no build i
   <https://lehoithietkesangtao.vn>.
 - Playing times are curated per date in `events.json` (`slots`) wherever the organiser's
   write-up splits a day into two blocks, changes the window per date, or lists separate
-  sessions. `node tools/apply-time-slots.mjs` reapplies that curation, and `--check` verifies
-  it. Four activities (e62, e102, e105, e140) publish no time text at all, so they keep the
-  listing values.
+  sessions. `events.json` is the source of truth for those times; edit it directly. Four
+  activities (e62, e102, e105, e140) publish no time text at all, so they keep the listing
+  values.
 - Basemap: [OpenFreeMap](https://openfreemap.org) with data ©
   [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
 - This is a community project, not an official festival site.

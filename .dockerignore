@@ -1,7 +1,6 @@
 .git
 .forgejo
 .github
-dist
 node_modules
 README.md
 Dockerfile
