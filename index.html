@@ -1090,6 +1090,7 @@
           }
           updateLiveButton();
           applyFilters();
+          refreshPromptFields();
           if (!quiet) {
             if (state.live) showToast("Đang hiện các hoạt động còn mở hôm nay.");
             else showToast("Đã tắt Live: đang hiện toàn bộ hoạt động.");
@@ -2167,40 +2168,75 @@
         let loadedPrompts = [];
 
         function promptContext() {
-          const now = new Intl.DateTimeFormat("vi-VN", {
-            timeZone: "Asia/Ho_Chi_Minh",
-            dateStyle: "short",
-            timeStyle: "short"
-          }).format(new Date());
+          const now = hanoiDateTime(new Date());
+          const formatPromptDate = (date) => {
+            const [year, month, day] = date.split("-");
+            return `${day}/${month}/${year.slice(-2)}`;
+          };
+          const selectedDate = state.filters.date || now.date;
+          const timeContext = state.live
+            ? `Thời điểm hiện tại: ${now.time} ${formatPromptDate(now.date)}.`
+            : `Thời điểm dự kiến: ${formatPromptDate(selectedDate)}.`;
           const gpsOrigin = state.origin?.id === "gps" ? state.origin : null;
           const center = map.getCenter();
-          const location = gpsOrigin
-            ? `vị trí GPS chỗ mình đang đứng (${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)})`
+          const locationBullet = gpsOrigin
+            ? `- Vị trí của mình tại ${gpsOrigin.lat.toFixed(5)}, ${gpsOrigin.lng.toFixed(5)}.`
             : state.origin?.id === "map"
-              ? `điểm bạn đã chọn trên bản đồ (${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)})`
-              : `khu vực đang xem trên bản đồ, tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}; đây là vị trí tương đối`;
+              ? `- Địa điểm trên bản đồ đã chọn: ${state.origin.lat.toFixed(5)}, ${state.origin.lng.toFixed(5)}.`
+              : `- Tâm bản đồ ở ${center.lat.toFixed(5)}, ${center.lng.toFixed(5)}.`;
           const selectedEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
           return {
-            time: now,
-            location,
+            timeContext,
+            locationBullet,
             event: selectedEvent?.title || "[tên hoạt động bạn quan tâm]",
             eventDetailsTask: selectedEvent
-              ? `- Tìm hiểu hoạt động "${selectedEvent.title}".`
-              : "- Tìm hiểu về hoạt động mình muốn biết.",
-            eventDetailsFollowup: selectedEvent
-              ? ""
-              : "\n- Bạn muốn tìm hiểu hoạt động nào? Hiện mình chưa có thông tin về hoạt động cụ thể."
+              ? `Tìm hiểu hoạt động "${selectedEvent.title}"`
+              : "Hỏi mình về hoạt động mình muốn biết"
           };
         }
 
         function promptContent(prompt) {
           const context = promptContext();
-          return prompt.content
-            .replaceAll("{{TIME}}", context.time)
-            .replaceAll("{{LOCATION}}", context.location)
+          const isEventDetailsPrompt = prompt.id === "prompt-event-details";
+          const timeContext = isEventDetailsPrompt ? "" : ` ${context.timeContext}`;
+          let content = prompt.content
+            .replace(/\n- Thời điểm hiện tại: \{\{TIME\}\}\./g, "")
+            .replaceAll("Truy cập website https://tkst.nvduc.dev.", `Truy cập website https://tkst.nvduc.dev.${timeContext}`)
+            .replaceAll("gần {{LOCATION}}", "quanh địa điểm trên")
+            .replaceAll("{{LOCATION}}", "địa điểm trên")
             .replaceAll("{{EVENT}}", context.event)
             .replaceAll("{{EVENT_DETAILS_TASK}}", context.eventDetailsTask)
-            .replaceAll("{{EVENT_DETAILS_FOLLOWUP}}", context.eventDetailsFollowup);
+            .replaceAll("{{EVENT_DETAILS_FOLLOWUP}}", "");
+
+          if (!isEventDetailsPrompt && prompt.content.includes("{{LOCATION}}")) {
+            const lines = content.split("\n");
+            lines.splice(2, 0, context.locationBullet);
+            content = lines.join("\n");
+          }
+
+          if (!state.live && !isEventDetailsPrompt) {
+            content = content
+              .replaceAll("còn mở hoặc sắp bắt đầu", "có lịch diễn ra vào ngày đã chọn")
+              .replaceAll("còn mở trong hôm nay", "có lịch hoạt động vào ngày đã chọn")
+              .replaceAll("còn mở hôm nay", "có lịch hoạt động vào ngày đã chọn")
+              .replaceAll("còn xem được hôm nay", "có thể xem vào ngày đã chọn")
+              .replaceAll("diễn ra hôm nay mà mình còn kịp tham gia", "diễn ra vào ngày đã chọn mà mình có thể tham gia")
+              .replaceAll("còn diễn ra sau thời điểm này", "diễn ra vào ngày đã chọn")
+              .replaceAll("có thể xem từ bây giờ trở đi", "có thể xem vào ngày đã chọn")
+              .replaceAll("có thể xem từ bây giờ", "có thể xem vào ngày đã chọn")
+              .replaceAll("từ bây giờ trở đi", "vào ngày đã chọn")
+              .replaceAll("có thể ghé ngay hoặc trong một tiếng tới", "có thể ghé vào ngày đã chọn")
+              .replaceAll("còn kịp tham gia", "có thể tham gia vào ngày đã chọn")
+              .replaceAll("còn kịp xem", "có thể xem vào ngày đã chọn")
+              .replaceAll("đang diễn ra hay sắp bắt đầu", "có lịch diễn ra")
+              .replaceAll("đang diễn ra hoặc sắp bắt đầu", "có lịch diễn ra")
+              .replaceAll("đang diễn ra", "diễn ra")
+              .replaceAll("tối nay", "buổi tối ngày đã chọn")
+              .replaceAll("hôm nay", "ngày đã chọn")
+              .replaceAll("còn mở", "có lịch mở cửa");
+          }
+
+          return content;
         }
 
         function refreshPromptFields() {
@@ -2370,6 +2406,7 @@
               state.filters.live = nextLive;
               updateLiveButton();
             }
+            refreshPromptFields();
             applyFilters();
           });
           $("#live-toggle").addEventListener("click", () => {

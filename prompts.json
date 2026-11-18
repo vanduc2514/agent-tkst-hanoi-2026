@@ -87,7 +87,7 @@
     "id": "prompt-event-details",
     "group": "Tìm hiểu",
     "title": "Tìm hiểu hoạt động này",
-    "content": "Truy cập website https://tkst.nvduc.dev.\n{{EVENT_DETAILS_TASK}}\n- Tóm tắt nội dung, thời gian và địa điểm.\n- Kiểm tra trang của ban tổ chức để xác nhận có cần đăng ký, mất phí hoặc có lưu ý gì trước khi đến không.{{EVENT_DETAILS_FOLLOWUP}}"
+    "content": "Truy cập website https://tkst.nvduc.dev.\n- {{EVENT_DETAILS_TASK}}\n- Tóm tắt nội dung, thời gian và địa điểm.\n- Kiểm tra trang của ban tổ chức để xác nhận có cần đăng ký, mất phí hoặc có lưu ý gì trước khi đến không."
   },
   {
     "id": "prompt-festival-theme",
@@ -105,7 +105,7 @@
     "id": "prompt-public-space",
     "group": "Tìm hiểu",
     "title": "Không gian công cộng được biến đổi thế nào?",
-    "content": "Truy cập website https://tkst.nvduc.dev.\n- Tìm hoạt động khai thác hoặc biến đổi không gian công cộng như phố, chợ hay công viên.\n- Đưa ra ví dụ cụ thể; nêu địa điểm đó vốn là gì và hoạt động nào đang diễn ra ở đó.\n- Ưu tiên các địa điểm gần {{LOCATION}}."
+    "content": "Truy cập website https://tkst.nvduc.dev.\n- Tìm hoạt động khai thác hoặc biến đổi không gian công cộng như phố, chợ hay công viên.\n- Đưa ra ví dụ cụ thể; nêu địa điểm đó vốn là gì và hoạt động nào đang diễn ra ở đó, ưu tiên quanh {{LOCATION}}."
   },
   {
     "id": "prompt-itinerary-short",
