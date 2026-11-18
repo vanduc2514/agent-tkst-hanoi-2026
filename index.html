@@ -663,6 +663,11 @@
         return events.filter((event) => happensOn(event, date));
       }
 
+      // A few listing rows have no usable time (e105 says 14:00-11:30), so a range that
+      // ends before it starts is treated as "open all day" instead of hiding the event.
+      const openAllDay = (start, end) =>
+        (start === "00:00" && end === "00:00") || (end !== "00:00" && end <= start);
+
       // Slots are the fine-grained playing times for one date. Events without them open
       // for the whole startTime-endTime window; curated events carry two blocks a day
       // (with a lunch break) or a different window on each date.
@@ -681,10 +686,8 @@
       // now and have not finished yet, using Hanoi wall-clock time.
       function eventOpenNow(event, now) {
         if (!happensOn(event, now.date)) return false;
-        return eventSlotsOn(event, now.date).some(([start, end]) => {
-          if (start === "00:00" && end === "00:00") return true;
-          return now.time < slotClose(end);
-        });
+        return eventSlotsOn(event, now.date).some(([start, end]) =>
+          openAllDay(start, end) || now.time < slotClose(end));
       }
 
       // "08:00-12:00, 13:30-17:30" for the whole event, with a note when the blocks
