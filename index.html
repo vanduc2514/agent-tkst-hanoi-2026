@@ -2117,7 +2117,13 @@
           return {
             time: now,
             location,
-            event: selectedEvent?.title || "[tên hoạt động bạn quan tâm]"
+            event: selectedEvent?.title || "[tên hoạt động bạn quan tâm]",
+            eventDetailsTask: selectedEvent
+              ? `- Tìm hiểu hoạt động "${selectedEvent.title}".`
+              : "- Tìm hiểu về hoạt động mình muốn biết.",
+            eventDetailsFollowup: selectedEvent
+              ? ""
+              : "\n- Bạn muốn tìm hiểu hoạt động nào? Hiện mình chưa có thông tin về hoạt động cụ thể."
           };
         }
 
@@ -2126,7 +2132,9 @@
           return prompt.content
             .replaceAll("{{TIME}}", context.time)
             .replaceAll("{{LOCATION}}", context.location)
-            .replaceAll("{{EVENT}}", context.event);
+            .replaceAll("{{EVENT}}", context.event)
+            .replaceAll("{{EVENT_DETAILS_TASK}}", context.eventDetailsTask)
+            .replaceAll("{{EVENT_DETAILS_FOLLOWUP}}", context.eventDetailsFollowup);
         }
 
         function refreshPromptFields() {
