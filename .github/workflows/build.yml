@@ -25,8 +25,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # index.md, llms.txt and the two HTML wrappers are not committed, so they
-      # are produced here before the image build copies them.
+      # src/index.md, src/llms.txt and the two HTML wrappers are not committed, so
+      # they are produced here before the image build copies them.
       - name: Generate site files
         env:
           SITE_BASE: https://tkst.nvduc.dev

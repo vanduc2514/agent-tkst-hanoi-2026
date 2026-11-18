@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-// Derives agent-facing markdown from events.json.
+// Derives agent-facing markdown from src/events.json.
 // events.json stays the canonical source but is never published; index.md and
 // llms.txt are the formats LLM agents actually consume. The .html wrappers give
-// browsers a readable view of the same text. Pass --base to make the links
-// inside llms.txt absolute; index.html is left untouched and fills its agent
-// hints at runtime.
+// browsers a readable view of the same text. Everything is written into src/,
+// next to index.html, because that folder is what gets served. Pass --base to
+// make the links inside llms.txt absolute; index.html is left untouched and
+// fills its agent hints at runtime.
 //
 // Usage: node tools/build-agent-files.mjs [--base https://your-domain.vn]
 
@@ -13,11 +14,12 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const src = join(root, "src");
 const baseArgIndex = process.argv.indexOf("--base");
 const base = baseArgIndex > -1 ? process.argv[baseArgIndex + 1].replace(/\/$/, "") : "";
 const abs = (path) => (base ? `${base}/${path}` : `/${path}`);
 
-const data = JSON.parse(await readFile(join(root, "events.json"), "utf8"));
+const data = JSON.parse(await readFile(join(src, "events.json"), "utf8"));
 const { festival, clusters, places, events, presets } = data;
 
 const placeById = new Map(places.map((p) => [p.id, p]));
@@ -266,7 +268,7 @@ const details = [
 ];
 
 const markdown = [...header, ...table, ...placesSection, ...presetsSection, ...details].join("\n");
-await writeFile(join(root, "index.md"), `${markdown.trimEnd()}\n`, "utf8");
+await writeFile(join(src, "index.md"), `${markdown.trimEnd()}\n`, "utf8");
 
 const llms = [
   `# ${festival.name}`,
@@ -296,7 +298,7 @@ const llms = [
   `- [Bản đồ tương tác](${base || "/"}): giao diện cho người dùng, có bản đồ, lọc theo ngày và lập tuyến.`,
   "",
 ].join("\n");
-await writeFile(join(root, "llms.txt"), llms, "utf8");
+await writeFile(join(src, "llms.txt"), llms, "utf8");
 
 // Browsers and readers that ask for text/html get the wrapper; everyone else
 // keeps getting the raw text. Content is never altered, only escaped.
@@ -346,7 +348,7 @@ const wrappers = [
 ];
 for (const { source, title, text } of wrappers) {
   const html = wrapperPage({ title, source, body: escapeHtml(text) });
-  await writeFile(join(root, `${source}.html`), html, "utf8");
+  await writeFile(join(src, `${source}.html`), html, "utf8");
 }
 
 const tokens = (text) => Math.ceil(text.length / 3.6);

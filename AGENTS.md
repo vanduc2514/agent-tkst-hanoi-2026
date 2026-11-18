@@ -4,16 +4,19 @@
 An unofficial companion site for the Hanoi Design Festival 2026: a static page with an
 interactive map, a route planner, and agent-readable Markdown.
 ## Hints
-- `index.html` is the whole app: plain HTML, CSS, and vanilla JavaScript with no build step.
+- `src/index.html` is the whole app: plain HTML, CSS, and vanilla JavaScript with no build step.
   MapLibre and Tailwind load from CDNs.
-- `events.json` is the single source of truth for all festival data.
-- `tools/build-agent-files.mjs` generates `index.md` and `llms.txt` from `events.json`, plus
-  browser-readable `index.md.html` and `llms.txt.html` wrappers.
+- `src/events.json` is the single source of truth for all festival data.
+- `tools/build-agent-files.mjs` reads `src/events.json` and writes `src/index.md` and
+  `src/llms.txt`, plus browser-readable `src/index.md.html` and `src/llms.txt.html` wrappers.
+- `src/` is the folder that gets served and copied into the image, so it holds the page, the
+  data files and the generated output. `images/` sits at the root and is only used by the
+  README, not by the site.
 - Generated files are gitignored. CI regenerates them, then builds the nginx image.
 - Use`tmp` in this workspace to store temporary script, artifact or anything that is not included in the app or in build process
 ## Local Development
 ```sh
-python3 -m http.server 8080                                        # start local development server
+python3 -m http.server 8080 --directory src                        # start local development server
 node tools/build-agent-files.mjs --base https://tkst.nvduc.dev     # generate markdown + HTML agent files
 ```
 
