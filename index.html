@@ -1064,22 +1064,24 @@
           button.setAttribute("aria-label", `Chế độ trực tiếp: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
         }
 
-        // Turning Live on always jumps back to today; turning it off clears the date so
-        // the whole programme shows up on the map and in the list.
+        // Turning Live on jumps back to today. Turning it off keeps the date that is
+        // already selected, so the map falls back to that whole day (today on a first
+        // visit) instead of the entire festival; "Tất cả ngày" is how you see everything.
         function setLive(on, options = {}) {
           const { syncDate = true, quiet = false } = options;
           const today = hanoiDateTime(new Date()).date;
           state.live = !!on;
-          if (syncDate) {
-            state.filters.date = state.live ? today : "";
+          if (syncDate && state.live) {
+            state.filters.date = today;
             const select = $("#date-filter");
-            if (select) select.value = state.filters.date;
+            if (select) select.value = today;
           }
           updateLiveButton();
           applyFilters();
           refreshPromptFields();
           if (!quiet) {
             if (state.live) showToast("Đang hiện các hoạt động còn mở hôm nay.");
+            else if (state.filters.date) showToast("Đã tắt Live: đang hiện mọi hoạt động của ngày đã chọn.");
             else showToast("Đã tắt Live: đang hiện toàn bộ hoạt động.");
           }
         }

@@ -16,7 +16,9 @@ trip planner, and a Markdown document that AI agents can read and quote.
 - **Live mode** — the map opens filtered to what is still open today, using Hanoi clock
   time, and the pill counts them as "đang và sẽ diễn ra". Picking any date in Khám phá turns
   Live off and shows every activity of that day (pill: "sự kiện trong ngày"); "Tất cả ngày"
-  shows the whole programme (pill: "sự kiện"). The green Live button brings the clock back.
+  shows the whole programme (pill: "sự kiện"). The green Live button brings the clock back,
+  and switching it off again falls back to the date already selected — today on a first
+  visit — rather than the entire festival.
   While Live is on, pins for events that are playing right now get a pulsing ring (static
   under `prefers-reduced-motion`) and the Lộ trình list marks those stops with a dot,
   because both views share the same pins. The view refreshes on focus and once a minute as
