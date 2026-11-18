@@ -325,6 +325,14 @@
     .preset-wrap summary:hover .preset-arrow { background: #e5efe8; }
     .preset-wrap[open] .preset-arrow::after { transform: scaleY(0); opacity: 0; }
     .preset-select { display: grid; gap: 7px; padding: 0 20px 13px; }
+    /* 13 presets would push the route list out of the panel, so the open list gets its
+       own bounded scroll box and the route list keeps the rest of the panel. */
+    .preset-wrap[open] .preset-select {
+      max-height: clamp(130px, 40dvh, 340px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 12px;
+    }
     .preset-button { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; border: 1px solid #e6ece8; border-radius: 9px; padding: 9px 10px; color: #485851; background: #fff; text-align: left; }
     .preset-button:hover { border-color: #bfd2c7; background: #f8faf8; }
     .preset-button strong { display: block; font-size: 11px; }
@@ -394,6 +402,7 @@
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
+      .preset-wrap[open] .preset-select { max-height: 26dvh; }
       .event-detail { position: fixed; z-index: 2400; right: 0; bottom: 0; left: 0; width: 100%; max-height: 76dvh; border-radius: 18px 18px 0 0; border-bottom: 0; transition: none; }
       .event-detail.open { opacity: 1; visibility: visible; transform: none; }
       .event-detail.behind-mobile-sidebar { z-index: 1000; }
@@ -405,6 +414,7 @@
       .event-list { padding-right: 16px; padding-left: 16px; }
       .preset-wrap summary { padding-right: 16px; padding-left: 16px; }
       .preset-select { padding-right: 16px; padding-left: 16px; }
+      .preset-wrap[open] .preset-select { padding-right: 10px; }
     }
   </style>
 </head>
