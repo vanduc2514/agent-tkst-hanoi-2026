@@ -1055,9 +1055,12 @@
             button.setAttribute("aria-label", "Chế độ trực tiếp: hôm nay không có hoạt động");
             return;
           }
+          const offText = state.filters.date
+            ? "Đang tắt: đang hiện mọi hoạt động của ngày đã chọn. Bấm để quay lại chế độ trực tiếp hôm nay."
+            : "Đang tắt: đang hiện toàn bộ hoạt động. Bấm để quay lại chế độ trực tiếp hôm nay.";
           button.title = on
             ? "Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch."
-            : "Đang tắt: đang hiện toàn bộ hoạt động. Bấm để quay lại chế độ trực tiếp hôm nay.";
+            : offText;
           button.setAttribute("aria-label", `Chế độ trực tiếp: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
         }
 
@@ -1118,9 +1121,11 @@
           renderIndividualMarkers(routeOnly.length ? [...matching, ...routeOnly] : matching);
           syncRoutePins();
           syncLivePins();
-          // Live narrows the map to what is still running or about to start today, so the
-          // pill says so instead of implying the whole programme is on screen.
-          const label = state.live ? "sự kiện đang và sẽ diễn ra" : "sự kiện";
+          // The pill describes what the map is showing: Live is "đang và sẽ diễn ra", a
+          // chosen date is "trong ngày", and everything else is the whole programme.
+          const label = state.live
+            ? "sự kiện đang và sẽ diễn ra"
+            : state.filters.date ? "sự kiện trong ngày" : "sự kiện";
           $("#map-status").textContent = `${matching.length} ${label}`;
         }
 
@@ -2270,16 +2275,13 @@
             applyFilters();
           });
           $("#date-filter").addEventListener("change", (event) => {
-            const value = event.target.value;
-            const today = hanoiDateTime(new Date()).date;
-            state.filters.date = value;
-            // Picking today returns to the live view; any other date (or "Tất cả ngày")
-            // is a static view of the programme.
-            const nextLive = !!value && value === today;
-            if (nextLive !== state.live) {
-              state.live = nextLive;
-              updateLiveButton();
-            }
+            // Choosing a date is a request to see that day, so it overrides Live: the
+            // map shows every activity of the chosen day, and "Tất cả ngày" shows the
+            // whole programme. Only the Live button brings the clock back.
+            state.filters.date = event.target.value;
+            state.live = false;
+            state.filters.live = false;
+            updateLiveButton();
             refreshPromptFields();
             applyFilters();
           });
