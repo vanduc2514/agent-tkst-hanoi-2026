@@ -60,6 +60,7 @@ const TYPE_VI = {
   Exhibition: "Triển lãm",
   Pavilion: "Pavilion",
   Event: "Sự kiện",
+  Fair: "Hội chợ",
   Workshop: "Workshop",
   Performance: "Trình diễn",
   Talk: "Tọa đàm",
