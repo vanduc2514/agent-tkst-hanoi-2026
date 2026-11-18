@@ -13,6 +13,10 @@ trip planner, and a Markdown document that AI agents can read and quote.
   typing Vietnamese diacritics ("trien lam" finds "Triển lãm"), filter by date and cluster,
   and open any pin or card for the full address, opening hours, and the organiser's own
   write-up with a link to the official page.
+- **Live mode** — the map opens filtered to what is still open today, using Hanoi clock
+  time. The green Live button on the map toggles it; switching the date in Khám phá to
+  another day or "Tất cả ngày" turns it off and shows the whole programme, and picking
+  today turns it back on. The list refreshes on focus and once a minute as events end.
 - **Plan a route** — collect events into a route, order the stops nearest-first from a chosen
   start point or the browser's location, and send the whole itinerary to Google Maps.
 - **Shareable route links** — a link such as `?tab=route&route=e01,e94,e109` opens the map

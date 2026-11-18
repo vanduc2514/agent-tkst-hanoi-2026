@@ -228,6 +228,39 @@
       pointer-events: none;
     }
     .map-attribution a { color: inherit; text-decoration: underline; text-underline-offset: 1px; pointer-events: auto; }
+    /* Keep the zoom/locate controls clear of the licence line under the map. The
+       selector is scoped to #map because MapLibre injects its own stylesheet after
+       this one, and an equal-specificity rule would lose to it. */
+    #map .maplibregl-ctrl-bottom-right,
+    #map .maplibregl-ctrl-bottom-left { bottom: calc(22px + env(safe-area-inset-bottom, 0px)); }
+    .live-toggle {
+      position: absolute; z-index: 620; left: 10px; bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+      display: inline-flex; align-items: center; gap: 8px; min-height: 30px;
+      border: 1px solid rgb(225 232 227 / 95%); border-radius: 9px; padding: 0 10px;
+      color: #6f7c76; background: rgb(255 255 255 / 94%);
+      box-shadow: 0 2px 8px rgb(30 45 38 / 12%);
+      backdrop-filter: blur(8px);
+      font-size: 11px; font-weight: 800; letter-spacing: .02em;
+      cursor: pointer; transition: color .16s, border-color .16s, background .16s;
+    }
+    .live-toggle:hover { border-color: #bfd2c7; background: #fff; }
+    .live-toggle:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .live-toggle:disabled { color: #a6b1ac; cursor: not-allowed; }
+    .live-toggle:disabled:hover { border-color: rgb(225 232 227 / 95%); background: rgb(255 255 255 / 94%); }
+    .live-toggle .live-dot {
+      display: block; width: 8px; height: 8px; border-radius: 50%;
+      background: #b6c3bc; transition: background .16s;
+    }
+    .live-toggle.is-on { color: #237148; border-color: #d5e8dc; }
+    .live-toggle.is-on .live-dot { background: #22c55e; animation: live-pulse 1.8s ease-out infinite; }
+    @keyframes live-pulse {
+      0% { box-shadow: 0 0 0 0 rgb(34 197 94 / 55%); }
+      70% { box-shadow: 0 0 0 7px rgb(34 197 94 / 0%); }
+      100% { box-shadow: 0 0 0 0 rgb(34 197 94 / 0%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .live-toggle.is-on .live-dot { animation: none; }
+    }
     .pin-host { width: 30px; height: 38px; }
     .event-pin { position: relative; display: block; width: 30px; height: 38px; border: 0; padding: 0; background: transparent; cursor: pointer; touch-action: manipulation; }
     .event-pin-body {
@@ -517,6 +550,10 @@
     <div class="mobile-scrim" id="mobile-scrim" aria-hidden="true"></div>
     <section class="map-area" aria-label="Bản đồ sự kiện">
       <div id="map" role="application" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
+      <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
+        <span class="live-label">Live</span>
+        <span class="live-dot" aria-hidden="true"></span>
+      </button>
       <footer class="map-footer">
         <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" aria-label="Mã nguồn trên GitHub">
           <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
@@ -621,6 +658,15 @@
         return events.filter((event) => happensOn(event, date));
       }
 
+      // Live mode keeps only what a visitor can still reach today: events that are on
+      // now and have not finished yet, using Hanoi wall-clock time.
+      function eventOpenNow(event, now) {
+        if (!happensOn(event, now.date)) return false;
+        if (event.startTime === "00:00" && event.endTime === "00:00") return true;
+        const end = event.endTime === "00:00" ? "23:59" : event.endTime;
+        return now.time < end;
+      }
+
       // Vietnamese search tolerates missing diacritics: "trien lam" has to find
       // "Triển lãm", and "đ" folds to "d" (NFD leaves it as a single code point).
       const SEARCH_STRIP_MARKS = /[\u0300-\u036f]/g;
@@ -682,9 +728,12 @@
       function filterEvents(filters = {}) {
         const tokens = foldForSearch(filters.query).split(" ").filter(Boolean);
         const index = ensureSearchIndex();
+        const now = filters.now || hanoiDateTime(new Date());
+        const live = !!filters.live;
         const candidates = events.filter((event) =>
           (!filters.date || happensOn(event, filters.date)) &&
-          (!filters.cluster || event.clusterId === filters.cluster));
+          (!filters.cluster || event.clusterId === filters.cluster) &&
+          (!live || eventOpenNow(event, now)));
         if (!tokens.length) return candidates;
         // An exact phrase wins when it exists: "nguyễn thế sơn" should return that
         // artist's events, not every event whose text separately contains "nguyen",
@@ -823,7 +872,7 @@
         }
         const eventLayer = [];
         const markerByEvent = new Map();
-        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, filters: { query: "", date: "", cluster: "" } };
+        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, filters: { query: "", date: "", cluster: "", live: true } };
         const $ = (selector) => document.querySelector(selector);
         const $$ = (selector) => [...document.querySelectorAll(selector)];
         let toastTimer;
@@ -887,12 +936,63 @@
           $("#cluster-filter").innerHTML = '<option value="">Tất cả cụm</option>' +
             Object.entries(clusters).map(([id, cluster]) => `<option value="${id}">${escapeHtml(cluster.name)}</option>`).join("");
           const today = hanoiDateTime(new Date()).date;
-          const defaultDate = today >= FESTIVAL_START && today <= FESTIVAL_END && active.includes(today)
-            ? today
-            : active[active.length - 1] || "";
+          const liveAvailable = today >= FESTIVAL_START && today <= FESTIVAL_END && active.includes(today);
+          const defaultDate = liveAvailable ? today : active[active.length - 1] || "";
           state.filters.date = defaultDate;
+          // Live is the default view: today's events that are still open. It only makes
+          // sense when the festival is on today, so the button drops out otherwise.
+          state.live = liveAvailable;
+          state.filters.live = liveAvailable;
           $("#date-filter").value = defaultDate;
+          updateLiveButton();
           renderClusterKey("#cluster-key");
+        }
+
+        function updateLiveButton() {
+          const button = $("#live-toggle");
+          if (!button) return;
+          const today = hanoiDateTime(new Date()).date;
+          const available = today >= FESTIVAL_START && today <= FESTIVAL_END && eventsOnDate(today).length > 0;
+          const on = !!state.live && available;
+          button.disabled = !available;
+          button.classList.toggle("is-on", on);
+          button.setAttribute("aria-pressed", String(on));
+          const label = button.querySelector(".live-label");
+          if (label) label.textContent = "Live";
+          if (!available) {
+            button.title = "Hôm nay không có hoạt động trong lễ hội nên chế độ trực tiếp đang tắt.";
+            button.setAttribute("aria-label", "Chế độ trực tiếp: hôm nay không có hoạt động");
+            return;
+          }
+          button.title = on
+            ? "Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch."
+            : "Đang tắt: đang hiện toàn bộ hoạt động. Bấm để quay lại chế độ trực tiếp hôm nay.";
+          button.setAttribute("aria-label", `Chế độ trực tiếp: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
+        }
+
+        // Turning Live on always jumps back to today; turning it off clears the date so
+        // the whole programme shows up on the map and in the list.
+        function setLive(on, options = {}) {
+          const { syncDate = true, quiet = false } = options;
+          const today = hanoiDateTime(new Date()).date;
+          state.live = !!on;
+          state.filters.live = state.live;
+          if (syncDate) {
+            state.filters.date = state.live ? today : "";
+            const select = $("#date-filter");
+            if (select) select.value = state.filters.date;
+          }
+          updateLiveButton();
+          applyFilters();
+          if (!quiet) {
+            if (state.live) showToast("Đang hiện các hoạt động còn mở hôm nay.");
+            else showToast("Đã tắt Live: đang hiện toàn bộ hoạt động.");
+          }
+        }
+
+        function refreshLive() {
+          if (!state.live) return;
+          setLive(true, { quiet: true });
         }
 
         function formatLongDate(date) {
@@ -1315,7 +1415,9 @@
           $("#result-count").textContent = `${matching.length} hoạt động`;
           const list = $("#event-list");
           if (!matching.length) {
-            list.innerHTML = '<div class="empty-state"><i class="fa-regular fa-calendar-xmark"></i>Không tìm thấy hoạt động phù hợp.<br>Thử đổi ngày hoặc từ khóa nhé.</div>';
+            list.innerHTML = state.live
+              ? '<div class="empty-state"><i class="fa-regular fa-clock"></i>Hôm nay không còn hoạt động nào đang mở.<br>Tắt Live để xem toàn bộ lịch.</div>'
+              : '<div class="empty-state"><i class="fa-regular fa-calendar-xmark"></i>Không tìm thấy hoạt động phù hợp.<br>Thử đổi ngày hoặc từ khóa nhé.</div>';
             return;
           }
           list.innerHTML = matching.map((event) => {
@@ -2114,8 +2216,22 @@
             applyFilters();
           });
           $("#date-filter").addEventListener("change", (event) => {
-            state.filters.date = event.target.value;
+            const value = event.target.value;
+            const today = hanoiDateTime(new Date()).date;
+            state.filters.date = value;
+            // Picking today returns to the live view; any other date (or "Tất cả ngày")
+            // is a static view of the programme.
+            const nextLive = !!value && value === today;
+            if (nextLive !== state.live) {
+              state.live = nextLive;
+              state.filters.live = nextLive;
+              updateLiveButton();
+            }
             applyFilters();
+          });
+          $("#live-toggle").addEventListener("click", () => {
+            if ($("#live-toggle").disabled) return;
+            setLive(!state.live);
           });
           $("#cluster-filter").addEventListener("change", (event) => {
             state.filters.cluster = event.target.value;
@@ -2173,6 +2289,13 @@
           if (map.isStyleLoaded()) fitRouteView();
           else map.once("load", fitRouteView);
         }
+        // Live mode follows the clock: re-evaluate when the tab regains focus and once a
+        // minute so events drop off the map as they end.
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) refreshLive();
+        });
+        window.addEventListener("focus", refreshLive);
+        setInterval(refreshLive, 60000);
         setTimeout(() => map.resize(), 100);
       }
 
