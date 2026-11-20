@@ -206,14 +206,14 @@
     /* Live/date feedback is its own row under the top bar, so showing a message never
        moves the event-count pill. Green matches the Live toggle's active state. */
     .map-status-note {
-      position: absolute; z-index: 610; top: 65px; left: 18px;
+      position: absolute; z-index: 610; top: 65px; left: 50%;
       max-width: min(320px, 64vw); margin: 0; padding: 6px 10px;
       border: 1px solid #d5e8dc; border-radius: 8px; color: #237148;
       background: #f1f8f3; box-shadow: 0 3px 12px rgb(30 45 38 / 8%);
-      font-size: 10px; font-weight: 700; line-height: 1.35;
-      opacity: 0; pointer-events: none; transform: translateY(-3px); transition: opacity .16s, transform .16s;
+      font-size: 10px; font-weight: 700; line-height: 1.35; text-align: center;
+      opacity: 0; pointer-events: none; transform: translate(-50%, -3px); transition: opacity .16s, transform .16s;
     }
-    .map-status-note.visible { opacity: 1; transform: none; }
+    .map-status-note.visible { opacity: 1; transform: translate(-50%, 0); }
     .map-status-note:empty { display: none; }
     .map-actions { display: flex; gap: 8px; }
     .map-toggle { display: none; }
@@ -484,7 +484,7 @@
       .event-pin-body > span { font-size: 9px; }
       .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      .map-status-note { top: 59px; left: 12px; max-width: min(240px, 52vw); }
+      .map-status-note { top: 59px; max-width: min(240px, 72vw); }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
       .preset-wrap[open] .preset-select { max-height: 26dvh; }
