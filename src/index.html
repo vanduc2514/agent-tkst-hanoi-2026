@@ -206,14 +206,14 @@
     /* Live/date feedback is its own row under the top bar, so showing a message never
        moves the event-count pill. Green matches the Live toggle's active state. */
     .map-status-note {
-      position: absolute; z-index: 610; top: 65px; left: 50%;
+      position: absolute; top: 50%; left: 50%;
       max-width: min(320px, 64vw); margin: 0; padding: 6px 10px;
       border: 1px solid #d5e8dc; border-radius: 8px; color: #237148;
       background: #f1f8f3; box-shadow: 0 3px 12px rgb(30 45 38 / 8%);
       font-size: 10px; font-weight: 700; line-height: 1.35; text-align: center;
-      opacity: 0; pointer-events: none; transform: translate(-50%, -3px); transition: opacity .16s, transform .16s;
+      opacity: 0; pointer-events: none; transform: translate(-50%, calc(-50% - 3px)); transition: opacity .16s, transform .16s;
     }
-    .map-status-note.visible { opacity: 1; transform: translate(-50%, 0); }
+    .map-status-note.visible { opacity: 1; transform: translate(-50%, -50%); }
     .map-status-note:empty { display: none; }
     .map-actions { display: flex; gap: 8px; }
     .map-toggle { display: none; }
@@ -241,10 +241,13 @@
        this one, and an equal-specificity rule would lose to it. */
     #map .maplibregl-ctrl-bottom-right,
     #map .maplibregl-ctrl-bottom-left { bottom: calc(22px + env(safe-area-inset-bottom, 0px)); }
-    .map-toggles {
-      position: absolute; z-index: 620; left: 10px; bottom: calc(32px + env(safe-area-inset-bottom, 0px));
-      display: flex; align-items: center; gap: 6px;
+    .map-bottom-controls {
+      position: absolute; z-index: 620; right: 10px; bottom: calc(32px + env(safe-area-inset-bottom, 0px)); left: 10px;
+      display: flex; align-items: center; justify-content: flex-start; pointer-events: none;
     }
+    /* Live and Lân Cận share a left column; the feedback pill sits on the same row and
+       is centred horizontally, so its middle lines up between the two buttons. */
+    .map-toggles { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; pointer-events: auto; }
     .live-toggle {
       display: inline-flex; align-items: center; gap: 8px; min-height: 30px;
       border: 1px solid rgb(225 232 227 / 95%); border-radius: 9px; padding: 0 10px;
@@ -484,7 +487,7 @@
       .event-pin-body > span { font-size: 9px; }
       .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      .map-status-note { top: 59px; max-width: min(240px, 72vw); }
+      .map-status-note { max-width: min(240px, 72vw); }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
       .preset-wrap[open] .preset-select { max-height: 26dvh; }
@@ -602,15 +605,18 @@
     <div class="mobile-scrim" id="mobile-scrim" aria-hidden="true"></div>
     <section class="map-area" aria-label="Bản đồ sự kiện">
       <div id="map" role="application" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
-      <div class="map-toggles">
-        <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
-          <span class="live-label">Live</span>
-          <span class="live-dot" aria-hidden="true"></span>
-        </button>
-        <button class="live-toggle nearby-toggle is-hidden" id="nearby-toggle" type="button" aria-pressed="true" title="Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng trong lộ trình.">
-          <span class="live-label">Lân Cận</span>
-          <span class="live-dot" aria-hidden="true"></span>
-        </button>
+      <div class="map-bottom-controls">
+        <div class="map-toggles">
+          <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
+            <span class="live-label">Live</span>
+            <span class="live-dot" aria-hidden="true"></span>
+          </button>
+          <button class="live-toggle nearby-toggle is-hidden" id="nearby-toggle" type="button" aria-pressed="true" title="Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng trong lộ trình.">
+            <span class="live-label">Lân Cận</span>
+            <span class="live-dot" aria-hidden="true"></span>
+          </button>
+        </div>
+        <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
       </div>
       <footer class="map-footer">
         <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" aria-label="Mã nguồn trên GitHub">
@@ -625,7 +631,6 @@
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
-      <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
       <aside class="event-detail" id="event-detail" role="dialog" aria-labelledby="detail-title" aria-hidden="true">
         <header class="detail-head" id="detail-head">
           <div id="detail-head-info"></div>
