@@ -229,8 +229,11 @@
        this one, and an equal-specificity rule would lose to it. */
     #map .maplibregl-ctrl-bottom-right,
     #map .maplibregl-ctrl-bottom-left { bottom: calc(22px + env(safe-area-inset-bottom, 0px)); }
-    .live-toggle {
+    .map-toggles {
       position: absolute; z-index: 620; left: 10px; bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+      display: flex; align-items: center; gap: 6px;
+    }
+    .live-toggle {
       display: inline-flex; align-items: center; gap: 8px; min-height: 30px;
       border: 1px solid rgb(225 232 227 / 95%); border-radius: 9px; padding: 0 10px;
       color: #6f7c76; background: rgb(255 255 255 / 94%);
@@ -393,7 +396,7 @@
     .route-summary { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px 4px; color: #79857f; font-size: 10px; }
     .route-summary strong { color: #34443d; }
     .route-tools { display: flex; gap: 7px; padding: 9px 20px 12px; }
-    .route-tools .small-button { flex: 1; min-height: 33px; }
+    .route-tools .small-button { flex: 1; min-width: 0; min-height: 33px; white-space: nowrap; }
     .route-list { display: grid; gap: 8px; padding: 0 20px 18px; }
     .route-item { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 8px; border: 1px solid #e9eeeb; border-radius: 10px; padding: 9px; background: #fff; }
     .route-number { display: grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; color: #fff; background: #315d4d; font-size: 10px; font-weight: 800; }
@@ -477,6 +480,7 @@
       .preset-wrap summary { padding-right: 16px; padding-left: 16px; }
       .preset-select { padding-right: 16px; padding-left: 16px; }
       .preset-wrap[open] .preset-select { padding-right: 10px; }
+      .route-tools .small-button { padding: 0 5px; gap: 4px; font-size: 9px; }
     }
   </style>
 </head>
@@ -552,6 +556,7 @@
         <div class="route-summary"><span><strong id="route-stops">0 điểm dừng</strong></span><span id="route-distance">Chưa có tuyến</span></div>
         <div class="route-tools">
           <button class="small-button" id="optimize-route" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i>Tối ưu gần nhất</button>
+          <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i>Chia sẻ</button>
           <button class="small-button" id="clear-route" type="button"><i class="fa-regular fa-trash-can"></i>Xóa tuyến</button>
         </div>
         <div class="panel-scroll"><div class="route-list" id="route-list"></div></div>
@@ -577,10 +582,16 @@
     <div class="mobile-scrim" id="mobile-scrim" aria-hidden="true"></div>
     <section class="map-area" aria-label="Bản đồ sự kiện">
       <div id="map" role="application" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
-      <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
-        <span class="live-label">Live</span>
-        <span class="live-dot" aria-hidden="true"></span>
-      </button>
+      <div class="map-toggles">
+        <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
+          <span class="live-label">Live</span>
+          <span class="live-dot" aria-hidden="true"></span>
+        </button>
+        <button class="live-toggle" id="nearby-toggle" type="button" aria-pressed="true" title="Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng trong lộ trình.">
+          <span class="live-label">Lân Cận</span>
+          <span class="live-dot" aria-hidden="true"></span>
+        </button>
+      </div>
       <footer class="map-footer">
         <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" aria-label="Mã nguồn trên GitHub">
           <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
@@ -938,7 +949,7 @@
         }
         const eventLayer = [];
         const markerByEvent = new Map();
-        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, filters: { query: "", date: "", cluster: "" } };
+        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, nearby: true, filters: { query: "", date: "", cluster: "" } };
         const $ = (selector) => document.querySelector(selector);
         // filters is the user's query/date/cluster; live mode is its own flag, so the
         // two are combined here instead of keeping a second copy in filters.
@@ -1065,6 +1076,38 @@
           button.setAttribute("aria-label", `Chế độ trực tiếp: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
         }
 
+        // "Lân Cận" decides what surrounds a route on the map: with the toggle on the
+        // map keeps the current filter results and adds the route stops on top; with it
+        // off only the stops of the route are drawn. Links shared from a route load with
+        // the toggle off so the itinerary reads cleanly on first open.
+        function updateNearbyButton() {
+          const button = $("#nearby-toggle");
+          if (!button) return;
+          const available = state.route.length > 0;
+          const on = available && !!state.nearby;
+          button.disabled = !available;
+          button.classList.toggle("is-on", on);
+          button.setAttribute("aria-pressed", String(on));
+          button.title = !available
+            ? "Thêm điểm dừng vào lộ trình để dùng chế độ lân cận."
+            : on
+              ? "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng."
+              : "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.";
+          button.setAttribute("aria-label", `Chế độ lân cận: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
+        }
+
+        function setNearby(on, options = {}) {
+          const { quiet = true } = options;
+          state.nearby = !!on;
+          updateNearbyButton();
+          applyFilters();
+          if (!quiet) {
+            showToast(state.nearby
+              ? "Đang hiện các hoạt động quanh lộ trình."
+              : "Chỉ hiện các điểm dừng trong lộ trình.");
+          }
+        }
+
         // Turning Live on jumps back to today. Turning it off keeps the date that is
         // already selected, so the map falls back to that whole day (today on a first
         // visit) instead of the entire festival; "Tất cả ngày" is how you see everything.
@@ -1115,21 +1158,30 @@
           markerByEvent.clear();
           hideHoverPopup();
           // Route stops keep their pin even when the current filter hides them, so a
-          // shared link still shows the whole itinerary on the map.
-          const shownIds = new Set(matching.map((event) => event.id));
-          const routeOnly = state.route
-            .filter((id) => !shownIds.has(id))
-            .map((id) => eventById[id])
-            .filter(Boolean);
-          renderIndividualMarkers(routeOnly.length ? [...matching, ...routeOnly] : matching);
+          // shared link still shows the whole itinerary on the map. With "Lân Cận" off
+          // the map drops everything else and draws the itinerary on its own.
+          const routeEvents = state.route.map((id) => eventById[id]).filter(Boolean);
+          const stopsOnly = routeEvents.length > 0 && !state.nearby;
+          let displayed = matching;
+          if (stopsOnly) {
+            displayed = routeEvents;
+          } else {
+            const shownIds = new Set(matching.map((event) => event.id));
+            const extraStops = routeEvents.filter((event) => !shownIds.has(event.id));
+            if (extraStops.length) displayed = [...matching, ...extraStops];
+          }
+          renderIndividualMarkers(displayed);
           syncRoutePins();
           syncLivePins();
+          updateNearbyButton();
           // The pill describes what the map is showing: Live is "đang và sẽ diễn ra", a
           // chosen date is "trong ngày", and everything else is the whole programme.
-          const label = state.live
-            ? "sự kiện đang và sẽ diễn ra"
-            : state.filters.date ? "sự kiện trong ngày" : "sự kiện";
-          $("#map-status").textContent = `${matching.length} ${label}`;
+          const label = stopsOnly
+            ? "điểm dừng trong lộ trình"
+            : state.live
+              ? "sự kiện đang và sẽ diễn ra"
+              : state.filters.date ? "sự kiện trong ngày" : "sự kiện";
+          $("#map-status").textContent = `${displayed.length} ${label}`;
         }
 
         function addEventMarker(event, lngLat) {
@@ -1623,6 +1675,9 @@
           $("#optimize-route").disabled = routeEvents.length < 2;
           $("#optimize-route").style.opacity = routeEvents.length < 2 ? ".5" : "1";
           $("#clear-route").disabled = !routeEvents.length;
+          $("#share-route").disabled = !routeEvents.length;
+          $("#share-route").style.opacity = routeEvents.length ? "1" : ".5";
+          updateNearbyButton();
           if (!routeEvents.length) {
             list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-route"></i>Chưa có điểm dừng.<br>Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.</div>';
           } else {
@@ -1795,11 +1850,17 @@
         function applyUrlState() {
           const params = new URLSearchParams(window.location.search);
           const routeIds = parseRouteIds(params.get("route"));
+          // A shared route opens focused on its own stops; the visitor can turn "Lân Cận"
+          // on to bring the surrounding programme back.
           if (routeIds.length) {
             state.route = routeIds;
+            state.nearby = false;
           } else {
             const preset = presets.find((item) => item.id === params.get("preset"));
-            if (preset) state.route = preset.events.filter((id) => eventById[id]);
+            if (preset) {
+              state.route = preset.events.filter((id) => eventById[id]);
+              state.nearby = false;
+            }
           }
           const origin = parseOriginParam(params.get("origin"));
           if (origin) state.origin = origin;
@@ -1838,8 +1899,13 @@
           if (points.length) fitToPoints(points, 80, 15);
         }
 
-        function setTab(tabId) {
+        function setTab(tabId, options = {}) {
+          const { fromUrl = false } = options;
           state.tab = tabId;
+          // Opening the route tab is a planning moment, so the surrounding programme
+          // comes back even if a shared link started with "Lân Cận" off. The initial
+          // load from a URL keeps the focused view.
+          if (tabId === "route" && !fromUrl && state.route.length) setNearby(true);
           $$(".tab-button").forEach((button) => {
             const active = button.dataset.tab === tabId;
             button.classList.toggle("active", active);
@@ -2021,6 +2087,35 @@
             `<button class="preset-button" type="button" data-preset="${preset.id}"><span><strong>${escapeHtml(preset.name)}</strong><span>${escapeHtml(preset.note)}</span></span><i class="fa-solid fa-arrow-right"></i></button>`
           ).join("");
           $("#preset-list").querySelectorAll("[data-preset]").forEach((button) => button.addEventListener("click", () => loadPreset(button.dataset.preset)));
+        }
+
+        function copyText(text) {
+          if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);
+          return new Promise((resolve, reject) => {
+            const field = document.createElement("textarea");
+            field.value = text;
+            field.setAttribute("readonly", "");
+            field.style.position = "fixed";
+            field.style.opacity = "0";
+            document.body.append(field);
+            field.select();
+            const copied = document.execCommand("copy");
+            field.remove();
+            if (copied) resolve();
+            else reject(new Error("clipboard unavailable"));
+          });
+        }
+
+        // The URL already carries the stops, so sharing is just copying the current
+        // address after it has been synced with the route state.
+        function shareRoute() {
+          if (!state.route.length) return;
+          syncUrlState();
+          const url = window.location.href;
+          copyText(url).then(
+            () => showToast("Đã sao chép liên kết lộ trình."),
+            () => window.prompt("Sao chép liên kết lộ trình:", url)
+          );
         }
 
         function showAllPlaces() {
@@ -2299,6 +2394,11 @@
             if ($("#live-toggle").disabled) return;
             setLive(!state.live);
           });
+          $("#nearby-toggle").addEventListener("click", () => {
+            if ($("#nearby-toggle").disabled) return;
+            setNearby(!state.nearby, { quiet: false });
+          });
+          $("#share-route").addEventListener("click", shareRoute);
           $("#cluster-filter").addEventListener("change", (event) => {
             state.filters.cluster = event.target.value;
             applyFilters();
@@ -2350,7 +2450,7 @@
         loadPrompts();
         setupLocationSharing();
         renderAll();
-        setTab(initialTab);
+        setTab(initialTab, { fromUrl: true });
         if (state.route.length) {
           if (map.isStyleLoaded()) fitRouteView();
           else map.once("load", fitRouteView);
