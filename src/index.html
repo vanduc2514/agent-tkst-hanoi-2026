@@ -106,9 +106,11 @@
     .ai-open-chatgpt { --ai-dot: #10a37f; --ai-bg: #eefaf5; --ai-border: #b9e2d3; }
     .ai-open-claude { --ai-dot: #d4623a; --ai-bg: #fdf2ec; --ai-border: #efc7b6; }
     .ai-open-gemini { --ai-dot: #4285f4; --ai-bg: #eef4fe; --ai-border: #bcd2f7; }
-    .ai-prompt-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; line-height: 1.45; }
-    .ai-prompt-status:not(:empty) { min-height: 15px; }
-    .ai-prompt-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    /* Shared inline status used by the AI prompts and the route panel. */
+    .ai-prompt-status, .panel-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; line-height: 1.45; }
+    .ai-prompt-status:not(:empty), .panel-status:not(:empty) { min-height: 15px; }
+    .ai-prompt-status a, .panel-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+    .route-status { padding: 0 20px 4px; }
     @media (max-width: 380px) {
       .ai-prompt-copy span { display: none; }
       .ai-prompt-copy { min-height: 36px; min-width: 36px; justify-content: center; padding: 0; }
@@ -503,6 +505,7 @@
       .event-list { padding-right: 16px; padding-left: 16px; }
       .preset-wrap summary { padding-right: 16px; padding-left: 16px; }
       .preset-select { padding-right: 16px; padding-left: 16px; }
+      .route-status { padding-right: 16px; padding-left: 16px; }
       .preset-wrap[open] .preset-select { padding-right: 10px; }
       .route-tools .small-button { padding: 0 5px; gap: 4px; font-size: 9px; }
     }
@@ -583,6 +586,7 @@
           <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i>Chia sẻ</button>
           <button class="small-button" id="clear-route" type="button"><i class="fa-regular fa-trash-can"></i>Xóa tuyến</button>
         </div>
+        <p class="panel-status route-status" id="route-status" role="status" aria-live="polite"></p>
         <div class="panel-scroll"><div class="route-list" id="route-list"></div></div>
         <div class="route-bottom"><a class="directions-button" id="directions-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i>Mở chỉ đường Google Maps</a></div>
       </section>
@@ -2198,7 +2202,10 @@
           syncUrlState();
           const url = window.location.href;
           copyText(url).then(
-            () => showToast("Đã sao chép liên kết lộ trình."),
+            () => {
+              const status = $("#route-status");
+              if (status) status.textContent = "Đã sao chép liên kết lộ trình. Dán liên kết để mở lại lộ trình này.";
+            },
             () => window.prompt("Sao chép liên kết lộ trình:", url)
           );
         }
