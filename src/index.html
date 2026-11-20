@@ -353,6 +353,7 @@
     .detail-fact i { width: 16px; margin-top: 2px; color: var(--cluster, var(--green)); text-align: center; }
     .detail-fact strong { display: block; color: #26362e; font-weight: 800; }
     .detail-fact span { color: #7d8983; }
+    .detail-facts .detail-register { justify-self: start; margin: 0; }
     .detail-official { margin-top: 13px; border: 1px solid #e6ece8; border-radius: 10px; padding: 11px 12px; background: #fafcfb; }
     .detail-official-title { display: flex; align-items: center; gap: 7px; margin: 0 0 8px; color: #2b3a33; font: 800 11.5px Manrope, sans-serif; }
     .detail-official-title i { color: var(--cluster, var(--green)); }
@@ -1624,6 +1625,7 @@
             <div class="detail-body">
               <div class="detail-facts">
                 <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !event.slots?.length ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
+                ${event.registrationUrl ? `<a class="detail-register" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-to-square"></i>Đăng ký tham dự</a>` : ""}
                 <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(place.kind)}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>
               </div>
               ${timeRows.length > 1 ? `<section class="detail-times">
@@ -1639,7 +1641,6 @@
                 ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong>${escapeHtml(event.officialType)}</strong></p>` : ""}
                 ${event.officialDetail ? `<p class="detail-official-text">${escapeHtml(event.officialDetail)}</p>` : ""}
                 ${event.registrationRequired ? `<p class="detail-official-row"><span>Đăng ký</span><strong>Cần đăng ký trước${event.registrationDeadline ? ` · hạn ${escapeHtml(formatShortDate(event.registrationDeadline.slice(0, 10)))}` : ""}</strong></p>` : ""}
-                ${event.registrationUrl ? `<a class="detail-register" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-to-square"></i>Đăng ký tham dự</a>` : ""}
                 ${event.officialUrl ? `<a class="detail-official-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Xem trên trang chính thức</a>` : ""}
               </section>` : ""}
               <div class="detail-badges">${event.spotlight ? '<span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span>' : ""}</div>
