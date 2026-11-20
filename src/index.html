@@ -1164,21 +1164,27 @@
           eventLayer.length = 0;
           markerByEvent.clear();
           hideHoverPopup();
-          // Route stops keep their pin even when the current filter hides them, so a
-          // shared link still shows the whole itinerary on the map. With "Lân Cận" off
-          // the map drops everything else and draws the itinerary on its own.
-          const routeEvents = state.route.map((id) => eventById[id]).filter(Boolean);
-          const stopsOnly = routeEvents.length > 0 && !state.nearby;
+          // The route is a Lộ trình concept. Other tabs show the plain programme for the
+          // current Live/date filter, with no stop pins, badges or connecting line.
+          const onRouteTab = state.tab === "route";
           let displayed = matching;
-          if (stopsOnly) {
-            displayed = routeEvents;
-          } else {
-            const shownIds = new Set(matching.map((event) => event.id));
-            const extraStops = routeEvents.filter((event) => !shownIds.has(event.id));
-            if (extraStops.length) displayed = [...matching, ...extraStops];
+          let stopsOnly = false;
+          if (onRouteTab) {
+            // Route stops keep their pin even when the current filter hides them, so a
+            // shared link still shows the whole itinerary on the map. With "Lân Cận" off
+            // the map drops everything else and draws the itinerary on its own.
+            const routeEvents = state.route.map((id) => eventById[id]).filter(Boolean);
+            stopsOnly = routeEvents.length > 0 && !state.nearby;
+            if (stopsOnly) {
+              displayed = routeEvents;
+            } else {
+              const shownIds = new Set(matching.map((event) => event.id));
+              const extraStops = routeEvents.filter((event) => !shownIds.has(event.id));
+              if (extraStops.length) displayed = [...matching, ...extraStops];
+            }
           }
           renderIndividualMarkers(displayed);
-          syncRoutePins();
+          if (onRouteTab) syncRoutePins();
           syncLivePins();
           updateNearbyButton();
           // The pill describes what the map is showing: Live is "đang và sẽ diễn ra", a
@@ -1721,6 +1727,11 @@
 
         function renderRouteLine(routeEvents) {
           ensureRouteLayer();
+          if (state.tab !== "route") {
+            const clearSource = map.getSource(routeSourceId);
+            if (clearSource) clearSource.setData(routeShape([]));
+            return;
+          }
           syncRoutePins();
           if (!routeEvents.length) {
             const emptySource = map.getSource(routeSourceId);
@@ -1906,13 +1917,11 @@
           if (points.length) fitToPoints(points, 80, 15);
         }
 
-        function setTab(tabId, options = {}) {
-          const { fromUrl = false } = options;
+        function setTab(tabId) {
           state.tab = tabId;
-          // Opening the route tab is a planning moment, so the surrounding programme
-          // comes back even if a shared link started with "Lân Cận" off. The initial
-          // load from a URL keeps the focused view.
-          if (tabId === "route" && !fromUrl && state.route.length) setNearby(true);
+          // The route view always starts focused: "Lân Cận" is off until the visitor
+          // asks for the surrounding programme from within that tab.
+          if (tabId === "route") state.nearby = false;
           updateNearbyButton();
           $$(".tab-button").forEach((button) => {
             const active = button.dataset.tab === tabId;
@@ -1920,7 +1929,11 @@
             button.setAttribute("aria-selected", String(active));
           });
           $$(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.id === `panel-${tabId}`));
+          // Each tab has its own marker set: route stops on Lộ trình, the plain
+          // programme elsewhere. Rebuilding here keeps the map in step with the tab.
+          renderEventMarkers();
           if (tabId === "route") renderRoute();
+          else renderRouteLine([]);
           if (tabId === "prompts") {
             refreshPromptFields();
             requestAnimationFrame(sizePromptFields);
@@ -2458,7 +2471,7 @@
         loadPrompts();
         setupLocationSharing();
         renderAll();
-        setTab(initialTab, { fromUrl: true });
+        setTab(initialTab);
         if (state.route.length) {
           if (map.isStyleLoaded()) fitRouteView();
           else map.once("load", fitRouteView);
