@@ -12,6 +12,9 @@ interactive map, a route planner, and agent-readable Markdown.
 - `src/` is the folder that gets served and copied into the image, so it holds the page, the
   data files and the generated output. `images/` sits at the root and is only used by the
   README, not by the site.
+- `.agents/skills/sync-festival/` keeps `src/events.json` in step with the organiser. It reads
+  the official JSON API and pulls Facebook, Instagram and Threads through Apify, then reports
+  drift before anything is written. Read its `SKILL.md` first; the Python scripts live next to it.
 - Generated files are gitignored. CI regenerates them, then builds the nginx image.
 - Use`tmp` in this workspace to store temporary script, artifact or anything that is not included in the app or in build process
 ## Local Development

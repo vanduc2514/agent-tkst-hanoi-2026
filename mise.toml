@@ -1,0 +1,4 @@
+# Project defaults. Personal, machine-specific values live in mise.local.toml,
+# which is gitignored.
+[settings]
+env = ["local"]
