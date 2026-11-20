@@ -48,6 +48,7 @@ pin goes.
 | `tags` | `string[]` | repo | `apply --insert-social` |
 | `description` | string | repo | manual |
 | `officialUrl`, `officialType`, `officialSummary`, `officialDetail`, `officialVenue`, `officialVenueAddress` | string | organiser | `apply`, fills only when empty |
+| `registrationUrl` | string | organiser (posted on social) | `enrich`, fills only when empty |
 
 `endTime` may be earlier than `startTime` on a single day for the events whose
 listing publishes no hours (`e102`, `e140`); `check` reports them as notes.

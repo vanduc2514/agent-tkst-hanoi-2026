@@ -86,7 +86,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 26 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 29 offline tests over the
 parsers, matcher, diff and inserter; it must pass before any edit is committed.
 
 ## Commands
@@ -95,6 +95,7 @@ parsers, matcher, diff and inserter; it must pass before any edit is committed.
 |---|---|
 | `fetch [--limit N]` | run the three Apify actors → `tmp/sync/social.json` |
 | `diff` | site API + social → `tmp/sync/report.md`, `social-drafts.json` |
+| `enrich [--write]` | registration links from the fetched posts → `registrationUrl` |
 | `social` | rebuild drafts from `social.json` without touching the site |
 | `apply [--insert-social]` | write safe fills, optionally insert drafts |
 | `check` | validate `events.json`, no network |
@@ -109,6 +110,7 @@ retrieval failed.
 | `title` | organiser, curated by hand | manual |
 | `officialUrl`, `officialType`, `officialVenue`, `officialVenueAddress` | organiser | `apply`, only when empty |
 | `officialDetail`, `officialSummary` | organiser | manual |
+| `registrationUrl` | organiser (posted on social) | `enrich` |
 | `date`, `dateEnd`, `startTime`, `endTime` | curated | manual |
 | `slots`, `lineup`, `days` | curated | manual |
 | `placeId`, `clusterId` | curated map pins | manual |
@@ -138,6 +140,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/sync_festival.py` | CLI: fetch, diff, apply, check |
 | `scripts/apify.py` | Apify REST client: run actor, poll, read dataset |
 | `scripts/social.py` | dataset shapes → drafts (pure) |
+| `scripts/enrich.py` | registration links from posts (pure) |
 | `scripts/extract.py` | text normalising, HTML, dates, times (pure) |
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |

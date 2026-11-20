@@ -7,6 +7,7 @@ API. Nothing here scrapes HTML pages or drives a browser.
 
     python3 sync_festival.py fetch            # Apify → tmp/sync/social.json
     python3 sync_festival.py diff             # site API + social → tmp/sync/report.md
+    python3 sync_festival.py enrich --write   # registration links from posts
     python3 sync_festival.py apply            # write the safe fills
     python3 sync_festival.py apply --insert-social   # also add new events from drafts
     python3 sync_festival.py check            # validate events.json only
@@ -21,6 +22,7 @@ import sys
 import urllib.request
 
 import apify
+import enrich
 import social
 from config import EVENTS, FESTIVAL_END, FESTIVAL_START, PUBLIC_API, WORK
 from events_model import (
@@ -355,6 +357,33 @@ def cmd_apply(args):
     return 1 if problems else 0
 
 
+def cmd_enrich(args):
+    """Registration links (and other missing facts) from the fetched posts."""
+    posts = read_social()
+    if posts is None:
+        print("no social.json yet — run `sync_festival.py fetch` first", file=sys.stderr)
+        return 2
+    data = load()
+    proposals = enrich.registration_proposals(posts, data["events"])
+    WORK.mkdir(parents=True, exist_ok=True)
+    (WORK / "enrich.json").write_text(json.dumps(proposals, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    filled, kept = enrich.apply_registrations(data, proposals) if args.write else ([], [])
+    print(f"registration links found: {len(proposals)}")
+    for proposal in proposals[:12]:
+        print(f"  {proposal['eventId']:<5} {proposal['title'][:42]:<42} {proposal['url'][:52]}")
+    if args.write:
+        save(data)
+        print(f"filled {len(filled)} · kept {len(kept)}")
+        for event_id, url in filled:
+            print(f"  + {event_id} {url}")
+        problems, _ = validate(data)
+        print("validation clean" if not problems else f"validation: {len(problems)} problem(s)")
+        return 1 if problems else 0
+    print(f"written {WORK / 'enrich.json'} — rerun with --write to apply")
+    return 0
+
+
 def cmd_social(args):
     drafts = read_social()
     if drafts is None:
@@ -406,6 +435,10 @@ def main(argv=None):
     apply_cmd = sub.add_parser("apply", help="write safe fills")
     apply_cmd.add_argument("--insert-social", action="store_true", help="also add new events from social drafts")
     apply_cmd.set_defaults(func=cmd_apply)
+
+    enrich_cmd = sub.add_parser("enrich", help="registration links from social posts")
+    enrich_cmd.add_argument("--write", action="store_true", help="write the links into events.json")
+    enrich_cmd.set_defaults(func=cmd_enrich)
 
     social_cmd = sub.add_parser("social", help="turn the fetched posts into drafts")
     social_cmd.set_defaults(func=cmd_social)

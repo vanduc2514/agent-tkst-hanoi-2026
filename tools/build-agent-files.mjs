@@ -259,6 +259,7 @@ const details = [
       `- Mô tả: ${oneLine(e.description)}`,
       quote ? `- Trích nguồn${quote.truncated ? " (còn nữa)" : ""}: ${quote.text}` : null,
       e.officialVenue && e.officialVenue !== venue(e) ? `- Khu vực theo ban tổ chức: ${e.officialVenue}` : null,
+      e.registrationUrl ? `- Đăng ký: ${e.registrationUrl}` : null,
       e.officialUrl
         ? `- Đầy đủ: ${e.officialUrl}`
         : "- Đầy đủ: ban tổ chức không có trang riêng cho hoạt động này",

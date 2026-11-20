@@ -101,6 +101,47 @@ def find_duplicate(text, events):
     return {"id": event["id"], "title": event["title"], "score": round(score, 2)}
 
 
+_HEADING_TYPE = re.compile(
+    r"^(workshop|trình diễn|triển lãm|trưng bày|tọa đàm|toạ đàm|trao đổi|lớp thực hành|đêm nhạc|"
+    r"chiếu phim|tour|sự kiện)\s*[:：]?\s*", re.I)
+
+
+def _post_names(text):
+    """Names a registration post uses: the quoted phrase, plus a typed heading."""
+    names = []
+    phrase = quoted(text)
+    if phrase:
+        names.append(phrase)
+    first = next((line.strip() for line in (text or "").splitlines() if line.strip()), "")
+    heading = _HEADING_TYPE.sub("", first)
+    heading = re.split(r"[–—|.,]", heading)[0].strip()
+    if heading:
+        # A heading often continues into English or boilerplate, so try its
+        # prefixes, longest first: "CỔ VẬT CHUYỂN ĐỘNG Artifacts in Motion" still
+        # yields "Cổ vật chuyển động".
+        words = fold(heading).split()[:10]
+        for size in range(len(words), 2, -1):
+            prefix = " ".join(words[:size])
+            if len(prefix) >= 12:
+                names.append(prefix)
+    return [name for name in names if len(fold(name).split()) >= 2]
+
+
+def best_event(text, events):
+    """The event a registration post is about, or None.
+
+    Only an explicit name counts: the quoted phrase, or the typed heading. A wrong
+    link is worse than a missing one, so there is no fuzzy fallback.
+    """
+    for name in _post_names(text):
+        folded = fold(name)
+        matches = [event for event in events if folded in fold(event.get("title") or "")]
+        if matches:
+            event = min(matches, key=lambda e: len(e["title"]))
+            return {"id": event["id"], "title": event["title"], "score": 1.0}
+    return None
+
+
 def genre_tag(event_type):
     first = (event_type or "").split(",")[0].strip()
     return GENRE.get(first, first.lower())

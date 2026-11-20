@@ -15,7 +15,8 @@ import apify
 from config import EVENTS
 from events_model import load, new_event, validate, within_festival
 from extract import fold, html_to_text, in_window, parse_dates, parse_times, prose_facts, same_text, vn_parts
-from match import best_place, coverage, find_duplicate, genre_tag, slug_of
+from match import best_event, best_place, coverage, find_duplicate, genre_tag, slug_of
+from enrich import apply_registrations, form_links, registration_proposals
 
 sys.path.insert(0, str(Path(__file__).parent))
 import sync_festival as cli  # noqa: E402
@@ -271,6 +272,43 @@ class Apply(unittest.TestCase):
         self.assertEqual(len(skipped), 1)
         self.assertEqual(data["events"][-1]["placeId"], "p01")
         self.assertEqual(data["events"][-1]["number"], before + 1)
+
+
+class Enrichment(unittest.TestCase):
+    def setUp(self):
+        self.data = load()
+        self.events = self.data["events"]
+
+    def test_form_links(self):
+        text = "Đăng ký tại https://forms.gle/SMmuryqHy43cCFCRA và https://example.com/x. Dự phòng https://docs.google.com/forms/d/e/abc/viewform,"
+        links = form_links(text)
+        self.assertEqual(links[0], "https://forms.gle/SMmuryqHy43cCFCRA")
+        self.assertIn("https://docs.google.com/forms/d/e/abc/viewform", links)
+        self.assertEqual(len(links), 2, "trailing comma stripped, non-form host ignored")
+        self.assertEqual(form_links("không có link"), [])
+
+    def test_best_event_requires_a_name(self):
+        self.assertEqual(best_event('Mời đăng ký Trao đổi chuyên môn "Khao Khát Nguyên Bản" diễn ra 18/11', self.events)["id"], "e97")
+        self.assertEqual(best_event('Tour di sản "Chuyện Đình trong Phố" ba tuyến', self.events)["id"], "e34")
+        self.assertIsNone(best_event("Cuộc thi thời trang MARKET TO MODE", self.events))
+
+    def test_registration_proposals_and_apply(self):
+        posts = [
+            {"text": 'Mời đăng ký "Khao Khát Nguyên Bản" tại https://forms.gle/OLD', "source": "p1", "posted_at": "2026-11-10", "network": "facebook"},
+            {"text": 'Mời đăng ký "Khao Khát Nguyên Bản" tại https://forms.gle/NEW', "source": "p2", "posted_at": "2026-11-17", "network": "facebook"},
+        ]
+        proposals = registration_proposals(posts, self.events)
+        self.assertEqual(len(proposals), 1)
+        self.assertEqual(proposals[0]["url"], "https://forms.gle/NEW", "newest post wins")
+
+        data = {"events": [{"id": "e97", "title": self.events[96]["title"] if False else "x"}]}
+        data["events"][0]["id"] = "e97"
+        filled, kept = apply_registrations(data, proposals)
+        self.assertEqual(filled, [("e97", "https://forms.gle/NEW")])
+        self.assertEqual(kept, [])
+        filled, kept = apply_registrations(data, proposals)
+        self.assertEqual(filled, [])
+        self.assertEqual(kept, [])
 
 
 class Apify(unittest.TestCase):
