@@ -1372,7 +1372,8 @@
       ],
       "description": "Triển lãm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đền và Di tích Phố Cổ.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trung-bay-nghe-thuat-gioi-thieu-san-pham-theu-cua-nghe-nhan-nguyen-thi-hang-ket-hop-cac-hoat-dong-trai-nghiem.html",
-      "officialType": "Exhibition"
+      "officialType": "Exhibition",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e21",
@@ -1554,7 +1555,8 @@
       ],
       "description": "Pavilion trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Công viên Thống Nhất.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/pavilion-ken.html",
-      "officialType": "Pavilion"
+      "officialType": "Pavilion",
+      "officialVenue": "Công viên Thống Nhất"
     },
     {
       "id": "e29",
@@ -1779,7 +1781,8 @@
       ],
       "description": "Triển lãm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Quảng trường Sáng tạo.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/tac-pham-ca-phe-trung-thuoc-du-an-ngo-ngang-ha-noi.html",
-      "officialType": "Exhibition"
+      "officialType": "Exhibition",
+      "officialVenue": "Quảng trường Sáng tạo"
     },
     {
       "id": "e34",
@@ -1805,7 +1808,9 @@
       ],
       "description": "Tour trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Các đình trong phố cổ.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/tour-di-san-chuyen-dinh-trong-pho.html",
-      "officialType": "Tour"
+      "officialType": "Tour",
+      "registrationUrl": "https://forms.gle/SMmuryqHy43cCFCRA",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e35",
@@ -1825,7 +1830,8 @@
       ],
       "description": "Triển lãm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Công viên Thống Nhất.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trien-lam-chat-xua-chuyen-moi.html",
-      "officialType": "Exhibition"
+      "officialType": "Exhibition",
+      "officialVenue": "Công viên Thống Nhất"
     },
     {
       "id": "e36",
@@ -2204,7 +2210,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Xuân Phiến Thị, 4 Hàng Quạt.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-sac-quat-chang-son.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e51",
@@ -2224,7 +2231,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Hà Vĩ, 11 Hàng Hòm.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-trai-nghiem-son-mai.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e52",
@@ -2250,7 +2258,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Cổ Vũ, 85 Hàng Gai.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-tranh-khac-go.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e53",
@@ -2464,7 +2473,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Nam Hương, 75 Hàng Trống.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-trong-vuon-hoa-hang-trong.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e63",
@@ -3940,7 +3950,8 @@
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trao-doi-chuyen-mon-khao-khat-nguyen-ban.html",
       "officialType": "Talk",
       "officialDetail": "(English Below)\n\nTrao đổi chuyên môn \"Khao Khát Nguyên Bản\" diễn ra từ 14:00 đến 17:00, thứ Tư ngày 18/11/2026, tại tầng 3 Trung tâm Giao lưu Văn hóa Phố cổ Hà Nội, 50 Đào Duy Từ. Đồng tổ chức bởi Lên Ngàn và Đom Đóm (Trung tâm Âm nhạc và Nghệ thuật thể nghiệm), phối hợp với Pro Helvetia (Quỹ Văn hóa Thụy Sĩ), Kanton Appenzell Innerrhoden, Casa Di Rosa, Đại sứ quán Thụy Sĩ tại Việt Nam, Ban Quản lý hồ Hoàn Kiếm và Phố cổ Hà Nội, chương trình thuộc dự án “Hà Nội Sáng Đèn” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, mở cuộc trao đổi để trả lời câu hỏi: yếu tố truyền thống đóng vai trò gì trong âm nhạc hiện đại, và điều này ngược lại định hình việc thực hành âm nhạc truyền thống ngày nay ra sao?\n\nThật đáng chú ý khi các xã hội hiện đại lại có xu hướng mạnh mẽ trong việc bảo tồn và duy trì các nghi lễ, lễ hội truyền thống với rất nhiều nỗ lực và sự nhiệt huyết. Niềm đam mê này đối với quá khứ tương phản sâu sắc với động lực đổi mới không ngừng nghỉ trong mọi lĩnh vực của cuộc sống ngày nay. Nhưng chính xác thì chúng ta đang đề cập đến điều gì khi nói về truyền thống, và ai là người hưởng lợi khi đặt quá khứ ở một vị trí nổi bật như vậy? Và chúng ta đang nói về quá khứ của ai khi nhắc đến truyền thống? Những thực hành này phục vụ mục đích gì, và chúng tiến hóa như thế nào dưới áp lực của việc bảo tồn?\n\nỞ cả Việt Nam và Thụy Sĩ, việc gắn kết với di sản âm nhạc là một yếu tố quan trọng trong sáng tác âm nhạc đương đại.\n\nViệt Nam có lẽ là một trong những quốc gia năng động nhất tại châu Á. Điều này cũng đúng với các không gian văn hóa, đặc biệt là đời sống âm nhạc sôi động tại Hà Nội. Mọi thứ ở đây đều chuyển dịch giữa quá khứ và tương lai. Không nơi nào khác có nhận thức mạnh mẽ đến thế về di sản văn hóa và ảnh hưởng của nó đối với hiện tại.\n\nTại quốc gia đa ngôn ngữ như Thụy Sĩ, việc dung hòa và định hình truyền thống là câu chuyện diễn ra hàng ngày, và nó giống như một động lực tạo nên sự khác biệt ở một quốc gia có bản sắc mạnh mẽ mà hiếm có nơi nào khác tại châu Âu sánh bằng. Làm sao một đất nước vốn bị chia cắt hơn là được gắn kết bởi dãy Alps sừng sững, lại có thể khai thác sâu sắc di sản âm nhạc của mình đến vậy mà chưa bao giờ biến nó thành một nền văn hóa mang tính định danh quốc gia một cách khiên cưỡng?\n\nBuổi trao đổi chuyên môn có các diễn giả:- Nguyễn Xuân Sơn (SonX): Nhạc sĩ và Nhà nghiên cứu di sản- Tiến sĩ Phạm Minh Hương: Nhà Nghiên cứu Âm nhạc dân tộc, Viện trưởng Viện Âm nhạc, Học viện Âm nhạc Quốc gia Việt Nam- Johannes Rühl: Nhà nhân học âm nhạc và giám tuyển- Điều phối cuộc trao đổi: Phó Giáo sư, Tiến sĩ Phạm Quỳnh Phương: Trưởng khoa Công nghiệp Văn hóa và Di sản, Trường Khoa học Liên ngành và Nghệ thuật, Đại học Quốc gia Hà Nội\n\nJohannes Rühl, nhà nhân học và giám tuyển âm nhạc, nguyên Giám đốc nghệ thuật Liên hoan Alpentöne, mang đến góc nhìn từ nghiên cứu và tổ chức lễ hội.\n\nNhạc sĩ, nhà nghiên cứu di sản Nguyễn Xuân Sơn cùng TS. Phạm Minh Hương, nhà nghiên cứu âm nhạc dân tộc học, Viện trưởng Viện Âm nhạc, Học viện Âm nhạc Quốc gia Việt Nam, bổ sung những kinh nghiệm từ thực hành sáng tác và nghiên cứu chuyên sâu.\n\nChương trình sử dụng tiếng Việt và tiếng Anh, có phiên dịch, dành cho nhà nghiên cứu, nghệ nhân, nghệ sĩ, giảng viên, sinh viên và công chúng quan tâm, đăng ký trước. Qua những góc nhìn khác nhau, người tham dự có thêm cơ sở để suy ngẫm về điều được gìn giữ, điều đang biến đổi và vai trò của người thực hành trong quá trình tiếp nối di sản âm nhạc.\n---\nThe professional exchange “Longing for the Authentic” will take place from 14:00 to 17:00 on Wednesday, November 18, 2026, on the 3rd floor of the Hanoi Old Quarter Cultural Exchange Center, 50 Dao Duy Tu Street. Co-organized by Lên Ngàn and Đom Đóm (The Hub for Experimental Music and Art), in collaboration with Pro Helvetia (Swiss Arts Council), Canton of Appenzell Innerrhoden, Casa Di Rosa, the Embassy of Switzerland in Vietnam, and the Management Board of Hoan Kiem Lake and Hanoi Old Quarter, the program is part of the \"Hanoi Lights Up” project within the Hanoi Festival of Creative Design 2026. The exchange opens a dialogue to address the questions: what role does the traditional play within modern music, and how does this in turn shape the practice of traditional music today?\nIt is striking that modern societies exhibit a strong tendency to preserve and cultivate traditional rituals and festivals with great effort and enthusiasm. This fascination with the past stands in sharp contrast to today's relentless drive for renewal in all areas of life. But what exactly do we refer to when we speak of tradition, and who benefits from giving the past such prominence? And whose past are we speaking of when we speak of tradition? What purpose do these practices serve, and how do they evolve under the pressure of preservation?\nIn both Vietnam and Switzerland, the engagement with musical heritage is a significant factor in contemporary music-making.\nVietnam is likely one of the most dynamic countries in all of Asia. This also applies to its cultural scenes, particularly the vibrant music scene in Hanoi. Everything there moves between past and future. Nowhere else is there such a strong awareness of cultural heritage and its influence on the present.\nIn multilingual Switzerland, negotiating tradition is an everyday matter, and rather a momentum of divergence in a country whose identity is as strong as that of only a few others in Europe. How can it be that this very country, shaped rather than united by the towering Alps, draws so heavily on its musical heritage without ever turning it into a nationally defined culture?\nThe professional exchange features speakers:- Nguyễn Xuân Sơn (SonX): Musician and Heritage Researcher.- Dr. Phạm Minh Hương: Ethnomusicologist, Director of the Institute for Musicology, Vietnam National Academy of MusicJohannes Rühl: Ethnomusicologist and Curator- Moderator: Assoc. Prof. Dr. Phạm Quỳnh Phương: Dean of the Faculty of Cultural Industries and Heritage, School of Interdisciplinary Science and Arts, Vietnam National University\nJohannes Rühl, a music curator and ethnomusicologist, former Artistic Director of the Alpentöne Festival, brings perspectives from research and festival curation.\nMusician and heritage researcher Nguyễn Xuân Sơn, alongside Dr. Phạm Minh Hương, ethnomusicologist and Director of the Institute of Musicology at the Vietnam National Academy of Music, contribute insights grounded in creative practice and in-depth research.\n\nThe program will be conducted in Vietnamese and English with interpretation. It is open to researchers, artisans, artists, educators, students, and interested members of the public, with prior registration required. Through these diverse perspectives, attendees will gain a broader foundation to reflect on what is preserved, what is evolving, and the role of practitioners in carrying music heritage forward.\n\n#HFCD2026 #lehoithietkesangtaohanoi #HanoiCreativeCity #ThangLongKeNghe",
-      "officialVenue": "Rạp hát & Sân khấu Cộng đồng"
+      "officialVenue": "Rạp hát & Sân khấu Cộng đồng",
+      "registrationUrl": "https://forms.gle/MSQyFmm96RnFtJm87"
     },
     {
       "id": "e98",
@@ -4053,7 +4064,8 @@
       ],
       "description": "Trình diễn trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Chợ Đồng Xuân.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trinh-dien-hoa-giay-dung-dua.html",
-      "officialType": "Performance"
+      "officialType": "Performance",
+      "officialVenue": "Chợ Đồng Xuân"
     },
     {
       "id": "e103",
@@ -4123,7 +4135,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Nam Hương, 75 Hàng Trống.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-tranh-hang-trong-cat-ghep.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e106",
@@ -4388,7 +4401,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Đình Nam Hương, 75 Hàng Trống.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-in-tranh-moc-ban-12-con-giap.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e117",
@@ -4775,7 +4789,8 @@
       ],
       "description": "Tọa đàm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Sở Văn hoá, Thể thao và Du lịch Hà Nội.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trao-doi-chuyen-mon-trinh-dien-tho-vuot-qua-duong-bien-chu.html",
-      "officialType": "Talk"
+      "officialType": "Talk",
+      "officialVenue": "Sở Văn hoá, Thể thao và Du lịch Hà Nội"
     },
     {
       "id": "e131",
@@ -4875,7 +4890,8 @@
       "officialType": "Talk",
       "officialDetail": "(English Below) \nWorkshop thực hành “Cổ vật chuyển động” diễn ra từ 14:00 đến 17:00, Chủ nhật ngày 22/11/2026, tại Bảo tàng Hà Nội, dưới sự hướng dẫn của nghệ sĩ đa phương tiện Vũ Trịnh Hồng Đức (Head of Noodles). Mỗi hiện vật trong tủ kính bảo tàng mang theo bề mặt, đường nét và dấu mòn của thời gian. Workshop thực hành mời người tham gia nhìn đủ lâu vào những dấu vết ấy, rồi đưa chúng vào một ngôn ngữ thị giác mới. Do Lên Ngàn và Vietnam Media Lab đồng sản xuất, Bảo tàng Hà Nội đồng hành, Nguyễn Quốc Hoàng Anh và Nguyễn Hoàng Giang (giang.it) giám tuyển, đây là hoạt động thuộc dự án “Hà Nội Sáng Đèn” trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026.\n\nChương trình mời người tham gia khám phá cách hiện vật bảo tàng trở thành chất liệu cho hình ảnh động và nghệ thuật thị giác thời gian thực.\n\nDưới sự hướng dẫn của nghệ sĩ đa phương tiện Vũ Trịnh Hồng Đức (Head of Noodles), người tham gia quét các hiện vật của Bảo tàng Hà Nội bằng công nghệ AI và kỹ thuật quét 3D, xử lý dữ liệu, tách lớp và dựng chuyển động thời gian thực trong TouchDesigner. Qua ba giờ làm việc trực tiếp trên máy, người tham gia trải nghiệm trọn ven một quy trình tạo hình ảnh động có thể trình chiếu từ bản quét thô, thử nghiệm cách những chất liệu xưa cũ được kích hoạt lại trong không gian số.\n\nĐây cũng chính là phương pháp được dùng trong phần 3 “Giảm tốc” của concert Trôi sẽ diễn ra ngay tối cùng ngày, nơi tư liệu và hiện vật của Bảo tàng Hà Nội cùng khung cửi, bàn thờ tổ nghề làng Vạn Phúc được quét 3D và trình chiếu xoay chậm trên màn hình. Workshop vì thế là cánh cửa để công chúng bước vào phòng làm việc của nghệ sĩ, kết nối thao tác thực hành trên máy với cách nghệ sĩ làm việc cùng ký ức, vật thể và chất liệu văn hóa.\n\nNghệ sĩ đa phương tiện Vũ Trịnh Hồng Đức gắn với thực hành mở rộng qua hình ảnh, vật thể và các cấu trúc thị giác lấy cảm hứng từ ký ức, kiến trúc và biểu tượng văn hóa Hà Nội, trong đó vật thể được xem như một dạng ký ức có thể đọc được. Workshop thực hành “Cổ vật chuyển động” có quy mô 20–30 học viên, cần đăng ký trước, phù hợp với sinh viên thiết kế và công nghệ, nghệ sĩ số, cán bộ số hóa và giáo dục của bảo tàng. Các bản quét hiện vật sử dụng trong buổi học được Bảo tàng Hà Nội cấp phép; cách sử dụng tư liệu có trách nhiệm cũng được đặt ra trong quá trình thực hành. Qua việc quan sát, xử lý và tạo chuyển động, người tham gia có thêm một cách tiếp cận di sản bằng sáng tạo, kết nối sự chú ý dành cho vật thể với khả năng biểu đạt của công nghệ.\n\n---\n\nThe hands-on workshop \"Animating Artefacts\" will take place from 14:00 to 17:00 on Sunday, November 22, 2026, at the Hanoi Museum, under the guidance of multimedia artist Vu Trinh Hong Duc (Head of Noodles). Each artifact behind the museum vitrines carries the surfaces, lines, and wear of time. This workshop invites participants to observe these traces closely and translate them into a new visual language. Co-produced by Len Ngan and Vietnam Media Lab, in partnership with the Hanoi Museum, and curated by Nguyen Quoc Hoang Anh and Nguyen Hoang Giang (giang.it), this activity is part of the \"Hanoi Lights Up\" project within the framework of the Hanoi Festival of Creative Design 2026.\n\nThe program invites participants to explore how museum artifacts become raw materials for moving images and real-time visual art.\n\nUnder the guidance of multimedia artist Vu Trinh Hong Duc (Head of Noodles), participants will scan Hanoi Museum artifacts using AI technology and 3D scanning techniques, process the data, separate layers, and construct real-time motion in TouchDesigner. Through three hours of hands-on computer work, participants will experience the full workflow of creating display-ready moving images from raw scans, experimenting with how historical materials are reactivated in digital space.\n\nThis is also the exact methodology used in Part 3, \"Slowing Down\", of the Trôi concert taking place later that evening, where Hanoi Museum documents and artifacts, alongside looms and ancestral altars from Van Phuc craft village, are 3D-scanned and projected in slow rotation on screen. The workshop thus serves as a gateway for the public to step into the artist's studio, connecting hands-on digital practice with the way artists interact with memory, objects, and cultural materials.\n\nMultimedia artist Vu Trinh Hong Duc engages in an expanded practice using images, objects, and visual structures inspired by Hanoi’s memories, architecture, and cultural symbols, where objects are viewed as a readable form of memory. The hands-on workshop \"Animating Artefacts\" accommodates 20-30 participants and requires advance registration, catering to design and technology students, digital artists, as well as museum digitization and education staff. Artifact scans used in the session are licensed by the Hanoi Museum, with responsible material usage emphasized throughout the practice. By observing, processing, and animating these artifacts, participants gain a creative approach to heritage, bridging focused attention to physical objects with the expressive potential of technology.\n#HFCD2026 #lehoithietkesangtaohanoi #HanoiCreativeCity #ThangLongKeNghe",
       "officialVenueAddress": "Đường Phạm Hùng, Từ Liêm, Hà Nội",
-      "officialVenue": "Bảo tàng Hà Nội"
+      "officialVenue": "Bảo tàng Hà Nội",
+      "registrationUrl": "https://docs.google.com/forms/d/e/1FAIpQLScg_66mNWxmzOPLIR0vK6-khJm-qdOUDSasTVf5Xdy1CLbWag/viewform?usp=publish-editor"
     },
     {
       "id": "e135",
@@ -5183,7 +5199,8 @@
       ],
       "description": "Tọa đàm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Sở Văn hoá, Thể thao và Du lịch Hà Nội.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trao-doi-chuyen-mon-nghe-thiet-ke-trong-kinh-te-sang-tao.html",
-      "officialType": "Talk"
+      "officialType": "Talk",
+      "officialVenue": "Sở Văn hoá, Thể thao và Du lịch Hà Nội"
     },
     {
       "id": "e149",
@@ -5245,7 +5262,8 @@
       ],
       "description": "Tọa đàm trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Bảo tàng Hà Nội.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/trao-doi-chuyen-mon-lao-dong-sang-tao-trong-boi-canh-phat-trien-cong-nghiep-van-hoa.html",
-      "officialType": "Talk"
+      "officialType": "Talk",
+      "officialVenue": "Bảo tàng Hà Nội"
     },
     {
       "id": "e152",
@@ -5265,7 +5283,8 @@
       ],
       "description": "Workshop trong khuôn khổ Lễ hội Thiết kế Sáng tạo Hà Nội 2026, diễn ra tại Hội quán Phúc Kiến, 40 Lãn Ông.",
       "officialUrl": "https://lehoithietkesangtao.vn/su-kien/workshop-cho-phien-thuoc-du-an-to-mo-chuyen-tro.html",
-      "officialType": "Workshop"
+      "officialType": "Workshop",
+      "officialVenue": "Đền và Di tích Phố Cổ"
     },
     {
       "id": "e153",
