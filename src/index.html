@@ -1050,9 +1050,32 @@
         let mapNoteTimer;
         let mapNoteClearTimer;
 
+        // Centre the feedback pill in the gap between the left toggle column and the
+        // map's right-hand zoom control, instead of the geometric centre of the map.
+        function centerMapNote() {
+          const note = $("#map-status-note");
+          const toggles = $(".map-toggles");
+          const zoomControl = $("#map .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
+          if (!note || !toggles) return;
+          const wrapper = note.parentElement;
+          if (!zoomControl) {
+            note.style.left = "50%";
+            return;
+          }
+          const leftEdge = toggles.getBoundingClientRect().right;
+          const rightEdge = zoomControl.getBoundingClientRect().left;
+          if (rightEdge <= leftEdge) {
+            note.style.left = "50%";
+            return;
+          }
+          const wrapperLeft = wrapper.getBoundingClientRect().left;
+          note.style.left = `${(leftEdge + rightEdge) / 2 - wrapperLeft}px`;
+        }
+
         function showMapNote(message) {
           const note = $("#map-status-note");
           if (!note) return;
+          centerMapNote();
           clearTimeout(mapNoteTimer);
           clearTimeout(mapNoteClearTimer);
           note.textContent = message;
@@ -1139,6 +1162,7 @@
               ? "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng."
               : "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.";
           button.setAttribute("aria-label", `Chế độ lân cận: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
+          centerMapNote();
         }
 
         function setNearby(on, options = {}) {
@@ -2523,6 +2547,16 @@
         window.addEventListener("focus", refreshLive);
         setInterval(refreshLive, 60000);
         setTimeout(() => map.resize(), 100);
+        centerMapNote();
+        window.addEventListener("resize", centerMapNote);
+        if (document.fonts?.ready) document.fonts.ready.then(centerMapNote);
+        if (window.ResizeObserver) {
+          const watch = new ResizeObserver(centerMapNote);
+          const toggles = $(".map-toggles");
+          const zoomControl = $("#map .maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
+          if (toggles) watch.observe(toggles);
+          if (zoomControl) watch.observe(zoomControl);
+        }
       }
 
       async function loadFestivalData() {
