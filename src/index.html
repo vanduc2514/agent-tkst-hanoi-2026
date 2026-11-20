@@ -203,14 +203,14 @@
     .map-topbar > * { pointer-events: auto; }
     .map-pill { display: inline-flex; align-items: center; gap: 9px; min-height: 39px; border: 1px solid rgb(225 232 227 / 95%); border-radius: 10px; padding: 0 12px; color: #52605a; background: rgb(255 255 255 / 94%); box-shadow: 0 3px 12px rgb(30 45 38 / 8%); backdrop-filter: blur(8px); font-size: 11px; font-weight: 700; }
     .map-pill i { color: var(--green); }
-    .map-status-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-width: 0; }
-    /* Live/date feedback sits right under the count pill instead of the bottom toast,
-       so the message appears next to the number it explains. */
+    /* Live/date feedback is its own row under the top bar, so showing a message never
+       moves the event-count pill. Green matches the Live toggle's active state. */
     .map-status-note {
+      position: absolute; z-index: 610; top: 65px; left: 18px;
       max-width: min(320px, 64vw); margin: 0; padding: 6px 10px;
-      border: 1px solid rgb(225 232 227 / 95%); border-radius: 8px; color: #46604f;
-      background: rgb(255 255 255 / 96%); box-shadow: 0 3px 12px rgb(30 45 38 / 8%);
-      backdrop-filter: blur(8px); font-size: 10px; font-weight: 700; line-height: 1.35;
+      border: 1px solid #d5e8dc; border-radius: 8px; color: #237148;
+      background: #f1f8f3; box-shadow: 0 3px 12px rgb(30 45 38 / 8%);
+      font-size: 10px; font-weight: 700; line-height: 1.35;
       opacity: 0; pointer-events: none; transform: translateY(-3px); transition: opacity .16s, transform .16s;
     }
     .map-status-note.visible { opacity: 1; transform: none; }
@@ -481,9 +481,8 @@
       .event-pin.now-live::before { width: 26px; height: 26px; border-width: 2.5px; }
       .event-pin-body > span { font-size: 9px; }
       .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
-      .map-status-stack { flex: 0 1 auto; }
-      .map-status-stack > .map-pill { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-      .map-status-note { max-width: min(240px, 52vw); }
+      .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .map-status-note { top: 59px; left: 12px; max-width: min(240px, 52vw); }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
       .preset-wrap[open] .preset-select { max-height: 26dvh; }
@@ -619,14 +618,12 @@
       </footer>
       <div class="map-topbar">
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
-        <div class="map-status-stack">
-          <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
-          <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
-        </div>
+        <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
         <div class="map-actions">
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
+      <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
       <aside class="event-detail" id="event-detail" role="dialog" aria-labelledby="detail-title" aria-hidden="true">
         <header class="detail-head" id="detail-head">
           <div id="detail-head-info"></div>
@@ -1142,7 +1139,7 @@
           updateNearbyButton();
           applyFilters();
           if (!quiet) {
-            showToast(state.nearby
+            showMapNote(state.nearby
               ? "Đang hiện các hoạt động quanh lộ trình."
               : "Chỉ hiện các điểm dừng trong lộ trình.");
           }
