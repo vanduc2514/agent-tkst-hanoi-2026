@@ -110,7 +110,6 @@
     .ai-prompt-status, .panel-status { min-height: 0; margin: 4px 0 0; color: var(--green); font-size: 10px; line-height: 1.45; }
     .ai-prompt-status:not(:empty), .panel-status:not(:empty) { min-height: 15px; }
     .ai-prompt-status a, .panel-status a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
-    .route-status { padding: 0 20px 4px; }
     @media (max-width: 380px) {
       .ai-prompt-copy span { display: none; }
       .ai-prompt-copy { min-height: 36px; min-width: 36px; justify-content: center; padding: 0; }
@@ -505,7 +504,6 @@
       .event-list { padding-right: 16px; padding-left: 16px; }
       .preset-wrap summary { padding-right: 16px; padding-left: 16px; }
       .preset-select { padding-right: 16px; padding-left: 16px; }
-      .route-status { padding-right: 16px; padding-left: 16px; }
       .preset-wrap[open] .preset-select { padding-right: 10px; }
       .route-tools .small-button { padding: 0 5px; gap: 4px; font-size: 9px; }
     }
@@ -586,7 +584,6 @@
           <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i>Chia sẻ</button>
           <button class="small-button" id="clear-route" type="button"><i class="fa-regular fa-trash-can"></i>Xóa tuyến</button>
         </div>
-        <p class="panel-status route-status" id="route-status" role="status" aria-live="polite"></p>
         <div class="panel-scroll"><div class="route-list" id="route-list"></div></div>
         <div class="route-bottom"><a class="directions-button" id="directions-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i>Mở chỉ đường Google Maps</a></div>
       </section>
@@ -1756,8 +1753,12 @@
           $("#optimize-route").disabled = routeEvents.length < 2;
           $("#optimize-route").style.opacity = routeEvents.length < 2 ? ".5" : "1";
           $("#clear-route").disabled = !routeEvents.length;
-          $("#share-route").disabled = !routeEvents.length;
-          $("#share-route").style.opacity = routeEvents.length ? "1" : ".5";
+          const shareSupported = typeof navigator.share === "function";
+          $("#share-route").disabled = !routeEvents.length || !shareSupported;
+          $("#share-route").style.opacity = routeEvents.length && shareSupported ? "1" : ".5";
+          $("#share-route").title = shareSupported
+            ? "Chia sẻ lộ trình qua ứng dụng trên thiết bị"
+            : "Trình duyệt này không hỗ trợ chia sẻ hệ thống.";
           updateNearbyButton();
           if (!routeEvents.length) {
             list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-route"></i>Chưa có điểm dừng.<br>Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.</div>';
@@ -2178,36 +2179,28 @@
           $("#preset-list").querySelectorAll("[data-preset]").forEach((button) => button.addEventListener("click", () => loadPreset(button.dataset.preset)));
         }
 
-        function copyText(text) {
-          if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);
-          return new Promise((resolve, reject) => {
-            const field = document.createElement("textarea");
-            field.value = text;
-            field.setAttribute("readonly", "");
-            field.style.position = "fixed";
-            field.style.opacity = "0";
-            document.body.append(field);
-            field.select();
-            const copied = document.execCommand("copy");
-            field.remove();
-            if (copied) resolve();
-            else reject(new Error("clipboard unavailable"));
-          });
-        }
-
-        // The URL already carries the stops, so sharing is just copying the current
-        // address after it has been synced with the route state.
+        // Hand the route to the OS share sheet. The call runs straight from the click
+        // so the browser still counts it as a user gesture; there is no fallback UI.
         function shareRoute() {
           if (!state.route.length) return;
           syncUrlState();
           const url = window.location.href;
-          copyText(url).then(
-            () => {
-              const status = $("#route-status");
-              if (status) status.textContent = "Đã sao chép liên kết lộ trình. Dán liên kết để mở lại lộ trình này.";
-            },
-            () => window.prompt("Sao chép liên kết lộ trình:", url)
-          );
+          if (typeof navigator.share !== "function") return;
+          const payload = {
+            title: "Lộ trình Lễ hội Thiết kế Sáng tạo Hà Nội 2026",
+            text: `Lộ trình ${state.route.length} điểm dừng tại Lễ hội Thiết kế Sáng tạo Hà Nội 2026`,
+            url
+          };
+          if (typeof navigator.canShare === "function") {
+            try {
+              if (!navigator.canShare(payload)) return;
+            } catch {
+              // Older builds may not understand the payload; let share() decide.
+            }
+          }
+          navigator.share(payload).catch((error) => {
+            if (error?.name !== "AbortError") console.warn("Không chia sẻ được lộ trình", error);
+          });
         }
 
         function showAllPlaces() {
