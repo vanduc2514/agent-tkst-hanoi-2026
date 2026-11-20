@@ -198,7 +198,9 @@ def render(data, rows, missing, unlinked, social_drafts=None):
         ready = [d for d in social_drafts if is_ready(d)]
         dupes = [d for d in social_drafts if d["confidence"]["duplicateOf"]]
         add("## Social posts\n")
-        add(f"{len(social_drafts)} posts · {len(ready)} ready to add · {len(dupes)} match an existing event")
+        announcements = sum(1 for d in social_drafts if not d["confidence"]["eventLike"])
+        add(f"{len(social_drafts)} posts · {len(ready)} insertable · {len(dupes)} about an existing event · "
+            f"{announcements} announcements — the rest are fragments, not work items")
         for draft in ready[:10]:
             add(f"- {draft['date']} {draft['startTime']} `{draft['placeId']}` {draft['title'][:70]}")
         add("")
@@ -394,7 +396,11 @@ def cmd_social(args):
     WORK.mkdir(parents=True, exist_ok=True)
     (WORK / "social-drafts.json").write_text(json.dumps(built, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     ready = [d for d in built if is_ready(d)]
-    print(f"{len(built)} posts · {len(ready)} ready · {len(built) - len(ready)} need review")
+    duplicates = sum(1 for d in built if d["confidence"]["duplicateOf"])
+    announcements = sum(1 for d in built if not d["confidence"]["eventLike"])
+    incomplete = len(built) - len(ready) - duplicates - announcements + sum(1 for d in built if d["confidence"]["duplicateOf"] and not d["confidence"]["eventLike"])
+    print(f"{len(built)} posts · {len(ready)} insertable · {duplicates} about an existing event · "
+          f"{announcements} announcements · {max(incomplete, 0)} incomplete")
     for draft in built[:10]:
         flags = []
         if draft["confidence"]["duplicateOf"]:

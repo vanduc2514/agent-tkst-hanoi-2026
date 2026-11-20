@@ -165,8 +165,8 @@ def build_draft(post, events, places):
 
 
 def is_event_title(title):
-    """A title names an activity: a type word, a quoted name, or both."""
-    return bool(_TYPE_WORD.match(title or "") or quoted(title or ""))
+    """A title has to start with the activity type; a quote inside prose is not one."""
+    return bool(_TYPE_WORD.match(title or ""))
 
 
 def _venue_hint(text, places):
