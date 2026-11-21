@@ -60,18 +60,18 @@ python3 .agents/skills/sync-festival/scripts/sync_festival.py diff
 Writes `tmp/sync/report.md` — a 2–3 KB triage sheet — and
 `tmp/sync/social-drafts.json`. Read the report; do not open the raw datasets.
 
-| Section | Meaning | Action |
+The report has exactly two sections, both keyed by event name then id:
+
+| Section | Rows | Action |
 |---|---|---|
-| needs a human | title or date differs | read the detail page, decide |
-| social overrides | a post has newer hours | `apply` writes it, social wins |
-| social needs a review | a post names one session of a longer run | read the post, edit by hand |
-| safe fills | empty `official*` field | `apply` |
-| kept curated | the repo already has a different value | leave it |
-| new in window | slug the repo has never seen | review, add by hand |
-| new outside the window | past editions and announcements | ignore |
-| curated schedules | event has `slots`/`lineup`/`days` | leave it |
-| no officialUrl | curated from posters, unverifiable | attach a URL when found |
-| social posts | drafts with `ready` / `duplicate` / `announcement` flags | see below |
+| Changes made | what the last `apply` wrote, with the post or listing it came from | none, it is a record |
+| Needs your review | title or schedule drift, single sessions of a longer run, new slugs, dead listing pages | read the row, then edit by hand or run `apply` |
+
+Both tables use `| Event | id | Change | Source |`. A row whose difference a post
+already settles is not repeated under review. Everything the sync deliberately
+leaves alone — curated official values, per-day schedules, venue-label notes, posts
+outside the window — is a single "Nothing to do" line under the tables, along with
+the ids that have no listing URL.
 
 ### 3. Apply
 
@@ -103,7 +103,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 38 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 40 offline tests over the
 parsers, matcher, diff, schedule override and inserter; it must pass before any
 edit is committed.
 
@@ -117,6 +117,9 @@ edit is committed.
 | `social` | rebuild drafts from `social.json` without touching the site |
 | `apply [--no-social] [--insert-social]` | write social schedule overrides + safe fills |
 | `check` | validate `events.json`, no network |
+
+`apply` also writes `tmp/sync/applied.json`, the ledger the "Changes made"
+section is built from.
 
 Exit codes: `0` clean, `1` something to review or a validation problem, `2`
 retrieval failed.
@@ -164,7 +167,8 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 38 offline tests |
+| `scripts/selftest.py` | 40 offline tests |
+| `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
 | `references/ui-checklist.md` | wiring new metadata into the page |

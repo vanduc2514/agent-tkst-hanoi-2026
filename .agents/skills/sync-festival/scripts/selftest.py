@@ -334,7 +334,7 @@ class SocialSchedule(unittest.TestCase):
         data = self.data()
         applied, review = schedule.apply_schedules(data, proposals)
         event = data["events"][0]
-        self.assertEqual([eid for eid, _ in applied], ["e001"])
+        self.assertEqual([applied_event["id"] for applied_event, _, _ in applied], ["e001"])
         self.assertEqual(review, [])
         self.assertEqual([event["startTime"], event["endTime"]], ["09:00", "11:00"])
         self.assertEqual(event["date"], "2026-11-22")
@@ -401,6 +401,26 @@ class Enrichment(unittest.TestCase):
         filled, kept = apply_registrations(data, proposals)
         self.assertEqual(filled, [])
         self.assertEqual(kept, [])
+
+
+class Report(unittest.TestCase):
+    def test_two_sections_with_event_first_columns(self):
+        data = load()
+        event = data["events"][0]
+        ledger = {"appliedAt": "2026-11-21T13:02", "changes": [{
+            "eventId": event["id"], "title": event["title"],
+            "change": "end 17:00 → 17:30", "source": "facebook · 2026-11-20"}]}
+        text = cli.render(data, [{"kind": "same"}], [], [], None, None, ledger)
+        self.assertIn("## Changes made", text)
+        self.assertIn("## Needs your review", text)
+        self.assertLess(text.index("## Changes made"), text.index("## Needs your review"))
+        self.assertEqual(text.count("| Event | id | Change | Source |"), 2)
+        self.assertIn(f"| {event['title']} | `{event['id']}` | end 17:00 → 17:30 | facebook · 2026-11-20 |", text)
+
+    def test_without_a_ledger(self):
+        text = cli.render(load(), [{"kind": "same"}], [], [], None, None, None)
+        self.assertIn("Nothing written yet", text)
+        self.assertIn("| — | — | nothing to decide | — |", text)
 
 
 class Apify(unittest.TestCase):

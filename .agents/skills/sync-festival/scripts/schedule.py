@@ -85,5 +85,5 @@ def apply_schedules(data, proposals):
             continue
         for change in changes:
             event[change["field"]] = change["social"]
-        applied.append((event["id"], changes))
+        applied.append((event, proposal, changes))
     return applied, review

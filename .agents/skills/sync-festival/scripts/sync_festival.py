@@ -20,6 +20,7 @@ import argparse
 import json
 import sys
 import urllib.request
+from datetime import datetime
 
 import apify
 import enrich
@@ -148,126 +149,119 @@ def social_schedule(data, proposals):
     return applied, review
 
 
-def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals=None):
-    """A 4 KB triage sheet: what to fix, what is safe, what to ignore."""
+FIELD_LABEL = {
+    "startTime": "start", "endTime": "end", "date": "date", "dateEnd": "end date",
+    "officialType": "type", "officialVenue": "venue", "officialVenueAddress": "address",
+    "officialUrl": "listing URL",
+}
+
+
+def _label(field):
+    return FIELD_LABEL.get(field, field)
+
+
+def _source(label, url=None):
+    return f"[{label}]({url})" if url else label
+
+
+def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals=None, ledger=None):
+    """Two sections: what `apply` wrote, and what a human has to decide."""
     lines = []
     add = lines.append
     changed = [row for row in rows if row["kind"] == "changed"]
     same = [row for row in rows if row["kind"] == "same"]
-    new_in = [row for row in rows if row["kind"] == "new" and within_festival({"date": (row["start"] or {}).get("date", ""), "dateEnd": (row["end"] or {}).get("date")})]
+    new_in = [row for row in rows if row["kind"] == "new"
+              and within_festival({"date": (row["start"] or {}).get("date", ""),
+                                   "dateEnd": (row["end"] or {}).get("date")})]
     new_out = [row for row in rows if row["kind"] == "new" and row not in new_in]
     overrides, review = social_schedule(data, schedule_proposals)
 
+    settled = {proposal["eventId"] for proposal in schedule_proposals or []}
     human = [row for row in changed if any(c["field"] == "title" for c in row["changes"])
              or any(not d.get("curated") for d in row["dates"])]
-    fills = [row for row in changed if row not in human and any(c.get("empty") for c in row["changes"])]
-    kept = [row for row in changed if row not in human and row not in fills]
+    explained = [row for row in human if row["id"] in settled]
+    human = [row for row in human if row["id"] not in settled]
+    others = [row for row in changed if row not in human and row["id"] not in settled]
+    fills = [row for row in others if any(c.get("empty") for c in row["changes"])]
+    kept = [row for row in others if row not in fills]
     curated = sum(1 for row in rows if any(d.get("curated") for d in row.get("dates", [])))
+    notes = [row for row in rows if row.get("venueNote")]
 
     add(f"# Festival sync — {FESTIVAL_START} → {FESTIVAL_END}\n")
-    add("| bucket | count | action |")
-    add("|---|---|---|")
-    add(f"| needs a human | {len(human)} | read the table, edit by hand |")
-    add(f"| social overrides | {len(overrides)} | `sync_festival.py apply` (social wins) |")
-    add(f"| social needs a review | {len(review)} | read the post, edit by hand |")
-    add(f"| safe fills | {len(fills)} | `sync_festival.py apply` |")
-    add(f"| kept curated | {len(kept)} | already set here, left alone |")
-    add(f"| new in window | {len(new_in)} | review, then add by hand |")
-    add(f"| new outside the window | {len(new_out)} | ignore |")
-    add(f"| curated schedules | {curated} | kept as-is |")
-    add(f"| no drift | {len(same)} | — |")
-    add(f"| no officialUrl | {len(unlinked)} | unverifiable |")
+    add(f"{len(same)} unchanged · {len(changed)} differ from the listing · "
+        f"{len(new_in)} new in the window · {len(unlinked)} without a listing URL\n")
+
+    add("## Changes made\n")
+    written = (ledger or {}).get("changes") or []
+    if written:
+        add(f"`apply`, {ledger.get('appliedAt', '—')}\n")
+        add("| Event | id | Change | Source |")
+        add("|---|---|---|---|")
+        for item in written:
+            add(f"| {item['title']} | `{item['eventId']}` | {item['change']} | {item['source']} |")
+    else:
+        add("Nothing written yet — run `sync_festival.py apply`.")
     add("")
 
-    if new_in:
-        add("## New in the window\n")
-        add("| slug | title | start | venue |")
-        add("|---|---|---|---|")
-        for row in new_in:
-            start = row["start"] or {}
-            add(f"| `{row['slug']}` | {row['item']['title']} | {start.get('date', '—')} {start.get('time', '')} | {row['item'].get('venueName') or '—'} |")
-        add("")
+    add("## Needs your review\n")
+    add("| Event | id | Change | Source |")
+    add("|---|---|---|---|")
+    pending = 0
+    for row in human:
+        event = next((e for e in data["events"] if e["id"] == row["id"]), {})
+        title = event.get("title") or row["id"]
+        for change in row["changes"]:
+            if change["field"] == "title":
+                add(f"| {title} | `{row['id']}` | title kept, listing says \"{change['site']}\" | listing |")
+                pending += 1
+        for date in row["dates"]:
+            if not date.get("curated"):
+                add(f"| {title} | `{row['id']}` | {_label(date['field'])} {date['was']} (listing {date['site']}) | listing |")
+                pending += 1
+    for event, proposal, changes in review:
+        detail = ", ".join(f"{_label(c['field'])} {c['was']} → post {c['social']}" for c in changes)
+        posted = f"{proposal['network'] or 'post'} · {proposal['postedAt'] or '—'}"
+        add(f"| {event['title']} | `{event['id']}` | {detail} — one session of a longer run | {_source(posted, proposal.get('postUrl'))} |")
+        pending += 1
+    for row in new_in:
+        start = row["start"] or {}
+        when = f"{start.get('date', '—')} {start.get('time', '')}".strip()
+        venue = row["item"].get("venueName")
+        where = f" at {venue}" if venue else ""
+        add(f"| {row['item']['title']} | `{row['slug']}` | new event, starts {when}{where} | listing |")
+        pending += 1
+    for event in missing:
+        add(f"| {event['title']} | `{event['id']}` | listing page gone, both slug and sitemap | listing |")
+        pending += 1
+    if not pending:
+        add("| — | — | nothing to decide | — |")
+    add("")
 
-    if human:
-        add("## Needs a human\n")
-        add("| id | field | events.json | site |")
-        add("|---|---|---|---|")
-        for row in human:
-            for change in row["changes"]:
-                if change["field"] == "title":
-                    add(f"| `{row['id']}` | title | {change['was']} | {change['site']} |")
-            for date in row["dates"]:
-                if not date.get("curated"):
-                    add(f"| `{row['id']}` | {date['field']} | {date['was']} | {date['site']} |")
-        covered = sorted({proposal["eventId"] for proposal in schedule_proposals or []}
-                         & {row["id"] for row in human})
-        if covered:
-            add("")
-            add(f"Posts already confirm the stored hours for {', '.join(f'`{eid}`' for eid in covered)};")
-            add("the site listing is the stale side there.")
-        add("")
-
+    quiet = []
     if overrides:
-        add("## Social overrides the schedule\n")
-        add("The organiser posted newer hours; social wins, `apply` writes these.\n")
-        add("| id | field | events.json | social | post |")
-        add("|---|---|---|---|---|")
-        for event, proposal, changes in overrides:
-            for change in changes:
-                posted = f"{proposal['postedAt'] or '—'} {proposal['network'] or ''}".strip()
-                add(f"| `{event['id']}` | {change['field']} | {change['was']} | {change['social']} | {posted} |")
-        add("")
-
-    if review:
-        add("## Social schedule needs a review\n")
-        add("A single session inside a longer run, so it is reported and not applied.\n")
-        for event, proposal, changes in review:
-            detail = ", ".join(f"{c['field']} {c['was']} → {c['social']}" for c in changes)
-            add(f"- `{event['id']}` {event['title']}: {detail} (post {proposal['postedAt'] or '—'})")
-        add("")
-
+        quiet.append(f"{len(overrides)} schedule override(s) waiting for `apply`")
     if fills:
-        add("## Safe fills\n")
-        for field in sorted({c["field"] for row in fills for c in row["changes"]}):
-            ids = [row["id"] for row in fills if any(c["field"] == field for c in row["changes"])]
-            add(f"- **{field}** ({len(ids)}): {', '.join(ids)}")
-        add("")
-
+        quiet.append(f"{len(fills)} event(s) with an empty organiser field")
     if kept:
-        add("## Kept curated values\n")
-        for row in kept[:10]:
-            for change in row["changes"]:
-                if change["field"] != "title":
-                    add(f"- `{row['id']}` {change['field']}: keeping {change['was']!r} (site says {change['site']!r})")
-        add("")
-
-    if social_drafts is not None:
-        ready = [d for d in social_drafts if is_ready(d)]
-        dupes = [d for d in social_drafts if d["confidence"]["duplicateOf"]]
-        add("## Social posts\n")
-        announcements = sum(1 for d in social_drafts if not d["confidence"]["eventLike"])
-        add(f"{len(social_drafts)} posts · {len(ready)} insertable · {len(dupes)} about an existing event · "
-            f"{announcements} announcements — the rest are fragments, not work items")
-        for draft in ready[:10]:
-            add(f"- {draft['date']} {draft['startTime']} `{draft['placeId']}` {draft['title'][:70]}")
-        add("")
-
-    notes = [row for row in rows if row.get("venueNote")]
+        quiet.append(f"{len(kept)} curated official value(s) kept")
+    if curated:
+        quiet.append(f"{curated} curated per-day schedule(s) left alone")
+    if explained:
+        quiet.append(f"{len(explained)} listing difference(s) already settled by a post")
     if notes:
-        add(f"## Venue label vs pin ({len(notes)}) — informational\n")
-        add("The site names an area, the repo pins a building. Nothing to change.")
-        add("")
-
-    if missing:
-        add("## Slug no longer on the site\n")
-        for event in missing[:10]:
-            add(f"- `{event['id']}` {event['title']} — {event.get('officialUrl')}")
-        add("")
-
+        quiet.append(f"{len(notes)} venue labels differing from the pin")
+    if new_out:
+        quiet.append(f"{len(new_out)} new slug(s) outside the window")
+    if social_drafts is not None:
+        ready = [draft for draft in social_drafts if is_ready(draft)]
+        dupes = sum(1 for draft in social_drafts if draft["confidence"]["duplicateOf"])
+        announcements = sum(1 for draft in social_drafts if not draft["confidence"]["eventLike"])
+        quiet.append(f"{len(social_drafts)} posts: {len(ready)} insertable, {dupes} about an existing event, "
+                     f"{announcements} announcements")
+    if quiet:
+        add("Nothing to do: " + "; ".join(quiet) + ".")
     if unlinked:
-        add("## No officialUrl — cannot be verified\n")
-        add(", ".join(event["id"] for event in unlinked))
-        add("")
+        add("No listing URL, so unverifiable: " + ", ".join(event["id"] for event in unlinked) + ".")
     return "\n".join(lines) + "\n"
 
 
@@ -342,6 +336,27 @@ def read_social():
     return social.read_posts(payload.get("collected", {}))
 
 
+def read_ledger():
+    """What the last `apply` wrote, so `diff` can show it."""
+    path = WORK / "applied.json"
+    if not path.exists():
+        return None
+    try:
+        with open(path, encoding="utf-8") as handle:
+            return json.load(handle)
+    except (OSError, ValueError):
+        return None
+
+
+def write_ledger(changes):
+    WORK.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "appliedAt": datetime.now().astimezone().isoformat(timespec="minutes"),
+        "changes": changes,
+    }
+    (WORK / "applied.json").write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def cmd_fetch(args):
     collected, spend = apify.fetch_all(args.limit)
     WORK.mkdir(parents=True, exist_ok=True)
@@ -369,7 +384,8 @@ def cmd_diff(args):
 
     WORK.mkdir(parents=True, exist_ok=True)
     (WORK / "report.md").write_text(
-        render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts, proposals), encoding="utf-8")
+        render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts, proposals, read_ledger()),
+        encoding="utf-8")
     if drafts is not None:
         (WORK / "social-drafts.json").write_text(json.dumps(drafts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -388,23 +404,54 @@ def cmd_apply(args):
     filled, kept = apply_safe(data, diff["rows"])
     inserted, skipped = [], []
     applied_schedule, review_schedule = [], []
+    posts = read_social() or []
     if not args.no_social:
-        posts = read_social() or []
         applied_schedule, review_schedule = schedule.apply_schedules(
             data, schedule.schedule_proposals(posts, data["events"]))
     if args.insert_social:
-        drafts = read_social() or []
-        drafts = [social.build_draft(post, data["events"], data["places"]) for post in drafts]
+        drafts = [social.build_draft(post, data["events"], data["places"]) for post in posts]
         inserted, skipped = apply_social(data, drafts)
     save(data)
 
+    written = []
+    for event, proposal, changes in applied_schedule:
+        posted = f"{proposal['network'] or 'post'} · {proposal['postedAt'] or '—'}"
+        for change in changes:
+            written.append({
+                "eventId": event["id"],
+                "title": event["title"],
+                "change": f"{_label(change['field'])} {change['was']} → {change['social']}",
+                "source": _source(posted, proposal.get("postUrl")),
+            })
+    events = {event["id"]: event for event in data["events"]}
+    for event_id, field in filled:
+        written.append({
+            "eventId": event_id,
+            "title": events[event_id]["title"],
+            "change": f"{_label(field)} filled in",
+            "source": "listing",
+        })
+    for event_id, title in inserted:
+        written.append({
+            "eventId": event_id,
+            "title": title,
+            "change": "added from a post",
+            "source": "post",
+        })
+    if written:
+        write_ledger(written)
+
+    proposals = None if args.no_social else schedule.schedule_proposals(posts, data["events"])
+    drafts = [social.build_draft(post, data["events"], data["places"]) for post in posts] if posts else None
+    (WORK / "report.md").write_text(
+        render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts, proposals, read_ledger()),
+        encoding="utf-8")
+
     print(f"filled {len(filled)} · kept curated {len(kept)} · social schedule {len(applied_schedule)} · "
           f"inserted {len(inserted)}")
-    for eid, field in filled[:15]:
-        print(f"  {eid}: {field}")
-    for eid, changes in applied_schedule:
-        detail = ", ".join(f"{c['field']} {c['was']}→{c['social']}" for c in changes)
-        print(f"  social {eid}: {detail}")
+    for event, proposal, changes in applied_schedule:
+        detail = ", ".join(f"{_label(c['field'])} {c['was']}→{c['social']}" for c in changes)
+        print(f"  social {event['id']}: {detail}")
     for event, proposal, changes in review_schedule[:10]:
         print(f"  review {event['id']}: a single session of a longer run, left alone")
     for eid, field, kept_value, site_value in kept[:10]:
@@ -417,6 +464,7 @@ def cmd_apply(args):
     print("validation clean" if not problems else f"validation: {len(problems)} problem(s)")
     for problem in problems[:10]:
         print(f"  {problem}")
+    print(f"report {WORK / 'report.md'}")
     return 1 if problems else 0
 
 
