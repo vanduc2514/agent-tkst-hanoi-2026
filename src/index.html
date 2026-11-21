@@ -508,8 +508,11 @@
       color: #33443b; background: transparent; font-size: 12px; font-weight: 600; text-align: left;
     }
     .welcome-link:last-child { border-bottom: 0; }
-    .welcome-link i { color: #adb6b1; font-size: 9px; }
-    .welcome-link:hover, .welcome-link:hover i { color: var(--green); }
+    .welcome-link-label { display: inline-flex; align-items: center; gap: 9px; }
+    .welcome-link-label i { width: 15px; color: #7c8b84; font-size: 11.5px; text-align: center; }
+    .welcome-link > i { color: #b3bcb7; font-size: 9px; }
+    .welcome-link:hover, .welcome-link:hover > i { color: var(--green); }
+    .welcome-link:hover .welcome-link-label i { color: var(--green); }
     .welcome-link:focus-visible, .welcome-close:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; border-radius: 4px; }
     .welcome-foot { margin: 11px 0 0; color: #9aa39e; font-size: 10px; line-height: 1.45; }
     .map-fallback {
@@ -603,11 +606,11 @@
         <h2 class="welcome-title" id="welcome-title">Cách dùng bản đồ</h2>
         <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <p class="welcome-copy" id="welcome-copy">Chọn một điểm trên bản đồ để xem chi tiết.</p>
+      <p class="welcome-copy" id="welcome-copy">Bấm một điểm trên bản đồ để xem chi tiết, hoặc chọn một mục bên dưới.</p>
       <div class="welcome-links">
-        <button class="welcome-link" id="welcome-explore" type="button">Khám phá chương trình<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-        <button class="welcome-link" id="welcome-ai" type="button">Hỏi AI<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-        <button class="welcome-link" id="welcome-route" type="button">Lên lộ trình<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-explore" type="button"><span class="welcome-link-label"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Khám phá chương trình</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-ai" type="button"><span class="welcome-link-label"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Hỏi AI</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-route" type="button"><span class="welcome-link-label"><i class="fa-solid fa-route" aria-hidden="true"></i>Lên lộ trình</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
       </div>
       <p class="welcome-foot">Mở lại bằng nút “Hướng dẫn” trên bản đồ.</p>
     </div>
