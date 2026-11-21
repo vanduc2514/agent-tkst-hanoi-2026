@@ -42,7 +42,6 @@ steps:
       python3 .agents/skills/sync-festival/scripts/selftest.py
       node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
 ---
----
 
 # Sync the festival programme
 
