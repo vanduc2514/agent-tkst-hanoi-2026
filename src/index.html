@@ -529,7 +529,14 @@
     .welcome-link:hover, .welcome-link:hover > i { color: var(--green); }
     .welcome-link:hover .welcome-link-label i { color: var(--green); }
     .welcome-link:focus-visible, .welcome-close:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; border-radius: 4px; }
-    .welcome-foot { margin: 11px 0 0; color: #9aa39e; font-size: 10px; line-height: 1.45; }
+    .welcome-foot { margin: 11px 0 0; color: #9aa39e; font-size: 10px; line-height: 1.6; }
+    /* Miniature of the map control, so the sentence points at something recognisable. */
+    .welcome-foot-btn {
+      display: inline-flex; align-items: center; gap: 4px; margin: 0 2px;
+      border-radius: 6px; padding: 2px 7px; color: #fff; background: var(--green);
+      font-size: 9.5px; font-weight: 700; white-space: nowrap;
+    }
+    .welcome-foot-btn i { font-size: 9px; }
     .map-fallback {
       position: absolute; z-index: 500; inset: 0; display: grid; place-content: center; justify-items: center;
       gap: 9px; padding: 86px 24px 128px; text-align: center;
@@ -627,7 +634,7 @@
         <button class="welcome-link" id="welcome-ai" type="button"><span class="welcome-link-label"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Hỏi AI</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
         <button class="welcome-link" id="welcome-route" type="button"><span class="welcome-link-label"><i class="fa-solid fa-route" aria-hidden="true"></i>Lên lộ trình</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <p class="welcome-foot">Mở lại bằng nút “Hướng dẫn” trên bản đồ.</p>
+      <p class="welcome-foot">Mở lại bằng <span class="welcome-foot-btn"><i class="fa-regular fa-circle-question" aria-hidden="true"></i>Hướng dẫn</span> trên bản đồ.</p>
     </div>
   </div>
   <main class="app-shell">
