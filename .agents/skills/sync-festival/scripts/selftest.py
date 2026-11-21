@@ -445,6 +445,17 @@ class Report(unittest.TestCase):
                       "[lehoithietkesangtao.vn](https://lehoithietkesangtao.vn/su-kien/a.html) "
                       "says 2026-11-14 18:00", text)
 
+    def test_the_report_never_says_listing(self):
+        data = load()
+        remote = [{"slug": "a", "title": data["events"][0]["title"], "eventType": "Talk",
+                   "startAt": "2026-11-14T02:00:00", "endAt": "2026-11-14T03:00:00",
+                   "venueName": data["events"][0].get("officialVenue")}]
+        rows = cli.compare(data, remote)["rows"]
+        text = cli.render(data, rows, [], [], None, None, None)
+        self.assertNotIn("listing", text.lower())
+        self.assertIn("official site", text)
+        self.assertIn("lehoithietkesangtao.vn", text)
+
     def test_without_a_ledger(self):
         text = cli.render(load(), [{"kind": "same"}], [], [], None, None, None)
         self.assertIn("Nothing written yet", text)
