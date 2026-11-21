@@ -247,6 +247,21 @@
     .map-status-note.visible { opacity: 1; transform: translate(-50%, -50%); }
     .map-status-note:empty { display: none; }
     .map-actions { display: flex; gap: 8px; }
+    /* The guide is the one control a first-time visitor is expected to reach for, so it
+       reads as a solid button rather than another status chip. */
+    #help-toggle {
+      border-color: var(--green); color: #fff; background: var(--green);
+      box-shadow: 0 4px 12px rgb(36 92 75 / 24%);
+    }
+    #help-toggle i { color: #fff; }
+    #help-toggle:hover { border-color: var(--green-dark); background: var(--green-dark); }
+    #help-toggle:focus-visible { outline: 2px solid var(--green-dark); outline-offset: 2px; }
+    #help-toggle span { white-space: nowrap; }
+    @media (max-width: 760px) {
+      /* Narrow bars drop the label: the filled square still reads as a button. */
+      #help-toggle { width: 39px; padding: 0; justify-content: center; }
+      #help-toggle span { display: none; }
+    }
     .map-toggle { display: none; }
     .maplibregl-map { font-family: "DM Sans", sans-serif; }
     .map-footer {
@@ -747,7 +762,7 @@
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
         <div class="map-actions">
-          <button class="map-pill" id="help-toggle" type="button" aria-label="Mở hướng dẫn sử dụng"><i class="fa-regular fa-circle-question"></i><span class="hidden sm:inline">Hướng dẫn</span></button>
+          <button class="map-pill" id="help-toggle" type="button" aria-label="Mở hướng dẫn sử dụng"><i class="fa-regular fa-circle-question" aria-hidden="true"></i><span>Hướng dẫn</span></button>
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
