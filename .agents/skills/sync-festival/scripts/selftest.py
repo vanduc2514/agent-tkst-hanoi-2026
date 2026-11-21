@@ -384,6 +384,11 @@ class Enrichment(unittest.TestCase):
         self.assertEqual(best_event('Tour di sản "Chuyện Đình trong Phố" ba tuyến', self.events)["id"], "e34")
         self.assertIsNone(best_event("Cuộc thi thời trang MARKET TO MODE", self.events))
 
+    def test_a_generic_heading_is_not_a_name(self):
+        text = ("Chuỗi sự kiện Mở Xưởng: Workshop & Craft Talk Giúp Nhau Làm Nghề vẫn mở cửa "
+                "đến hết ngày 28/11/2026 https://forms.gle/cGH7L3dHGt3sFnCi8")
+        self.assertIsNone(best_event(text, self.events), "a second event must not be guessed")
+
     def test_registration_proposals_and_apply(self):
         posts = [
             {"text": 'Mời đăng ký "Khao Khát Nguyên Bản" tại https://forms.gle/OLD', "source": "p1", "posted_at": "2026-11-10", "network": "facebook"},

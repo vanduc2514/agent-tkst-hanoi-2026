@@ -182,12 +182,32 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     new_out = [row for row in rows if row["kind"] == "new" and row not in new_in]
     overrides, review = social_schedule(data, schedule_proposals)
 
-    settled = {proposal["eventId"] for proposal in schedule_proposals or []}
-    human = [row for row in changed if any(c["field"] == "title" for c in row["changes"])
-             or any(not d.get("curated") for d in row["dates"])]
-    explained = [row for row in human if row["id"] in settled]
-    human = [row for row in human if row["id"] not in settled]
-    others = [row for row in changed if row not in human and row["id"] not in settled]
+    # Social first, field by field: a post that states a field is the remote source
+    # for it. The site is only consulted for what the posts left unsaid.
+    covered = {}
+    for proposal in schedule_proposals or []:
+        fields = {"startTime", "endTime"}
+        if proposal.get("dates"):
+            fields |= {"date", "dateEnd"}
+        covered[proposal["eventId"]] = covered.get(proposal["eventId"], set()) | fields
+
+    human, explained = [], 0
+    for row in changed:
+        if not (any(change["field"] == "title" for change in row["changes"])
+                or any(not date.get("curated") for date in row["dates"])):
+            continue
+        theirs = covered.get(row["id"], set())
+        changes = [change for change in row["changes"] if change["field"] not in theirs]
+        dates = [date for date in row["dates"] if not date.get("curated")]
+        if {"date", "dateEnd"} <= theirs:
+            dates = []
+        if not changes and not dates:
+            explained += 1
+            continue
+        human.append({"row": row, "changes": changes, "dates": dates})
+
+    review_ids = {entry["row"]["id"] for entry in human}
+    others = [row for row in changed if row["id"] not in review_ids and row["id"] not in covered]
     fills = [row for row in others if any(c.get("empty") for c in row["changes"])]
     kept = [row for row in others if row not in fills]
     curated = sum(1 for row in rows if any(d.get("curated") for d in row.get("dates", [])))
@@ -214,19 +234,19 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     add("| Event | id | Difference |")
     add("|---|---|---|")
     pending = 0
-    for row in human:
+    for entry in human:
+        row = entry["row"]
         event = next((e for e in data["events"] if e["id"] == row["id"]), {})
         title = event.get("title") or row["id"]
-        for change in row["changes"]:
+        for change in entry["changes"]:
             if change["field"] == "title":
                 add(f"| {title} | `{row['id']}` | title differs: ours \"{change['was']}\", "
                     f"{_site(event)} says \"{change['site']}\" |")
                 pending += 1
-        for date in row["dates"]:
-            if not date.get("curated"):
-                add(f"| {title} | `{row['id']}` | {_label(date['field'])} differs: ours {date['was']}, "
-                    f"{_site(event)} says {date['site']} |")
-                pending += 1
+        for date in entry["dates"]:
+            add(f"| {title} | `{row['id']}` | {_label(date['field'])} differs: ours {date['was']}, "
+                f"{_site(event)} says {date['site']} |")
+            pending += 1
     for event, proposal, changes in review:
         label = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
         source = _source(label, proposal.get("postUrl"))
@@ -266,7 +286,7 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     if curated:
         quiet.append(f"{curated} curated per-day schedule(s) left alone")
     if explained:
-        quiet.append(f"{len(explained)} official-site difference(s) already settled by a post")
+        quiet.append(f"{explained} event(s) whose post already covers every differing field")
     if notes:
         quiet.append(f"{len(notes)} venue labels differing from the pin")
     if new_out:

@@ -119,8 +119,10 @@ def _post_names(text):
         # A heading often continues into English or boilerplate, so try its
         # prefixes, longest first: "CỔ VẬT CHUYỂN ĐỘNG Artifacts in Motion" still
         # yields "Cổ vật chuyển động".
+        # Two-word prefixes are how "Chuỗi sự kiện …" gets matched to an unrelated
+        # "Chuỗi sự kiện …", so the shortest prefix kept is four words.
         words = fold(heading).split()[:10]
-        for size in range(len(words), 2, -1):
+        for size in range(len(words), 3, -1):
             prefix = " ".join(words[:size])
             if len(prefix) >= 12:
                 names.append(prefix)

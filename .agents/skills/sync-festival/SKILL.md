@@ -27,11 +27,12 @@ only overrides `date`, `dateEnd`, `startTime` and `endTime`.
 3. **The site's dates are coarse.** `startAt`/`endAt` are UTC listing values and
    often contradict the event's own prose. They surface in the report; they are
    never applied.
-4. **Social wins a schedule conflict.** The accounts post the real hours and any
-   change, and they post it later than the listing is updated. When a post names
-   exactly one event and carries its own schedule, it overrides `date`,
-   `dateEnd`, `startTime` and `endTime`. The report states every override before
-   `apply` writes it.
+4. **Social first, the site second.** The accounts post the real hours and any
+   change, and they post it later than the site is edited. A post that names exactly
+   one event and carries its own schedule wins `date`, `dateEnd`, `startTime` and
+   `endTime`; the site is consulted only for the fields no post covers. Precedence is
+   per field, not per event: a post that states the hours but not the date leaves the
+   date to the site. The report states every override before `apply` writes it.
 5. **Two field classes.** `official*` belongs to the organiser and may be
    refreshed. `slots`, `lineup`, `days`, `placeId`, `clusterId`, `tags`,
    `spotlight` and `number` are curated and only change by hand — a curated
@@ -110,7 +111,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 43 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 44 offline tests over the
 parsers, matcher, diff, schedule override and inserter; it must pass before any
 edit is committed.
 
@@ -224,7 +225,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 43 offline tests |
+| `scripts/selftest.py` | 44 offline tests |
 | `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
