@@ -164,6 +164,8 @@
     .event-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .event-date { color: #73817a; font-size: 10px; font-weight: 700; }
     .event-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 7px; }
+    .event-type { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 3px 8px; color: #45594e; background: #eef4f0; font-size: 9px; font-weight: 800; white-space: nowrap; }
+    .event-type i { color: var(--green); font-size: 9px; }
     .spotlight-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 99px; padding: 3px 7px; color: #7b4c34; background: #fbede5; font-size: 9px; font-weight: 800; }
     .event-cluster { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 4px 7px; background: #f6f8f6; color: #63716b; font-size: 9px; font-weight: 700; white-space: nowrap; }
     .event-name { margin: 8px 0 5px; font: 700 13px/1.4 Manrope, sans-serif; letter-spacing: -.15px; }
@@ -847,6 +849,41 @@
       }
 
       const slotClose = (end) => (end === "00:00" ? "23:59" : end);
+
+      // The organiser lists a primary kind first ("Performance, Event") and leaves it
+      // blank on some rows, where the first tag still names the kind. Icons let the
+      // Explore list be scanned by type instead of reading every title.
+      const EVENT_TYPES = {
+        exhibition: { icon: "fa-image", label: "Triển lãm" },
+        pavilion: { icon: "fa-cube", label: "Gian trưng bày" },
+        fair: { icon: "fa-store", label: "Hội chợ" },
+        performance: { icon: "fa-masks-theater", label: "Biểu diễn" },
+        workshop: { icon: "fa-screwdriver-wrench", label: "Workshop" },
+        talk: { icon: "fa-comments", label: "Toạ đàm" },
+        tour: { icon: "fa-person-walking", label: "Tour" },
+        community: { icon: "fa-people-group", label: "Cộng đồng" },
+        event: { icon: "fa-calendar-day", label: "Sự kiện" }
+      };
+      const TYPE_BY_TAG = {
+        "triển lãm": "exhibition",
+        "sắp đặt": "exhibition",
+        "toạ đàm": "talk",
+        "tọa đàm": "talk",
+        "tour": "tour",
+        "trình diễn": "performance",
+        "hội chợ": "fair",
+        "workshop": "workshop",
+        "cộng đồng": "community"
+      };
+      const DEFAULT_EVENT_TYPE = { icon: "fa-calendar-day", label: "Hoạt động" };
+
+      function eventType(event) {
+        const primary = String(event.officialType || "").split(",")[0].trim().toLowerCase();
+        if (EVENT_TYPES[primary]) return EVENT_TYPES[primary];
+        const tag = String(event.tags?.[0] || "").trim().toLowerCase();
+        const fromTag = TYPE_BY_TAG[tag];
+        return fromTag ? EVENT_TYPES[fromTag] : DEFAULT_EVENT_TYPE;
+      }
 
       // Live mode keeps only what a visitor can still reach today: events that are on
       // now and have not finished yet, using Hanoi wall-clock time.
@@ -1747,11 +1784,13 @@
           const cluster = clusters[event.clusterId];
           const saved = state.route.includes(event.id);
           const dayLabel = scheduleLabel(event);
+          const type = eventType(event);
           return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="Xem chi tiết ${escapeHtml(event.title)}">
               <div class="event-topline"><span class="event-date">${escapeHtml(dayLabel)}</span>
                 <span class="event-cluster"><i class="cluster-dot" style="background:${cluster.color}"></i>${escapeHtml(cluster.name)}</span></div>
               <h3 class="event-name"><span class="event-index" style="background:${cluster.color}">${event.number}</span>${escapeHtml(event.title)}</h3>
-              ${event.spotlight ? '<div class="event-badges"><span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span></div>' : ""}
+              <div class="event-badges"><span class="event-type"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>
+                ${event.spotlight ? '<span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span>' : ""}</div>
               <div class="event-place"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(place.name)}</span></div>
               <p class="event-desc">${escapeHtml(event.description)}</p>
               ${moreInfoHtml(event)}
@@ -1800,7 +1839,16 @@
         }
 
         function renderEvents() {
-          const matching = filterEvents(activeFilters());
+          const filters = activeFilters();
+          const matching = filterEvents(filters);
+          const view = { live: !!filters.live, date: filters.date, now: hanoiDateTime(new Date()) };
+          // Chronological order: the next moment the visitor can turn up. Live uses the
+          // current block, a chosen date uses that day's first block, and the whole
+          // programme starts at the event's first day.
+          const ordered = matching
+            .map((event) => ({ event, at: eventStartMoment(event, view) }))
+            .sort((a, b) => a.at.localeCompare(b.at) || a.event.number - b.event.number)
+            .map((entry) => entry.event);
           $("#result-count").textContent = `${matching.length} hoạt động`;
           const list = $("#event-list");
           if (!matching.length) {
@@ -1809,8 +1857,25 @@
               : '<div class="empty-state"><i class="fa-regular fa-calendar-xmark"></i>Không tìm thấy hoạt động phù hợp.<br>Thử đổi ngày hoặc từ khóa nhé.</div>';
             return;
           }
-          list.innerHTML = matching.map(cardHtml).join("");
+          list.innerHTML = ordered.map(cardHtml).join("");
           list.querySelectorAll(".event-card").forEach(bindCard);
+        }
+
+        function eventStartMoment(event, view) {
+          if (view.live) {
+            const open = eventSlotsOn(event, view.now.date)
+              .filter(([start, end]) => openAllDay(start, end) || view.now.time < slotClose(end))
+              .map(([start]) => start)
+              .sort();
+            if (open.length) return `${view.now.date} ${open[0]}`;
+          }
+          if (view.date) {
+            const starts = eventSlotsOn(event, view.date).map(([start]) => start).sort();
+            if (starts.length) return `${view.date} ${starts[0]}`;
+          }
+          const firstDay = event.days?.length ? [...event.days].sort()[0] : event.date;
+          const firstStart = eventSlotsOn(event, firstDay).map(([start]) => start).sort()[0] || event.startTime || "00:00";
+          return `${firstDay} ${firstStart}`;
         }
 
         function renderDetail(event) {
@@ -1818,6 +1883,7 @@
           const cluster = clusters[event.clusterId];
           const inRoute = state.route.includes(event.id);
           const timeRows = eventTimeRows(event);
+          const type = eventType(event);
           // Curated per-act schedule; the flat start/end pair only bounds it.
           const lineup = [...(event.lineup || [])].sort((a, b) =>
             `${a.date} ${a.start}`.localeCompare(`${b.date} ${b.start}`));
@@ -1847,7 +1913,7 @@
               </p>` : ""}
               ${event.officialDetail || event.officialType || event.officialUrl ? `<section class="detail-official">
                 <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>Thông tin từ ban tổ chức</h3>
-                ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong>${escapeHtml(event.officialType)}</strong></p>` : ""}
+                ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong><i class="fa-solid ${type.icon}" aria-hidden="true"></i> ${escapeHtml(type.label)}</strong></p>` : ""}
                 ${event.officialDetail ? `<p class="detail-official-text">${escapeHtml(event.officialDetail)}</p>` : ""}
                 ${event.officialUrl ? `<a class="detail-official-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Xem trên trang chính thức</a>` : ""}
               </section>` : ""}
