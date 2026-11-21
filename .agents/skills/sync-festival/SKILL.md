@@ -64,20 +64,21 @@ The report has exactly two sections, both keyed by event name then id:
 
 | Section | Rows | Action |
 |---|---|---|
-| Changes made | what the last `apply` wrote, with the post (linked) or listing it came from | none, it is a record |
+| Changes made | what the last `apply` wrote, with the linked post or `lehoithietkesangtao.vn` it came from | none, it is a record |
 | Needs your review | the field that differs and both values, social first | read the row, then edit by hand or run `apply` |
 
 "Changes made" uses `| Event | id | Change | Source |`, where the source is the post
-it came from, linked, or `listing`. "Needs your review" uses
+it came from, linked, or `lehoithietkesangtao.vn`. "Needs your review" uses
 `| Event | id | Difference |`: the cell names the field, our value, and the remote
-value with its origin linked — the post when one exists, the organiser page
-otherwise. A post row also says when its date is one session inside our longer run
-rather than a reschedule.
+value with its origin spelled out and linked — `facebook post, 2026-11-20` when a
+post exists, `lehoithietkesangtao.vn` otherwise — never the bare word "listing". A
+post row also says when its date is one session inside our longer run rather than a
+reschedule.
 
 A difference a post already settles is not repeated under review. Everything the sync
 deliberately leaves alone — curated official values, per-day schedules, venue-label
 notes, posts outside the window — is a single "Nothing to do" line under the tables,
-along with the ids that have no listing URL.
+along with the ids that have no official page.
 
 ### 3. Apply
 

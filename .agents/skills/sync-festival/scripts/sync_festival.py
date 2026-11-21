@@ -152,7 +152,7 @@ def social_schedule(data, proposals):
 FIELD_LABEL = {
     "startTime": "start", "endTime": "end", "date": "date", "dateEnd": "end date",
     "officialType": "type", "officialVenue": "venue", "officialVenueAddress": "address",
-    "officialUrl": "listing URL",
+    "officialUrl": "official page",
 }
 
 
@@ -164,9 +164,10 @@ def _source(label, url=None):
     return f"[{label}]({url})" if url else label
 
 
-def _listing(event):
-    """The word `listing`, linked to the organiser page it was read from."""
-    return _source("listing", event.get("officialUrl") or official_url(event.get("slug") or ""))
+def _site(event):
+    """The organiser's own page, named by domain and linked."""
+    return _source("lehoithietkesangtao.vn",
+                   event.get("officialUrl") or official_url(event.get("slug") or ""))
 
 
 def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals=None, ledger=None):
@@ -193,8 +194,8 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     notes = [row for row in rows if row.get("venueNote")]
 
     add(f"# Festival sync — {FESTIVAL_START} → {FESTIVAL_END}\n")
-    add(f"{len(same)} unchanged · {len(changed)} differ from the listing · "
-        f"{len(new_in)} new in the window · {len(unlinked)} without a listing URL\n")
+    add(f"{len(same)} unchanged · {len(changed)} differ from the official site · "
+        f"{len(new_in)} new on the official site · {len(unlinked)} without an official page\n")
 
     add("## Changes made\n")
     written = (ledger or {}).get("changes") or []
@@ -219,12 +220,12 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         for change in row["changes"]:
             if change["field"] == "title":
                 add(f"| {title} | `{row['id']}` | title differs: ours \"{change['was']}\", "
-                    f"{_listing(event)} \"{change['site']}\" |")
+                    f"{_site(event)} says \"{change['site']}\" |")
                 pending += 1
         for date in row["dates"]:
             if not date.get("curated"):
                 add(f"| {title} | `{row['id']}` | {_label(date['field'])} differs: ours {date['was']}, "
-                    f"{_listing(event)} {date['site']} |")
+                    f"{_site(event)} says {date['site']} |")
                 pending += 1
     for event, proposal, changes in review:
         label = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
@@ -245,10 +246,10 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         venue = row["item"].get("venueName")
         where = f" at {venue}" if venue else ""
         add(f"| {row['item']['title']} | `{row['slug']}` | not in events.json: "
-            f"{_source('listing', official_url(row['slug']))} has it starting {when}{where} |")
+            f"{_source('lehoithietkesangtao.vn', official_url(row['slug']))} has it starting {when}{where} |")
         pending += 1
     for event in missing:
-        add(f"| {event['title']} | `{event['id']}` | we still list it: {_listing(event)} dropped the "
+        add(f"| {event['title']} | `{event['id']}` | we still list it: {_site(event)} dropped the "
             f"slug and the sitemap |")
         pending += 1
     if not pending:
@@ -265,7 +266,7 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     if curated:
         quiet.append(f"{curated} curated per-day schedule(s) left alone")
     if explained:
-        quiet.append(f"{len(explained)} listing difference(s) already settled by a post")
+        quiet.append(f"{len(explained)} official-site difference(s) already settled by a post")
     if notes:
         quiet.append(f"{len(notes)} venue labels differing from the pin")
     if new_out:
@@ -279,7 +280,7 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     if quiet:
         add("Nothing to do: " + "; ".join(quiet) + ".")
     if unlinked:
-        add("No listing URL, so unverifiable: " + ", ".join(event["id"] for event in unlinked) + ".")
+        add("No official page, so unverifiable: " + ", ".join(event["id"] for event in unlinked) + ".")
     return "\n".join(lines) + "\n"
 
 
@@ -447,7 +448,7 @@ def cmd_apply(args):
             "eventId": event_id,
             "title": events[event_id]["title"],
             "change": f"{_label(field)} filled in",
-            "source": "listing",
+            "source": "official site",
         })
     for event_id, title in inserted:
         written.append({
