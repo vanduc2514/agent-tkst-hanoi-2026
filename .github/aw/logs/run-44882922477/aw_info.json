@@ -1,0 +1,52 @@
+{
+  "engine_id": "copilot",
+  "engine_name": "GitHub Copilot CLI",
+  "model": "auto",
+  "version": "1.0.103",
+  "agent_version": "1.0.103",
+  "workflow_name": "Sync the festival programme",
+  "workflow_id": "vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main",
+  "agent_metadata": {},
+  "workflow_call_id": "44882922477-1:vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main",
+  "caller_workflow_ref": "vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main",
+  "experimental": false,
+  "supports_tools_allowlist": true,
+  "cache_memory": false,
+  "run_id": 44882922477,
+  "run_number": 5,
+  "run_attempt": "1",
+  "repository": "vanduc2514/agent-tkst-hanoi-2026",
+  "ref": "refs/heads/main",
+  "sha": "2c577a8bb4e3a8932c10113ad0eeaeafe5b4fcdf",
+  "actor": "vanduc2514",
+  "event_name": "workflow_dispatch",
+  "target_repo": "",
+  "staged": false,
+  "dry_run": false,
+  "allowed_domains": [
+    "defaults"
+  ],
+  "firewall_enabled": true,
+  "awf_version": "v0.29.11",
+  "awmg_version": "",
+  "agent_runtime": "",
+  "steps": {
+    "firewall": "squid"
+  },
+  "created_at": "2026-11-21T08:01:51.972Z",
+  "cli_version": "v1.2.2",
+  "engine_harness": "copilot-cli",
+  "workflow_ref": "vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main",
+  "server_url": "https://github.com",
+  "model_config": {
+    "routing": {
+      "enabled": false
+    },
+    "models": {
+      "allowed": [],
+      "blocked": []
+    },
+    "max_ai_credits_source": "default",
+    "max_ai_credits": 1000
+  }
+}

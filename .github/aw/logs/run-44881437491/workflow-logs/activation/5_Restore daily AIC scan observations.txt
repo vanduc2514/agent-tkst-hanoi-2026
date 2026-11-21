@@ -1,0 +1,33 @@
+﻿2026-11-21T07:42:05.0465580Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:42:05.0466436Z with:
+2026-11-21T07:42:05.0470130Z   github-token: ***
+2026-11-21T07:42:05.0472189Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'restore_aic_scan_cache.cjs'));
+await main();
+
+2026-11-21T07:42:05.0475449Z   debug: false
+2026-11-21T07:42:05.0475938Z   user-agent: actions/github-script
+2026-11-21T07:42:05.0476495Z   result-encoding: json
+2026-11-21T07:42:05.0476965Z   retries: 0
+2026-11-21T07:42:05.0477451Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:42:05.0478039Z env:
+2026-11-21T07:42:05.0478475Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:42:05.0479007Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:42:05.0479882Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:42:05.0481423Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:42:05.0482912Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:42:05.0483433Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:42:05.0483934Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:42:05.0484710Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:42:05.0485344Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:42:05.0485871Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T07:42:05.0486409Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:42:05.0486993Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:42:05.0487685Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7755afd4e9b46145
+2026-11-21T07:42:05.0488318Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246924356
+2026-11-21T07:42:05.0488896Z   GH_AW_HAS_SLASH_COMMAND: false
+2026-11-21T07:42:05.0489421Z   GH_AW_HAS_LABEL_COMMAND: false
+2026-11-21T07:42:05.0489942Z ##[endgroup]

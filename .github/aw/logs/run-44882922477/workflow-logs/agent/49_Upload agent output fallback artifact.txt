@@ -1,0 +1,77 @@
+﻿2026-11-21T08:06:55.6033299Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:06:55.6034126Z with:
+2026-11-21T08:06:55.6034524Z   name: agent-output-fallback
+2026-11-21T08:06:55.6039570Z   path: /tmp/gh-aw/agent_output.json
+/tmp/gh-aw/safeoutputs.jsonl
+/tmp/gh-aw/agent_execution.json
+/tmp/gh-aw/agent_execution_exit_code.txt
+/tmp/gh-aw/agent_usage.jsonl
+/tmp/gh-aw/agent_usage.json
+/tmp/gh-aw/agent/harness_retry.json
+/tmp/gh-aw/agent/model-endpoint-mismatch.json
+/tmp/gh-aw/sandbox/firewall-audit-logs/api-proxy-logs/token-usage.jsonl
+/tmp/gh-aw/sandbox/firewall-audit-logs/api-proxy-logs/model-routing.jsonl
+/tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+/tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/model-routing.jsonl
+/tmp/gh-aw/sandbox/firewall/audit/api-proxy-logs/token-usage.jsonl
+/tmp/gh-aw/sandbox/firewall/audit/api-proxy-logs/model-routing.jsonl
+/tmp/gh-aw/awf-resolved-config.json
+
+2026-11-21T08:06:55.6045012Z   if-no-files-found: ignore
+2026-11-21T08:06:55.6045479Z   retention-days: 0
+2026-11-21T08:06:55.6045923Z   compression-level: 6
+2026-11-21T08:06:55.6046320Z   overwrite: false
+2026-11-21T08:06:55.6046723Z   include-hidden-files: false
+2026-11-21T08:06:55.6047165Z   archive: true
+2026-11-21T08:06:55.6047524Z env:
+2026-11-21T08:06:55.6047872Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:06:55.6048339Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:06:55.6048824Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:06:55.6050415Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:06:55.6052005Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:06:55.6052621Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:06:55.6053078Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:06:55.6053578Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:06:55.6054120Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:06:55.6054581Z   DEFAULT_BRANCH: main
+2026-11-21T08:06:55.6054992Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:06:55.6055413Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:06:55.6055816Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:06:55.6056343Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:06:55.6056894Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:06:55.6057373Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:06:55.6057830Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:06:55.6058300Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:06:55.6058759Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:06:55.6059466Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:06:55.6059924Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:06:55.6060339Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:06:55.6060766Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:06:55.6061159Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:06:55.6061545Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:06:55.6061960Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:06:55.6062412Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:06:55.6063235Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:06:55.6063894Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 99ed4f6f65464704
+2026-11-21T08:06:55.6064513Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248132146
+2026-11-21T08:06:55.6065123Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:55.6065701Z   GH_AW_RUNTIME_TMP_ID: 2049:8530898:1001
+2026-11-21T08:06:55.6066212Z   TMPDIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:55.6067066Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: a1aa91beac9533193776a27096f8ff6825a87c8e05057b04e48b144c3a9747ba
+2026-11-21T08:06:55.6068247Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:06:55.6069105Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:06:55.6069658Z ##[endgroup]
+2026-11-21T08:06:55.7596744Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:06:55.7603349Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-11-21T08:06:55.7604410Z With the provided path, there will be 5 files uploaded
+2026-11-21T08:06:55.7605343Z Artifact name is valid!
+2026-11-21T08:06:55.7605614Z Root directory input is valid!
+2026-11-21T08:06:55.9481638Z Uploading artifact: agent-output-fallback.zip
+2026-11-21T08:06:55.9521549Z Beginning upload of artifact content to blob storage
+2026-11-21T08:06:56.0284832Z Uploaded bytes 1691
+2026-11-21T08:06:56.0417494Z Finished uploading artifact content to blob storage!
+2026-11-21T08:06:56.0419085Z SHA256 digest of uploaded artifact is 8153c2cbf638e04c4920a10c4258822f773d68e4798c1f02c5970ea40cf4ea0d
+2026-11-21T08:06:56.0420934Z Finalizing artifact upload
+2026-11-21T08:06:56.3903514Z Artifact agent-output-fallback successfully finalized. Artifact ID 14697964578
+2026-11-21T08:06:56.3904943Z Artifact agent-output-fallback has been successfully uploaded! Final size is 1691 bytes. Artifact ID is 14697964578
+2026-11-21T08:06:56.3906613Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477/artifacts/14697964578

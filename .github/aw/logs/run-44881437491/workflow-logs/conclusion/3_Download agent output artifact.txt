@@ -1,0 +1,44 @@
+﻿2026-11-21T07:49:40.5242135Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T07:49:40.5242979Z with:
+2026-11-21T07:49:40.5243413Z   pattern: {agent,agent-output-fallback}
+2026-11-21T07:49:40.5243971Z   merge-multiple: true
+2026-11-21T07:49:40.5244427Z   path: /tmp/gh-aw/
+2026-11-21T07:49:40.5245300Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T07:49:40.5245922Z   run-id: 44881437491
+2026-11-21T07:49:40.5246361Z   skip-decompress: false
+2026-11-21T07:49:40.5246820Z   digest-mismatch: error
+2026-11-21T07:49:40.5247253Z env:
+2026-11-21T07:49:40.5247644Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:40.5248141Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:40.5248651Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:40.5250111Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:40.5251571Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:40.5252088Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:40.5252557Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:40.5253082Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:40.5253656Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:40.5254680Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T07:49:40.5256682Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T07:49:40.5258125Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T07:49:40.5259041Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:40.5259761Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:40.5260431Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c5d70d42f3947df3
+2026-11-21T07:49:40.5261045Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247380470
+2026-11-21T07:49:40.5261575Z ##[endgroup]
+2026-11-21T07:49:40.9048674Z Found 6 artifact(s)
+2026-11-21T07:49:40.9057604Z Filtering artifacts by pattern '{agent,agent-output-fallback}'
+2026-11-21T07:49:40.9099879Z Preparing to download the following artifacts:
+2026-11-21T07:49:40.9104379Z - agent (ID: 14698526144, Size: 678492, Expected Digest: sha256:936ebe5d79aaf894a62ff3079b5cfc553c4ca355421c2e8863ff69cb86862daf)
+2026-11-21T07:49:40.9108823Z - agent-output-fallback (ID: 14698281857, Size: 1691, Expected Digest: sha256:6a65cef960d53aa0d9b3450473dc6bea59ec43a0fad3b8c828d765212901803f)
+2026-11-21T07:49:41.0582027Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/f0f6bbd1-6881-4acb-bc28-3e9d19bd691a/workflow-job-run-eb50eb0a-9759-5c43-bf8e-9e6e2680a244/artifacts/daa0da78a4f899948f184de1c2267d4cff63de5d280692a88333f56508605a86.zip
+2026-11-21T07:49:41.0586081Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T07:49:41.0689572Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/f0f6bbd1-6881-4acb-bc28-3e9d19bd691a/workflow-job-run-eb50eb0a-9759-5c43-bf8e-9e6e2680a244/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-11-21T07:49:41.0694323Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T07:49:41.1014371Z (node:2408) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T07:49:41.1016671Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T07:49:41.1118800Z SHA256 digest of downloaded artifact is 6a65cef960d53aa0d9b3450473dc6bea59ec43a0fad3b8c828d765212901803f
+2026-11-21T07:49:41.1123722Z Artifact download completed successfully.
+2026-11-21T07:49:41.2610092Z SHA256 digest of downloaded artifact is 936ebe5d79aaf894a62ff3079b5cfc553c4ca355421c2e8863ff69cb86862daf
+2026-11-21T07:49:41.2876071Z Artifact download completed successfully.
+2026-11-21T07:49:41.2877627Z Total of 2 artifact(s) downloaded
+2026-11-21T07:49:41.2878475Z Download artifact has finished successfully

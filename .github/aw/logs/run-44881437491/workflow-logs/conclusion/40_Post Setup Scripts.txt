@@ -1,0 +1,4 @@
+﻿2026-11-21T07:49:50.7929339Z Post job cleanup.
+2026-11-21T07:49:50.8952959Z [info] [otlp] sending conclusion span "gh-aw.conclusion.conclusion" to configured endpoints
+2026-11-21T07:49:50.9232885Z [info] [otlp] conclusion span export attempted
+2026-11-21T07:49:50.9240356Z Warning: leaving shared /tmp/gh-aw untouched; per-invocation ownership cannot be established.

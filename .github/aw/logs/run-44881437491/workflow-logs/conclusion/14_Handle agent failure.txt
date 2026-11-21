@@ -1,0 +1,138 @@
+﻿2026-11-21T07:49:44.6217010Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:49:44.6218025Z with:
+2026-11-21T07:49:44.6222175Z   github-token: ***
+2026-11-21T07:49:44.6224284Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'handle_agent_failure.cjs'));
+await main();
+
+2026-11-21T07:49:44.6226753Z   debug: false
+2026-11-21T07:49:44.6227253Z   user-agent: actions/github-script
+2026-11-21T07:49:44.6227838Z   result-encoding: json
+2026-11-21T07:49:44.6228331Z   retries: 0
+2026-11-21T07:49:44.6228862Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:49:44.6229489Z env:
+2026-11-21T07:49:44.6229944Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:44.6230507Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:44.6231069Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:44.6232671Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:44.6234210Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:44.6234759Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:44.6235514Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:44.6236130Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:44.6236780Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:44.6237896Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T07:49:44.6239584Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T07:49:44.6241112Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T07:49:44.6242100Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:44.6242723Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:44.6243465Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c5d70d42f3947df3
+2026-11-21T07:49:44.6244133Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247380470
+2026-11-21T07:49:44.6244804Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T07:49:44.6245884Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T07:49:44.6247034Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T07:49:44.6248404Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44881437491
+2026-11-21T07:49:44.6249298Z   GH_AW_AGENT_CONCLUSION: failure
+2026-11-21T07:49:44.6249878Z   GH_AW_ACTIVATION_RESULT: success
+2026-11-21T07:49:44.6250463Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T07:49:44.6251069Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-11-21T07:49:44.6251714Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T07:49:44.6252271Z   GH_AW_SECRET_VERIFICATION_RESULT: success
+2026-11-21T07:49:44.6255188Z   GH_AW_ENGINE_SECRET_FAILURE_MESSAGE: **Alternative**: If your organization has a Copilot subscription, you can avoid the need for a personal access token by adding a top-level `permissions` block to your workflow file. This enables Copilot inference through the org using the built-in GitHub Actions token.
+
+```yaml
+permissions:
+  copilot-requests: write
+```
+
+See: https://github.github.com/gh-aw/reference/engines/#github-copilot-default
+2026-11-21T07:49:44.6257964Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-11-21T07:49:44.6258551Z   GH_AW_CHECKOUT_PR_INVALIDATED: false
+2026-11-21T07:49:44.6259161Z   GH_AW_AI_CREDITS_RATE_LIMIT_ERROR: false
+2026-11-21T07:49:44.6259774Z   GH_AW_UNKNOWN_MODEL_AI_CREDITS: false
+2026-11-21T07:49:44.6260353Z   GH_AW_AIC: 
+2026-11-21T07:49:44.6260821Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-11-21T07:49:44.6261808Z   GH_AW_DETECTION_JOB_RESULT: success
+2026-11-21T07:49:44.6262406Z   GH_AW_MAX_AI_CREDITS: 1000
+2026-11-21T07:49:44.6262986Z   GH_AW_DEFAULT_CHECKOUT_USES_TRIGGER_REF: true
+2026-11-21T07:49:44.6263642Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-11-21T07:49:44.6264237Z   GH_AW_MCP_POLICY_ERROR: false
+2026-11-21T07:49:44.6264803Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-11-21T07:49:44.6265594Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-11-21T07:49:44.6266229Z   GH_AW_MODEL_ENDPOINT_MISMATCH_ERROR: false
+2026-11-21T07:49:44.6266864Z   GH_AW_HTTP_400_RESPONSE_ERROR: false
+2026-11-21T07:49:44.6267464Z   GH_AW_MAX_CACHE_MISSES_EXCEEDED: false
+2026-11-21T07:49:44.6268079Z   GH_AW_MISSING_MODEL_PRICING_ERROR: false
+2026-11-21T07:49:44.6268710Z   GH_AW_MISSING_MODEL_PRICING_MODEL_NAME: 
+2026-11-21T07:49:44.6269351Z   GH_AW_SHELL_EXPANSION_GUARD_REJECTED: false
+2026-11-21T07:49:44.6270678Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-11-21T07:49:44.6272003Z   GH_AW_CODE_PUSH_FAILURE_ERRORS: 
+2026-11-21T07:49:44.6272583Z   GH_AW_CODE_PUSH_FAILURE_COUNT: 0
+2026-11-21T07:49:44.6273160Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-11-21T07:49:44.6273776Z   GH_AW_OAUTH_TOKEN_CHECK_FAILED: false
+2026-11-21T07:49:44.6274374Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-11-21T07:49:44.6275137Z   GH_AW_DAILY_AI_CREDITS_EXCEEDED: false
+2026-11-21T07:49:44.6275801Z   GH_AW_DAILY_AI_CREDITS_GUARDRAIL_STATUS: skipped
+2026-11-21T07:49:44.6276477Z   GH_AW_DAILY_AI_CREDITS_GUARDRAIL_ERROR: 
+2026-11-21T07:49:44.6277098Z   GH_AW_DAILY_AI_CREDITS_TOTAL: 
+2026-11-21T07:49:44.6277669Z   GH_AW_DAILY_AI_CREDITS_ESTIMATED: 
+2026-11-21T07:49:44.6278252Z   GH_AW_DAILY_AI_CREDITS_THRESHOLD: 
+2026-11-21T07:49:44.6278874Z   GH_AW_DAILY_AI_CREDITS_CONTINUE_ON_ERROR: false
+2026-11-21T07:49:44.6279522Z   GH_AW_GROUP_REPORTS: false
+2026-11-21T07:49:44.6280072Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-11-21T07:49:44.6280679Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-11-21T07:49:44.6281328Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-11-21T07:49:44.6281941Z   GH_AW_TIMEOUT_MINUTES: 20
+2026-11-21T07:49:44.6282461Z ##[endgroup]
+2026-11-21T07:49:44.8963714Z [ai-credits] aiCredits source=none GH_AW_AIC=(unset)
+2026-11-21T07:49:44.8977984Z [ai-credits] maxAICredits source=awf_config value=1000
+2026-11-21T07:49:44.8984388Z [ai-credits] rateLimitSignal source=none
+2026-11-21T07:49:44.9001789Z Agent conclusion: failure
+2026-11-21T07:49:44.9006184Z Workflow name: Sync the festival programme
+2026-11-21T07:49:44.9010943Z Workflow ID: sync-festival
+2026-11-21T07:49:44.9013829Z Secret verification result: success
+2026-11-21T07:49:44.9028674Z Engine secret failure message: (set)
+2026-11-21T07:49:44.9030468Z Assignment error count: 0
+2026-11-21T07:49:44.9033931Z Assign copilot failure count: 0
+2026-11-21T07:49:44.9044595Z Skill install failure count: 0
+2026-11-21T07:49:44.9046764Z Create discussion error count: 0
+2026-11-21T07:49:44.9048463Z Code push failure count: 0
+2026-11-21T07:49:44.9062998Z Checkout PR success: true
+2026-11-21T07:49:44.9072551Z AI credits: (none)
+2026-11-21T07:49:44.9074157Z Configured max AI credits: 1000
+2026-11-21T07:49:44.9100348Z AI credits rate-limit error: false
+2026-11-21T07:49:44.9152763Z Max AI credits exceeded (harness budget abort): false
+2026-11-21T07:49:44.9153774Z Daily workflow AIC guardrail exceeded: false
+2026-11-21T07:49:44.9154618Z Daily workflow AIC guardrail status: skipped; error detail: (none)
+2026-11-21T07:49:44.9155866Z Daily workflow AIC guardrail continue-on-error (warning mode): false
+2026-11-21T07:49:44.9156657Z Inference access error: false
+2026-11-21T07:49:44.9157222Z MCP policy error: false
+2026-11-21T07:49:44.9157761Z Agentic engine timeout: false
+2026-11-21T07:49:44.9158331Z Model not supported error: false
+2026-11-21T07:49:44.9158913Z HTTP 400 response error: false
+2026-11-21T07:49:44.9159484Z Unknown model AI credits error: false
+2026-11-21T07:49:44.9160199Z Unknown model AI credits sources (audit/output): false/false
+2026-11-21T07:49:44.9161564Z Missing model pricing error: false (model: (unknown))
+2026-11-21T07:49:44.9162254Z Shell expansion guard rejected: false
+2026-11-21T07:49:44.9162857Z Push repo-memory result: 
+2026-11-21T07:49:44.9163630Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-11-21T07:49:44.9164463Z Lockdown check failed: false
+2026-11-21T07:49:44.9165253Z OAuth token check failed: false
+2026-11-21T07:49:44.9165844Z Stale lock file check failed: false
+2026-11-21T07:49:44.9166433Z Cache memory enabled: false
+2026-11-21T07:49:44.9167043Z Cache memory restored (from restore outputs): false
+2026-11-21T07:49:44.9167752Z Missing tool report-as-failure: true
+2026-11-21T07:49:44.9168347Z Missing data report-as-failure: true
+2026-11-21T07:49:44.9168941Z Agent output content length: 1297
+2026-11-21T07:49:44.9169738Z Agent emitted 1 report_incomplete signal(s) - activating failure handling
+2026-11-21T07:49:44.9174815Z ##[error]Agent reported that it could not complete the task
+2026-11-21T07:49:46.6953885Z Searching for pull request from branch: main
+2026-11-21T07:49:46.6983707Z No pull request found for branch: main
+2026-11-21T07:49:46.6984564Z Parent issue creation is disabled (group-reports: false)
+2026-11-21T07:49:46.6986308Z Checking for existing issue with precise failure metadata for title: "[aw] Sync the festival programme: experienced an engine outage"
+2026-11-21T07:49:46.6987581Z No existing issue found, creating a new one
+2026-11-21T07:49:46.6988440Z Generating failure issue footer with aiCredits context: (none)
+2026-11-21T07:49:46.8897393Z ✓ Created new issue #5: https://github.com/vanduc2514/agent-tkst-hanoi-2026/issues/5
+2026-11-21T07:49:47.4868397Z Cascade check: 5 failure issue(s) in the last 60 min (threshold: 10) — no cascade

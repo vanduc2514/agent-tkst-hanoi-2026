@@ -1,0 +1,30 @@
+﻿2026-11-21T08:07:18.0261682Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/install_awf_binary.sh" v0.29.11 --rootless
+2026-11-21T08:07:18.0262167Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/install_awf_binary.sh" v0.29.11 --rootless[0m
+2026-11-21T08:07:18.0286397Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:07:18.0286626Z env:
+2026-11-21T08:07:18.0286815Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:07:18.0287069Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:07:18.0287292Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:07:18.0287972Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:07:18.0288627Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:07:18.0288844Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:07:18.0289061Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:07:18.0289508Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:07:18.0289783Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:07:18.0290031Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:07:18.0290287Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:07:18.0290593Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9593cfae74276311
+2026-11-21T08:07:18.0290860Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248427438
+2026-11-21T08:07:18.0291133Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:07:18.0293608Z   GH_TOKEN: ***
+2026-11-21T08:07:18.0293804Z   GH_HOST: github.com
+2026-11-21T08:07:18.0294006Z ##[endgroup]
+2026-11-21T08:07:18.0459265Z Installing awf with checksum verification (version: v0.29.11, os: Linux, arch: x86_64)
+2026-11-21T08:07:18.0672543Z Downloading checksums from 'https://github.com/github/gh-aw-firewall/releases/download/v0.29.11/checksums.txt'...
+2026-11-21T08:07:26.9464323Z Node.js >= 20 detected (v24.22.3), using lightweight bundle...
+2026-11-21T08:07:26.9465216Z Downloading bundle from 'https://github.com/github/gh-aw-firewall/releases/download/v0.29.11/awf-bundle.js'...
+2026-11-21T08:07:27.1814455Z Verifying SHA256 checksum for awf-bundle.js...
+2026-11-21T08:07:27.1901493Z ✓ Checksum verification passed for awf-bundle.js
+2026-11-21T08:07:31.5503762Z ✓ Installed awf bundle to /home/runner/.local/lib/awf/awf-bundle.js
+2026-11-21T08:07:31.9288327Z 0.29.11
+2026-11-21T08:07:31.9361297Z ✓ AWF installation complete

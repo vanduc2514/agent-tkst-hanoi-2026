@@ -1,0 +1,51 @@
+﻿2026-11-21T08:08:32.1632122Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:08:32.1632478Z with:
+2026-11-21T08:08:32.1632659Z   name: detection
+2026-11-21T08:08:32.1633678Z   path: /tmp/gh-aw/threat-detection/detection_result.json
+/tmp/gh-aw/threat-detection/execution.json
+/tmp/gh-aw/threat-detection/detection_usage.json
+/tmp/gh-aw/threat-detection/detection_usage.jsonl
+/tmp/gh-aw/threat-detection/detection_harness_retry.json
+/tmp/gh-aw/threat-detection/sandbox/firewall/logs/
+/tmp/gh-aw/threat-detection/sandbox/firewall/audit/
+
+2026-11-21T08:08:32.1634764Z   if-no-files-found: ignore
+2026-11-21T08:08:32.1634990Z   retention-days: 0
+2026-11-21T08:08:32.1635191Z   compression-level: 6
+2026-11-21T08:08:32.1635394Z   overwrite: false
+2026-11-21T08:08:32.1635600Z   include-hidden-files: false
+2026-11-21T08:08:32.1635826Z   archive: true
+2026-11-21T08:08:32.1636007Z env:
+2026-11-21T08:08:32.1636191Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:08:32.1636555Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:08:32.1636805Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:08:32.1637490Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:08:32.1638161Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:08:32.1638378Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:08:32.1638599Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:08:32.1638837Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:08:32.1639092Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:08:32.1639517Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:08:32.1639772Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:08:32.1640080Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9593cfae74276311
+2026-11-21T08:08:32.1640350Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248427438
+2026-11-21T08:08:32.1640629Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:08:32.1640919Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-mxBAcG
+2026-11-21T08:08:32.1641194Z   GH_AW_RUNTIME_TMP_ID: 66305:8552768:1001
+2026-11-21T08:08:32.1641445Z   TMPDIR: /tmp/gh-aw-runtime-mxBAcG
+2026-11-21T08:08:32.1641790Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:08:32.1642142Z ##[endgroup]
+2026-11-21T08:08:32.2873288Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:08:32.2875425Z The least common ancestor is /tmp/gh-aw/threat-detection. This will be the root directory of the artifact
+2026-11-21T08:08:32.2875948Z With the provided path, there will be 18 files uploaded
+2026-11-21T08:08:32.2878812Z Artifact name is valid!
+2026-11-21T08:08:32.2879388Z Root directory input is valid!
+2026-11-21T08:08:32.5152147Z Uploading artifact: detection.zip
+2026-11-21T08:08:32.5182640Z Beginning upload of artifact content to blob storage
+2026-11-21T08:08:32.7405677Z Uploaded bytes 19426
+2026-11-21T08:08:32.7808521Z Finished uploading artifact content to blob storage!
+2026-11-21T08:08:32.7809597Z SHA256 digest of uploaded artifact is f741a46472f0af246a2778eabd2417edbe00315abe50950f78111cb09e552dfb
+2026-11-21T08:08:32.7810099Z Finalizing artifact upload
+2026-11-21T08:08:33.2066611Z Artifact detection successfully finalized. Artifact ID 14698872389
+2026-11-21T08:08:33.2067388Z Artifact detection has been successfully uploaded! Final size is 19426 bytes. Artifact ID is 14698872389
+2026-11-21T08:08:33.2070725Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477/artifacts/14698872389

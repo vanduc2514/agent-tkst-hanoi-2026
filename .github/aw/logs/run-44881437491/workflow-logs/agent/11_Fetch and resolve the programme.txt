@@ -1,0 +1,69 @@
+﻿2026-11-21T07:42:27.8167047Z ##[group]Run set -e
+2026-11-21T07:42:27.8167287Z [36;1mset -e[0m
+2026-11-21T07:42:27.8167555Z [36;1mskill=.agents/skills/sync-festival/scripts/sync_festival.py[0m
+2026-11-21T07:42:27.8167871Z [36;1mpython3 "$skill" fetch[0m
+2026-11-21T07:42:27.8168236Z [36;1m# `diff` exits 1 when there is something to review, which is the normal case.[0m
+2026-11-21T07:42:27.8168557Z [36;1mrc=0[0m
+2026-11-21T07:42:27.8168762Z [36;1mpython3 "$skill" diff || rc=$?[0m
+2026-11-21T07:42:27.8169010Z [36;1mif [ "$rc" -eq 2 ]; then exit 2; fi[0m
+2026-11-21T07:42:27.8169263Z [36;1mpython3 "$skill" enrich --write[0m
+2026-11-21T07:42:27.8169510Z [36;1mpython3 "$skill" apply[0m
+2026-11-21T07:42:27.8188142Z shell: /usr/bin/bash -e {0}
+2026-11-21T07:42:27.8188377Z env:
+2026-11-21T07:42:27.8188579Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:42:27.8188812Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:42:27.8189070Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:42:27.8189742Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:42:27.8190777Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:42:27.8191010Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:42:27.8191222Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:42:27.8191460Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:42:27.8191725Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:42:27.8191939Z   DEFAULT_BRANCH: main
+2026-11-21T07:42:27.8192139Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T07:42:27.8192350Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T07:42:27.8192545Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T07:42:27.8192781Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T07:42:27.8193051Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T07:42:27.8193284Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T07:42:27.8193507Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T07:42:27.8193726Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T07:42:27.8193944Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T07:42:27.8194161Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T07:42:27.8194372Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T07:42:27.8194571Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T07:42:27.8194779Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T07:42:27.8194978Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T07:42:27.8195169Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:42:27.8195370Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T07:42:27.8195583Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T07:42:27.8195875Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:42:27.8196176Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 0442ab8ef0649005
+2026-11-21T07:42:27.8196438Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246946186
+2026-11-21T07:42:27.8197007Z   APIFY_TOKEN: ***
+2026-11-21T07:42:27.8197207Z ##[endgroup]
+2026-11-21T07:43:56.8709455Z   instagram   25 item(s)  $0.0567
+2026-11-21T07:43:56.8710106Z   facebook    25 item(s)  $0.0850
+2026-11-21T07:43:56.8710538Z   threads      1 item(s)  $0.0050
+2026-11-21T07:43:56.8711248Z spend $0.1467 → /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/tmp/sync/social.json
+2026-11-21T07:44:00.4030661Z site 114 · events.json 154 · same 95 · changed 9 · new 10 · unlinked 48
+2026-11-21T07:44:00.4031402Z report /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/tmp/sync/report.md
+2026-11-21T07:44:00.5181068Z registration links found: 5
+2026-11-21T07:44:00.5181916Z   e122  Talkshow kết hợp workshop "Làm màu có lý"  https://forms.gle/cJwL4epRbQiHocyY6
+2026-11-21T07:44:00.5183985Z   e130  Trao đổi chuyên môn "Trình diễn thơ - Vượt https://forms.gle/vf7T3VeS2TphGvXK9
+2026-11-21T07:44:00.5184559Z   e131  Trao đổi chuyên môn "Di sản tự sinh"       https://docs.google.com/forms/d/e/1FAIpQLSd7irDY-w1R
+2026-11-21T07:44:00.5185112Z   e134  Trao đổi chuyên môn "Cổ vật chuyển động"   https://docs.google.com/forms/d/e/1FAIpQLScg_66mNWxm
+2026-11-21T07:44:00.5185811Z   e34   Tour di sản "Chuyện Đình Trong Phố"        https://forms.gle/SMmuryqHy43cCFCRA
+2026-11-21T07:44:00.5186323Z filled 0 · kept 0
+2026-11-21T07:44:00.5186520Z validation clean
+2026-11-21T07:44:04.6119744Z site corrections 0 · conflicts 6 · social 0 · filled 0 · inserted 0
+2026-11-21T07:44:04.6120614Z   review e130: end — the post and the site disagree
+2026-11-21T07:44:04.6121042Z   review e122: end — the post and the site disagree
+2026-11-21T07:44:04.6121575Z   review e105: schedule — a curated per-day schedule is richer than one value
+2026-11-21T07:44:04.6122175Z   review e98: schedule — a curated per-day schedule is richer than one value
+2026-11-21T07:44:04.6122823Z   review e82: schedule — a curated per-day schedule is richer than one value
+2026-11-21T07:44:04.6123407Z   review e05: start — the post and the site disagree
+2026-11-21T07:44:04.6123896Z   kept e53 officialType='Fair' (site 'Event, Community')
+2026-11-21T07:44:04.6124325Z   kept e04 officialType='Fair' (site 'Event')
+2026-11-21T07:44:04.6124692Z validation clean
+2026-11-21T07:44:04.6125163Z report /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/tmp/sync/report.md

@@ -1,0 +1,53 @@
+﻿2026-11-21T07:47:22.9231218Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:47:22.9231567Z with:
+2026-11-21T07:47:22.9232355Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { main } = require(path.join(actionsDir, 'validate_recovery_envelopes.cjs'));
+main({ core, additionalRoots: JSON.parse(process.env.GH_AW_RECOVERY_ADDITIONAL_ROOTS) });
+
+2026-11-21T07:47:22.9234871Z   github-token: ***
+2026-11-21T07:47:22.9235087Z   debug: false
+2026-11-21T07:47:22.9235283Z   user-agent: actions/github-script
+2026-11-21T07:47:22.9235521Z   result-encoding: json
+2026-11-21T07:47:22.9235725Z   retries: 0
+2026-11-21T07:47:22.9235932Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:47:22.9236193Z env:
+2026-11-21T07:47:22.9236374Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:47:22.9236606Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:47:22.9236836Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:47:22.9237504Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:47:22.9238190Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:47:22.9238416Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:47:22.9238629Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:47:22.9238870Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:47:22.9239128Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:47:22.9239344Z   DEFAULT_BRANCH: main
+2026-11-21T07:47:22.9239539Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T07:47:22.9239746Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T07:47:22.9240130Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T07:47:22.9240381Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T07:47:22.9240656Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T07:47:22.9240888Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T07:47:22.9241114Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T07:47:22.9241347Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T07:47:22.9241569Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T07:47:22.9241792Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T07:47:22.9242007Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T07:47:22.9242220Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T07:47:22.9242429Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T07:47:22.9242625Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T07:47:22.9242827Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:47:22.9243026Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T07:47:22.9243250Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T07:47:22.9243537Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:47:22.9243849Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 0442ab8ef0649005
+2026-11-21T07:47:22.9244118Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246946186
+2026-11-21T07:47:22.9244391Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-cJsiJJ
+2026-11-21T07:47:22.9244660Z   GH_AW_RUNTIME_TMP_ID: 66305:8533322:1001
+2026-11-21T07:47:22.9244903Z   TMPDIR: /tmp/gh-aw-runtime-cJsiJJ
+2026-11-21T07:47:22.9245305Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: b68e43e39187b4c4725a54e1eba816f36b5fce20bf165b43c56ab3c1a3e38df5
+2026-11-21T07:47:22.9245927Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T07:47:22.9246316Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T07:47:22.9248973Z   GH_AW_RECOVERY_ADDITIONAL_ROOTS: ["/tmp/gh-aw/aw-prompts/prompt.txt","/tmp/gh-aw/agent_execution.json","/tmp/gh-aw/agent_execution_exit_code.txt","/tmp/gh-aw/agent-session.jsonl","/tmp/gh-aw/agent-errors.jsonl","/tmp/gh-aw/aw-prompts/user.txt","/tmp/gh-aw/aw-prompts/system.txt","/tmp/gh-aw/skill_inventory.json","/tmp/gh-aw/sandbox/agent/logs/","/tmp/gh-aw/redacted-urls.log","/tmp/gh-aw/mcp-logs/","/tmp/gh-aw/agent_usage.json","/tmp/gh-aw/runtime/aw_info.json","/tmp/gh-aw/agent_usage.jsonl","/tmp/gh-aw/agent/model-endpoint-mismatch.json","/tmp/gh-aw/agent/model-resolution.json","/tmp/gh-aw/agent-stdio.log","/tmp/gh-aw/agent/harness_retry.json","/tmp/gh-aw/pre-agent-audit.txt","/tmp/gh-aw/github_rate_limits.jsonl","/tmp/gh-aw/otel.jsonl","/tmp/gh-aw/otlp-export-errors.jsonl","/tmp/gh-aw/safeoutputs.jsonl","/tmp/gh-aw/agent_output.json","/tmp/gh-aw","/tmp/gh-aw","/tmp/gh-aw/awf-config.json","/tmp/gh-aw/awf-resolved-config.json","/tmp/gh-aw/sandbox/firewall/logs/","/tmp/gh-aw/sandbox/firewall/audit/","/tmp/gh-aw/sandbox/firewall/awf-reflect.json"]
+2026-11-21T07:47:22.9252005Z ##[endgroup]
+2026-11-21T07:47:23.0293769Z Removed 0 recovery envelope(s) without unchanged previews

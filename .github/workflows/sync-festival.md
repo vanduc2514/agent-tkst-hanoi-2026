@@ -8,6 +8,12 @@ permissions:
 network:
   allowed:
     - defaults
+    # The engine's own API is not in `defaults`; without it the sandbox proxy
+    # answers every model call with 502.
+    - copilot
+    - github
+    - api.apify.com
+    - lehoithietkesangtao.vn
 tools:
   bash:
     - python3

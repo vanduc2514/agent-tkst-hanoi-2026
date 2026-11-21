@@ -1,0 +1,1 @@
+{"attempts":1,"exit_code":1,"attempt_results":[{"attempt":1,"attempt_id":"harness:1","started_at":1795248487851,"finished_at":1795248508393,"strategy":"restart","backoff_ms":0,"outcome":"failure","exit_code":1,"failure_classes":["capi_server_error"]}]}

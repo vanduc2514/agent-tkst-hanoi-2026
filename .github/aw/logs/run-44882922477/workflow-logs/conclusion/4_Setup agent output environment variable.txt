@@ -1,0 +1,72 @@
+﻿2026-11-21T08:09:03.2948374Z ##[group]Run mkdir -p /tmp/gh-aw/
+2026-11-21T08:09:03.2949344Z [36;1mmkdir -p /tmp/gh-aw/[0m
+2026-11-21T08:09:03.2950093Z [36;1mfind "/tmp/gh-aw/" -type f -print[0m
+2026-11-21T08:09:03.2950876Z [36;1mif [ -f "/tmp/gh-aw/agent_output.json" ]; then[0m
+2026-11-21T08:09:03.2951833Z [36;1m  echo "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/agent_output.json" >> "$GITHUB_OUTPUT"[0m
+2026-11-21T08:09:03.2952684Z [36;1mfi[0m
+2026-11-21T08:09:03.2963432Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:09:03.2964125Z env:
+2026-11-21T08:09:03.2964637Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:03.2965639Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:03.2966255Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:03.2967899Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:03.2969592Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:03.2970182Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:03.2970841Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:03.2971734Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:03.2972421Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:03.2973606Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:03.2975664Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:03.2977271Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:03.2978294Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:03.2978955Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:03.2979723Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:03.2980427Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:03.2981068Z ##[endgroup]
+2026-11-21T08:09:03.3193756Z /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-11-21T08:09:03.3194706Z /tmp/gh-aw/mcp-logs/safeoutputs.log
+2026-11-21T08:09:03.3196173Z /tmp/gh-aw/mcp-logs/gateway.md
+2026-11-21T08:09:03.3196821Z /tmp/gh-aw/mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:03.3197868Z /tmp/gh-aw/mcp-logs/observed-url-domains.json
+2026-11-21T08:09:03.3198594Z /tmp/gh-aw/mcp-logs/github.log
+2026-11-21T08:09:03.3199201Z /tmp/gh-aw/mcp-logs/tools.json
+2026-11-21T08:09:03.3200172Z /tmp/gh-aw/mcp-logs/configuration.jsonl
+2026-11-21T08:09:03.3200874Z /tmp/gh-aw/github_rate_limits.jsonl
+2026-11-21T08:09:03.3201528Z /tmp/gh-aw/agent-stdio.log
+2026-11-21T08:09:03.3202148Z /tmp/gh-aw/agent-errors.jsonl
+2026-11-21T08:09:03.3204378Z /tmp/gh-aw/runtime/aw_info.json
+2026-11-21T08:09:03.3207198Z /tmp/gh-aw/agent/model-resolution.json
+2026-11-21T08:09:03.3207974Z /tmp/gh-aw/agent/harness_retry.json
+2026-11-21T08:09:03.3210214Z /tmp/gh-aw/sandbox/agent/logs/process-1795248392587-2594.log
+2026-11-21T08:09:03.3211156Z /tmp/gh-aw/sandbox/agent/logs/process-1795248300887-1827.log
+2026-11-21T08:09:03.3212404Z /tmp/gh-aw/sandbox/agent/logs/process-1795248325509-2060.log
+2026-11-21T08:09:03.3213242Z /tmp/gh-aw/sandbox/agent/logs/process-1795248352272-2286.log
+2026-11-21T08:09:03.3214706Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/checkpoints/index.md
+2026-11-21T08:09:03.3222009Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/rewind-file-snapshots/tracking.json
+2026-11-21T08:09:03.3225234Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:03.3228214Z /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-11-21T08:09:03.3228972Z /tmp/gh-aw/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:03.3229723Z /tmp/gh-aw/sandbox/firewall/logs/access.log
+2026-11-21T08:09:03.3231280Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/harness-observation.json
+2026-11-21T08:09:03.3232891Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:03.3234536Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/models.json
+2026-11-21T08:09:03.3244400Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:03.3245793Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms
+2026-11-21T08:09:03.3246696Z /tmp/gh-aw/sandbox/firewall/logs/cache.log
+2026-11-21T08:09:03.3247390Z /tmp/gh-aw/sandbox/firewall/audit/squid.conf
+2026-11-21T08:09:03.3248137Z /tmp/gh-aw/sandbox/firewall/audit/policy-manifest.json
+2026-11-21T08:09:03.3248911Z /tmp/gh-aw/sandbox/firewall/audit/image-manifest.json
+2026-11-21T08:09:03.3249699Z /tmp/gh-aw/sandbox/firewall/audit/sensitive-paths.json
+2026-11-21T08:09:03.3250524Z /tmp/gh-aw/sandbox/firewall/audit/awf-resolved-config.json
+2026-11-21T08:09:03.3251424Z /tmp/gh-aw/sandbox/firewall/audit/docker-compose.redacted.yml
+2026-11-21T08:09:03.3252189Z /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:03.3252803Z /tmp/gh-aw/pre-agent-audit.txt
+2026-11-21T08:09:03.3253407Z /tmp/gh-aw/agent-session.jsonl
+2026-11-21T08:09:03.3254212Z /tmp/gh-aw/aw-prompts/system.txt
+2026-11-21T08:09:03.3254830Z /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:09:03.3255639Z /tmp/gh-aw/aw-prompts/user.txt
+2026-11-21T08:09:03.3256217Z /tmp/gh-aw/otel.jsonl
+2026-11-21T08:09:03.3256771Z /tmp/gh-aw/agent_execution_exit_code.txt
+2026-11-21T08:09:03.3257403Z /tmp/gh-aw/agent_execution.json
+2026-11-21T08:09:03.3257989Z /tmp/gh-aw/skill_inventory.json
+2026-11-21T08:09:03.3258567Z /tmp/gh-aw/awf-config.json

@@ -1,0 +1,72 @@
+﻿2026-11-21T08:06:54.1708306Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/print_firewall_logs.sh" --rootless
+2026-11-21T08:06:54.1708905Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/print_firewall_logs.sh" --rootless[0m
+2026-11-21T08:06:54.1741610Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:06:54.1741876Z env:
+2026-11-21T08:06:54.1742092Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:06:54.1742360Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:06:54.1743080Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:06:54.1743968Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:06:54.1744848Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:06:54.1745112Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:06:54.1745555Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:06:54.1745841Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:06:54.1746168Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:06:54.1746448Z   DEFAULT_BRANCH: main
+2026-11-21T08:06:54.1746684Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:06:54.1746937Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:06:54.1747164Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:06:54.1747460Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:06:54.1747790Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:06:54.1748063Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:06:54.1748314Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:06:54.1748578Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:06:54.1748840Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:06:54.1749087Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:06:54.1749342Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:06:54.1749575Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:06:54.1749820Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:06:54.1750044Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:06:54.1750262Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:06:54.1750498Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:06:54.1750755Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:06:54.1751106Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:06:54.1751473Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 99ed4f6f65464704
+2026-11-21T08:06:54.1751797Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248132146
+2026-11-21T08:06:54.1752123Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:54.1752585Z   GH_AW_RUNTIME_TMP_ID: 2049:8530898:1001
+2026-11-21T08:06:54.1752894Z   TMPDIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:54.1753376Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: a1aa91beac9533193776a27096f8ff6825a87c8e05057b04e48b144c3a9747ba
+2026-11-21T08:06:54.1754042Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:06:54.1754525Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:06:54.1754870Z   AWF_LOGS_DIR: /tmp/gh-aw/sandbox/firewall/logs
+2026-11-21T08:06:54.1755169Z ##[endgroup]
+2026-11-21T08:06:54.9852805Z <details>
+2026-11-21T08:06:54.9853457Z <summary>Firewall Activity</summary>
+2026-11-21T08:06:54.9853965Z 
+2026-11-21T08:06:54.9854487Z ▼ 33 requests | 33 allowed | 0 blocked | 2 unique domains
+2026-11-21T08:06:54.9854897Z 
+2026-11-21T08:06:54.9855051Z | Domain | Allowed | Denied |
+2026-11-21T08:06:54.9855469Z |--------|---------|--------|
+2026-11-21T08:06:54.9855892Z | api.githubcopilot.com | 26 | 0 |
+2026-11-21T08:06:54.9856349Z | api.github.com | 7 | 0 |
+2026-11-21T08:06:54.9856609Z 
+2026-11-21T08:06:54.9856744Z <details>
+2026-11-21T08:06:54.9857082Z <summary>Policy Rules</summary>
+2026-11-21T08:06:54.9857356Z 
+2026-11-21T08:06:54.9857527Z | Rule | Action | Hits | Description |
+2026-11-21T08:06:54.9857972Z |------|--------|------|-------------|
+2026-11-21T08:06:54.9859220Z | allow-topology-peer-awmg-mcpg | ✅ allow | 0 | Allow trusted topology peer "awmg-mcpg" on any port (network-isolation mode, before Safe_ports deny) |
+2026-11-21T08:06:54.9861019Z | deny-unsafe-ports | 🚫 deny | 0 | Deny requests to ports not in Safe_ports ACL (only 80, 443, and user-specified ports allowed) |
+2026-11-21T08:06:54.9862621Z | deny-connect-unsafe-ports | 🚫 deny | 0 | Deny CONNECT (HTTPS) to ports not in Safe_ports ACL |
+2026-11-21T08:06:54.9863704Z | allow-api-proxy-ip | ✅ allow | 0 | Allow connections to the AWF api-proxy sidecar IP before raw-IP deny rules |
+2026-11-21T08:06:54.9865025Z | allow-from-api-proxy | ✅ allow | 0 | Allow unrestricted outbound from api-proxy sidecar (trusted AWF component, not subject to agent domain ACL) |
+2026-11-21T08:06:54.9866211Z | deny-raw-ipv4 | 🚫 deny | 0 | Deny requests to raw IPv4 addresses (bypasses domain filtering) |
+2026-11-21T08:06:54.9867122Z | deny-raw-ipv6 | 🚫 deny | 0 | Deny requests to raw IPv6 addresses (bypasses domain filtering) |
+2026-11-21T08:06:54.9867964Z | allow-both-plain | ✅ allow | 0 | Allow HTTP and HTTPS traffic to these domains |
+2026-11-21T08:06:54.9869003Z | deny-default | 🚫 deny | 0 | Deny all traffic not matching any allow rule (default deny) |
+2026-11-21T08:06:54.9869959Z | unknown | 🚫 deny | 33 | Unattributed traffic (port/method-based rules not replayable from logs) |
+2026-11-21T08:06:54.9870550Z 
+2026-11-21T08:06:54.9870663Z </details>
+2026-11-21T08:06:54.9870804Z 
+2026-11-21T08:06:54.9870909Z </details>
+2026-11-21T08:06:54.9871037Z 

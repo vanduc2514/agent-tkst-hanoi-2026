@@ -1,0 +1,9 @@
+2026-11-21T08:06:59.4540000Z Evaluating detection.if
+2026-11-21T08:06:59.4540000Z Evaluating: (always() && (needs.agent.result != 'skipped'))
+2026-11-21T08:06:59.4540000Z Expanded: (true && ('failure' != 'skipped'))
+2026-11-21T08:06:59.4540000Z Result: true
+2026-11-21T08:06:59.4570000Z Requested labels: ubuntu-latest
+2026-11-21T08:06:59.4570000Z Job defined at: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:06:59.4570000Z Waiting for a runner to pick up this job...
+2026-11-21T08:06:59.4700000Z Job is waiting for a hosted runner to come online.
+2026-11-21T08:06:59.4700000Z Job is about to start running on the hosted runner: GitHub Actions 1000002598

@@ -1,0 +1,21 @@
+﻿2026-11-21T07:49:41.8256969Z ##[group]Run if [ -f /tmp/gh-aw/runtime/aw_info.json ]; then cp /tmp/gh-aw/runtime/aw_info.json /tmp/gh-aw/aw_info.json; fi
+2026-11-21T07:49:41.8259241Z [36;1mif [ -f /tmp/gh-aw/runtime/aw_info.json ]; then cp /tmp/gh-aw/runtime/aw_info.json /tmp/gh-aw/aw_info.json; fi[0m
+2026-11-21T07:49:41.8266002Z shell: /usr/bin/bash -e {0}
+2026-11-21T07:49:41.8266557Z env:
+2026-11-21T07:49:41.8267548Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:41.8268220Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:41.8268800Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:41.8270340Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:41.8271891Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:41.8272429Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:41.8272940Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:41.8273521Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:41.8274181Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:41.8275552Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T07:49:41.8278254Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T07:49:41.8280318Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T07:49:41.8281332Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:41.8281962Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:41.8282679Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c5d70d42f3947df3
+2026-11-21T07:49:41.8283681Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247380470
+2026-11-21T07:49:41.8284268Z ##[endgroup]

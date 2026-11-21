@@ -1,0 +1,28 @@
+﻿2026-11-21T07:48:13.3062562Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/install_threat_detect_binary.sh" v0.5.3 --artifact-base-url https://github.com/github/gh-aw-threat-detection/releases/download --sha256-amd64 7cfab3bd02717968a0584ddd3790cff22550059e36d6f656c4f35e9d27851009 --sha256-arm64 6f355949af98e7b5527a958ac11431bd7867db45c0191b94c3a205c662181cc6
+2026-11-21T07:48:13.3065009Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/install_threat_detect_binary.sh" v0.5.3 --artifact-base-url https://github.com/github/gh-aw-threat-detection/releases/download --sha256-amd64 7cfab3bd02717968a0584ddd3790cff22550059e36d6f656c4f35e9d27851009 --sha256-arm64 6f355949af98e7b5527a958ac11431bd7867db45c0191b94c3a205c662181cc6[0m
+2026-11-21T07:48:13.3109384Z shell: /usr/bin/bash -e {0}
+2026-11-21T07:48:13.3109852Z env:
+2026-11-21T07:48:13.3110234Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:48:13.3110735Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:48:13.3111245Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:48:13.3113070Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:48:13.3115008Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:48:13.3115496Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:48:13.3115945Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:48:13.3116460Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:48:13.3117050Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:48:13.3117519Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:48:13.3118072Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:48:13.3118749Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: d92b027f741e48b3
+2026-11-21T07:48:13.3119326Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247260701
+2026-11-21T07:48:13.3119913Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T07:48:13.3120547Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-F5p72L
+2026-11-21T07:48:13.3121142Z   GH_AW_RUNTIME_TMP_ID: 2049:8305577:1001
+2026-11-21T07:48:13.3121884Z   TMPDIR: /tmp/gh-aw-runtime-F5p72L
+2026-11-21T07:48:13.3122381Z ##[endgroup]
+2026-11-21T07:48:13.3388887Z Installing threat-detect with compiler-pinned checksum verification (version: v0.5.3, os: Linux, arch: x86_64)
+2026-11-21T07:48:13.3545144Z Downloading binary from "https://github.com/github/gh-aw-threat-detection/releases/download/v0.5.3/threat-detect-linux-amd64"...
+2026-11-21T07:48:13.5553740Z Verifying SHA256 checksum for threat-detect-linux-amd64...
+2026-11-21T07:48:13.5619992Z ✓ Checksum verification passed for threat-detect-linux-amd64
+2026-11-21T07:48:13.5754283Z threat-detect v0.5.3
+2026-11-21T07:48:13.5759959Z ✓ threat-detect installation complete

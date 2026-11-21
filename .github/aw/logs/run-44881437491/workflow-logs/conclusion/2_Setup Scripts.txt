@@ -1,0 +1,49 @@
+﻿2026-11-21T07:49:36.3641216Z ##[group]Run github/gh-aw-actions/setup@53d0749e19424a918acd82b4d140264ce48f2f14
+2026-11-21T07:49:36.3642484Z with:
+2026-11-21T07:49:36.3643005Z   destination: /home/runner/work/_temp/gh-aw/actions
+2026-11-21T07:49:36.3643635Z   job-name: conclusion
+2026-11-21T07:49:36.3644128Z   trace-id: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:36.3644702Z   parent-span-id: 7755afd4e9b46145
+2026-11-21T07:49:36.3648556Z   safe-output-artifact-client: false
+2026-11-21T07:49:36.3649519Z env:
+2026-11-21T07:49:36.3649951Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:36.3650465Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:36.3650983Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:36.3652465Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:36.3654006Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:36.3654499Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:36.3656354Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:36.3656965Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:36.3657557Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:36.3658618Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T07:49:36.3660257Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T07:49:36.3661703Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T07:49:36.3662629Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:36.3663188Z   GH_AW_SETUP_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T07:49:36.3664593Z   GH_AW_CURRENT_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T07:49:36.3665801Z   GH_AW_INFO_VERSION: 1.0.103
+2026-11-21T07:49:36.3666301Z   GH_AW_INFO_AWF_VERSION: v0.29.11
+2026-11-21T07:49:36.3666813Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-11-21T07:49:36.3667298Z   GH_AW_SETUP_AW_CONTEXT: 
+2026-11-21T07:49:36.3667752Z ##[endgroup]
+2026-11-21T07:49:39.6138927Z Successfully copied 795 files to /home/runner/work/_temp/gh-aw/actions
+2026-11-21T07:49:39.6175331Z ##[group]Runtime TLS inventory (not a trust-store attestation)
+2026-11-21T07:49:39.7363873Z curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10
+2026-11-21T07:49:39.7623187Z Node v24.22.3; OpenSSL 3.5.9
+2026-11-21T07:49:39.7669987Z Go: unavailable; binary build-toolchain inspection unavailable
+2026-11-21T07:49:39.7671860Z Python/certifi: not inspected by shell setup; record each client's interpreter, TLS backend and selected CA bundle separately.
+2026-11-21T07:49:39.7700100Z Container, proxy and MCP trust stores require separate image/vendor evidence.
+2026-11-21T07:49:39.7701142Z Browser updates and successful HTTPS connections do not attest CA distrust.
+2026-11-21T07:49:39.7702601Z ##[endgroup]
+2026-11-21T07:49:40.1217317Z Successfully copied 119 mcp-scripts files to /home/runner/work/_temp/gh-aw/mcp-scripts
+2026-11-21T07:49:40.3457515Z Successfully copied 183 safe-outputs files to /home/runner/work/_temp/gh-aw/safeoutputs
+2026-11-21T07:49:40.4615508Z [info] [otlp] INPUT_TRACE_ID=dc268267c3b022e2154a251a36fd5d9f (will reuse activation trace)
+2026-11-21T07:49:40.4621976Z [info] [otlp] INPUT_PARENT_SPAN_ID=7755afd4e9b46145 (will parent setup span)
+2026-11-21T07:49:40.4629456Z [info] [otlp] no OTLP endpoints have usable credentials, skipping setup span
+2026-11-21T07:49:40.4664593Z [info] [otlp] resolved trace-id=dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:40.4671900Z [info] [otlp] trace-id=dc268267c3b022e2154a251a36fd5d9f written to GITHUB_OUTPUT
+2026-11-21T07:49:40.4676638Z [info] [otlp] span-id=c5d70d42f3947df3 written to GITHUB_OUTPUT
+2026-11-21T07:49:40.4680230Z [info] [otlp] parent-span-id=7755afd4e9b46145 written to GITHUB_OUTPUT
+2026-11-21T07:49:40.4683823Z [info] [otlp] GITHUB_AW_OTEL_TRACE_ID written to GITHUB_ENV
+2026-11-21T07:49:40.4687719Z [info] [otlp] GITHUB_AW_OTEL_PARENT_SPAN_ID written to GITHUB_ENV
+2026-11-21T07:49:40.4693757Z [info] [otlp] GITHUB_AW_OTEL_JOB_START_MS written to GITHUB_ENV

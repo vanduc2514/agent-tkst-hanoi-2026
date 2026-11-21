@@ -1,0 +1,2934 @@
+{
+  "schema_version": 13,
+  "cache_source": "full",
+  "overview": {
+    "run_id": 44881437491,
+    "workflow_name": "Sync the festival programme",
+    "status": "completed",
+    "conclusion": "failure",
+    "created_at": "2026-11-21T07:41:54Z",
+    "started_at": "2026-11-21T07:41:54Z",
+    "updated_at": "2026-11-21T07:49:52Z",
+    "duration": "8.0m",
+    "event": "workflow_dispatch",
+    "branch": "main",
+    "url": "https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44881437491",
+    "logs_path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491"
+  },
+  "comparison": {
+    "baseline_found": false
+  },
+  "task_domain": {
+    "name": "code_fix",
+    "label": "Code Fix",
+    "reason": "The workflow appears oriented toward code changes or pull request review."
+  },
+  "behavior_fingerprint": {
+    "execution_style": "directed",
+    "tool_breadth": "narrow",
+    "actuation_style": "read_only",
+    "resource_profile": "moderate",
+    "dispatch_mode": "standalone",
+    "agentic_fraction": 0.5
+  },
+  "agentic_assessments": [
+    {
+      "kind": "partially_reducible",
+      "severity": "low",
+      "summary": "About 50% of this run's turns appear to be data-gathering that could move to deterministic steps.",
+      "evidence": "agentic_fraction=0.50 turns=4",
+      "recommendation": "Move data-fetching work to frontmatter steps: (pre-agent) writing to /tmp/gh-aw/agent/ or post-steps: (post-agent) to reduce inference cost. See the DeterministicOps guide."
+    }
+  ],
+  "metrics": {
+    "working_set": {
+      "measurement_state": "unavailable",
+      "cumulative_input_tokens": 0,
+      "peak_input_tokens": 0,
+      "rebuild_excess_tokens": 0,
+      "invocations": 0
+    },
+    "action_minutes": 8,
+    "turns": 4,
+    "error_count": 5,
+    "warning_count": 0
+  },
+  "key_findings": [
+    {
+      "code": "workflow_failed",
+      "category": "error",
+      "severity": "critical",
+      "title": "Workflow Failed",
+      "description": "Workflow 'Sync the festival programme' failed with 5 error(s): ##[error]Process completed with exit code 2.",
+      "impact": "Workflow did not complete successfully and may need intervention",
+      "playbook_url": "https://github.com/github/gh-aw/blob/main/.github/aw/debug-playbook.md#audit-findings"
+    },
+    {
+      "code": "engine_step_failed",
+      "category": "error",
+      "severity": "high",
+      "title": "Threat Detection Engine Step Failed",
+      "description": "Job \"detection\" step 21 \"Execute threat detection with AWF\" failed under continue-on-error: Process completed with exit code 2.",
+      "impact": "The detection job can report success without a threat verdict; the security check did not complete",
+      "playbook_url": "https://github.com/github/gh-aw/blob/main/.github/aw/debug-playbook.md#audit-findings"
+    },
+    {
+      "code": "agentic_partially_reducible",
+      "category": "optimization",
+      "severity": "low",
+      "title": "Partially Reducible To Deterministic",
+      "description": "About 50% of this run's turns appear to be data-gathering that could move to deterministic steps.",
+      "impact": "Moving data-gathering turns to deterministic steps reduces inference cost"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Review error logs to identify root cause of failure",
+      "reason": "Understanding failure causes helps prevent recurrence",
+      "example": "Check the errors field for specific error messages, or inspect the log files in logs_path"
+    },
+    {
+      "priority": "medium",
+      "action": "Move data-fetching work to frontmatter steps: (pre-agent) writing to /tmp/gh-aw/agent/ or post-steps: (post-agent) to reduce inference cost. See the DeterministicOps guide.",
+      "reason": "About 50% of this run's turns appear to be data-gathering that could move to deterministic steps."
+    }
+  ],
+  "observability_insights": [
+    {
+      "category": "execution",
+      "severity": "info",
+      "title": "Directed execution path",
+      "summary": "The run remained relatively linear with 4 turns and 0 tool types.",
+      "evidence": "turns=4 tool_types=0"
+    },
+    {
+      "category": "actuation",
+      "severity": "info",
+      "title": "Read-only posture observed",
+      "summary": "The workflow stayed in an analysis posture and did not emit any GitHub write actions.",
+      "evidence": "created_items=0 safe_items=0"
+    },
+    {
+      "category": "network",
+      "severity": "info",
+      "title": "Network policy aligned",
+      "summary": "The firewall observed 33 request(s) with 0 blocked, for a 0% block rate.",
+      "evidence": "blocked=0 total=33"
+    },
+    {
+      "category": "execution",
+      "severity": "info",
+      "title": "Log template patterns mined",
+      "summary": "Analysis identified 2 distinct event templates across 6 pipeline stages from 2 events.",
+      "evidence": "plan=1 finish=1"
+    },
+    {
+      "category": "execution",
+      "severity": "info",
+      "title": "Agent stage sequence",
+      "summary": "The observed pipeline stage sequence for this run.",
+      "evidence": "plan finish"
+    }
+  ],
+  "performance_metrics": {
+    "network_requests": 33
+  },
+  "engine_config": {
+    "engine_id": "copilot",
+    "engine_name": "GitHub Copilot CLI",
+    "model": "auto",
+    "requested_model": "auto",
+    "version": "1.0.103",
+    "cli_version": "v1.2.2",
+    "firewall_version": "v0.29.11",
+    "trigger_event": "workflow_dispatch",
+    "repository": "vanduc2514/agent-tkst-hanoi-2026",
+    "dry_run": false
+  },
+  "prompt_analysis": {
+    "prompt_size": 16848,
+    "prompt_file": "aw-prompts/prompt.txt"
+  },
+  "session_analysis": {
+    "wall_time": "8.0m",
+    "turn_count": 4,
+    "avg_turn_duration": "2.0m",
+    "avg_time_between_turns": "29.7s",
+    "max_time_between_turns": "40.6s",
+    "timeout_detected": false
+  },
+  "safe_output_summary": {
+    "total_items": 0,
+    "items_by_type": {},
+    "summary": "No items",
+    "temporary_id_map_status": "loaded"
+  },
+  "jobs": [
+    {
+      "name": "activation",
+      "status": "completed",
+      "conclusion": "success",
+      "duration": "17.0s",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-21T07:41:59Z",
+          "completed_at": "2026-11-21T07:42:01Z"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-21T07:42:01Z",
+          "completed_at": "2026-11-21T07:42:04Z"
+        },
+        {
+          "name": "Mask OTLP telemetry headers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-21T07:42:04Z",
+          "completed_at": "2026-11-21T07:42:04Z"
+        },
+        {
+          "name": "Generate agentic run info",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-21T07:42:04Z",
+          "completed_at": "2026-11-21T07:42:05Z"
+        },
+        {
+          "name": "Restore daily AIC scan observations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-21T07:42:05Z",
+          "completed_at": "2026-11-21T07:42:05Z"
+        },
+        {
+          "name": "Check daily workflow token guardrail",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-21T07:42:05Z",
+          "completed_at": "2026-11-21T07:42:05Z"
+        },
+        {
+          "name": "Publish daily AIC scan observations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-21T07:42:05Z",
+          "completed_at": "2026-11-21T07:42:06Z"
+        },
+        {
+          "name": "Validate COPILOT_GITHUB_TOKEN secret",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-21T07:42:06Z",
+          "completed_at": "2026-11-21T07:42:06Z"
+        },
+        {
+          "name": "Check for OAuth tokens",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-21T07:42:06Z",
+          "completed_at": "2026-11-21T07:42:06Z"
+        },
+        {
+          "name": "Checkout .github and .agents folders",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-21T07:42:06Z",
+          "completed_at": "2026-11-21T07:42:07Z"
+        },
+        {
+          "name": "Save agent config folders for base branch restoration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-21T07:42:07Z",
+          "completed_at": "2026-11-21T07:42:07Z"
+        },
+        {
+          "name": "Check workflow lock file",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-21T07:42:07Z",
+          "completed_at": "2026-11-21T07:42:08Z"
+        },
+        {
+          "name": "Check compile-agentic version",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-21T07:42:08Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Log runtime features",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Create prompt with built-in context",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Interpolate variables and render templates",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Substitute placeholders",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Validate prompt placeholders",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Print prompt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:09Z"
+        },
+        {
+          "name": "Inventory installed skills",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-21T07:42:09Z",
+          "completed_at": "2026-11-21T07:42:10Z"
+        },
+        {
+          "name": "Upload info artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-21T07:42:10Z",
+          "completed_at": "2026-11-21T07:42:11Z"
+        },
+        {
+          "name": "Stage prompt files for artifact upload",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-21T07:42:11Z",
+          "completed_at": "2026-11-21T07:42:11Z"
+        },
+        {
+          "name": "Upload activation artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-21T07:42:11Z",
+          "completed_at": "2026-11-21T07:42:12Z"
+        },
+        {
+          "name": "Post Checkout .github and .agents folders",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 45,
+          "started_at": "2026-11-21T07:42:12Z",
+          "completed_at": "2026-11-21T07:42:12Z"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 46,
+          "started_at": "2026-11-21T07:42:12Z",
+          "completed_at": "2026-11-21T07:42:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 47,
+          "started_at": "2026-11-21T07:42:12Z",
+          "completed_at": "2026-11-21T07:42:12Z"
+        }
+      ]
+    },
+    {
+      "name": "agent",
+      "status": "completed",
+      "conclusion": "failure",
+      "duration": "5.2m",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-21T07:42:16Z",
+          "completed_at": "2026-11-21T07:42:18Z"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-21T07:42:18Z",
+          "completed_at": "2026-11-21T07:42:26Z"
+        },
+        {
+          "name": "Set runtime paths",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-21T07:42:26Z",
+          "completed_at": "2026-11-21T07:42:26Z"
+        },
+        {
+          "name": "Mask OTLP telemetry headers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-21T07:42:26Z",
+          "completed_at": "2026-11-21T07:42:26Z"
+        },
+        {
+          "name": "Check OTLP telemetry configuration",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-21T07:42:26Z",
+          "completed_at": "2026-11-21T07:42:26Z"
+        },
+        {
+          "name": "Checkout repository (gh-aw default)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-21T07:42:26Z",
+          "completed_at": "2026-11-21T07:42:27Z"
+        },
+        {
+          "name": "Initialize agent execution evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-21T07:42:27Z",
+          "completed_at": "2026-11-21T07:42:27Z"
+        },
+        {
+          "name": "Create gh-aw temp directory",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-21T07:42:27Z",
+          "completed_at": "2026-11-21T07:42:27Z"
+        },
+        {
+          "name": "Configure gh CLI for GitHub Enterprise",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-21T07:42:27Z",
+          "completed_at": "2026-11-21T07:42:27Z"
+        },
+        {
+          "name": "Download activation artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-21T07:42:27Z",
+          "completed_at": "2026-11-21T07:42:27Z"
+        },
+        {
+          "name": "Fetch and resolve the programme",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-21T07:42:27Z",
+          "completed_at": "2026-11-21T07:44:04Z"
+        },
+        {
+          "name": "Validate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-21T07:44:04Z",
+          "completed_at": "2026-11-21T07:44:05Z"
+        },
+        {
+          "name": "Configure Git credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-21T07:44:05Z",
+          "completed_at": "2026-11-21T07:44:05Z"
+        },
+        {
+          "name": "Checkout PR branch",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-21T07:44:05Z",
+          "completed_at": "2026-11-21T07:44:05Z"
+        },
+        {
+          "name": "Install GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-21T07:44:05Z",
+          "completed_at": "2026-11-21T07:44:17Z"
+        },
+        {
+          "name": "Install AWF binary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-21T07:44:17Z",
+          "completed_at": "2026-11-21T07:44:31Z"
+        },
+        {
+          "name": "Determine automatic lockdown mode for GitHub MCP Server",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-21T07:44:31Z",
+          "completed_at": "2026-11-21T07:44:31Z"
+        },
+        {
+          "name": "Restore agent config folders from base branch",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 18,
+          "started_at": "2026-11-21T07:44:31Z",
+          "completed_at": "2026-11-21T07:44:31Z"
+        },
+        {
+          "name": "Restore inline sub-agents from activation artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-21T07:44:31Z",
+          "completed_at": "2026-11-21T07:44:31Z"
+        },
+        {
+          "name": "Restore inline skills from activation artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-21T07:44:31Z",
+          "completed_at": "2026-11-21T07:44:31Z"
+        },
+        {
+          "name": "Download container images",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-21T07:44:31Z",
+          "completed_at": "2026-11-21T07:44:42Z"
+        },
+        {
+          "name": "Prepare Safe Outputs Directories",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-21T07:44:42Z",
+          "completed_at": "2026-11-21T07:44:42Z"
+        },
+        {
+          "name": "Generate Safe Outputs Config",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-21T07:44:42Z",
+          "completed_at": "2026-11-21T07:44:42Z"
+        },
+        {
+          "name": "Generate Safe Outputs Tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-11-21T07:44:42Z",
+          "completed_at": "2026-11-21T07:44:42Z"
+        },
+        {
+          "name": "Start MCP Gateway",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-11-21T07:44:42Z",
+          "completed_at": "2026-11-21T07:44:55Z"
+        },
+        {
+          "name": "Mount MCP servers as CLIs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-11-21T07:44:55Z",
+          "completed_at": "2026-11-21T07:44:55Z"
+        },
+        {
+          "name": "Clean credentials",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-11-21T07:44:55Z",
+          "completed_at": "2026-11-21T07:44:55Z"
+        },
+        {
+          "name": "Audit pre-agent workspace",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28,
+          "started_at": "2026-11-21T07:44:55Z",
+          "completed_at": "2026-11-21T07:44:55Z"
+        },
+        {
+          "name": "Log GitHub rate limits at agent start",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-11-21T07:44:55Z",
+          "completed_at": "2026-11-21T07:44:56Z"
+        },
+        {
+          "name": "Execute GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 30,
+          "started_at": "2026-11-21T07:44:56Z",
+          "completed_at": "2026-11-21T07:47:19Z"
+        },
+        {
+          "name": "Log GitHub rate limits at agent end",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-11-21T07:47:19Z",
+          "completed_at": "2026-11-21T07:47:19Z"
+        },
+        {
+          "name": "Detect agent errors",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-11-21T07:47:19Z",
+          "completed_at": "2026-11-21T07:47:19Z"
+        },
+        {
+          "name": "Configure Git credentials",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 33,
+          "started_at": "2026-11-21T07:47:19Z",
+          "completed_at": "2026-11-21T07:47:19Z"
+        },
+        {
+          "name": "Copy Copilot session state files to logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34,
+          "started_at": "2026-11-21T07:47:19Z",
+          "completed_at": "2026-11-21T07:47:19Z"
+        },
+        {
+          "name": "Stop MCP Gateway",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-11-21T07:47:19Z",
+          "completed_at": "2026-11-21T07:47:20Z"
+        },
+        {
+          "name": "Redact secrets in logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-11-21T07:47:20Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Validate recovery envelopes before upload",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Append agent step summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 38,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Copy Safe Outputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 39,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Ingest agent output",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 40,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Parse agent logs for step summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 41,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Parse MCP Gateway logs for step summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 42,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:21Z"
+        },
+        {
+          "name": "Print firewall logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 43,
+          "started_at": "2026-11-21T07:47:21Z",
+          "completed_at": "2026-11-21T07:47:22Z"
+        },
+        {
+          "name": "Parse token usage for step summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 44,
+          "started_at": "2026-11-21T07:47:22Z",
+          "completed_at": "2026-11-21T07:47:22Z"
+        },
+        {
+          "name": "Print AWF reflect summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 45,
+          "started_at": "2026-11-21T07:47:22Z",
+          "completed_at": "2026-11-21T07:47:22Z"
+        },
+        {
+          "name": "Generate observability summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 46,
+          "started_at": "2026-11-21T07:47:22Z",
+          "completed_at": "2026-11-21T07:47:22Z"
+        },
+        {
+          "name": "Write agent output placeholder if missing",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 47,
+          "started_at": "2026-11-21T07:47:22Z",
+          "completed_at": "2026-11-21T07:47:22Z"
+        },
+        {
+          "name": "Validate recovery envelopes before upload",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 48,
+          "started_at": "2026-11-21T07:47:22Z",
+          "completed_at": "2026-11-21T07:47:23Z"
+        },
+        {
+          "name": "Upload agent output fallback artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 49,
+          "started_at": "2026-11-21T07:47:23Z",
+          "completed_at": "2026-11-21T07:47:24Z"
+        },
+        {
+          "name": "Upload agent artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 50,
+          "started_at": "2026-11-21T07:47:24Z",
+          "completed_at": "2026-11-21T07:47:25Z"
+        },
+        {
+          "name": "Post Checkout repository (gh-aw default)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 99,
+          "started_at": "2026-11-21T07:47:25Z",
+          "completed_at": "2026-11-21T07:47:25Z"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 100,
+          "started_at": "2026-11-21T07:47:25Z",
+          "completed_at": "2026-11-21T07:47:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 101,
+          "started_at": "2026-11-21T07:47:25Z",
+          "completed_at": "2026-11-21T07:47:25Z"
+        }
+      ]
+    },
+    {
+      "name": "detection",
+      "status": "completed",
+      "conclusion": "success",
+      "duration": "1.7m",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-21T07:47:32Z",
+          "completed_at": "2026-11-21T07:47:34Z"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-21T07:47:34Z",
+          "completed_at": "2026-11-21T07:47:40Z"
+        },
+        {
+          "name": "Download activation artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-21T07:47:40Z",
+          "completed_at": "2026-11-21T07:47:42Z"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-21T07:47:42Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Clear agent token usage",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Checkout repository for patch context",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Initialize detection execution evidence",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Clear inherited Copilot session state",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Clean stale firewall files from agent artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:43Z"
+        },
+        {
+          "name": "Download container images",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-21T07:47:43Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Check if detection needed",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Clear MCP Config for detection",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Prepare threat detection files",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Setup threat detection",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Ensure threat-detection directory and log",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:47:52Z"
+        },
+        {
+          "name": "Install AWF binary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-21T07:47:52Z",
+          "completed_at": "2026-11-21T07:48:04Z"
+        },
+        {
+          "name": "Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-21T07:48:04Z",
+          "completed_at": "2026-11-21T07:48:05Z"
+        },
+        {
+          "name": "Install GitHub Copilot CLI",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-21T07:48:05Z",
+          "completed_at": "2026-11-21T07:48:13Z"
+        },
+        {
+          "name": "Install threat-detect binary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-11-21T07:48:13Z",
+          "completed_at": "2026-11-21T07:48:13Z"
+        },
+        {
+          "name": "Execute threat detection with AWF",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-11-21T07:48:13Z",
+          "completed_at": "2026-11-21T07:49:07Z"
+        },
+        {
+          "name": "Copy detection firewall logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-21T07:49:07Z",
+          "completed_at": "2026-11-21T07:49:07Z"
+        },
+        {
+          "name": "Redact secrets in detection logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-21T07:49:07Z",
+          "completed_at": "2026-11-21T07:49:07Z"
+        },
+        {
+          "name": "Parse threat detection token usage for step summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-11-21T07:49:07Z",
+          "completed_at": "2026-11-21T07:49:07Z"
+        },
+        {
+          "name": "Redact secrets in detection artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-11-21T07:49:07Z",
+          "completed_at": "2026-11-21T07:49:08Z"
+        },
+        {
+          "name": "Render detection log",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-11-21T07:49:08Z",
+          "completed_at": "2026-11-21T07:49:08Z"
+        },
+        {
+          "name": "Upload threat detection artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-11-21T07:49:08Z",
+          "completed_at": "2026-11-21T07:49:09Z"
+        },
+        {
+          "name": "Conclude threat detection",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28,
+          "started_at": "2026-11-21T07:49:09Z",
+          "completed_at": "2026-11-21T07:49:10Z"
+        },
+        {
+          "name": "Upload skipped detection execution evidence",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 29,
+          "started_at": "2026-11-21T07:49:10Z",
+          "completed_at": "2026-11-21T07:49:10Z"
+        },
+        {
+          "name": "Post Setup Node.js",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 57,
+          "started_at": "2026-11-21T07:49:10Z",
+          "completed_at": "2026-11-21T07:49:10Z"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 58,
+          "started_at": "2026-11-21T07:49:10Z",
+          "completed_at": "2026-11-21T07:49:10Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 59,
+          "started_at": "2026-11-21T07:49:10Z",
+          "completed_at": "2026-11-21T07:49:10Z"
+        }
+      ]
+    },
+    {
+      "name": "safe_outputs",
+      "status": "completed",
+      "conclusion": "success",
+      "duration": "14.0s",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-21T07:49:16Z",
+          "completed_at": "2026-11-21T07:49:17Z"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-21T07:49:17Z",
+          "completed_at": "2026-11-21T07:49:25Z"
+        },
+        {
+          "name": "Mask OTLP telemetry headers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-21T07:49:25Z",
+          "completed_at": "2026-11-21T07:49:25Z"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-21T07:49:25Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Download patch artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Checkout repository (gh-aw default)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Configure Git credentials",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Configure GH_HOST for enterprise compatibility",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:26Z"
+        },
+        {
+          "name": "Process Safe Outputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-21T07:49:26Z",
+          "completed_at": "2026-11-21T07:49:27Z"
+        },
+        {
+          "name": "Upload Safe Outputs Items",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-21T07:49:27Z",
+          "completed_at": "2026-11-21T07:49:28Z"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-21T07:49:28Z",
+          "completed_at": "2026-11-21T07:49:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-21T07:49:28Z",
+          "completed_at": "2026-11-21T07:49:28Z"
+        }
+      ]
+    },
+    {
+      "name": "conclusion",
+      "status": "completed",
+      "conclusion": "failure",
+      "duration": "20.0s",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-21T07:49:34Z",
+          "completed_at": "2026-11-21T07:49:36Z"
+        },
+        {
+          "name": "Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-21T07:49:36Z",
+          "completed_at": "2026-11-21T07:49:40Z"
+        },
+        {
+          "name": "Download agent output artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-21T07:49:40Z",
+          "completed_at": "2026-11-21T07:49:41Z"
+        },
+        {
+          "name": "Setup agent output environment variable",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-21T07:49:41Z",
+          "completed_at": "2026-11-21T07:49:41Z"
+        },
+        {
+          "name": "Download workflow metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-21T07:49:41Z",
+          "completed_at": "2026-11-21T07:49:41Z"
+        },
+        {
+          "name": "Restore runtime model metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-21T07:49:41Z",
+          "completed_at": "2026-11-21T07:49:41Z"
+        },
+        {
+          "name": "Warn if threat detection produced no verdict",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-21T07:49:41Z",
+          "completed_at": "2026-11-21T07:49:41Z"
+        },
+        {
+          "name": "Download detection artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-21T07:49:41Z",
+          "completed_at": "2026-11-21T07:49:42Z"
+        },
+        {
+          "name": "Download Safe Outputs Items Manifest",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-21T07:49:42Z",
+          "completed_at": "2026-11-21T07:49:42Z"
+        },
+        {
+          "name": "Process no-op messages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-21T07:49:42Z",
+          "completed_at": "2026-11-21T07:49:43Z"
+        },
+        {
+          "name": "Log detection run",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-21T07:49:43Z",
+          "completed_at": "2026-11-21T07:49:44Z"
+        },
+        {
+          "name": "Record missing tool",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-21T07:49:44Z",
+          "completed_at": "2026-11-21T07:49:44Z"
+        },
+        {
+          "name": "Record incomplete",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-21T07:49:44Z",
+          "completed_at": "2026-11-21T07:49:44Z"
+        },
+        {
+          "name": "Handle agent failure",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 14,
+          "started_at": "2026-11-21T07:49:44Z",
+          "completed_at": "2026-11-21T07:49:47Z"
+        },
+        {
+          "name": "Report failed jobs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-21T07:49:47Z",
+          "completed_at": "2026-11-21T07:49:48Z"
+        },
+        {
+          "name": "Collect usage artifact files",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-21T07:49:48Z",
+          "completed_at": "2026-11-21T07:49:48Z"
+        },
+        {
+          "name": "Generate usage activity summary and unified session",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-21T07:49:48Z",
+          "completed_at": "2026-11-21T07:49:49Z"
+        },
+        {
+          "name": "Upload usage artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-21T07:49:49Z",
+          "completed_at": "2026-11-21T07:49:50Z"
+        },
+        {
+          "name": "Wait before retrying usage artifact upload",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 19,
+          "started_at": "2026-11-21T07:49:50Z",
+          "completed_at": "2026-11-21T07:49:50Z"
+        },
+        {
+          "name": "Retry upload usage artifact",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-11-21T07:49:50Z",
+          "completed_at": "2026-11-21T07:49:50Z"
+        },
+        {
+          "name": "Post Setup Scripts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 40,
+          "started_at": "2026-11-21T07:49:50Z",
+          "completed_at": "2026-11-21T07:49:50Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 41,
+          "started_at": "2026-11-21T07:49:50Z",
+          "completed_at": "2026-11-21T07:49:50Z"
+        }
+      ]
+    }
+  ],
+  "downloaded_files": [
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/.downloaded-artifacts/all",
+      "size": 0,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent/harness_retry.json",
+      "size": 1218,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent/model-resolution.json",
+      "size": 203,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent-errors.jsonl",
+      "size": 119,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent-session.jsonl",
+      "size": 192789,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent-stdio.log",
+      "size": 24037,
+      "description": "Agent standard output/error logs"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent_execution.json",
+      "size": 89,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent_execution_exit_code.txt",
+      "size": 1,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/agent_output.json",
+      "size": 1297,
+      "description": "Validated safe outputs"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/prompt-import-tree.json",
+      "size": 17547,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/prompt-literal-values.json",
+      "size": 68812,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/prompt-template.txt",
+      "size": 17260,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/prompt.txt",
+      "size": 16848,
+      "description": "Input prompt for AI agent"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/system.txt",
+      "size": 14776,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw-prompts/user.txt",
+      "size": 2072,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/aw_info.json",
+      "size": 1623,
+      "description": "Engine configuration and workflow metadata"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/awf-config.json",
+      "size": 5759,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/detection_harness_retry.json",
+      "size": 253,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/detection_usage.json",
+      "size": 3,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/detection_usage.jsonl",
+      "size": 23,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/execution.json",
+      "size": 93,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/awf-resolved-config.json",
+      "size": 9092,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/docker-compose.redacted.yml",
+      "size": 17959,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/image-manifest.json",
+      "size": 531,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/policy-manifest.json",
+      "size": 2520,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/sensitive-paths.json",
+      "size": 1441,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/audit/squid.conf",
+      "size": 7817,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/access.log",
+      "size": 4006,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms",
+      "size": 14,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/api-proxy-logs/harness-observation.json",
+      "size": 118,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/api-proxy-logs/models.json",
+      "size": 22741,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+      "size": 3636,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+      "size": 0,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/audit.jsonl",
+      "size": 8090,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/detection/sandbox/firewall/logs/cache.log",
+      "size": 2783,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/github_rate_limits.jsonl",
+      "size": 666,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/jobs.json",
+      "size": 29500,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/configuration.jsonl",
+      "size": 182,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/gateway.md",
+      "size": 2788,
+      "description": "Markdown documentation"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/github.log",
+      "size": 1881,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/mcp-gateway.log",
+      "size": 87397,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/observed-url-domains.json",
+      "size": 2,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/rpc-messages.jsonl",
+      "size": 148673,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/safeoutputs.log",
+      "size": 2431,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/mcp-logs/tools.json",
+      "size": 7866,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/models.json",
+      "size": 19139,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/otel.jsonl",
+      "size": 3449,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/pre-agent-audit.txt",
+      "size": 80188,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/runtime/aw_info.json",
+      "size": 1666,
+      "description": "Engine configuration and workflow metadata"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/safe-output-items.jsonl",
+      "size": 0,
+      "description": "Created items manifest (audit trail)"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/safe-output-outcomes.jsonl",
+      "size": 119,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/copilot-session-state/a6c32afb-dcea-4919-baeb-99da99fa7b7d/checkpoints/index.md",
+      "size": 172,
+      "description": "Markdown documentation"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/copilot-session-state/a6c32afb-dcea-4919-baeb-99da99fa7b7d/events.jsonl",
+      "size": 178656,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/copilot-session-state/a6c32afb-dcea-4919-baeb-99da99fa7b7d/rewind-file-snapshots/tracking.json",
+      "size": 29,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/process-1795247128339-1839.log",
+      "size": 410916,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/process-1795247150073-2064.log",
+      "size": 514028,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/process-1795247176991-2295.log",
+      "size": 616649,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/agent/logs/process-1795247217637-2607.log",
+      "size": 720060,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/awf-resolved-config.json",
+      "size": 11723,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/docker-compose.redacted.yml",
+      "size": 20762,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/image-manifest.json",
+      "size": 531,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/policy-manifest.json",
+      "size": 4007,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/sensitive-paths.json",
+      "size": 1441,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/audit/squid.conf",
+      "size": 12035,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/awf-reflect.json",
+      "size": 76967,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/access.log",
+      "size": 11113,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms",
+      "size": 14,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/api-proxy-logs/harness-observation.json",
+      "size": 118,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/api-proxy-logs/models.json",
+      "size": 22741,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/api-proxy-logs/otel.jsonl",
+      "size": 14544,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl",
+      "size": 0,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/audit.jsonl",
+      "size": 22784,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/sandbox/firewall/logs/cache.log",
+      "size": 6330,
+      "description": "Log file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/skill_inventory.json",
+      "size": 205,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/temporary-id-map.json",
+      "size": 3,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/activity/summary.json",
+      "size": 4043,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/agent/execution.json",
+      "size": 89,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/agent/harness_retry.json",
+      "size": 1218,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/agent/token_usage.jsonl",
+      "size": 0,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/aw_info.json",
+      "size": 1666,
+      "description": "Engine configuration and workflow metadata"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/aw_session.jsonl",
+      "size": 256050,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/detection/execution.json",
+      "size": 93,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/detection/harness_retry.json",
+      "size": 253,
+      "description": "JSON data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/detection/token_usage.jsonl",
+      "size": 0,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/detection_usage.jsonl",
+      "size": 23,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/github_rate_limits.jsonl",
+      "size": 15223,
+      "description": "JSON Lines data file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/graders/grader_manifest.json",
+      "size": 2813,
+      "description": "Grader manifest (configured graders and thresholds)"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/usage/graders/grader_results.json",
+      "size": 3728,
+      "description": "Deterministic grader results for the run"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/.complete",
+      "size": 25,
+      "description": ""
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/0_conclusion.txt",
+      "size": 162704,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/1_safe_outputs.txt",
+      "size": 45129,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/2_detection.txt",
+      "size": 145278,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/3_agent.txt",
+      "size": 446244,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/4_activation.txt",
+      "size": 98615,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/10_Checkout .github and .agents folders.txt",
+      "size": 12686,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/11_Save agent config folders for base branch restoration.txt",
+      "size": 1786,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/12_Check workflow lock file.txt",
+      "size": 3830,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/13_Check compile-agentic version.txt",
+      "size": 2587,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/15_Create prompt with built-in context.txt",
+      "size": 5346,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/16_Interpolate variables and render templates.txt",
+      "size": 8829,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/17_Substitute placeholders.txt",
+      "size": 4077,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/18_Validate prompt placeholders.txt",
+      "size": 1752,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/19_Print prompt.txt",
+      "size": 22558,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/1_Set up job.txt",
+      "size": 2140,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/20_Inventory installed skills.txt",
+      "size": 2152,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/21_Upload info artifact.txt",
+      "size": 2763,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/22_Stage prompt files for artifact upload.txt",
+      "size": 1491,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/23_Upload activation artifact.txt",
+      "size": 3418,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/2_Setup Scripts.txt",
+      "size": 3766,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/3_Mask OTLP telemetry headers.txt",
+      "size": 1438,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/45_Post Checkout .github and .agents folders.txt",
+      "size": 1769,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/46_Post Setup Scripts.txt",
+      "size": 370,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/47_Complete job.txt",
+      "size": 857,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/4_Generate agentic run info.txt",
+      "size": 4467,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/5_Restore daily AIC scan observations.txt",
+      "size": 2155,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/6_Check daily workflow token guardrail.txt",
+      "size": 2895,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/7_Publish daily AIC scan observations.txt",
+      "size": 1929,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/8_Validate COPILOT_GITHUB_TOKEN secret.txt",
+      "size": 2014,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/9_Check for OAuth tokens.txt",
+      "size": 1612,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/activation/system.txt",
+      "size": 600,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/100_Post Setup Scripts.txt",
+      "size": 365,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/101_Complete job.txt",
+      "size": 1436,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/10_Download activation artifact.txt",
+      "size": 4011,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/11_Fetch and resolve the programme.txt",
+      "size": 5314,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/12_Validate.txt",
+      "size": 3413,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/13_Configure Git credentials.txt",
+      "size": 2885,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/14_Checkout PR branch.txt",
+      "size": 3116,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/15_Install GitHub Copilot CLI.txt",
+      "size": 4829,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/16_Install AWF binary.txt",
+      "size": 3380,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/17_Determine automatic lockdown mode for GitHub MCP Server.txt",
+      "size": 4133,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/19_Restore inline sub-agents from activation artifact.txt",
+      "size": 2959,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/1_Set up job.txt",
+      "size": 2608,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/20_Restore inline skills from activation artifact.txt",
+      "size": 2887,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/21_Download container images.txt",
+      "size": 8027,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/22_Prepare Safe Outputs Directories.txt",
+      "size": 2744,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/23_Generate Safe Outputs Config.txt",
+      "size": 4562,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/24_Generate Safe Outputs Tools.txt",
+      "size": 6280,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/25_Start MCP Gateway.txt",
+      "size": 22037,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/26_Mount MCP servers as CLIs.txt",
+      "size": 4770,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/27_Clean credentials.txt",
+      "size": 3279,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/28_Audit pre-agent workspace.txt",
+      "size": 2866,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/29_Log GitHub rate limits at agent start.txt",
+      "size": 3717,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/2_Setup Scripts.txt",
+      "size": 5156,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/30_Execute GitHub Copilot CLI.txt",
+      "size": 53157,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/31_Log GitHub rate limits at agent end.txt",
+      "size": 3827,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/32_Detect agent errors.txt",
+      "size": 3775,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/34_Copy Copilot session state files to logs.txt",
+      "size": 3117,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/35_Stop MCP Gateway.txt",
+      "size": 3522,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/36_Redact secrets in logs.txt",
+      "size": 3903,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/37_Validate recovery envelopes before upload.txt",
+      "size": 3559,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/38_Append agent step summary.txt",
+      "size": 2884,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/39_Copy Safe Outputs.txt",
+      "size": 3015,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/3_Set runtime paths.txt",
+      "size": 3066,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/40_Ingest agent output.txt",
+      "size": 7822,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/41_Parse agent logs for step summary.txt",
+      "size": 16876,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/42_Parse MCP Gateway logs for step summary.txt",
+      "size": 163351,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/43_Print firewall logs.txt",
+      "size": 5437,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/44_Parse token usage for step summary.txt",
+      "size": 3609,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/45_Print AWF reflect summary.txt",
+      "size": 10621,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/46_Generate observability summary.txt",
+      "size": 3630,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/47_Write agent output placeholder if missing.txt",
+      "size": 3064,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/48_Validate recovery envelopes before upload.txt",
+      "size": 4663,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/49_Upload agent output fallback artifact.txt",
+      "size": 5273,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/4_Mask OTLP telemetry headers.txt",
+      "size": 2400,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/50_Upload agent artifacts.txt",
+      "size": 5248,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/5_Check OTLP telemetry configuration.txt",
+      "size": 2545,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/6_Checkout repository (gh-aw default).txt",
+      "size": 13495,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/7_Initialize agent execution evidence.txt",
+      "size": 2707,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/8_Create gh-aw temp directory.txt",
+      "size": 2507,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/99_Post Checkout repository (gh-aw default).txt",
+      "size": 1909,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/9_Configure gh CLI for GitHub Enterprise.txt",
+      "size": 2638,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/agent/system.txt",
+      "size": 736,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/10_Process no-op messages.txt",
+      "size": 3550,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/11_Log detection run.txt",
+      "size": 3818,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/12_Record missing tool.txt",
+      "size": 3013,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/13_Record incomplete.txt",
+      "size": 3031,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/14_Handle agent failure.txt",
+      "size": 10064,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/15_Report failed jobs.txt",
+      "size": 3322,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/16_Collect usage artifact files.txt",
+      "size": 5186,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/17_Generate usage activity summary and unified session.txt",
+      "size": 94133,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/18_Upload usage artifact.txt",
+      "size": 4471,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/1_Set up job.txt",
+      "size": 2241,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/2_Setup Scripts.txt",
+      "size": 4578,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/3_Download agent output artifact.txt",
+      "size": 4349,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/40_Post Setup Scripts.txt",
+      "size": 370,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/41_Complete job.txt",
+      "size": 119,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/4_Setup agent output environment variable.txt",
+      "size": 5750,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/5_Download workflow metadata.txt",
+      "size": 3481,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/6_Restore runtime model metadata.txt",
+      "size": 1992,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/7_Warn if threat detection produced no verdict.txt",
+      "size": 2182,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/8_Download detection artifact.txt",
+      "size": 3527,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/9_Download Safe Outputs Items Manifest.txt",
+      "size": 3584,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/conclusion/system.txt",
+      "size": 1794,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/10_Clean stale firewall files from agent artifact.txt",
+      "size": 1421,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/11_Download container images.txt",
+      "size": 4414,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/12_Check if detection needed.txt",
+      "size": 2078,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/13_Clear MCP Config for detection.txt",
+      "size": 1541,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/14_Prepare threat detection files.txt",
+      "size": 2012,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/15_Setup threat detection.txt",
+      "size": 2836,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/16_Ensure threat-detection directory and log.txt",
+      "size": 1500,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/17_Install AWF binary.txt",
+      "size": 2432,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/18_Setup Node.js.txt",
+      "size": 2066,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/19_Install GitHub Copilot CLI.txt",
+      "size": 4037,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/1_Set up job.txt",
+      "size": 2775,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/20_Install threat-detect binary.txt",
+      "size": 2795,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/21_Execute threat detection with AWF.txt",
+      "size": 43122,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/22_Copy detection firewall logs.txt",
+      "size": 2278,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/23_Redact secrets in detection logs.txt",
+      "size": 2889,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/24_Parse threat detection token usage for step summary.txt",
+      "size": 2941,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/25_Redact secrets in detection artifacts.txt",
+      "size": 2889,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/26_Render detection log.txt",
+      "size": 29428,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/27_Upload threat detection artifact.txt",
+      "size": 3713,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/28_Conclude threat detection.txt",
+      "size": 6390,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/2_Setup Scripts.txt",
+      "size": 4134,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/3_Download activation artifact.txt",
+      "size": 2985,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/4_Download agent output artifact.txt",
+      "size": 3839,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/57_Post Setup Node.js.txt",
+      "size": 50,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/58_Post Setup Scripts.txt",
+      "size": 369,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/59_Complete job.txt",
+      "size": 357,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/5_Setup agent output environment variable.txt",
+      "size": 5627,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/6_Clear agent token usage.txt",
+      "size": 1328,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/8_Initialize detection execution evidence.txt",
+      "size": 1741,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/9_Clear inherited Copilot session state.txt",
+      "size": 1378,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/detection/system.txt",
+      "size": 713,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/10_Process Safe Outputs.txt",
+      "size": 10039,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/11_Upload Safe Outputs Items.txt",
+      "size": 4382,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/1_Set up job.txt",
+      "size": 2706,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/22_Post Setup Scripts.txt",
+      "size": 372,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/23_Complete job.txt",
+      "size": 950,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/2_Setup Scripts.txt",
+      "size": 5364,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/3_Mask OTLP telemetry headers.txt",
+      "size": 2601,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/4_Download agent output artifact.txt",
+      "size": 5066,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/5_Setup agent output environment variable.txt",
+      "size": 6467,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/6_Download patch artifact.txt",
+      "size": 4203,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/9_Configure GH_HOST for enterprise compatibility.txt",
+      "size": 3009,
+      "description": "Text file"
+    },
+    {
+      "path": "/Users/nvduc/projects/playground/tkst/.github/aw/logs/run-44881437491/workflow-logs/safe_outputs/system.txt",
+      "size": 793,
+      "description": "Text file"
+    }
+  ],
+  "github_rate_limit_usage": {
+    "total_requests_made": 3,
+    "core_consumed": 2,
+    "core_consumed_source": "response_headers_delta",
+    "core_remaining": 4980,
+    "core_limit": 5000,
+    "resources": [
+      {
+        "resource": "core",
+        "requests_made": 3,
+        "quota_consumed": 2,
+        "final_remaining": 4980,
+        "limit": 5000
+      }
+    ]
+  },
+  "firewall_analysis": {
+    "allowed_domains": [
+      "api.github.com:443",
+      "api.githubcopilot.com:443"
+    ],
+    "total_requests": 33,
+    "allowed_requests": 33,
+    "blocked_requests": 0,
+    "requests_by_domain": {
+      "api.github.com:443": {
+        "allowed": 7,
+        "blocked": 0
+      },
+      "api.githubcopilot.com:443": {
+        "allowed": 26,
+        "blocked": 0
+      }
+    }
+  },
+  "policy_analysis": {
+    "policy_summary": "9 rules, SSL Bump disabled, DLP disabled",
+    "rule_hits": [],
+    "total_requests": 0,
+    "allowed_count": 0,
+    "denied_count": 0,
+    "unique_domains": 0
+  },
+  "errors": [
+    {
+      "type": "step_failure",
+      "message": "##[error]Process completed with exit code 2.",
+      "file": "detection"
+    },
+    {
+      "type": "step_failure",
+      "message": "##[error]Agent execution exited with code 1\n##[error]Process completed with exit code 1.",
+      "file": "agent"
+    },
+    {
+      "type": "step_failure",
+      "message": "##[error]Agent execution exited with code 1\n##[error]Process completed with exit code 1.",
+      "file": "agent/Execute GitHub Copilot CLI"
+    },
+    {
+      "type": "step_failure",
+      "message": "##[error]Agent reported that it could not complete the task",
+      "file": "conclusion/Handle agent failure"
+    },
+    {
+      "type": "step_failure",
+      "message": "##[error]Process completed with exit code 2.",
+      "file": "detection/Execute threat detection with AWF"
+    }
+  ],
+  "graders": {
+    "version": 2,
+    "results": [
+      {
+        "id": "artifact-production",
+        "name": "Artifact Production",
+        "status": "pass",
+        "value": 0,
+        "unit": "count",
+        "direction": "higher_is_better"
+      },
+      {
+        "id": "context-growth",
+        "name": "Context Growth",
+        "status": "unavailable",
+        "unit": "factor",
+        "direction": "lower_is_better"
+      },
+      {
+        "id": "execution-duration",
+        "name": "Execution Duration",
+        "status": "unavailable",
+        "unit": "ms",
+        "direction": "lower_is_better"
+      },
+      {
+        "id": "execution-step-count",
+        "name": "Execution Step Count",
+        "status": "unavailable",
+        "unit": "count",
+        "direction": "lower_is_better"
+      },
+      {
+        "id": "loops",
+        "name": "Loops",
+        "status": "pass",
+        "value": 0,
+        "unit": "count",
+        "passed": true,
+        "direction": "lower_is_better",
+        "threshold": 3
+      },
+      {
+        "id": "retries",
+        "name": "Retries",
+        "status": "pass",
+        "value": 3,
+        "unit": "count",
+        "passed": true,
+        "direction": "lower_is_better",
+        "threshold": 10
+      },
+      {
+        "id": "tool-failure-count",
+        "name": "Tool Failure Count",
+        "status": "pass",
+        "value": 0,
+        "unit": "count",
+        "passed": true,
+        "direction": "lower_is_better",
+        "threshold": 5
+      },
+      {
+        "id": "tool-success-rate",
+        "name": "Tool Success Rate",
+        "status": "pass",
+        "value": 1,
+        "unit": "ratio",
+        "passed": true,
+        "direction": "higher_is_better",
+        "threshold": 0.8
+      },
+      {
+        "id": "trajectory-efficiency",
+        "name": "Trajectory Efficiency",
+        "status": "pass",
+        "value": 1,
+        "unit": "ratio",
+        "direction": "higher_is_better"
+      },
+      {
+        "id": "working-set-rebuild-factor",
+        "name": "Working-Set Rebuild Factor",
+        "status": "unavailable",
+        "unit": "factor",
+        "direction": "lower_is_better"
+      }
+    ],
+    "total": 10,
+    "passed": 6,
+    "failed": 0,
+    "error_count": 0,
+    "unavailable_count": 4
+  },
+  "ledger": {
+    "transactions_added": 0
+  },
+  "friction": {
+    "measurement_state": "measured",
+    "canonical_unit": "aic",
+    "sources": [
+      "agent_session",
+      "firewall"
+    ],
+    "total_events": 0,
+    "total_occurrences": 0,
+    "counted_occurrences": 0,
+    "suppressed_occurrences": 0,
+    "cost": {
+      "aic": 0,
+      "tokens": {
+        "input": 0,
+        "output": 0,
+        "cache_read": 0,
+        "cache_write": 0,
+        "reasoning": 0,
+        "total": 0
+      },
+      "turns": 0,
+      "tool_calls": 0,
+      "latency_ms": 0
+    },
+    "dimension_states": {
+      "aic": "measured",
+      "latency_ms": "measured",
+      "tokens": "measured",
+      "tool_calls": "measured",
+      "turns": "measured"
+    },
+    "uncertainty": {
+      "aic": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "relative_error": 0,
+        "lower_bound": 0,
+        "upper_bound": 0,
+        "basis": "AI credits of errored invocations (measured), of linked follow-up invocations (causal), or the mean healthy-invocation cost (statistical)"
+      },
+      "latency_ms": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "relative_error": 0,
+        "lower_bound": 0,
+        "upper_bound": 0,
+        "basis": "wall-clock duration recorded on the failing tool call or invocation"
+      },
+      "tokens": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "relative_error": 0,
+        "lower_bound": 0,
+        "upper_bound": 0,
+        "basis": "token classes of the attributed invocations"
+      },
+      "tool_calls": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "relative_error": 0,
+        "lower_bound": 0,
+        "upper_bound": 0,
+        "basis": "counted friction occurrences that consumed a tool call"
+      },
+      "turns": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "relative_error": 0,
+        "lower_bound": 0,
+        "upper_bound": 0,
+        "basis": "one additional turn per errored or retried model invocation"
+      }
+    },
+    "unmeasured_drivers": [
+      {
+        "driver": "agent_api_error",
+        "reason": "source_unavailable:agent_token_usage"
+      },
+      {
+        "driver": "firewall_block",
+        "reason": "no_occurrences"
+      },
+      {
+        "driver": "integrity_filter",
+        "reason": "source_unavailable:mcp_gateway"
+      },
+      {
+        "driver": "mcp_tool_error",
+        "reason": "source_unavailable:mcp_gateway"
+      },
+      {
+        "driver": "session_tool_failure",
+        "reason": "no_occurrences"
+      }
+    ]
+  },
+  "retries": {
+    "agent_retries": 3,
+    "detection_retries": 0,
+    "attempts": [
+      {
+        "attempt": 1,
+        "attemptId": "startup:1",
+        "exitCode": 1,
+        "failureClasses": [],
+        "startedAt": 1795247096378,
+        "finishedAt": 1795247239165,
+        "strategy": "restart",
+        "backoffMs": 0,
+        "outcome": "failure",
+        "layer": "startup",
+        "phase": "agent",
+        "path": "agent/harness_retry.json"
+      },
+      {
+        "attempt": 1,
+        "attemptId": "harness:1",
+        "startupAttemptId": "startup:1",
+        "exitCode": 1,
+        "failureClasses": [
+          "capi_server_error"
+        ],
+        "startedAt": 1795247125063,
+        "finishedAt": 1795247144720,
+        "strategy": "restart",
+        "backoffMs": 0,
+        "outcome": "failure",
+        "layer": "harness",
+        "phase": "agent",
+        "path": "agent/harness_retry.json"
+      },
+      {
+        "attempt": 2,
+        "attemptId": "harness:2",
+        "startupAttemptId": "startup:1",
+        "exitCode": 1,
+        "failureClasses": [
+          "capi_server_error"
+        ],
+        "startedAt": 1795247149724,
+        "finishedAt": 1795247166625,
+        "strategy": "resume",
+        "backoffMs": 5000,
+        "outcome": "failure",
+        "layer": "harness",
+        "phase": "agent",
+        "path": "agent/harness_retry.json"
+      },
+      {
+        "attempt": 3,
+        "attemptId": "harness:3",
+        "startupAttemptId": "startup:1",
+        "exitCode": 1,
+        "failureClasses": [
+          "capi_server_error"
+        ],
+        "startedAt": 1795247176630,
+        "finishedAt": 1795247197276,
+        "strategy": "resume",
+        "backoffMs": 10000,
+        "outcome": "failure",
+        "layer": "harness",
+        "phase": "agent",
+        "path": "agent/harness_retry.json"
+      },
+      {
+        "attempt": 4,
+        "attemptId": "harness:4",
+        "startupAttemptId": "startup:1",
+        "exitCode": 1,
+        "failureClasses": [
+          "capi_server_error"
+        ],
+        "startedAt": 1795247217280,
+        "finishedAt": 1795247236545,
+        "strategy": "resume",
+        "backoffMs": 20000,
+        "outcome": "failure",
+        "layer": "harness",
+        "phase": "agent",
+        "path": "agent/harness_retry.json"
+      },
+      {
+        "attempt": 1,
+        "attemptId": "harness:1",
+        "exitCode": 1,
+        "failureClasses": [
+          "capi_server_error"
+        ],
+        "startedAt": 1795247322458,
+        "finishedAt": 1795247344308,
+        "strategy": "restart",
+        "backoffMs": 0,
+        "outcome": "failure",
+        "layer": "harness",
+        "phase": "detection",
+        "path": "threat-detection/detection_harness_retry.json"
+      }
+    ],
+    "engine_retries": 0,
+    "detection_engine_retries": 0
+  }
+}

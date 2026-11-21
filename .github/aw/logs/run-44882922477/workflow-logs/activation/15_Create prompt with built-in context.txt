@@ -1,0 +1,83 @@
+﻿2026-11-21T08:01:55.5119994Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:01:55.5120823Z with:
+2026-11-21T08:01:55.5121270Z   github-token: no-authentication
+2026-11-21T08:01:55.5131102Z   script: const promptEnvironment = new Set(["GH_AW_ACTIONS_DIR","GH_AW_EXPR_76DF9333","GH_AW_EXPR_77C1A4D2","GH_AW_EXPR_7C248226","GH_AW_EXPR_C19C384F","GH_AW_GITHUB_ACTOR","GH_AW_GITHUB_REPOSITORY","GH_AW_GITHUB_RUN_ID","GH_AW_GITHUB_WORKSPACE","GH_AW_PROMPT","GH_AW_PROMPT_CONFIG","GH_AW_PROMPT_CONTENT_0000","GH_AW_PROMPT_CONTENT_0001","GH_AW_PROMPT_CONTENT_0002","GH_AW_PROMPT_CONTENT_0003","GH_AW_PROMPT_CONTENT_0004","GH_AW_SAFE_OUTPUTS","GITHUB_ACTION","GITHUB_ACTOR","GITHUB_API_URL","GITHUB_EVENT_NAME","GITHUB_EVENT_PATH","GITHUB_GRAPHQL_URL","GITHUB_JOB","GITHUB_OUTPUT","GITHUB_REF","GITHUB_REPOSITORY","GITHUB_RUN_ATTEMPT","GITHUB_RUN_ID","GITHUB_RUN_NUMBER","GITHUB_SERVER_URL","GITHUB_SHA","GITHUB_STEP_SUMMARY","GITHUB_WORKFLOW","GITHUB_WORKSPACE","PATH","RUNNER_ARCH","RUNNER_OS","RUNNER_TEMP"]);
+for (const name of Object.keys(process.env)) {
+  if (!promptEnvironment.has(name)) delete process.env[name];
+}
+global.core = core;
+global.context = context;
+const { main } = require(process.env.GH_AW_ACTIONS_DIR + '/create_prompt.cjs');
+await main(core);
+
+2026-11-21T08:01:55.5137620Z   debug: false
+2026-11-21T08:01:55.5138092Z   user-agent: actions/github-script
+2026-11-21T08:01:55.5138642Z   result-encoding: json
+2026-11-21T08:01:55.5139100Z   retries: 0
+2026-11-21T08:01:55.5139573Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:01:55.5140156Z env:
+2026-11-21T08:01:55.5140577Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:01:55.5141099Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:01:55.5141591Z   OTEL_SERVICE_NAME: 
+2026-11-21T08:01:55.5142052Z   OTEL_RESOURCE_ATTRIBUTES: 
+2026-11-21T08:01:55.5142888Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:01:55.5143408Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:01:55.5143914Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:01:55.5144409Z   GH_AW_OTLP_ENDPOINTS: 
+2026-11-21T08:01:55.5144891Z   GH_AW_OTLP_IF_MISSING: 
+2026-11-21T08:01:55.5145374Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:01:55.5145888Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:01:55.5146459Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:01:55.5147357Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2f5101f5dcf45cde
+2026-11-21T08:01:55.5147983Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248111092
+2026-11-21T08:01:55.5148622Z   GH_AW_ACTIONS_DIR: /home/runner/work/_temp/gh-aw/actions
+2026-11-21T08:01:55.5149246Z   GH_AW_EXPR_76DF9333: false
+2026-11-21T08:01:55.5149724Z   GH_AW_EXPR_77C1A4D2: 
+2026-11-21T08:01:55.5150187Z   GH_AW_EXPR_7C248226: false
+2026-11-21T08:01:55.5150674Z   GH_AW_EXPR_C19C384F: false
+2026-11-21T08:01:55.5151159Z   GH_AW_GITHUB_ACTOR: vanduc2514
+2026-11-21T08:01:55.5151763Z   GH_AW_GITHUB_REPOSITORY: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:01:55.5152391Z   GH_AW_GITHUB_RUN_ID: 44882922477
+2026-11-21T08:01:55.5153134Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:01:55.5155428Z   GH_AW_PROMPT: /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:01:55.5159582Z   GH_AW_PROMPT_CONFIG: {"items":[{"content_env":"GH_AW_PROMPT_CONTENT_0000"},{"file":"xpia.md"},{"file":"temp_folder_prompt.md"},{"file":"markdown.md"},{"file":"safe_outputs_mcp_transport_prompt.md"},{"file":"safe_outputs_prompt.md"},{"content_env":"GH_AW_PROMPT_CONTENT_0001"},{"file":"safe_outputs_create_pull_request.md"},{"content_env":"GH_AW_PROMPT_CONTENT_0002"},{"file":"mcp_cli_tools_with_safeoutputs_prompt.md"},{"content_env":"GH_AW_PROMPT_CONTENT_0003"},{"file":"github_mcp_tools_with_safeoutputs_prompt.md"},{"content_env":"GH_AW_PROMPT_CONTENT_0004"},{"author_file":".github/workflows/sync-festival.md"}],"system_item_count":13}
+2026-11-21T08:01:55.5163064Z   GH_AW_PROMPT_CONTENT_0000: <system>
+
+2026-11-21T08:01:55.5164103Z   GH_AW_PROMPT_CONTENT_0001: <safe-output-tools>
+Tools: create_pull_request, report_missing_tool, report_missing_data, noop(max:2)
+
+2026-11-21T08:01:55.5165619Z   GH_AW_PROMPT_CONTENT_0002: </safe-output-tools>
+
+2026-11-21T08:01:55.5169592Z   GH_AW_PROMPT_CONTENT_0003: <github-context>
+{{#if __GH_AW_GITHUB_ACTOR__ }}
+- **actor**: __GH_AW_GITHUB_ACTOR__
+{{/if}}
+{{#if __GH_AW_GITHUB_REPOSITORY__ }}
+- **repository**: __GH_AW_GITHUB_REPOSITORY__
+{{/if}}
+{{#if __GH_AW_GITHUB_WORKSPACE__ }}
+- **workspace**: __GH_AW_GITHUB_WORKSPACE__
+{{/if}}
+{{#if __GH_AW_EXPR_7C248226__ }}
+- **issue-number**: #__GH_AW_EXPR_7C248226__
+{{/if}}
+{{#if __GH_AW_EXPR_C19C384F__ }}
+- **discussion-number**: #__GH_AW_EXPR_C19C384F__
+{{/if}}
+{{#if __GH_AW_EXPR_76DF9333__ }}
+- **pull-request-number**: #__GH_AW_EXPR_76DF9333__
+{{/if}}
+{{#if __GH_AW_EXPR_77C1A4D2__ }}
+- **comment-id**: __GH_AW_EXPR_77C1A4D2__
+{{/if}}
+{{#if __GH_AW_GITHUB_RUN_ID__ }}
+- **workflow-run-id**: __GH_AW_GITHUB_RUN_ID__
+{{/if}}
+</github-context>
+
+
+2026-11-21T08:01:55.5173364Z   GH_AW_PROMPT_CONTENT_0004: </system>
+
+2026-11-21T08:01:55.5174122Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-11-21T08:01:55.5174856Z ##[endgroup]
+2026-11-21T08:01:55.6490004Z Created prompt at /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt (17260 bytes)

@@ -1,0 +1,1853 @@
+﻿2026-11-21T08:08:53.7335410Z Current runner version: '2.338.2'
+2026-11-21T08:08:53.7364049Z ##[group]Runner Image Provisioner
+2026-11-21T08:08:53.7368935Z Hosted Compute Agent
+2026-11-21T08:08:53.7369641Z Version: 20261111.635
+2026-11-21T08:08:53.7370319Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-21T08:08:53.7371037Z Build Date: 2026-11-11T01:49:01Z
+2026-11-21T08:08:53.7371869Z Worker ID: {da0d16d0-12aa-4807-b46e-f04c37f235b1}
+2026-11-21T08:08:53.7372610Z Region: northcentralus
+2026-11-21T08:08:53.7373176Z Cloud: Azure
+2026-11-21T08:08:53.7373809Z ##[endgroup]
+2026-11-21T08:08:53.7376041Z ##[group]VM Image
+2026-11-21T08:08:53.7376730Z - OS: Linux (x64)
+2026-11-21T08:08:53.7377329Z - Source: Docker
+2026-11-21T08:08:53.7377864Z - Name: ubuntu:24.04
+2026-11-21T08:08:53.7378530Z - Version: 20261116.56.1
+2026-11-21T08:08:53.7379113Z ##[endgroup]
+2026-11-21T08:08:53.7380605Z ##[group]GITHUB_TOKEN Permissions
+2026-11-21T08:08:53.7383255Z Actions: read
+2026-11-21T08:08:53.7383887Z Checks: read
+2026-11-21T08:08:53.7384684Z Contents: write
+2026-11-21T08:08:53.7387029Z Issues: write
+2026-11-21T08:08:53.7387671Z Metadata: read
+2026-11-21T08:08:53.7388322Z PullRequests: write
+2026-11-21T08:08:53.7388926Z ##[endgroup]
+2026-11-21T08:08:53.7391631Z Secret source: Actions
+2026-11-21T08:08:53.7392626Z Cache mode: write
+2026-11-21T08:08:53.7393521Z Prepare workflow directory
+2026-11-21T08:08:53.8209481Z Prepare all required actions
+2026-11-21T08:08:53.8324321Z Getting action download info
+2026-11-21T08:08:54.5548114Z Download action repository 'github/gh-aw-actions@53d0749e19424a918acd82b4d140264ce48f2f14' (SHA:53d0749e19424a918acd82b4d140264ce48f2f14)
+2026-11-21T08:08:55.6826236Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-11-21T08:08:56.1748303Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-11-21T08:08:56.4346618Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-21T08:08:57.0188922Z Complete job name: conclusion
+2026-11-21T08:08:57.1765566Z ##[group]Run github/gh-aw-actions/setup@53d0749e19424a918acd82b4d140264ce48f2f14
+2026-11-21T08:08:57.1766800Z with:
+2026-11-21T08:08:57.1767307Z   destination: /home/runner/work/_temp/gh-aw/actions
+2026-11-21T08:08:57.1767935Z   job-name: conclusion
+2026-11-21T08:08:57.1768430Z   trace-id: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:08:57.1769001Z   parent-span-id: 2f5101f5dcf45cde
+2026-11-21T08:08:57.1769545Z   safe-output-artifact-client: false
+2026-11-21T08:08:57.1770264Z env:
+2026-11-21T08:08:57.1770688Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:08:57.1771202Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:08:57.1771731Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:08:57.1773225Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:08:57.1774756Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:08:57.1846416Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:08:57.1847353Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:08:57.1848020Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:08:57.1849384Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:08:57.1850452Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:08:57.1852076Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:08:57.1853639Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:08:57.1856986Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:08:57.1857635Z   GH_AW_SETUP_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:08:57.1859299Z   GH_AW_CURRENT_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:08:57.1860271Z   GH_AW_INFO_VERSION: 1.0.103
+2026-11-21T08:08:57.1863755Z   GH_AW_INFO_AWF_VERSION: v0.29.11
+2026-11-21T08:08:57.1865439Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-11-21T08:08:57.1865939Z   GH_AW_SETUP_AW_CONTEXT: 
+2026-11-21T08:08:57.1866406Z ##[endgroup]
+2026-11-21T08:09:00.9066343Z Successfully copied 795 files to /home/runner/work/_temp/gh-aw/actions
+2026-11-21T08:09:00.9106285Z ##[group]Runtime TLS inventory (not a trust-store attestation)
+2026-11-21T08:09:01.0231815Z curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10
+2026-11-21T08:09:01.0686665Z Node v24.22.3; OpenSSL 3.5.9
+2026-11-21T08:09:01.0787850Z Go: unavailable; binary build-toolchain inspection unavailable
+2026-11-21T08:09:01.0790084Z Python/certifi: not inspected by shell setup; record each client's interpreter, TLS backend and selected CA bundle separately.
+2026-11-21T08:09:01.0795965Z Container, proxy and MCP trust stores require separate image/vendor evidence.
+2026-11-21T08:09:01.0797368Z Browser updates and successful HTTPS connections do not attest CA distrust.
+2026-11-21T08:09:01.0799284Z ##[endgroup]
+2026-11-21T08:09:01.6101948Z Successfully copied 119 mcp-scripts files to /home/runner/work/_temp/gh-aw/mcp-scripts
+2026-11-21T08:09:01.9399170Z Successfully copied 183 safe-outputs files to /home/runner/work/_temp/gh-aw/safeoutputs
+2026-11-21T08:09:02.0700405Z [info] [otlp] INPUT_TRACE_ID=92bfe15bc0d170b9236137d60101b4ef (will reuse activation trace)
+2026-11-21T08:09:02.0708265Z [info] [otlp] INPUT_PARENT_SPAN_ID=2f5101f5dcf45cde (will parent setup span)
+2026-11-21T08:09:02.0766993Z [info] [otlp] no OTLP endpoints have usable credentials, skipping setup span
+2026-11-21T08:09:02.0892421Z [info] [otlp] resolved trace-id=92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:02.0898520Z [info] [otlp] trace-id=92bfe15bc0d170b9236137d60101b4ef written to GITHUB_OUTPUT
+2026-11-21T08:09:02.0901069Z [info] [otlp] span-id=e89b6715865025e2 written to GITHUB_OUTPUT
+2026-11-21T08:09:02.0903098Z [info] [otlp] parent-span-id=2f5101f5dcf45cde written to GITHUB_OUTPUT
+2026-11-21T08:09:02.0905793Z [info] [otlp] GITHUB_AW_OTEL_TRACE_ID written to GITHUB_ENV
+2026-11-21T08:09:02.0907732Z [info] [otlp] GITHUB_AW_OTEL_PARENT_SPAN_ID written to GITHUB_ENV
+2026-11-21T08:09:02.0912005Z [info] [otlp] GITHUB_AW_OTEL_JOB_START_MS written to GITHUB_ENV
+2026-11-21T08:09:02.1294220Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:09:02.1295500Z with:
+2026-11-21T08:09:02.1296009Z   pattern: {agent,agent-output-fallback}
+2026-11-21T08:09:02.1296659Z   merge-multiple: true
+2026-11-21T08:09:02.1297180Z   path: /tmp/gh-aw/
+2026-11-21T08:09:02.1297731Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:09:02.1298401Z   run-id: 44882922477
+2026-11-21T08:09:02.1299745Z   skip-decompress: false
+2026-11-21T08:09:02.1300325Z   digest-mismatch: error
+2026-11-21T08:09:02.1300858Z env:
+2026-11-21T08:09:02.1301313Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:02.1301864Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:02.1302434Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:02.1305753Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:02.1308477Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:02.1309039Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:02.1309581Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:02.1310866Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:02.1311544Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:02.1313290Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:02.1316188Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:02.1318882Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:02.1319947Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:02.1321585Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:02.1322371Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:02.1323629Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:02.1324243Z ##[endgroup]
+2026-11-21T08:09:02.6161666Z Found 6 artifact(s)
+2026-11-21T08:09:02.6190596Z Filtering artifacts by pattern '{agent,agent-output-fallback}'
+2026-11-21T08:09:02.6248125Z Preparing to download the following artifacts:
+2026-11-21T08:09:02.6251228Z - agent (ID: 14698348531, Size: 678771, Expected Digest: sha256:dfb57d1ba1495c8ec030ef62476228ae7a2a5701d865a0652f41ec0e0e0f5213)
+2026-11-21T08:09:02.6254251Z - agent-output-fallback (ID: 14697964578, Size: 1691, Expected Digest: sha256:8153c2cbf638e04c4920a10c4258822f773d68e4798c1f02c5970ea40cf4ea0d)
+2026-11-21T08:09:02.8979705Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/9f6faf88-5cf4-425b-a2f6-b4078d9944bd/workflow-job-run-069d9ba4-bbcb-583a-8b1c-a0336758171a/artifacts/daa0da78a4f899948f184de1c2267d4cff63de5d280692a88333f56508605a86.zip
+2026-11-21T08:09:02.8982153Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:09:02.9022493Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/9f6faf88-5cf4-425b-a2f6-b4078d9944bd/workflow-job-run-069d9ba4-bbcb-583a-8b1c-a0336758171a/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-11-21T08:09:02.9027830Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:09:03.0121175Z (node:2330) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:09:03.0125375Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:09:03.0365910Z SHA256 digest of downloaded artifact is 8153c2cbf638e04c4920a10c4258822f773d68e4798c1f02c5970ea40cf4ea0d
+2026-11-21T08:09:03.0402133Z Artifact download completed successfully.
+2026-11-21T08:09:03.2522085Z SHA256 digest of downloaded artifact is dfb57d1ba1495c8ec030ef62476228ae7a2a5701d865a0652f41ec0e0e0f5213
+2026-11-21T08:09:03.2529935Z Artifact download completed successfully.
+2026-11-21T08:09:03.2587544Z Total of 2 artifact(s) downloaded
+2026-11-21T08:09:03.2697880Z Download artifact has finished successfully
+2026-11-21T08:09:03.2948438Z ##[group]Run mkdir -p /tmp/gh-aw/
+2026-11-21T08:09:03.2949352Z [36;1mmkdir -p /tmp/gh-aw/[0m
+2026-11-21T08:09:03.2950099Z [36;1mfind "/tmp/gh-aw/" -type f -print[0m
+2026-11-21T08:09:03.2950880Z [36;1mif [ -f "/tmp/gh-aw/agent_output.json" ]; then[0m
+2026-11-21T08:09:03.2951840Z [36;1m  echo "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/agent_output.json" >> "$GITHUB_OUTPUT"[0m
+2026-11-21T08:09:03.2952687Z [36;1mfi[0m
+2026-11-21T08:09:03.2963476Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:09:03.2964132Z env:
+2026-11-21T08:09:03.2964643Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:03.2965646Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:03.2966259Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:03.2967907Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:03.2969597Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:03.2970271Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:03.2970845Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:03.2971741Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:03.2972424Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:03.2973612Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:03.2975671Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:03.2977277Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:03.2978307Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:03.2978961Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:03.2979727Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:03.2980444Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:03.2981072Z ##[endgroup]
+2026-11-21T08:09:03.3193843Z /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-11-21T08:09:03.3194714Z /tmp/gh-aw/mcp-logs/safeoutputs.log
+2026-11-21T08:09:03.3196189Z /tmp/gh-aw/mcp-logs/gateway.md
+2026-11-21T08:09:03.3196825Z /tmp/gh-aw/mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:03.3197877Z /tmp/gh-aw/mcp-logs/observed-url-domains.json
+2026-11-21T08:09:03.3198601Z /tmp/gh-aw/mcp-logs/github.log
+2026-11-21T08:09:03.3199204Z /tmp/gh-aw/mcp-logs/tools.json
+2026-11-21T08:09:03.3200182Z /tmp/gh-aw/mcp-logs/configuration.jsonl
+2026-11-21T08:09:03.3200881Z /tmp/gh-aw/github_rate_limits.jsonl
+2026-11-21T08:09:03.3201532Z /tmp/gh-aw/agent-stdio.log
+2026-11-21T08:09:03.3202153Z /tmp/gh-aw/agent-errors.jsonl
+2026-11-21T08:09:03.3204415Z /tmp/gh-aw/runtime/aw_info.json
+2026-11-21T08:09:03.3207219Z /tmp/gh-aw/agent/model-resolution.json
+2026-11-21T08:09:03.3207984Z /tmp/gh-aw/agent/harness_retry.json
+2026-11-21T08:09:03.3210276Z /tmp/gh-aw/sandbox/agent/logs/process-1795248392587-2594.log
+2026-11-21T08:09:03.3211163Z /tmp/gh-aw/sandbox/agent/logs/process-1795248300887-1827.log
+2026-11-21T08:09:03.3212410Z /tmp/gh-aw/sandbox/agent/logs/process-1795248325509-2060.log
+2026-11-21T08:09:03.3213248Z /tmp/gh-aw/sandbox/agent/logs/process-1795248352272-2286.log
+2026-11-21T08:09:03.3214716Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/checkpoints/index.md
+2026-11-21T08:09:03.3222043Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/rewind-file-snapshots/tracking.json
+2026-11-21T08:09:03.3225249Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:03.3228238Z /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-11-21T08:09:03.3228975Z /tmp/gh-aw/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:03.3229728Z /tmp/gh-aw/sandbox/firewall/logs/access.log
+2026-11-21T08:09:03.3231742Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/harness-observation.json
+2026-11-21T08:09:03.3232896Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:03.3234553Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/models.json
+2026-11-21T08:09:03.3244425Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:03.3245801Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms
+2026-11-21T08:09:03.3246700Z /tmp/gh-aw/sandbox/firewall/logs/cache.log
+2026-11-21T08:09:03.3247393Z /tmp/gh-aw/sandbox/firewall/audit/squid.conf
+2026-11-21T08:09:03.3248142Z /tmp/gh-aw/sandbox/firewall/audit/policy-manifest.json
+2026-11-21T08:09:03.3248914Z /tmp/gh-aw/sandbox/firewall/audit/image-manifest.json
+2026-11-21T08:09:03.3249702Z /tmp/gh-aw/sandbox/firewall/audit/sensitive-paths.json
+2026-11-21T08:09:03.3250530Z /tmp/gh-aw/sandbox/firewall/audit/awf-resolved-config.json
+2026-11-21T08:09:03.3251429Z /tmp/gh-aw/sandbox/firewall/audit/docker-compose.redacted.yml
+2026-11-21T08:09:03.3252219Z /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:03.3252806Z /tmp/gh-aw/pre-agent-audit.txt
+2026-11-21T08:09:03.3253410Z /tmp/gh-aw/agent-session.jsonl
+2026-11-21T08:09:03.3254215Z /tmp/gh-aw/aw-prompts/system.txt
+2026-11-21T08:09:03.3254833Z /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:09:03.3255643Z /tmp/gh-aw/aw-prompts/user.txt
+2026-11-21T08:09:03.3256221Z /tmp/gh-aw/otel.jsonl
+2026-11-21T08:09:03.3256775Z /tmp/gh-aw/agent_execution_exit_code.txt
+2026-11-21T08:09:03.3257407Z /tmp/gh-aw/agent_execution.json
+2026-11-21T08:09:03.3257995Z /tmp/gh-aw/skill_inventory.json
+2026-11-21T08:09:03.3258571Z /tmp/gh-aw/awf-config.json
+2026-11-21T08:09:03.3376265Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:09:03.3377244Z with:
+2026-11-21T08:09:03.3377733Z   name: info
+2026-11-21T08:09:03.3378230Z   path: /tmp/gh-aw/
+2026-11-21T08:09:03.3378758Z   merge-multiple: false
+2026-11-21T08:09:03.3379364Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:09:03.3380033Z   run-id: 44882922477
+2026-11-21T08:09:03.3380562Z   skip-decompress: false
+2026-11-21T08:09:03.3381127Z   digest-mismatch: error
+2026-11-21T08:09:03.3381716Z env:
+2026-11-21T08:09:03.3382210Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:03.3382818Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:03.3383435Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:03.3385354Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:03.3391852Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:03.3392494Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:03.3393076Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:03.3393704Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:03.3394371Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:03.3430336Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:03.3432176Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:03.3433812Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:03.3434839Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:03.3435797Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:03.3436665Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:03.3437392Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:03.3438025Z ##[endgroup]
+2026-11-21T08:09:03.6410761Z Downloading single artifact
+2026-11-21T08:09:03.8252128Z Preparing to download the following artifacts:
+2026-11-21T08:09:03.8259589Z - info (ID: 14698088762, Size: 766, Expected Digest: sha256:3e23008c5fbc15387ea9cfc64849e041387b0af6f69cee870eb4319685884cd6)
+2026-11-21T08:09:04.1273494Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/9f6faf88-5cf4-425b-a2f6-b4078d9944bd/workflow-job-run-0c65456c-134a-550e-ac85-f8e7c325bb1c/artifacts/06271baf49532c879aa3c58b48671884bcc858f09197412d682750496c33e1e1.zip
+2026-11-21T08:09:04.1278891Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:09:04.2471983Z (node:2345) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:09:04.2474270Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:09:04.2535599Z SHA256 digest of downloaded artifact is 3e23008c5fbc15387ea9cfc64849e041387b0af6f69cee870eb4319685884cd6
+2026-11-21T08:09:04.2543081Z Artifact download completed successfully.
+2026-11-21T08:09:04.2602502Z Total of 1 artifact(s) downloaded
+2026-11-21T08:09:04.2603534Z Download artifact has finished successfully
+2026-11-21T08:09:04.2748258Z ##[group]Run if [ -f /tmp/gh-aw/runtime/aw_info.json ]; then cp /tmp/gh-aw/runtime/aw_info.json /tmp/gh-aw/aw_info.json; fi
+2026-11-21T08:09:04.2750124Z [36;1mif [ -f /tmp/gh-aw/runtime/aw_info.json ]; then cp /tmp/gh-aw/runtime/aw_info.json /tmp/gh-aw/aw_info.json; fi[0m
+2026-11-21T08:09:04.2758593Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:09:04.2759225Z env:
+2026-11-21T08:09:04.2759814Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:04.2760447Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:04.2761114Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:04.2762830Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:04.2764539Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:04.2765533Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:04.2766139Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:04.2766859Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:04.2767566Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:04.2768793Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:04.2771343Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:04.2773058Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:04.2774104Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:04.2774805Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:04.2775819Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:04.2776551Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:04.2777198Z ##[endgroup]
+2026-11-21T08:09:04.3003406Z ##[group]Run echo "::warning::Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs."
+2026-11-21T08:09:04.3013290Z [36;1mecho "::warning::Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs."[0m
+2026-11-21T08:09:04.3024089Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:09:04.3024834Z env:
+2026-11-21T08:09:04.3025651Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:04.3028406Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:04.3030375Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:04.3034729Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:04.3037314Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:04.3038290Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:04.3039980Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:04.3041502Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:04.3045780Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:04.3047043Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:04.3051756Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:04.3057727Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:04.3059197Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:04.3060123Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:04.3060927Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:04.3062960Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:04.3064730Z ##[endgroup]
+2026-11-21T08:09:04.3209480Z ##[warning]Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs.
+2026-11-21T08:09:04.3356775Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:09:04.3358547Z with:
+2026-11-21T08:09:04.3360357Z   name: detection
+2026-11-21T08:09:04.3360920Z   path: /tmp/gh-aw/threat-detection/
+2026-11-21T08:09:04.3361570Z   merge-multiple: false
+2026-11-21T08:09:04.3362167Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:09:04.3364038Z   run-id: 44882922477
+2026-11-21T08:09:04.3364595Z   skip-decompress: false
+2026-11-21T08:09:04.3365452Z   digest-mismatch: error
+2026-11-21T08:09:04.3365993Z env:
+2026-11-21T08:09:04.3366480Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:04.3367395Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:04.3368035Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:04.3369984Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:04.3371987Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:04.3372819Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:04.3374348Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:04.3375232Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:04.3375946Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:04.3377456Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:04.3379944Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:04.3381968Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:04.3406961Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:04.3407781Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:04.3408624Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:04.3409357Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:04.3410022Z ##[endgroup]
+2026-11-21T08:09:05.2399594Z (node:2360) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:09:05.2401490Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:09:05.2403041Z Downloading single artifact
+2026-11-21T08:09:05.2407525Z Preparing to download the following artifacts:
+2026-11-21T08:09:05.2409069Z - detection (ID: 14698872389, Size: 19426, Expected Digest: sha256:f741a46472f0af246a2778eabd2417edbe00315abe50950f78111cb09e552dfb)
+2026-11-21T08:09:05.2424429Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/9f6faf88-5cf4-425b-a2f6-b4078d9944bd/workflow-job-run-5c8bb843-2d07-58bf-84ef-5dffa90a67d6/artifacts/dad9a79bf7094d4e4604288b20606bf0c332ad493b99c12f1d458912c5ab4bdc.zip
+2026-11-21T08:09:05.2427066Z Starting download of artifact to: /tmp/gh-aw/threat-detection
+2026-11-21T08:09:05.3393010Z SHA256 digest of downloaded artifact is f741a46472f0af246a2778eabd2417edbe00315abe50950f78111cb09e552dfb
+2026-11-21T08:09:05.3394291Z Artifact download completed successfully.
+2026-11-21T08:09:05.3395266Z Total of 1 artifact(s) downloaded
+2026-11-21T08:09:05.3395940Z Download artifact has finished successfully
+2026-11-21T08:09:05.3753043Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:09:05.3754059Z with:
+2026-11-21T08:09:05.3754598Z   pattern: safe-outputs-items
+2026-11-21T08:09:05.3755529Z   merge-multiple: true
+2026-11-21T08:09:05.3756093Z   path: /tmp/gh-aw/
+2026-11-21T08:09:05.3756717Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:09:05.3757415Z   run-id: 44882922477
+2026-11-21T08:09:05.3757990Z   skip-decompress: false
+2026-11-21T08:09:05.3758565Z   digest-mismatch: error
+2026-11-21T08:09:05.3759118Z env:
+2026-11-21T08:09:05.3759627Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:05.3763157Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:05.3763978Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:05.3769139Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:05.3772428Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:05.3773144Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:05.3774834Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:05.3775787Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:05.3776517Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:05.3777815Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:05.3779662Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:05.3781353Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:05.3782415Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:05.3783108Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:05.3783916Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:05.3784669Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:05.3785498Z ##[endgroup]
+2026-11-21T08:09:05.9173308Z Found 6 artifact(s)
+2026-11-21T08:09:05.9183883Z Filtering artifacts by pattern 'safe-outputs-items'
+2026-11-21T08:09:05.9266493Z Preparing to download the following artifacts:
+2026-11-21T08:09:05.9271222Z - safe-outputs-items (ID: 14699146133, Size: 553, Expected Digest: sha256:6fffd43899eeda6a9cc8e91b5da755f76754d4eda3ff93e629a6fc0c616461a2)
+2026-11-21T08:09:06.1890318Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/9f6faf88-5cf4-425b-a2f6-b4078d9944bd/workflow-job-run-2b22033d-c970-56f4-8c69-3eb20dfbf47a/artifacts/140086647422da92f7ddc36c3ae296f3ebb1dfa20d074a5f6305bad1022cc591.zip
+2026-11-21T08:09:06.1892774Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:09:06.3024369Z (node:2373) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:09:06.3028386Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:09:06.3142314Z SHA256 digest of downloaded artifact is 6fffd43899eeda6a9cc8e91b5da755f76754d4eda3ff93e629a6fc0c616461a2
+2026-11-21T08:09:06.3147834Z Artifact download completed successfully.
+2026-11-21T08:09:06.3151331Z Total of 1 artifact(s) downloaded
+2026-11-21T08:09:06.3160015Z Download artifact has finished successfully
+2026-11-21T08:09:06.3363635Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:06.3364694Z with:
+2026-11-21T08:09:06.3372487Z   github-token: ***
+2026-11-21T08:09:06.3435521Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'handle_noop_message.cjs'));
+await main();
+
+2026-11-21T08:09:06.3438131Z   debug: false
+2026-11-21T08:09:06.3438715Z   user-agent: actions/github-script
+2026-11-21T08:09:06.3439381Z   result-encoding: json
+2026-11-21T08:09:06.3439955Z   retries: 0
+2026-11-21T08:09:06.3440544Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:06.3441248Z env:
+2026-11-21T08:09:06.3441788Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:06.3442423Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:06.3443272Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:06.3445122Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:06.3447392Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:06.3448038Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:06.3448657Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:06.3449341Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:06.3450079Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:06.3451337Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:06.3453193Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:06.3454901Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:06.3456196Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:06.3456936Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:06.3457765Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:06.3458515Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:06.3459273Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:06.3460003Z   GH_AW_NOOP_MAX: 2
+2026-11-21T08:09:06.3460630Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:06.3461886Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:06.3463074Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:09:06.3463690Z   GH_AW_ENGINE_MODEL: auto
+2026-11-21T08:09:06.3464579Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477
+2026-11-21T08:09:06.3465729Z   GH_AW_AGENT_CONCLUSION: failure
+2026-11-21T08:09:06.3466410Z   GH_AW_NOOP_REPORT_AS_ISSUE: true
+2026-11-21T08:09:06.3467054Z   GH_AW_AIC: 
+2026-11-21T08:09:06.3467622Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-11-21T08:09:06.3468256Z   GH_AW_AMBIENT_CONTEXT: 
+2026-11-21T08:09:06.3468867Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:09:06.3469518Z ##[endgroup]
+2026-11-21T08:09:06.6003569Z Agent output content length: 1297
+2026-11-21T08:09:06.6012258Z No noop items found in agent output
+2026-11-21T08:09:06.6416538Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:06.6417528Z with:
+2026-11-21T08:09:06.6421845Z   github-token: ***
+2026-11-21T08:09:06.6424132Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'handle_detection_runs.cjs'));
+await main();
+
+2026-11-21T08:09:06.6426842Z   debug: false
+2026-11-21T08:09:06.6427416Z   user-agent: actions/github-script
+2026-11-21T08:09:06.6428105Z   result-encoding: json
+2026-11-21T08:09:06.6428699Z   retries: 0
+2026-11-21T08:09:06.6429295Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:06.6429997Z env:
+2026-11-21T08:09:06.6430521Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:06.6431156Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:06.6431862Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:06.6433621Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:06.6435553Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:06.6436178Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:06.6436792Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:06.6437467Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:06.6438195Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:06.6439508Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:06.6441590Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:06.6443258Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:06.6444374Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:06.6445377Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:06.6446226Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:06.6447001Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:06.6447773Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:06.6448560Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:06.6449823Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:06.6451310Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477
+2026-11-21T08:09:06.6452290Z   GH_AW_DETECTION_CONCLUSION: warning
+2026-11-21T08:09:06.6452968Z   GH_AW_DETECTION_REASON: agent_failure
+2026-11-21T08:09:06.6453646Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:09:06.6454289Z ##[endgroup]
+2026-11-21T08:09:06.8604154Z Detection conclusion: warning
+2026-11-21T08:09:06.8610660Z Detection category: detector_execution_failure
+2026-11-21T08:09:06.8613969Z Workflow name: Sync the festival programme
+2026-11-21T08:09:06.8617702Z Run URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477
+2026-11-21T08:09:06.8621175Z Detection problem detected (warning), posting to tracking issue
+2026-11-21T08:09:06.8627305Z Searching for detection runs issue: "[aw] Detection Runs"
+2026-11-21T08:09:07.2118393Z No detection runs issue found, creating one
+2026-11-21T08:09:07.7910399Z ✓ Created detection runs issue #6: https://github.com/vanduc2514/agent-tkst-hanoi-2026/issues/6
+2026-11-21T08:09:08.3203518Z ✓ Posted detection run comment to issue #6
+2026-11-21T08:09:08.3473716Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:08.3474666Z with:
+2026-11-21T08:09:08.3479297Z   github-token: ***
+2026-11-21T08:09:08.3481821Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'missing_tool.cjs'));
+await main();
+
+2026-11-21T08:09:08.3484162Z   debug: false
+2026-11-21T08:09:08.3484739Z   user-agent: actions/github-script
+2026-11-21T08:09:08.3485591Z   result-encoding: json
+2026-11-21T08:09:08.3486176Z   retries: 0
+2026-11-21T08:09:08.3486782Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:08.3487497Z env:
+2026-11-21T08:09:08.3488082Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:08.3488753Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:08.3489481Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:08.3491196Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:08.3492877Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:08.3493509Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:08.3494134Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:08.3494823Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:08.3495785Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:08.3497045Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:08.3499016Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:08.3500975Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:08.3502142Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:08.3502871Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:08.3503716Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:08.3504484Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:08.3505965Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:08.3508491Z   GH_AW_MISSING_TOOL_CREATE_ISSUE: true
+2026-11-21T08:09:08.3509251Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:08.3510550Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:08.3511736Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:09:08.3512356Z   GH_AW_ENGINE_MODEL: auto
+2026-11-21T08:09:08.3512959Z ##[endgroup]
+2026-11-21T08:09:08.5292267Z Max count: unlimited
+2026-11-21T08:09:08.5623003Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:08.5624059Z with:
+2026-11-21T08:09:08.5628731Z   github-token: ***
+2026-11-21T08:09:08.5631119Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'report_incomplete_handler.cjs'));
+await main();
+
+2026-11-21T08:09:08.5633586Z   debug: false
+2026-11-21T08:09:08.5634159Z   user-agent: actions/github-script
+2026-11-21T08:09:08.5634825Z   result-encoding: json
+2026-11-21T08:09:08.5635695Z   retries: 0
+2026-11-21T08:09:08.5636289Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:08.5636997Z env:
+2026-11-21T08:09:08.5637530Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:08.5638206Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:08.5638912Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:08.5640637Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:08.5642342Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:08.5642974Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:08.5643592Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:08.5644277Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:08.5645302Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:08.5646559Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:08.5648672Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:08.5650396Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:08.5651505Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:08.5652229Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:08.5653062Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:08.5653817Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:08.5654570Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:08.5655527Z   GH_AW_REPORT_INCOMPLETE_CREATE_ISSUE: true
+2026-11-21T08:09:08.5656289Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:08.5657554Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:08.5658747Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:09:08.5659380Z   GH_AW_ENGINE_MODEL: auto
+2026-11-21T08:09:08.5659983Z ##[endgroup]
+2026-11-21T08:09:08.7583667Z Max count: unlimited
+2026-11-21T08:09:08.8074288Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:08.8075680Z with:
+2026-11-21T08:09:08.8080263Z   github-token: ***
+2026-11-21T08:09:08.8082746Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'handle_agent_failure.cjs'));
+await main();
+
+2026-11-21T08:09:08.8086050Z   debug: false
+2026-11-21T08:09:08.8086740Z   user-agent: actions/github-script
+2026-11-21T08:09:08.8087574Z   result-encoding: json
+2026-11-21T08:09:08.8088241Z   retries: 0
+2026-11-21T08:09:08.8088988Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:08.8089824Z env:
+2026-11-21T08:09:08.8090499Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:08.8091313Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:08.8092226Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:08.8094065Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:08.8096214Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:08.8096958Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:08.8097762Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:08.8098634Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:08.8099482Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:08.8100913Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:08.8103844Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:08.8105954Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:08.8107230Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:08.8108056Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:08.8109066Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:08.8109907Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:08.8110845Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:08.8111813Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:08.8113222Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:08.8114821Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477
+2026-11-21T08:09:08.8116168Z   GH_AW_AGENT_CONCLUSION: failure
+2026-11-21T08:09:08.8116947Z   GH_AW_ACTIVATION_RESULT: success
+2026-11-21T08:09:08.8117661Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:09:08.8118376Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-11-21T08:09:08.8119085Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:09:08.8119718Z   GH_AW_SECRET_VERIFICATION_RESULT: success
+2026-11-21T08:09:08.8122727Z   GH_AW_ENGINE_SECRET_FAILURE_MESSAGE: **Alternative**: If your organization has a Copilot subscription, you can avoid the need for a personal access token by adding a top-level `permissions` block to your workflow file. This enables Copilot inference through the org using the built-in GitHub Actions token.
+
+```yaml
+permissions:
+  copilot-requests: write
+```
+
+See: https://github.github.com/gh-aw/reference/engines/#github-copilot-default
+2026-11-21T08:09:08.8125890Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-11-21T08:09:08.8126562Z   GH_AW_CHECKOUT_PR_INVALIDATED: false
+2026-11-21T08:09:08.8127383Z   GH_AW_AI_CREDITS_RATE_LIMIT_ERROR: false
+2026-11-21T08:09:08.8128102Z   GH_AW_UNKNOWN_MODEL_AI_CREDITS: false
+2026-11-21T08:09:08.8128759Z   GH_AW_AIC: 
+2026-11-21T08:09:08.8131209Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-11-21T08:09:08.8133900Z   GH_AW_DETECTION_JOB_RESULT: success
+2026-11-21T08:09:08.8134615Z   GH_AW_MAX_AI_CREDITS: 1000
+2026-11-21T08:09:08.8135567Z   GH_AW_DEFAULT_CHECKOUT_USES_TRIGGER_REF: true
+2026-11-21T08:09:08.8136300Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-11-21T08:09:08.8136963Z   GH_AW_MCP_POLICY_ERROR: false
+2026-11-21T08:09:08.8137606Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-11-21T08:09:08.8138483Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-11-21T08:09:08.8139363Z   GH_AW_MODEL_ENDPOINT_MISMATCH_ERROR: false
+2026-11-21T08:09:08.8140080Z   GH_AW_HTTP_400_RESPONSE_ERROR: false
+2026-11-21T08:09:08.8140752Z   GH_AW_MAX_CACHE_MISSES_EXCEEDED: false
+2026-11-21T08:09:08.8141447Z   GH_AW_MISSING_MODEL_PRICING_ERROR: false
+2026-11-21T08:09:08.8142151Z   GH_AW_MISSING_MODEL_PRICING_MODEL_NAME: 
+2026-11-21T08:09:08.8142873Z   GH_AW_SHELL_EXPANSION_GUARD_REJECTED: false
+2026-11-21T08:09:08.8144805Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-11-21T08:09:08.8147087Z   GH_AW_CODE_PUSH_FAILURE_ERRORS: 
+2026-11-21T08:09:08.8147748Z   GH_AW_CODE_PUSH_FAILURE_COUNT: 0
+2026-11-21T08:09:08.8149288Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-11-21T08:09:08.8150939Z   GH_AW_OAUTH_TOKEN_CHECK_FAILED: false
+2026-11-21T08:09:08.8152235Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-11-21T08:09:08.8153224Z   GH_AW_DAILY_AI_CREDITS_EXCEEDED: false
+2026-11-21T08:09:08.8153969Z   GH_AW_DAILY_AI_CREDITS_GUARDRAIL_STATUS: skipped
+2026-11-21T08:09:08.8154744Z   GH_AW_DAILY_AI_CREDITS_GUARDRAIL_ERROR: 
+2026-11-21T08:09:08.8155873Z   GH_AW_DAILY_AI_CREDITS_TOTAL: 
+2026-11-21T08:09:08.8156540Z   GH_AW_DAILY_AI_CREDITS_ESTIMATED: 
+2026-11-21T08:09:08.8157223Z   GH_AW_DAILY_AI_CREDITS_THRESHOLD: 
+2026-11-21T08:09:08.8157924Z   GH_AW_DAILY_AI_CREDITS_CONTINUE_ON_ERROR: false
+2026-11-21T08:09:08.8159183Z   GH_AW_GROUP_REPORTS: false
+2026-11-21T08:09:08.8160001Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-11-21T08:09:08.8160833Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-11-21T08:09:08.8161571Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-11-21T08:09:08.8162272Z   GH_AW_TIMEOUT_MINUTES: 20
+2026-11-21T08:09:08.8162904Z ##[endgroup]
+2026-11-21T08:09:09.1421148Z [ai-credits] aiCredits source=none GH_AW_AIC=(unset)
+2026-11-21T08:09:09.1427599Z [ai-credits] maxAICredits source=awf_config value=1000
+2026-11-21T08:09:09.1429819Z [ai-credits] rateLimitSignal source=none
+2026-11-21T08:09:09.1445509Z Agent conclusion: failure
+2026-11-21T08:09:09.1447490Z Workflow name: Sync the festival programme
+2026-11-21T08:09:09.1448953Z Workflow ID: sync-festival
+2026-11-21T08:09:09.1450202Z Secret verification result: success
+2026-11-21T08:09:09.1451456Z Engine secret failure message: (set)
+2026-11-21T08:09:09.1452718Z Assignment error count: 0
+2026-11-21T08:09:09.1459973Z Assign copilot failure count: 0
+2026-11-21T08:09:09.1461603Z Skill install failure count: 0
+2026-11-21T08:09:09.1464110Z Create discussion error count: 0
+2026-11-21T08:09:09.1466210Z Code push failure count: 0
+2026-11-21T08:09:09.1467688Z Checkout PR success: true
+2026-11-21T08:09:09.1470228Z AI credits: (none)
+2026-11-21T08:09:09.1474096Z Configured max AI credits: 1000
+2026-11-21T08:09:09.1478886Z AI credits rate-limit error: false
+2026-11-21T08:09:09.1482681Z Max AI credits exceeded (harness budget abort): false
+2026-11-21T08:09:09.1484197Z Daily workflow AIC guardrail exceeded: false
+2026-11-21T08:09:09.1489201Z Daily workflow AIC guardrail status: skipped; error detail: (none)
+2026-11-21T08:09:09.1490985Z Daily workflow AIC guardrail continue-on-error (warning mode): false
+2026-11-21T08:09:09.1494673Z Inference access error: false
+2026-11-21T08:09:09.1497625Z MCP policy error: false
+2026-11-21T08:09:09.1499389Z Agentic engine timeout: false
+2026-11-21T08:09:09.1500410Z Model not supported error: false
+2026-11-21T08:09:09.1501356Z HTTP 400 response error: false
+2026-11-21T08:09:09.1502273Z Unknown model AI credits error: false
+2026-11-21T08:09:09.1506870Z Unknown model AI credits sources (audit/output): false/false
+2026-11-21T08:09:09.1508341Z Missing model pricing error: false (model: (unknown))
+2026-11-21T08:09:09.1536666Z Shell expansion guard rejected: false
+2026-11-21T08:09:09.1537462Z Push repo-memory result: 
+2026-11-21T08:09:09.1539093Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-11-21T08:09:09.1540065Z Lockdown check failed: false
+2026-11-21T08:09:09.1540723Z OAuth token check failed: false
+2026-11-21T08:09:09.1541397Z Stale lock file check failed: false
+2026-11-21T08:09:09.1542068Z Cache memory enabled: false
+2026-11-21T08:09:09.1542845Z Cache memory restored (from restore outputs): false
+2026-11-21T08:09:09.1543627Z Missing tool report-as-failure: true
+2026-11-21T08:09:09.1555989Z Missing data report-as-failure: true
+2026-11-21T08:09:09.1556972Z Agent output content length: 1297
+2026-11-21T08:09:09.1557890Z Agent emitted 1 report_incomplete signal(s) - activating failure handling
+2026-11-21T08:09:09.1595806Z ##[error]Agent reported that it could not complete the task
+2026-11-21T08:09:09.9698235Z Searching for pull request from branch: main
+2026-11-21T08:09:10.1619839Z No pull request found for branch: main
+2026-11-21T08:09:10.1763247Z Parent issue creation is disabled (group-reports: false)
+2026-11-21T08:09:10.1768055Z Checking for existing issue with precise failure metadata for title: "[aw] Sync the festival programme: experienced an engine outage"
+2026-11-21T08:09:10.4458315Z Found existing issue #5: https://github.com/vanduc2514/agent-tkst-hanoi-2026/issues/5
+2026-11-21T08:09:10.4652105Z Generating failure comment footer with aiCredits context: (none)
+2026-11-21T08:09:10.9744604Z ✓ Added comment to existing issue #5
+2026-11-21T08:09:11.7247985Z Cascade check: 1 failure issue(s) in the last 60 min (threshold: 10) — no cascade
+2026-11-21T08:09:11.7752516Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:11.7753470Z with:
+2026-11-21T08:09:11.7762873Z   github-token: ***
+2026-11-21T08:09:11.7765522Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'report_failed_jobs.cjs'));
+await main();
+
+2026-11-21T08:09:11.7768045Z   debug: false
+2026-11-21T08:09:11.7768622Z   user-agent: actions/github-script
+2026-11-21T08:09:11.7825557Z   result-encoding: json
+2026-11-21T08:09:11.7826201Z   retries: 0
+2026-11-21T08:09:11.7827893Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:11.7828663Z env:
+2026-11-21T08:09:11.7829202Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:11.7829855Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:11.7830604Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:11.7832317Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:11.7834641Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:11.7835490Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:11.7836167Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:11.7836830Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:11.7837545Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:11.7839273Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:11.7841124Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:11.7842772Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:11.7843839Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:11.7845635Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:11.7846469Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:11.7847209Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:11.7847947Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:09:11.7848712Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:09:11.7850933Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:09:11.7852408Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477
+2026-11-21T08:09:11.7889644Z   GH_AW_REPORT_FAILED_JOBS: true
+2026-11-21T08:09:11.7890337Z ##[endgroup]
+2026-11-21T08:09:12.0874594Z Checking GitHub API rate limit before querying jobs
+2026-11-21T08:09:12.3421216Z Skipping builtin job ID: agent (handled by dedicated failure reporting)
+2026-11-21T08:09:12.3426384Z Checking GitHub API rate limit after querying jobs
+2026-11-21T08:09:12.4661927Z No failed non-builtin jobs found, skipping issue creation
+2026-11-21T08:09:12.4809173Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/collect_usage_artifact_files.sh"
+2026-11-21T08:09:12.4810356Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/collect_usage_artifact_files.sh"[0m
+2026-11-21T08:09:12.4819776Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:09:12.4820426Z env:
+2026-11-21T08:09:12.4820979Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:12.4823505Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:12.4824192Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:12.4826905Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:12.4830915Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:12.4831585Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:12.4832201Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:12.4832914Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:12.4833695Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:12.4835930Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:12.4837789Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:12.4840235Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:12.4841953Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:12.4843263Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:12.4844101Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:12.4844852Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:12.4846508Z   GH_AW_DETECTION_JOB_RESULT: success
+2026-11-21T08:09:12.4847248Z   GH_AW_DETECTION_CONCLUSION: warning
+2026-11-21T08:09:12.4848710Z   GH_AW_DETECTION_REASON: agent_failure
+2026-11-21T08:09:12.4849389Z ##[endgroup]
+2026-11-21T08:09:12.4987038Z Usage artifact source file status:
+2026-11-21T08:09:12.4993079Z FOUND: /tmp/gh-aw/aw_info.json
+2026-11-21T08:09:12.4994074Z FOUND: /tmp/gh-aw/runtime/aw_info.json
+2026-11-21T08:09:12.5022923Z MISSING: /tmp/gh-aw/aw-info.jsonl
+2026-11-21T08:09:12.5023686Z MISSING: /tmp/gh-aw/agent_usage.json
+2026-11-21T08:09:12.5024393Z MISSING: /tmp/gh-aw/agent_usage.jsonl
+2026-11-21T08:09:12.5025358Z FOUND: /tmp/gh-aw/agent/harness_retry.json
+2026-11-21T08:09:12.5026224Z FOUND: /tmp/gh-aw/threat-detection/detection_harness_retry.json
+2026-11-21T08:09:12.5027061Z MISSING: /tmp/gh-aw/detection_usage.jsonl
+2026-11-21T08:09:12.5027836Z FOUND: /tmp/gh-aw/threat-detection/detection_usage.jsonl
+2026-11-21T08:09:12.5028623Z MISSING: /tmp/gh-aw/evals/evals.jsonl
+2026-11-21T08:09:12.5029312Z MISSING: /tmp/gh-aw/evals/evals_status.json
+2026-11-21T08:09:12.5030458Z MISSING: /tmp/gh-aw/evals/evals_token_usage.jsonl
+2026-11-21T08:09:12.5031257Z MISSING: /tmp/gh-aw/evals/execution.json
+2026-11-21T08:09:12.5032000Z MISSING: /tmp/gh-aw/evals/evals/execution.json
+2026-11-21T08:09:12.5032771Z MISSING: /tmp/gh-aw/experiments/state.jsonl
+2026-11-21T08:09:12.5033512Z MISSING: /tmp/gh-aw/experiments/state.json
+2026-11-21T08:09:12.5034258Z MISSING: /tmp/gh-aw/experiments/assignments.json
+2026-11-21T08:09:12.5035368Z FOUND: /tmp/gh-aw/github_rate_limits.jsonl
+2026-11-21T08:09:12.5036107Z FOUND: /tmp/gh-aw/safe-output-items.jsonl
+2026-11-21T08:09:12.5037061Z MISSING: /tmp/gh-aw/sandbox/firewall-audit-logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5038239Z MISSING: /tmp/gh-aw/sandbox/firewall-audit-logs/api-proxy-logs/model-routing.jsonl
+2026-11-21T08:09:12.5039369Z FOUND: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5040442Z MISSING: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/model-routing.jsonl
+2026-11-21T08:09:12.5041543Z MISSING: /tmp/gh-aw/sandbox/firewall/audit/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5042862Z MISSING: /tmp/gh-aw/sandbox/firewall/audit/api-proxy-logs/model-routing.jsonl
+2026-11-21T08:09:12.5044199Z MISSING: /tmp/gh-aw/threat-detection/sandbox/firewall-audit-logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5045761Z FOUND: /tmp/gh-aw/threat-detection/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5047059Z MISSING: /tmp/gh-aw/threat-detection/sandbox/firewall/audit/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:09:12.5300792Z /tmp/gh-aw/usage/agent/execution.json
+2026-11-21T08:09:12.5303237Z /tmp/gh-aw/usage/agent/harness_retry.json
+2026-11-21T08:09:12.5304184Z /tmp/gh-aw/usage/agent/token_usage.jsonl
+2026-11-21T08:09:12.5306083Z /tmp/gh-aw/usage/aw_info.json
+2026-11-21T08:09:12.5306832Z /tmp/gh-aw/usage/detection/execution.json
+2026-11-21T08:09:12.5307572Z /tmp/gh-aw/usage/detection/harness_retry.json
+2026-11-21T08:09:12.5308322Z /tmp/gh-aw/usage/detection/token_usage.jsonl
+2026-11-21T08:09:12.5309078Z /tmp/gh-aw/usage/detection_usage.jsonl
+2026-11-21T08:09:12.5309784Z /tmp/gh-aw/usage/github_rate_limits.jsonl
+2026-11-21T08:09:12.5537178Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:09:12.5538355Z with:
+2026-11-21T08:09:12.5540696Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'generate_usage_artifacts.cjs'));
+await main();
+
+2026-11-21T08:09:12.5610251Z   github-token: ***
+2026-11-21T08:09:12.5610928Z   debug: false
+2026-11-21T08:09:12.5611602Z   user-agent: actions/github-script
+2026-11-21T08:09:12.5612278Z   result-encoding: json
+2026-11-21T08:09:12.5612851Z   retries: 0
+2026-11-21T08:09:12.5613438Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:09:12.5614207Z env:
+2026-11-21T08:09:12.5614758Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:12.5615618Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:12.5616385Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:12.5618106Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:12.5619867Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:12.5620598Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:12.5621215Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:12.5621884Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:12.5622649Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:12.5623894Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:12.5625952Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:12.5628206Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:12.5629337Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:12.5630049Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:12.5630871Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:12.5631630Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:12.5632831Z   GH_AW_GRADER_MANIFEST_0: {"version":2,"graders":[]}
+2026-11-21T08:09:12.5633572Z   GH_AW_GRADER_MANIFEST_CHUNKS: 1
+2026-11-21T08:09:12.5634209Z   GH_AW_JOB_DURATIONS: 
+2026-11-21T08:09:12.5635210Z   GH_AW_DAILY_AI_CREDITS_GUARDRAIL_STATUS: skipped
+2026-11-21T08:09:12.5636179Z   GH_AW_DAILY_AI_CREDITS_EXCEEDED: false
+2026-11-21T08:09:12.5637073Z   GH_AW_DAILY_AI_CREDITS_TOTAL: 
+2026-11-21T08:09:12.5637926Z   GH_AW_DAILY_AI_CREDITS_ESTIMATED: 
+2026-11-21T08:09:12.5638812Z   GH_AW_DAILY_AI_CREDITS_THRESHOLD: 
+2026-11-21T08:09:12.5650996Z ##[endgroup]
+2026-11-21T08:09:12.8222680Z safe-output-items manifest: 0 item(s) logged (file present but contained no loggable items)
+2026-11-21T08:09:12.8488178Z /tmp/gh-aw/usage/activity/summary.json
+2026-11-21T08:09:13.7883441Z === Unified session ===
+2026-11-21T08:09:13.7892003Z File format version: 1
+2026-11-21T08:09:13.7893859Z Records: 308 (collector=2, github_api=74, workflow=6, otel=1, mcp=7, harness=8, firewall=159, agent=39, safe_output=1, skill=1, prompt=2, model_resolution=1, usage=1, execution=3, guardrail=1, grader=2)
+2026-11-21T08:09:13.7896918Z 
+2026-11-21T08:09:13.7899664Z Agent source: agent/sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.7988792Z Model: claude-sonnet-5.5
+2026-11-21T08:09:13.7989587Z Initialization:
+2026-11-21T08:09:13.7990152Z   Engine: copilot
+2026-11-21T08:09:13.7990785Z   Session ID: e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.7991960Z   Working Directory: /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:09:13.7992682Z 
+2026-11-21T08:09:13.7993532Z Statistics:
+2026-11-21T08:09:13.7994079Z   Turns: 1
+2026-11-21T08:09:13.7994590Z   Duration: 1m 47s
+2026-11-21T08:09:13.7995419Z   Errors:
+2026-11-21T08:09:13.7995943Z     {
+2026-11-21T08:09:13.7996449Z   "errorType": "query",
+2026-11-21T08:09:13.7997933Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 16.99 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:09:13.7999415Z   "statusCode": 502,
+2026-11-21T08:09:13.8000134Z   "originatingMessageId": "63fbf356-ad73-490d-9529-486fedb61a1e"
+2026-11-21T08:09:13.8000918Z }
+2026-11-21T08:09:13.8001399Z     {
+2026-11-21T08:09:13.8001906Z   "errorType": "query",
+2026-11-21T08:09:13.8003321Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 14.23 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:09:13.8004837Z   "statusCode": 502,
+2026-11-21T08:09:13.8005792Z   "originatingMessageId": "90eb31fd-3ee2-4fc4-b05d-14afd36fdb07"
+2026-11-21T08:09:13.8006583Z }
+2026-11-21T08:09:13.8007063Z     {
+2026-11-21T08:09:13.8007572Z   "errorType": "query",
+2026-11-21T08:09:13.8008986Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 17.88 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:09:13.8011749Z   "statusCode": 502,
+2026-11-21T08:09:13.8012499Z   "originatingMessageId": "25a56608-bd82-4f35-9713-40917eb3e03c"
+2026-11-21T08:09:13.8013284Z }
+2026-11-21T08:09:13.8013764Z     {
+2026-11-21T08:09:13.8014272Z   "errorType": "query",
+2026-11-21T08:09:13.8015948Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 13.64 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:09:13.8017830Z   "statusCode": 502,
+2026-11-21T08:09:13.8022122Z   "originatingMessageId": "56754963-fc46-40d6-a628-2c88310b177f"
+2026-11-21T08:09:13.8023170Z }
+2026-11-21T08:09:13.8023452Z 
+2026-11-21T08:09:13.8023924Z Chronological trace (user prompts omitted; untimed observations follow):
+2026-11-21T08:09:13.8030055Z 
+2026-11-21T08:09:13.8030540Z [1] collector/conclusion session.format version=1 [file metadata]
+2026-11-21T08:09:13.8031437Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:13.8031827Z 
+2026-11-21T08:09:13.8032729Z [2] github_api/workflow github_api.rate_limit source=response_headers operation=repos.getContent resource=core remaining=4967 limit=5000 +0s
+2026-11-21T08:09:13.8034017Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8034406Z 
+2026-11-21T08:09:13.8039408Z [3] workflow/agent workflow.info engineId=copilot model=auto requestedModel=auto triggerType=workflow_dispatch cliVersion=v1.2.2 awfVersion=v0.29.11 mcpgVersion= agentVersion=1.0.103 workflow=Sync the festival programme workflowId=vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main workflowCallId=44882922477-1:vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main callerWorkflowRef=vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main repository=vanduc2514/agent-tkst-hanoi-2026 runId=44882922477 runAttempt=1 ref=refs/heads/main sha=2c577a8bb4e3a8932c10113ad0eeaeafe5b4fcdf actor=vanduc2514 targetRepo= +0.019s
+2026-11-21T08:09:13.8044457Z   path=runtime/aw_info.json
+2026-11-21T08:09:13.8044844Z 
+2026-11-21T08:09:13.8045464Z [4] workflow/agent model.config [extension payload omitted] [untimed]
+2026-11-21T08:09:13.8046330Z   path=runtime/aw_info.json
+2026-11-21T08:09:13.8046702Z 
+2026-11-21T08:09:13.8047621Z [5] github_api/workflow github_api.rate_limit source=response_headers operation=repos.getContent resource=core remaining=4966 limit=5000 +2.693s
+2026-11-21T08:09:13.8048948Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8049335Z 
+2026-11-21T08:09:13.8050577Z [6] github_api/workflow github_api.rate_limit source=response_headers operation=repos.getContent resource=core remaining=4965 limit=5000 +0.274s
+2026-11-21T08:09:13.8051929Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8052405Z 
+2026-11-21T08:09:13.8053440Z [7] otel/agent otel.span name=gh-aw.agent.setup traceId=92bfe15bc0d170b9236137d60101b4ef spanId=99ed4f6f65464704 parentSpanId=2f5101f5dcf45cde code=1 +12.446s
+2026-11-21T08:09:13.8054829Z   path=otel.jsonl
+2026-11-21T08:09:13.8055316Z 
+2026-11-21T08:09:13.8059887Z [8] mcp/agent mcp.configuration servers=[serverName=github transport=stdio; serverName=safeoutputs transport=stdio] +135.914s
+2026-11-21T08:09:13.8061300Z   path=mcp-logs/configuration.jsonl
+2026-11-21T08:09:13.8061738Z 
+2026-11-21T08:09:13.8062319Z [9] mcp/agent mcp.rpc.request serverName=safeoutputs direction=OUT method=tools/list +4.782s
+2026-11-21T08:09:13.8063326Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8063783Z 
+2026-11-21T08:09:13.8064457Z [10] mcp/agent mcp.rpc.response serverName=safeoutputs direction=IN rpcId=1 [response observed] +0.013s
+2026-11-21T08:09:13.8163652Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8164278Z 
+2026-11-21T08:09:13.8164839Z [11] mcp/agent mcp.rpc.request serverName=github direction=OUT method=tools/list +2.855s
+2026-11-21T08:09:13.8166028Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8183461Z 
+2026-11-21T08:09:13.8184389Z [12] mcp/agent mcp.rpc.response serverName=github direction=IN rpcId=1 [response observed] +0.093s
+2026-11-21T08:09:13.8208511Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8209007Z 
+2026-11-21T08:09:13.8209581Z [13] mcp/agent mcp.rpc.request serverName=github direction=OUT method=prompts/list +0.006s
+2026-11-21T08:09:13.8210575Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8210983Z 
+2026-11-21T08:09:13.8212273Z [14] mcp/agent mcp.rpc.response serverName=github direction=IN rpcId=1 [response observed] +0.007s
+2026-11-21T08:09:13.8213908Z   path=mcp-logs/rpc-messages.jsonl
+2026-11-21T08:09:13.8214319Z 
+2026-11-21T08:09:13.8215443Z [15] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=core remaining=4959 limit=5000 +1.708s
+2026-11-21T08:09:13.8216759Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8217841Z 
+2026-11-21T08:09:13.8218675Z [16] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=search remaining=30 limit=30 +0s
+2026-11-21T08:09:13.8219975Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8220368Z 
+2026-11-21T08:09:13.8221199Z [17] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=graphql remaining=5000 limit=5000 +0s
+2026-11-21T08:09:13.8222426Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8223418Z 
+2026-11-21T08:09:13.8224374Z [18] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=integration_manifest remaining=5000 limit=5000 +0s
+2026-11-21T08:09:13.8259286Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8259740Z 
+2026-11-21T08:09:13.8260727Z [19] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=source_import remaining=100 limit=100 +0s
+2026-11-21T08:09:13.8263775Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8264175Z 
+2026-11-21T08:09:13.8356849Z [20] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=code_scanning_autofix remaining=10 limit=10 +0s
+2026-11-21T08:09:13.8363836Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8364336Z 
+2026-11-21T08:09:13.8366566Z [21] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=actions_runner_registration remaining=10000 limit=10000 +0s
+2026-11-21T08:09:13.8368083Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8368489Z 
+2026-11-21T08:09:13.8369315Z [22] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=scim remaining=15000 limit=15000 +0s
+2026-11-21T08:09:13.8371851Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8372962Z 
+2026-11-21T08:09:13.8373922Z [23] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=dependency_snapshots remaining=100 limit=100 +0s
+2026-11-21T08:09:13.8375540Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8375957Z 
+2026-11-21T08:09:13.8377389Z [24] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=dependency_sbom remaining=100 limit=100 +0s
+2026-11-21T08:09:13.8378750Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8379141Z 
+2026-11-21T08:09:13.8380003Z [25] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=audit_log remaining=1750 limit=1750 +0s
+2026-11-21T08:09:13.8381284Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8381668Z 
+2026-11-21T08:09:13.8383134Z [26] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=audit_log_streaming remaining=15 limit=15 +0s
+2026-11-21T08:09:13.8384476Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8385145Z 
+2026-11-21T08:09:13.8386019Z [27] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=code_search remaining=10 limit=10 +0s
+2026-11-21T08:09:13.8387277Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8387661Z 
+2026-11-21T08:09:13.8389440Z [28] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=copilot_usage_records remaining=1750 limit=1750 +0s
+2026-11-21T08:09:13.8390845Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8391230Z 
+2026-11-21T08:09:13.8392251Z [29] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_start resource=enterprise_token_inventory remaining=1750 limit=1750 +0s
+2026-11-21T08:09:13.8393652Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.8394052Z 
+2026-11-21T08:09:13.8415809Z [30] harness/agent harness.retry [extension payload omitted] [untimed]
+2026-11-21T08:09:13.8416833Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.8417891Z 
+2026-11-21T08:09:13.8418374Z [31] harness/agent harness.attempt [extension payload omitted] +0.191s
+2026-11-21T08:09:13.8419280Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.8419664Z 
+2026-11-21T08:09:13.8420320Z [32] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +10.262s
+2026-11-21T08:09:13.8421320Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8421762Z 
+2026-11-21T08:09:13.8422475Z [33] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.484s
+2026-11-21T08:09:13.8424193Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8424635Z 
+2026-11-21T08:09:13.8425550Z [34] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.027s
+2026-11-21T08:09:13.8426793Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8427247Z 
+2026-11-21T08:09:13.8427978Z [35] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.029s
+2026-11-21T08:09:13.8429747Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8430201Z 
+2026-11-21T08:09:13.8430937Z [36] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.051s
+2026-11-21T08:09:13.8432077Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8432507Z 
+2026-11-21T08:09:13.8433204Z [37] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.035s
+2026-11-21T08:09:13.8434854Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8435465Z 
+2026-11-21T08:09:13.8436254Z [38] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.012s
+2026-11-21T08:09:13.8437474Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8437918Z 
+2026-11-21T08:09:13.8438990Z [39] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.01s
+2026-11-21T08:09:13.8440745Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8441190Z 
+2026-11-21T08:09:13.8441935Z [40] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.201s
+2026-11-21T08:09:13.8443120Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8443564Z 
+2026-11-21T08:09:13.8444288Z [41] firewall/agent firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.066s
+2026-11-21T08:09:13.8446151Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8446600Z 
+2026-11-21T08:09:13.8447169Z [42] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.127s
+2026-11-21T08:09:13.8448177Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8448623Z 
+2026-11-21T08:09:13.8449191Z [43] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.8450195Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8450707Z 
+2026-11-21T08:09:13.8452188Z [44] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.045s
+2026-11-21T08:09:13.8453265Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8453723Z 
+2026-11-21T08:09:13.8454291Z [45] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.8526261Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8526840Z 
+2026-11-21T08:09:13.8527433Z [46] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.042s
+2026-11-21T08:09:13.8528496Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8528937Z 
+2026-11-21T08:09:13.8529490Z [47] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.8530929Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8531365Z 
+2026-11-21T08:09:13.8531940Z [48] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.042s
+2026-11-21T08:09:13.8532929Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8533361Z 
+2026-11-21T08:09:13.8533792Z [49] harness/agent harness.attempt [extension payload omitted] +0.646s
+2026-11-21T08:09:13.8534684Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.8535254Z 
+2026-11-21T08:09:13.8535821Z [50] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.393s
+2026-11-21T08:09:13.8536805Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8537316Z 
+2026-11-21T08:09:13.8538576Z [51] agent/agent session.start model=claude-sonnet-5.5 sessionId=e8991b68-3492-4685-82f3-078ee5df0799 reasoningEffort=medium cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +1.426s
+2026-11-21T08:09:13.8540950Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8542036Z 
+2026-11-21T08:09:13.8543504Z [52] agent/agent session.init sourceEngine=copilot model=claude-sonnet-5.5 sessionId=e8991b68-3492-4685-82f3-078ee5df0799 reasoningEffort=medium cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +0s
+2026-11-21T08:09:13.8546024Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8547070Z 
+2026-11-21T08:09:13.8547775Z [53] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.011s
+2026-11-21T08:09:13.8549247Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8550008Z 
+2026-11-21T08:09:13.8550424Z [55] agent/agent system.message [system instructions omitted] +0.273s
+2026-11-21T08:09:13.8551589Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8552348Z 
+2026-11-21T08:09:13.8553145Z [56] agent/agent assistant.turn_start turnId=0 interactionId=e952ad41-611b-4d9e-811e-a94d0c616fba +0.003s
+2026-11-21T08:09:13.8554570Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8555531Z 
+2026-11-21T08:09:13.8556323Z [57] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.323s
+2026-11-21T08:09:13.8557540Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8557982Z 
+2026-11-21T08:09:13.8558552Z [58] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.002s
+2026-11-21T08:09:13.8559532Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8559956Z 
+2026-11-21T08:09:13.8560702Z [59] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.772s
+2026-11-21T08:09:13.8561886Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8562309Z 
+2026-11-21T08:09:13.8562857Z [60] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.271s
+2026-11-21T08:09:13.8563834Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8564285Z 
+2026-11-21T08:09:13.8605500Z [61] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.198s
+2026-11-21T08:09:13.8607078Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8607541Z 
+2026-11-21T08:09:13.8608111Z [62] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.845s
+2026-11-21T08:09:13.8609109Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8609543Z 
+2026-11-21T08:09:13.8610306Z [63] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.08s
+2026-11-21T08:09:13.8611516Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8612358Z 
+2026-11-21T08:09:13.8612986Z [64] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.85s
+2026-11-21T08:09:13.8614104Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8614603Z 
+2026-11-21T08:09:13.8615408Z [65] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8616519Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8617011Z 
+2026-11-21T08:09:13.8617600Z [66] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8618672Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8619185Z 
+2026-11-21T08:09:13.8619766Z [67] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8620819Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8621315Z 
+2026-11-21T08:09:13.8621889Z [68] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.109s
+2026-11-21T08:09:13.8622881Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8623306Z 
+2026-11-21T08:09:13.8623845Z [69] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.8624826Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8625412Z 
+2026-11-21T08:09:13.8626180Z [70] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.908s
+2026-11-21T08:09:13.8627373Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8627795Z 
+2026-11-21T08:09:13.8628353Z [71] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.131s
+2026-11-21T08:09:13.8629318Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8629736Z 
+2026-11-21T08:09:13.8630270Z [72] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.8631249Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8631683Z 
+2026-11-21T08:09:13.8632448Z [73] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +1.837s
+2026-11-21T08:09:13.8633571Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8634076Z 
+2026-11-21T08:09:13.8634727Z [74] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.204s
+2026-11-21T08:09:13.8635868Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8636305Z 
+2026-11-21T08:09:13.8636849Z [75] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.8637816Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8638248Z 
+2026-11-21T08:09:13.8638801Z [76] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.8639820Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8640277Z 
+2026-11-21T08:09:13.8641048Z [77] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.01s
+2026-11-21T08:09:13.8684366Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8685189Z 
+2026-11-21T08:09:13.8685556Z [78] agent/agent assistant.turn_end turnId=0 +0.01s
+2026-11-21T08:09:13.8686726Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8687525Z 
+2026-11-21T08:09:13.8692016Z [79] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 16.99 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:09:13.8694768Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8695736Z 
+2026-11-21T08:09:13.8696025Z [80] agent/agent session.result  +0s
+2026-11-21T08:09:13.8699183Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8700277Z 
+2026-11-21T08:09:13.8701031Z [81] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.03s
+2026-11-21T08:09:13.8702565Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8703363Z 
+2026-11-21T08:09:13.8704247Z [82] agent/agent session.result durationMs=19085 +0s
+2026-11-21T08:09:13.8705908Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8706991Z 
+2026-11-21T08:09:13.8707558Z [83] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.987s
+2026-11-21T08:09:13.8708582Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8709028Z 
+2026-11-21T08:09:13.8710121Z [84] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.8711230Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8711673Z 
+2026-11-21T08:09:13.8712307Z [85] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.939s
+2026-11-21T08:09:13.8713442Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8713948Z 
+2026-11-21T08:09:13.8714376Z [86] harness/agent harness.attempt [extension payload omitted] +0.097s
+2026-11-21T08:09:13.8741077Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.8741558Z 
+2026-11-21T08:09:13.8741994Z [87] agent/agent session.resume [extension payload omitted] +0.529s
+2026-11-21T08:09:13.8744038Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8744818Z 
+2026-11-21T08:09:13.8745732Z [88] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.01s
+2026-11-21T08:09:13.8747294Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8748056Z 
+2026-11-21T08:09:13.8750395Z [90] agent/agent assistant.turn_start turnId=0 interactionId=383c359d-ac39-4636-9b28-ecf0e180f2d3 +0.199s
+2026-11-21T08:09:13.8751861Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8752626Z 
+2026-11-21T08:09:13.8753199Z [91] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.265s
+2026-11-21T08:09:13.8754209Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8754661Z 
+2026-11-21T08:09:13.8899391Z [92] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.049s
+2026-11-21T08:09:13.8901228Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8901690Z 
+2026-11-21T08:09:13.8902489Z [93] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.821s
+2026-11-21T08:09:13.8903809Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8904247Z 
+2026-11-21T08:09:13.8905222Z [94] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.105s
+2026-11-21T08:09:13.8906481Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8906928Z 
+2026-11-21T08:09:13.8907507Z [95] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.066s
+2026-11-21T08:09:13.8908512Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8910280Z 
+2026-11-21T08:09:13.8911112Z [96] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +2.025s
+2026-11-21T08:09:13.8914237Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8914741Z 
+2026-11-21T08:09:13.8915499Z [97] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.014s
+2026-11-21T08:09:13.8917124Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8917560Z 
+2026-11-21T08:09:13.8918199Z [98] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.974s
+2026-11-21T08:09:13.8919326Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8919850Z 
+2026-11-21T08:09:13.8925131Z [99] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8926442Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8926967Z 
+2026-11-21T08:09:13.8927592Z [100] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8928689Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8929189Z 
+2026-11-21T08:09:13.8929783Z [101] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.8930866Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8931374Z 
+2026-11-21T08:09:13.8931954Z [102] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.068s
+2026-11-21T08:09:13.8932958Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8933392Z 
+2026-11-21T08:09:13.8933946Z [103] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.8952881Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8953563Z 
+2026-11-21T08:09:13.8954399Z [104] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.592s
+2026-11-21T08:09:13.8955931Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8956376Z 
+2026-11-21T08:09:13.8956954Z [105] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.448s
+2026-11-21T08:09:13.8958068Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8958518Z 
+2026-11-21T08:09:13.8959099Z [106] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.8960804Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8961596Z 
+2026-11-21T08:09:13.8962250Z [107] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +1.518s
+2026-11-21T08:09:13.8963444Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.8963990Z 
+2026-11-21T08:09:13.8964576Z [108] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.523s
+2026-11-21T08:09:13.8965804Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8966259Z 
+2026-11-21T08:09:13.8967050Z [109] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.386s
+2026-11-21T08:09:13.8968270Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.8968699Z 
+2026-11-21T08:09:13.8969030Z [110] agent/agent assistant.turn_end turnId=0 +0.008s
+2026-11-21T08:09:13.8970141Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8970918Z 
+2026-11-21T08:09:13.8972475Z [111] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 14.23 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:09:13.8974797Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8975749Z 
+2026-11-21T08:09:13.8976025Z [112] agent/agent session.result  +0s
+2026-11-21T08:09:13.8977359Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8978432Z 
+2026-11-21T08:09:13.8979188Z [113] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.023s
+2026-11-21T08:09:13.8980751Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.8981744Z 
+2026-11-21T08:09:13.8982102Z [114] agent/agent session.result durationMs=40849 +0s
+2026-11-21T08:09:13.8983557Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.8984643Z 
+2026-11-21T08:09:13.9026260Z [115] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.619s
+2026-11-21T08:09:13.9028186Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9028651Z 
+2026-11-21T08:09:13.9029253Z [116] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.9030297Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9030745Z 
+2026-11-21T08:09:13.9031308Z [117] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.037s
+2026-11-21T08:09:13.9104232Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9105646Z 
+2026-11-21T08:09:13.9106406Z [118] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.276s
+2026-11-21T08:09:13.9109405Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9109953Z 
+2026-11-21T08:09:13.9111196Z [119] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.765s
+2026-11-21T08:09:13.9112273Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9113484Z 
+2026-11-21T08:09:13.9114063Z [120] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.9115331Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9115778Z 
+2026-11-21T08:09:13.9116231Z [121] harness/agent harness.attempt [extension payload omitted] +1.281s
+2026-11-21T08:09:13.9117108Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.9117502Z 
+2026-11-21T08:09:13.9117916Z [122] agent/agent session.resume [extension payload omitted] +0.529s
+2026-11-21T08:09:13.9120653Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9122020Z 
+2026-11-21T08:09:13.9122773Z [123] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.013s
+2026-11-21T08:09:13.9124803Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9125813Z 
+2026-11-21T08:09:13.9126472Z [125] agent/agent assistant.turn_start turnId=0 interactionId=e0e84528-2e88-4c84-a83d-3f6b84c813b3 +0.212s
+2026-11-21T08:09:13.9127872Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9128635Z 
+2026-11-21T08:09:13.9129210Z [126] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.011s
+2026-11-21T08:09:13.9130271Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9130721Z 
+2026-11-21T08:09:13.9131499Z [127] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.26s
+2026-11-21T08:09:13.9133353Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9133823Z 
+2026-11-21T08:09:13.9134617Z [128] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.838s
+2026-11-21T08:09:13.9207532Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9208129Z 
+2026-11-21T08:09:13.9208734Z [129] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.941s
+2026-11-21T08:09:13.9209774Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9210239Z 
+2026-11-21T08:09:13.9211049Z [130] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.475s
+2026-11-21T08:09:13.9212275Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9212721Z 
+2026-11-21T08:09:13.9213313Z [131] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.563s
+2026-11-21T08:09:13.9249681Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9250253Z 
+2026-11-21T08:09:13.9251126Z [132] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.071s
+2026-11-21T08:09:13.9252372Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9252847Z 
+2026-11-21T08:09:13.9253498Z [133] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.118s
+2026-11-21T08:09:13.9254625Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9255589Z 
+2026-11-21T08:09:13.9256222Z [134] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.001s
+2026-11-21T08:09:13.9257342Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9257837Z 
+2026-11-21T08:09:13.9258437Z [135] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.9259581Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9260084Z 
+2026-11-21T08:09:13.9260711Z [136] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.9265986Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9266563Z 
+2026-11-21T08:09:13.9267132Z [137] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.851s
+2026-11-21T08:09:13.9268664Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9269111Z 
+2026-11-21T08:09:13.9269684Z [138] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.041s
+2026-11-21T08:09:13.9272966Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9273458Z 
+2026-11-21T08:09:13.9276041Z [139] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.827s
+2026-11-21T08:09:13.9279096Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9279582Z 
+2026-11-21T08:09:13.9503073Z [140] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.213s
+2026-11-21T08:09:13.9505944Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9506400Z 
+2026-11-21T08:09:13.9506976Z [141] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.9507982Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9508413Z 
+2026-11-21T08:09:13.9508982Z [142] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.041s
+2026-11-21T08:09:13.9509970Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9510397Z 
+2026-11-21T08:09:13.9511038Z [143] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.715s
+2026-11-21T08:09:13.9512171Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9512674Z 
+2026-11-21T08:09:13.9513252Z [144] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.323s
+2026-11-21T08:09:13.9514377Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9514829Z 
+2026-11-21T08:09:13.9548351Z [145] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.9549812Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9550276Z 
+2026-11-21T08:09:13.9551080Z [146] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.105s
+2026-11-21T08:09:13.9552299Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9552737Z 
+2026-11-21T08:09:13.9553112Z [147] agent/agent assistant.turn_end turnId=0 +0.008s
+2026-11-21T08:09:13.9554238Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9555296Z 
+2026-11-21T08:09:13.9556905Z [148] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 17.88 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:09:13.9559828Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9560745Z 
+2026-11-21T08:09:13.9561028Z [149] agent/agent session.result  +0s
+2026-11-21T08:09:13.9562367Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.9563531Z 
+2026-11-21T08:09:13.9564348Z [150] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.025s
+2026-11-21T08:09:13.9595322Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9596254Z 
+2026-11-21T08:09:13.9596610Z [151] agent/agent session.result durationMs=71167 +0s
+2026-11-21T08:09:13.9598040Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.9599300Z 
+2026-11-21T08:09:13.9599933Z [152] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.901s
+2026-11-21T08:09:13.9600979Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9601421Z 
+2026-11-21T08:09:13.9601988Z [153] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.045s
+2026-11-21T08:09:13.9602969Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9603397Z 
+2026-11-21T08:09:13.9604050Z [154] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +2.024s
+2026-11-21T08:09:13.9605384Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9666002Z 
+2026-11-21T08:09:13.9667068Z [155] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.016s
+2026-11-21T08:09:13.9668170Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9668689Z 
+2026-11-21T08:09:13.9670671Z [156] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.9671835Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9672293Z 
+2026-11-21T08:09:13.9672910Z [157] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.9673915Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9674343Z 
+2026-11-21T08:09:13.9674886Z [158] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.9687100Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9687596Z 
+2026-11-21T08:09:13.9688176Z [159] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.043s
+2026-11-21T08:09:13.9689199Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9689632Z 
+2026-11-21T08:09:13.9690814Z [160] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.037s
+2026-11-21T08:09:13.9691908Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9692348Z 
+2026-11-21T08:09:13.9692934Z [161] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.9693922Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9694353Z 
+2026-11-21T08:09:13.9705285Z [162] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.9706725Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9707182Z 
+2026-11-21T08:09:13.9707639Z [163] harness/agent harness.attempt [extension payload omitted] +0.798s
+2026-11-21T08:09:13.9708513Z   path=agent/harness_retry.json
+2026-11-21T08:09:13.9709680Z 
+2026-11-21T08:09:13.9710125Z [164] agent/agent session.resume [extension payload omitted] +0.511s
+2026-11-21T08:09:13.9711366Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9712541Z 
+2026-11-21T08:09:13.9713286Z [165] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.01s
+2026-11-21T08:09:13.9725509Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9726463Z 
+2026-11-21T08:09:13.9727166Z [167] agent/agent assistant.turn_start turnId=0 interactionId=650b801d-2b59-4fef-83fa-5c6c91f847ac +0.195s
+2026-11-21T08:09:13.9728616Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9729373Z 
+2026-11-21T08:09:13.9730161Z [168] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.284s
+2026-11-21T08:09:13.9731389Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9731828Z 
+2026-11-21T08:09:13.9732391Z [169] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.241s
+2026-11-21T08:09:13.9733393Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9733937Z 
+2026-11-21T08:09:13.9734737Z [170] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.499s
+2026-11-21T08:09:13.9852760Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9853357Z 
+2026-11-21T08:09:13.9854167Z [171] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.28s
+2026-11-21T08:09:13.9856283Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9856737Z 
+2026-11-21T08:09:13.9857310Z [172] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.26s
+2026-11-21T08:09:13.9858313Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9858865Z 
+2026-11-21T08:09:13.9859446Z [173] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.039s
+2026-11-21T08:09:13.9861008Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9861449Z 
+2026-11-21T08:09:13.9862301Z [174] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.156s
+2026-11-21T08:09:13.9864046Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9864491Z 
+2026-11-21T08:09:13.9865316Z [175] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.531s
+2026-11-21T08:09:13.9868188Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9868779Z 
+2026-11-21T08:09:13.9869396Z [176] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.9870499Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9871003Z 
+2026-11-21T08:09:13.9871602Z [177] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.9873178Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9873698Z 
+2026-11-21T08:09:13.9874333Z [178] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:13.9882141Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9882852Z 
+2026-11-21T08:09:13.9883468Z [179] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.352s
+2026-11-21T08:09:13.9956673Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9957217Z 
+2026-11-21T08:09:13.9958029Z [180] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.825s
+2026-11-21T08:09:13.9959257Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9959699Z 
+2026-11-21T08:09:13.9960278Z [181] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.214s
+2026-11-21T08:09:13.9961304Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9961750Z 
+2026-11-21T08:09:13.9962343Z [182] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.038s
+2026-11-21T08:09:13.9963681Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9964118Z 
+2026-11-21T08:09:13.9964709Z [183] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.04s
+2026-11-21T08:09:13.9965954Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9966376Z 
+2026-11-21T08:09:13.9967007Z [184] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.714s
+2026-11-21T08:09:13.9968133Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9968631Z 
+2026-11-21T08:09:13.9969191Z [185] firewall/agent firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.325s
+2026-11-21T08:09:13.9970169Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9970603Z 
+2026-11-21T08:09:13.9971379Z [186] firewall/agent firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.462s
+2026-11-21T08:09:13.9972568Z   path=sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:13.9973001Z 
+2026-11-21T08:09:13.9973325Z [187] agent/agent assistant.turn_end turnId=0 +0.01s
+2026-11-21T08:09:13.9974439Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9975689Z 
+2026-11-21T08:09:13.9977243Z [188] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 13.64 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:09:13.9979560Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9980321Z 
+2026-11-21T08:09:13.9980584Z [189] agent/agent session.result  +0s
+2026-11-21T08:09:13.9981935Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.9983016Z 
+2026-11-21T08:09:13.9983791Z [190] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.026s
+2026-11-21T08:09:13.9985685Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:09:13.9986475Z 
+2026-11-21T08:09:13.9986814Z [191] agent/agent session.result durationMs=107242 +0s
+2026-11-21T08:09:13.9988224Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.9989329Z 
+2026-11-21T08:09:13.9989641Z [192] agent/agent session.result numTurns=1 +0s
+2026-11-21T08:09:13.9991048Z   path=sandbox/agent/logs/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:09:13.9992126Z 
+2026-11-21T08:09:13.9992767Z [193] firewall/agent firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.836s
+2026-11-21T08:09:13.9993906Z   path=sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:13.9996047Z 
+2026-11-21T08:09:13.9996960Z [194] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=core remaining=4959 limit=5000 +2.394s
+2026-11-21T08:09:13.9998267Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:13.9998665Z 
+2026-11-21T08:09:13.9999482Z [195] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=search remaining=30 limit=30 +0s
+2026-11-21T08:09:14.0000732Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0001114Z 
+2026-11-21T08:09:14.0001976Z [196] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=graphql remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0003256Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0003643Z 
+2026-11-21T08:09:14.0004574Z [197] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=integration_manifest remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0006362Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0006765Z 
+2026-11-21T08:09:14.0007654Z [198] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=source_import remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0008921Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0009300Z 
+2026-11-21T08:09:14.0010204Z [199] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=code_scanning_autofix remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0011512Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0011880Z 
+2026-11-21T08:09:14.0012872Z [200] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=actions_runner_registration remaining=10000 limit=10000 +0s
+2026-11-21T08:09:14.0014323Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0014721Z 
+2026-11-21T08:09:14.0015714Z [201] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=scim remaining=15000 limit=15000 +0s
+2026-11-21T08:09:14.0016988Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0017379Z 
+2026-11-21T08:09:14.0018306Z [202] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=dependency_snapshots remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0019631Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0020024Z 
+2026-11-21T08:09:14.0021011Z [203] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=dependency_sbom remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0022327Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0022721Z 
+2026-11-21T08:09:14.0023565Z [204] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=audit_log remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0024818Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0025350Z 
+2026-11-21T08:09:14.0026241Z [205] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=audit_log_streaming remaining=15 limit=15 +0s
+2026-11-21T08:09:14.0027552Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0027932Z 
+2026-11-21T08:09:14.0028942Z [206] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=code_search remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0030200Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0030586Z 
+2026-11-21T08:09:14.0031505Z [207] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=copilot_usage_records remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0032843Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0033234Z 
+2026-11-21T08:09:14.0034232Z [208] github_api/workflow github_api.rate_limit source=rate_limit_api operation=agent_end resource=enterprise_token_inventory remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0035815Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0036203Z 
+2026-11-21T08:09:14.0036832Z [209] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +61.794s
+2026-11-21T08:09:14.0038011Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0038549Z 
+2026-11-21T08:09:14.0039299Z [210] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.66s
+2026-11-21T08:09:14.0040576Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0041107Z 
+2026-11-21T08:09:14.0041934Z [211] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.125s
+2026-11-21T08:09:14.0043258Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0043781Z 
+2026-11-21T08:09:14.0044590Z [212] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.053s
+2026-11-21T08:09:14.0046085Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0046611Z 
+2026-11-21T08:09:14.0047550Z [213] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.004s
+2026-11-21T08:09:14.0048870Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0049387Z 
+2026-11-21T08:09:14.0049989Z [214] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.194s
+2026-11-21T08:09:14.0051171Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0051697Z 
+2026-11-21T08:09:14.0052468Z [215] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.205s
+2026-11-21T08:09:14.0053783Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0054353Z 
+2026-11-21T08:09:14.0055281Z [216] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.19s
+2026-11-21T08:09:14.0056574Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0057117Z 
+2026-11-21T08:09:14.0057877Z [217] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.66s
+2026-11-21T08:09:14.0059139Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0059695Z 
+2026-11-21T08:09:14.0060460Z [218] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.282s
+2026-11-21T08:09:14.0063035Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0063589Z 
+2026-11-21T08:09:14.0064350Z [219] firewall/detection firewall.http_access host=api.github.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.305s
+2026-11-21T08:09:14.0065894Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0066448Z 
+2026-11-21T08:09:14.0067056Z [220] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.39s
+2026-11-21T08:09:14.0068204Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0068755Z 
+2026-11-21T08:09:14.0069573Z [221] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.032s
+2026-11-21T08:09:14.0070729Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0071266Z 
+2026-11-21T08:09:14.0071869Z [222] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.031s
+2026-11-21T08:09:14.0072996Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0073518Z 
+2026-11-21T08:09:14.0074113Z [223] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.035s
+2026-11-21T08:09:14.0075408Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0075947Z 
+2026-11-21T08:09:14.0076537Z [224] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.035s
+2026-11-21T08:09:14.0077659Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0078185Z 
+2026-11-21T08:09:14.0078796Z [225] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.033s
+2026-11-21T08:09:14.0079915Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0080440Z 
+2026-11-21T08:09:14.0080926Z [226] harness/detection harness.retry [extension payload omitted] [untimed]
+2026-11-21T08:09:14.0083193Z   path=threat-detection/detection_harness_retry.json
+2026-11-21T08:09:14.0083736Z 
+2026-11-21T08:09:14.0084222Z [227] harness/detection harness.attempt [extension payload omitted] +0.437s
+2026-11-21T08:09:14.0086189Z   path=threat-detection/detection_harness_retry.json
+2026-11-21T08:09:14.0086689Z 
+2026-11-21T08:09:14.0087901Z [228] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.595s
+2026-11-21T08:09:14.0089038Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0089558Z 
+2026-11-21T08:09:14.0090390Z [229] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.153s
+2026-11-21T08:09:14.0094062Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0094656Z 
+2026-11-21T08:09:14.0095662Z [230] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.879s
+2026-11-21T08:09:14.0096784Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0097794Z 
+2026-11-21T08:09:14.0098616Z [231] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.076s
+2026-11-21T08:09:14.0107282Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0109937Z 
+2026-11-21T08:09:14.0110860Z [232] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.311s
+2026-11-21T08:09:14.0112220Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0112755Z 
+2026-11-21T08:09:14.0113357Z [233] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.645s
+2026-11-21T08:09:14.0114483Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0115199Z 
+2026-11-21T08:09:14.0116000Z [234] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +1.62s
+2026-11-21T08:09:14.0117351Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0117880Z 
+2026-11-21T08:09:14.0118477Z [235] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.412s
+2026-11-21T08:09:14.0119579Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0127010Z 
+2026-11-21T08:09:14.0127835Z [236] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.068s
+2026-11-21T08:09:14.0129198Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0129821Z 
+2026-11-21T08:09:14.0130461Z [237] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:14.0132121Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0132744Z 
+2026-11-21T08:09:14.0133374Z [238] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:14.0134653Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0135490Z 
+2026-11-21T08:09:14.0136166Z [239] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0s
+2026-11-21T08:09:14.0137452Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0138084Z 
+2026-11-21T08:09:14.0138694Z [240] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.963s
+2026-11-21T08:09:14.0139851Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0140382Z 
+2026-11-21T08:09:14.0141199Z [241] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +2.028s
+2026-11-21T08:09:14.0142502Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0143026Z 
+2026-11-21T08:09:14.0143614Z [242] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +0.005s
+2026-11-21T08:09:14.0144709Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0145382Z 
+2026-11-21T08:09:14.0145983Z [243] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.034s
+2026-11-21T08:09:14.0147090Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0147606Z 
+2026-11-21T08:09:14.0148183Z [244] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.033s
+2026-11-21T08:09:14.0149247Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0149750Z 
+2026-11-21T08:09:14.0150412Z [245] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.931s
+2026-11-21T08:09:14.0151856Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0152478Z 
+2026-11-21T08:09:14.0153088Z [246] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +1.101s
+2026-11-21T08:09:14.0154181Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0154689Z 
+2026-11-21T08:09:14.0155415Z [247] firewall/detection firewall.http_access host=- method=- status=0 decision=NONE_NONE +2.031s
+2026-11-21T08:09:14.0156520Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0157019Z 
+2026-11-21T08:09:14.0157821Z [248] firewall/detection firewall.http_access host=api.githubcopilot.com:443 method=CONNECT status=200 decision=TCP_TUNNEL +0.586s
+2026-11-21T08:09:14.0159125Z   path=threat-detection/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:09:14.0159639Z 
+2026-11-21T08:09:14.0160320Z [249] firewall/detection firewall.event event=otel_span status={   "code": 2,   "message": "HTTP 502" } +0.879s
+2026-11-21T08:09:14.0161608Z   path=threat-detection/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:09:14.0162262Z 
+2026-11-21T08:09:14.0163053Z [250] safe_output/safe_outputs safe_output.outcome type=report_incomplete messageIndex=0 status=success staged=false +16.645s
+2026-11-21T08:09:14.0164258Z   path=safe-output-outcomes.jsonl
+2026-11-21T08:09:14.0164669Z 
+2026-11-21T08:09:14.0165836Z [251] github_api/workflow github_api.rate_limit source=response_headers operation=search.issuesAndPullRequests resource=search remaining=29 limit=30 +21.352s
+2026-11-21T08:09:14.0167258Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0167647Z 
+2026-11-21T08:09:14.0168532Z [252] github_api/workflow github_api.rate_limit source=response_headers operation=issues.create resource=core remaining=4990 limit=5000 +0.592s
+2026-11-21T08:09:14.0169824Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0170219Z 
+2026-11-21T08:09:14.0171309Z [253] github_api/workflow github_api.rate_limit source=response_headers operation=issues.createComment resource=core remaining=4989 limit=5000 +0.529s
+2026-11-21T08:09:14.0172683Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0173063Z 
+2026-11-21T08:09:14.0174081Z [254] github_api/workflow github_api.rate_limit source=response_headers operation=actions.listJobsForWorkflowRun resource=core remaining=4988 limit=5000 +1.23s
+2026-11-21T08:09:14.0175645Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0176021Z 
+2026-11-21T08:09:14.0177041Z [255] github_api/workflow github_api.rate_limit source=response_headers operation=search.issuesAndPullRequests resource=search remaining=28 limit=30 +0.612s
+2026-11-21T08:09:14.0182493Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0182932Z 
+2026-11-21T08:09:14.0183956Z [256] github_api/workflow github_api.rate_limit source=response_headers operation=search.issuesAndPullRequests resource=search remaining=27 limit=30 +0.283s
+2026-11-21T08:09:14.0197671Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0198125Z 
+2026-11-21T08:09:14.0199131Z [257] github_api/workflow github_api.rate_limit source=response_headers operation=issues.createComment resource=core remaining=4987 limit=5000 +0.529s
+2026-11-21T08:09:14.0200521Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0200906Z 
+2026-11-21T08:09:14.0201941Z [258] github_api/workflow github_api.rate_limit source=response_headers operation=search.issuesAndPullRequests resource=search remaining=26 limit=30 +0.749s
+2026-11-21T08:09:14.0203343Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0203735Z 
+2026-11-21T08:09:14.0204641Z [259] github_api/workflow github_api.rate_limit source=response_headers operation=rateLimit.get resource=core remaining=4987 limit=5000 +0.618s
+2026-11-21T08:09:14.0206408Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0206798Z 
+2026-11-21T08:09:14.0207711Z [260] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=core remaining=4987 limit=5000 +0s
+2026-11-21T08:09:14.0223994Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0224452Z 
+2026-11-21T08:09:14.0226109Z [261] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=search remaining=30 limit=30 +0s
+2026-11-21T08:09:14.0227565Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0227967Z 
+2026-11-21T08:09:14.0228979Z [262] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=graphql remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0230328Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0230703Z 
+2026-11-21T08:09:14.0233073Z [263] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=integration_manifest remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0234656Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0235521Z 
+2026-11-21T08:09:14.0236511Z [264] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=source_import remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0239144Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0239539Z 
+2026-11-21T08:09:14.0240647Z [265] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=code_scanning_autofix remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0242687Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0243097Z 
+2026-11-21T08:09:14.0244202Z [266] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=actions_runner_registration remaining=10000 limit=10000 +0s
+2026-11-21T08:09:14.0246437Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0246822Z 
+2026-11-21T08:09:14.0247757Z [267] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=scim remaining=15000 limit=15000 +0s
+2026-11-21T08:09:14.0249125Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0249593Z 
+2026-11-21T08:09:14.0250953Z [268] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=dependency_snapshots remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0252436Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0252860Z 
+2026-11-21T08:09:14.0253851Z [269] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=dependency_sbom remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0255447Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0255846Z 
+2026-11-21T08:09:14.0256852Z [270] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=audit_log remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0258231Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0258616Z 
+2026-11-21T08:09:14.0259612Z [271] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=audit_log_streaming remaining=15 limit=15 +0s
+2026-11-21T08:09:14.0261104Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0261484Z 
+2026-11-21T08:09:14.0262452Z [272] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=code_search remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0263836Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0264207Z 
+2026-11-21T08:09:14.0265410Z [273] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=copilot_usage_records remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0266875Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0267256Z 
+2026-11-21T08:09:14.0268365Z [274] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_before resource=enterprise_token_inventory remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0269844Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0270235Z 
+2026-11-21T08:09:14.0271409Z [275] github_api/workflow github_api.rate_limit source=response_headers operation=rateLimit.get resource=core remaining=4987 limit=5000 +0.125s
+2026-11-21T08:09:14.0272740Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0273120Z 
+2026-11-21T08:09:14.0274078Z [276] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=core remaining=4987 limit=5000 +0s
+2026-11-21T08:09:14.0275667Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0276060Z 
+2026-11-21T08:09:14.0276972Z [277] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=search remaining=30 limit=30 +0s
+2026-11-21T08:09:14.0278295Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0278680Z 
+2026-11-21T08:09:14.0279615Z [278] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=graphql remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0280968Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0281360Z 
+2026-11-21T08:09:14.0282392Z [279] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=integration_manifest remaining=5000 limit=5000 +0s
+2026-11-21T08:09:14.0283888Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0297209Z 
+2026-11-21T08:09:14.0298352Z [280] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=source_import remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0299837Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0300244Z 
+2026-11-21T08:09:14.0301285Z [281] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=code_scanning_autofix remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0302727Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0303122Z 
+2026-11-21T08:09:14.0304225Z [282] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=actions_runner_registration remaining=10000 limit=10000 +0s
+2026-11-21T08:09:14.0306062Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0306453Z 
+2026-11-21T08:09:14.0307674Z [283] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=scim remaining=15000 limit=15000 +0s
+2026-11-21T08:09:14.0309040Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0309435Z 
+2026-11-21T08:09:14.0310453Z [284] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=dependency_snapshots remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0311878Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0312276Z 
+2026-11-21T08:09:14.0313246Z [285] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=dependency_sbom remaining=100 limit=100 +0s
+2026-11-21T08:09:14.0314620Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0315199Z 
+2026-11-21T08:09:14.0318617Z [286] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=audit_log remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0320122Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0320502Z 
+2026-11-21T08:09:14.0321535Z [287] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=audit_log_streaming remaining=15 limit=15 +0s
+2026-11-21T08:09:14.0322928Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0323307Z 
+2026-11-21T08:09:14.0324258Z [288] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=code_search remaining=10 limit=10 +0s
+2026-11-21T08:09:14.0326235Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0326635Z 
+2026-11-21T08:09:14.0327692Z [289] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=copilot_usage_records remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0329160Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0329838Z 
+2026-11-21T08:09:14.0330911Z [290] github_api/workflow github_api.rate_limit source=rate_limit_api operation=report_failed_jobs_after resource=enterprise_token_inventory remaining=1750 limit=1750 +0s
+2026-11-21T08:09:14.0332365Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0332748Z 
+2026-11-21T08:09:14.0333856Z [291] github_api/workflow github_api.rate_limit source=response_headers operation=actions.listJobsForWorkflowRunAttempt resource=core remaining=4953 limit=5000 +0.92s
+2026-11-21T08:09:14.0335917Z   path=github_rate_limits.jsonl
+2026-11-21T08:09:14.0336304Z 
+2026-11-21T08:09:14.0336721Z [292] skill/activation skill.inventory installed skills=1 [untimed]
+2026-11-21T08:09:14.0337566Z   path=skill_inventory.json
+2026-11-21T08:09:14.0337929Z 
+2026-11-21T08:09:14.0398028Z [295] firewall/agent model.inventory endpoints=[   {     "provider": "openai",     "configured": false   },   {     "provider": "anthropic",     "configured": false   },   {     "provider": "copilot",     "configured": true,     "models": [       "claude-fable-5",       "claude-fable-5.1",       "claude-fable-5.2",       "claude-haiku-4.5",       "claude-haiku-5.5",       "claude-opus-4.8-fast",       "claude-opus-5",       "claude-opus-5.5",       "claude-sonnet-5",       "claude-sonnet-5.5",       "copilot-search-a",       "copilot-search-b",       "gpt-3.5-turbo",       "gpt-3.5-turbo-0613",       "gpt-4",       "gpt-4-0613",       "gpt-4-o-preview",       "gpt-4.1",       "gpt-4.1-2025-04-14",       "gpt-41-copilot",       "gpt-4o",       "gpt-4o-2024-05-13",       "gpt-4o-2024-08-06",       "gpt-4o-2024-11-20",       "gpt-4o-mini",       "gpt-4o-mini-2024-07-18",       "gpt-5.6-luna",       "gpt-5.6-luna-free-auto",       "gpt-5.6-luna-utility",       "gpt-5.6-sol",       "gpt-6-astra",       "gpt-6-luna",       "gpt-6-luna-decisions",       "gpt-6-sol",       "gpt-6.1-sol",       "kimi-k3",       "mai-code-1.1-flash",       "mai-code-2",       "mai-code-2-flash",       "text-embedding-3-small",       "text-embedding-3-small-inference",       "text-embedding-ada-002"     ],     "routingModels": [       {         "modelId": "claude-fable-5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-fable-5.1",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-fable-5.2",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-haiku-4.5",         "supportedEndpoints": [           "/chat/completions",           "/v1/messages"         ],         "supportedReasoningEfforts": [],         "contextWindowTokens": 144000       },       {         "modelId": "claude-haiku-5.5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-opus-4.8-fast",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-opus-5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-opus-5.5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-sonnet-5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "claude-sonnet-5.5",         "supportedEndpoints": [           "/v1/messages",           "/chat/completions"         ],         "supportedReasoningEfforts": [           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1000000       },       {         "modelId": "copilot-search-a",         "supportedEndpoints": [           "/chat/completions"         ],         "supportedReasoningEfforts": [],         "contextWindowTokens": 260000       },       {         "modelId": "copilot-search-b",         "supportedEndpoints": [           "/chat/completions"         ],         "supportedReasoningEfforts": [],         "contextWindowTokens": 260000       },       {         "modelId": "gpt-3.5-turbo",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 16384       },       {         "modelId": "gpt-3.5-turbo-0613",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 16384       },       {         "modelId": "gpt-4",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 32768       },       {         "modelId": "gpt-4-0613",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 32768       },       {         "modelId": "gpt-4-o-preview",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4.1",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4.1-2025-04-14",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-41-copilot",         "supportedEndpoints": [],         "supportedReasoningEfforts": []       },       {         "modelId": "gpt-4o",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4o-2024-05-13",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4o-2024-08-06",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4o-2024-11-20",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4o-mini",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-4o-mini-2024-07-18",         "supportedEndpoints": [],         "supportedReasoningEfforts": [],         "contextWindowTokens": 128000       },       {         "modelId": "gpt-5.6-luna",         "supportedEndpoints": [           "/responses",           "ws:/responses"         ],         "supportedReasoningEfforts": [           "none",           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1050000       },       {         "modelId": "gpt-5.6-luna-free-auto",         "supportedEndpoints": [           "/responses",           "ws:/responses"         ],         "supportedReasoningEfforts": [           "none",           "low",           "medium",           "high",           "xhigh",           "max"         ],         "contextWindowTokens": 1050000       },       {         "modelId": "gpt-5.6-luna-utility",         "supportedEndpoints": [           "/responses",           "ws:/responses"  ... [truncated: long summary line]
+2026-11-21T08:09:14.0435731Z   path=sandbox/firewall/awf-reflect.json
+2026-11-21T08:09:14.0436215Z 
+2026-11-21T08:09:14.0437395Z [296] model_resolution/agent model.resolution engine=copilot role=main configured_model=auto resolved_model=claude-sonnet-5.5 provider=copilot status=resolved cause=null [untimed]
+2026-11-21T08:09:14.0439011Z   path=agent/model-resolution.json
+2026-11-21T08:09:14.0439427Z 
+2026-11-21T08:09:14.0439825Z [297] usage/detection usage.report provider=unknown [untimed]
+2026-11-21T08:09:14.0440678Z   path=threat-detection/detection_usage.jsonl
+2026-11-21T08:09:14.0441145Z 
+2026-11-21T08:09:14.0441459Z [298] execution/agent execution.result  [untimed]
+2026-11-21T08:09:14.0442191Z   path=agent_execution.json
+2026-11-21T08:09:14.0442562Z 
+2026-11-21T08:09:14.0442884Z [299] execution/detection execution.result  [untimed]
+2026-11-21T08:09:14.0443674Z   path=threat-detection/execution.json
+2026-11-21T08:09:14.0444108Z 
+2026-11-21T08:09:14.0445065Z [300] execution/agent agent.execution categories=["capi_server_error"] errorCodes=[502] errorTypes=["query"] exitCode=1 [untimed]
+2026-11-21T08:09:14.0446290Z   path=agent-errors.jsonl
+2026-11-21T08:09:14.0446658Z 
+2026-11-21T08:09:14.0447201Z [301] guardrail/activation guardrail.daily_aic status=skipped exceeded=false [untimed]
+2026-11-21T08:09:14.0448189Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0448574Z 
+2026-11-21T08:09:14.0449438Z [302] workflow/conclusion workflow.job_result jobId=activation result=success durationMs=20000 [untimed]
+2026-11-21T08:09:14.0450524Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0450920Z 
+2026-11-21T08:09:14.0451554Z [303] workflow/conclusion workflow.job_result jobId=agent result=failure durationMs=294000 [untimed]
+2026-11-21T08:09:14.0452597Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0452971Z 
+2026-11-21T08:09:14.0453618Z [304] workflow/conclusion workflow.job_result jobId=detection result=success durationMs=95000 [untimed]
+2026-11-21T08:09:14.0454681Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0455253Z 
+2026-11-21T08:09:14.0455932Z [305] workflow/conclusion workflow.job_result jobId=safe_outputs result=success durationMs=11000 [untimed]
+2026-11-21T08:09:14.0457020Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0457411Z 
+2026-11-21T08:09:14.0458332Z [306] collector/conclusion session.collection sources=30 warnings=0 untimedEvents=19 absentComponents=[   "experiment",   "eval" ] [untimed]
+2026-11-21T08:09:14.0459646Z   path=usage/aw_session.jsonl
+2026-11-21T08:09:14.0460029Z 
+2026-11-21T08:09:14.0460395Z [307] grader/conclusion grader.manifest graders=10 [untimed]
+2026-11-21T08:09:14.0461215Z   path=usage/graders/grader_manifest.json
+2026-11-21T08:09:14.0461662Z 
+2026-11-21T08:09:14.0470616Z [308] grader/conclusion grader.result results=[id=tool-success-rate value=1 unit=ratio passed=true status=pass; id=tool-failure-count value=0 unit=count passed=true status=pass; id=retries value=3 unit=count passed=true status=pass; id=loops value=0 unit=count passed=true status=pass; id=trajectory-efficiency value=1 unit=ratio passed=null status=pass; id=execution-step-count value=null unit=count passed=null status=unavailable; id=execution-duration value=null unit=ms passed=null status=unavailable; id=working-set-rebuild-factor value=null unit=factor passed=null status=unavailable; id=context-growth value=null unit=factor passed=null status=unavailable; id=artifact-production value=0 unit=count passed=null status=pass] [untimed]
+2026-11-21T08:09:14.0479739Z   path=usage/graders/grader_results.json
+2026-11-21T08:09:14.0483734Z /tmp/gh-aw/usage/activity/summary.json
+2026-11-21T08:09:14.0484524Z /tmp/gh-aw/usage/agent/execution.json
+2026-11-21T08:09:14.0485672Z /tmp/gh-aw/usage/agent/harness_retry.json
+2026-11-21T08:09:14.0486399Z /tmp/gh-aw/usage/agent/token_usage.jsonl
+2026-11-21T08:09:14.0487092Z /tmp/gh-aw/usage/aw_info.json
+2026-11-21T08:09:14.0487734Z /tmp/gh-aw/usage/aw_session.jsonl
+2026-11-21T08:09:14.0490478Z /tmp/gh-aw/usage/detection/execution.json
+2026-11-21T08:09:14.0491304Z /tmp/gh-aw/usage/detection/harness_retry.json
+2026-11-21T08:09:14.0492085Z /tmp/gh-aw/usage/detection/token_usage.jsonl
+2026-11-21T08:09:14.0492836Z /tmp/gh-aw/usage/detection_usage.jsonl
+2026-11-21T08:09:14.0493535Z /tmp/gh-aw/usage/github_rate_limits.jsonl
+2026-11-21T08:09:14.0494285Z /tmp/gh-aw/usage/graders/grader_manifest.json
+2026-11-21T08:09:14.0496222Z /tmp/gh-aw/usage/graders/grader_results.json
+2026-11-21T08:09:14.1452180Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:09:14.1453167Z with:
+2026-11-21T08:09:14.1453675Z   name: usage
+2026-11-21T08:09:14.1461080Z   path: /tmp/gh-aw/usage/aw_session.jsonl
+/tmp/gh-aw/usage/aw_info.json
+/tmp/gh-aw/usage/aw-info.jsonl
+/tmp/gh-aw/usage/agent_usage.json
+/tmp/gh-aw/usage/agent_usage.jsonl
+/tmp/gh-aw/usage/detection_usage.jsonl
+/tmp/gh-aw/usage/evals.jsonl
+/tmp/gh-aw/usage/graders/grader_manifest.json
+/tmp/gh-aw/usage/graders/grader_results.json
+/tmp/gh-aw/usage/github_rate_limits.jsonl
+/tmp/gh-aw/usage/agent/token_usage.jsonl
+/tmp/gh-aw/usage/agent/model-routing.jsonl
+/tmp/gh-aw/usage/agent/execution.json
+/tmp/gh-aw/usage/agent/harness_retry.json
+/tmp/gh-aw/usage/agent/durable-session.jsonl
+/tmp/gh-aw/usage/detection/token_usage.jsonl
+/tmp/gh-aw/usage/detection/execution.json
+/tmp/gh-aw/usage/detection/harness_retry.json
+/tmp/gh-aw/usage/detection/detection_result.json
+/tmp/gh-aw/usage/evals/token_usage.jsonl
+/tmp/gh-aw/usage/evals/execution.json
+/tmp/gh-aw/usage/evals/evals_status.json
+/tmp/gh-aw/usage/experiment/state.jsonl
+/tmp/gh-aw/usage/experiment/state.json
+/tmp/gh-aw/usage/experiment/assignments.json
+/tmp/gh-aw/usage/activity/summary.json
+
+2026-11-21T08:09:14.1468404Z   if-no-files-found: ignore
+2026-11-21T08:09:14.1469028Z   retention-days: 0
+2026-11-21T08:09:14.1469596Z   compression-level: 6
+2026-11-21T08:09:14.1482511Z   overwrite: false
+2026-11-21T08:09:14.1493829Z   include-hidden-files: false
+2026-11-21T08:09:14.1494536Z   archive: true
+2026-11-21T08:09:14.1495220Z env:
+2026-11-21T08:09:14.1495755Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:09:14.1496389Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:09:14.1497021Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:09:14.1498721Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:09:14.1500474Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:09:14.1501098Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:09:14.1501693Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:09:14.1502349Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:09:14.1503100Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:09:14.1504478Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:09:14.1506555Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:09:14.1508224Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:09:14.1509319Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:09:14.1510541Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:09:14.1511359Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: e89b6715865025e2
+2026-11-21T08:09:14.1512106Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248542091
+2026-11-21T08:09:14.1512767Z ##[endgroup]
+2026-11-21T08:09:14.4537395Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:09:14.4630354Z The least common ancestor is /tmp/gh-aw/usage. This will be the root directory of the artifact
+2026-11-21T08:09:14.4631733Z With the provided path, there will be 13 files uploaded
+2026-11-21T08:09:14.4667842Z Artifact name is valid!
+2026-11-21T08:09:14.4668591Z Root directory input is valid!
+2026-11-21T08:09:14.7282045Z Uploading artifact: usage.zip
+2026-11-21T08:09:14.7344136Z Beginning upload of artifact content to blob storage
+2026-11-21T08:09:15.0585128Z Uploaded bytes 61808
+2026-11-21T08:09:15.0974053Z Finished uploading artifact content to blob storage!
+2026-11-21T08:09:15.0981943Z SHA256 digest of uploaded artifact is 002518a5431419cca522c330000e9549841bcab0f5915e9fd4eaf8410898c30a
+2026-11-21T08:09:15.0986933Z Finalizing artifact upload
+2026-11-21T08:09:15.5046423Z Artifact usage successfully finalized. Artifact ID 14698599153
+2026-11-21T08:09:15.5051227Z Artifact usage has been successfully uploaded! Final size is 61808 bytes. Artifact ID is 14698599153
+2026-11-21T08:09:15.5058682Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44882922477/artifacts/14698599153
+2026-11-21T08:09:15.5448793Z Post job cleanup.
+2026-11-21T08:09:15.7082436Z [info] [otlp] sending conclusion span "gh-aw.conclusion.conclusion" to configured endpoints
+2026-11-21T08:09:15.7377311Z [info] [otlp] conclusion span export attempted
+2026-11-21T08:09:15.7383429Z Warning: leaving shared /tmp/gh-aw untouched; per-invocation ownership cannot be established.
+2026-11-21T08:09:15.7688226Z Evaluate and set job outputs
+2026-11-21T08:09:15.7699926Z Cleaning up orphan processes

@@ -1,0 +1,54 @@
+﻿2026-11-21T07:44:42.5022805Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:44:42.5023138Z with:
+2026-11-21T07:44:42.5024008Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'create_files.cjs'));
+await main();
+
+2026-11-21T07:44:42.5026626Z   github-token: ***
+2026-11-21T07:44:42.5026818Z   debug: false
+2026-11-21T07:44:42.5027023Z   user-agent: actions/github-script
+2026-11-21T07:44:42.5027258Z   result-encoding: json
+2026-11-21T07:44:42.5027453Z   retries: 0
+2026-11-21T07:44:42.5027667Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:44:42.5027913Z env:
+2026-11-21T07:44:42.5028097Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:44:42.5028327Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:44:42.5028555Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:44:42.5029222Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:44:42.5029994Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:44:42.5030375Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:44:42.5030584Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:44:42.5030825Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:44:42.5031078Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:44:42.5031284Z   DEFAULT_BRANCH: main
+2026-11-21T07:44:42.5031489Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T07:44:42.5031692Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T07:44:42.5031890Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T07:44:42.5032127Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T07:44:42.5032385Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T07:44:42.5032609Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T07:44:42.5032821Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T07:44:42.5033042Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T07:44:42.5033257Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T07:44:42.5033462Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T07:44:42.5033671Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T07:44:42.5033879Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T07:44:42.5034081Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T07:44:42.5034282Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T07:44:42.5034470Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:44:42.5034665Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T07:44:42.5034885Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T07:44:42.5035171Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:44:42.5035462Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 0442ab8ef0649005
+2026-11-21T07:44:42.5035728Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246946186
+2026-11-21T07:44:42.5035991Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-cJsiJJ
+2026-11-21T07:44:42.5036254Z   GH_AW_RUNTIME_TMP_ID: 66305:8533322:1001
+2026-11-21T07:44:42.5036599Z   TMPDIR: /tmp/gh-aw-runtime-cJsiJJ
+2026-11-21T07:44:42.5037083Z   GH_AW_FILE_ROOT: /home/runner/work/_temp/gh-aw
+2026-11-21T07:44:42.5037514Z   GH_AW_FILE_CONFIG: {"files":[{"path":"safeoutputs/config.json","content_env":"GH_AW_SAFE_OUTPUTS_CONFIG"}]}
+2026-11-21T07:44:42.5040244Z   GH_AW_SAFE_OUTPUTS_CONFIG: {"create_pull_request":{"base_branch":"main","labels":["festival-sync"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"allowed","title_prefix":"[sync] "},"create_report_incomplete_issue":{},"noop":{"max":2,"report-as-issue":"true"},"report_incomplete":{},"report_missing_data":{},"report_missing_tool":{}}
+2026-11-21T07:44:42.5042786Z ##[endgroup]
+2026-11-21T07:44:42.5888692Z Created 1 generated file(s) under /home/runner/work/_temp/gh-aw

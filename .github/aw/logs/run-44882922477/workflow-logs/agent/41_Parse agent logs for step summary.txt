@@ -1,0 +1,202 @@
+﻿2026-11-21T08:06:53.6695307Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:06:53.6695757Z with:
+2026-11-21T08:06:53.6696966Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'parse_copilot_log.cjs'));
+await main();
+
+2026-11-21T08:06:53.6700747Z   github-token: ***
+2026-11-21T08:06:53.6700979Z   debug: false
+2026-11-21T08:06:53.6701219Z   user-agent: actions/github-script
+2026-11-21T08:06:53.6701505Z   result-encoding: json
+2026-11-21T08:06:53.6701734Z   retries: 0
+2026-11-21T08:06:53.6701981Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:06:53.6702667Z env:
+2026-11-21T08:06:53.6702951Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:06:53.6703227Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:06:53.6703513Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:06:53.6704413Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44882922477,github.run_id=44882922477,gh-aw.engine.id=copilot
+2026-11-21T08:06:53.6705281Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:06:53.6705547Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:06:53.6705801Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:06:53.6706078Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:06:53.6706394Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:06:53.6706644Z   DEFAULT_BRANCH: main
+2026-11-21T08:06:53.6706874Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:06:53.6707128Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:06:53.6707365Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:06:53.6707667Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:06:53.6707995Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:06:53.6708275Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:06:53.6708537Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:06:53.6708801Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:06:53.6709063Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:06:53.6709313Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:06:53.6709571Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:06:53.6709815Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:06:53.6710058Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:06:53.6710298Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:06:53.6710529Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:06:53.6710787Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:06:53.6711049Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:06:53.6711409Z   GITHUB_AW_OTEL_TRACE_ID: 92bfe15bc0d170b9236137d60101b4ef
+2026-11-21T08:06:53.6711782Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 99ed4f6f65464704
+2026-11-21T08:06:53.6712119Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248132146
+2026-11-21T08:06:53.6712583Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:53.6712913Z   GH_AW_RUNTIME_TMP_ID: 2049:8530898:1001
+2026-11-21T08:06:53.6713221Z   TMPDIR: /tmp/gh-aw-runtime-a0FaPL
+2026-11-21T08:06:53.6713707Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: a1aa91beac9533193776a27096f8ff6825a87c8e05057b04e48b144c3a9747ba
+2026-11-21T08:06:53.6714372Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:06:53.6714862Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/sandbox/agent/logs/
+2026-11-21T08:06:53.6715307Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-11-21T08:06:53.6715706Z ##[endgroup]
+2026-11-21T08:06:53.8360829Z Using Copilot session log from: copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8426128Z [log-parser] Wrote Copilot result entry to agent-stdio.log: num_turns=1
+2026-11-21T08:06:53.8563444Z [log-parser] Persisted 40 canonical session events
+2026-11-21T08:06:53.8767456Z === Unified session ===
+2026-11-21T08:06:53.8768408Z Records: 39 (agent=39)
+2026-11-21T08:06:53.8768935Z 
+2026-11-21T08:06:53.8769929Z Agent source: agent/copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8771880Z Model: claude-sonnet-5.5
+2026-11-21T08:06:53.8772836Z Initialization:
+2026-11-21T08:06:53.8773527Z   Engine: copilot
+2026-11-21T08:06:53.8774479Z   Session ID: e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8776008Z   Working Directory: /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:06:53.8777268Z 
+2026-11-21T08:06:53.8777637Z Statistics:
+2026-11-21T08:06:53.8778219Z   Turns: 1
+2026-11-21T08:06:53.8778825Z   Duration: 1m 47s
+2026-11-21T08:06:53.8779465Z   Errors:
+2026-11-21T08:06:53.8780113Z     {
+2026-11-21T08:06:53.8780585Z   "errorType": "query",
+2026-11-21T08:06:53.8781815Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 16.99 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:06:53.8783072Z   "statusCode": 502,
+2026-11-21T08:06:53.8783404Z   "originatingMessageId": "63fbf356-ad73-490d-9529-486fedb61a1e"
+2026-11-21T08:06:53.8783776Z }
+2026-11-21T08:06:53.8783953Z     {
+2026-11-21T08:06:53.8784149Z   "errorType": "query",
+2026-11-21T08:06:53.8784906Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 14.23 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:06:53.8785705Z   "statusCode": 502,
+2026-11-21T08:06:53.8786022Z   "originatingMessageId": "90eb31fd-3ee2-4fc4-b05d-14afd36fdb07"
+2026-11-21T08:06:53.8786379Z }
+2026-11-21T08:06:53.8786554Z     {
+2026-11-21T08:06:53.8786743Z   "errorType": "query",
+2026-11-21T08:06:53.8787488Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 17.88 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:06:53.8788266Z   "statusCode": 502,
+2026-11-21T08:06:53.8788574Z   "originatingMessageId": "25a56608-bd82-4f35-9713-40917eb3e03c"
+2026-11-21T08:06:53.8788920Z }
+2026-11-21T08:06:53.8789100Z     {
+2026-11-21T08:06:53.8789299Z   "errorType": "query",
+2026-11-21T08:06:53.8790018Z   "message": "Failed to get response from the AI model; retried 5 times (total retry wait time: 13.64 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched",
+2026-11-21T08:06:53.8790776Z   "statusCode": 502,
+2026-11-21T08:06:53.8791076Z   "originatingMessageId": "56754963-fc46-40d6-a628-2c88310b177f"
+2026-11-21T08:06:53.8791426Z }
+2026-11-21T08:06:53.8791529Z 
+2026-11-21T08:06:53.8791732Z Chronological trace (user prompts omitted; untimed observations follow):
+2026-11-21T08:06:53.8792039Z 
+2026-11-21T08:06:53.8793162Z [1] agent/agent session.start model=claude-sonnet-5.5 sessionId=e8991b68-3492-4685-82f3-078ee5df0799 reasoningEffort=medium cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +0s
+2026-11-21T08:06:53.8794359Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8794971Z 
+2026-11-21T08:06:53.8795669Z [2] agent/agent session.init sourceEngine=copilot model=claude-sonnet-5.5 sessionId=e8991b68-3492-4685-82f3-078ee5df0799 reasoningEffort=medium cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +0s
+2026-11-21T08:06:53.8796834Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8797320Z 
+2026-11-21T08:06:53.8797669Z [3] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.011s
+2026-11-21T08:06:53.8798331Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8798861Z 
+2026-11-21T08:06:53.8799064Z [5] agent/agent system.message [system instructions omitted] +0.273s
+2026-11-21T08:06:53.8799714Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8800043Z 
+2026-11-21T08:06:53.8800705Z [6] agent/agent assistant.turn_start turnId=0 interactionId=e952ad41-611b-4d9e-811e-a94d0c616fba +0.003s
+2026-11-21T08:06:53.8801491Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8801826Z 
+2026-11-21T08:06:53.8802078Z [7] agent/agent assistant.turn_end turnId=0 +18.707s
+2026-11-21T08:06:53.8802750Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8803221Z 
+2026-11-21T08:06:53.8804464Z [8] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 16.99 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:06:53.8806523Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8807084Z 
+2026-11-21T08:06:53.8807202Z [9] agent/agent session.result  +0s
+2026-11-21T08:06:53.8808224Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8809000Z 
+2026-11-21T08:06:53.8809548Z [10] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.03s
+2026-11-21T08:06:53.8810389Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8810728Z 
+2026-11-21T08:06:53.8810870Z [11] agent/agent session.result durationMs=19085 +0s
+2026-11-21T08:06:53.8811896Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8812655Z 
+2026-11-21T08:06:53.8812914Z [12] agent/agent session.resume [extension payload omitted] +5.591s
+2026-11-21T08:06:53.8813520Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8813905Z 
+2026-11-21T08:06:53.8814381Z [13] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.01s
+2026-11-21T08:06:53.8815176Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8815530Z 
+2026-11-21T08:06:53.8815849Z [15] agent/agent assistant.turn_start turnId=0 interactionId=383c359d-ac39-4636-9b28-ecf0e180f2d3 +0.199s
+2026-11-21T08:06:53.8816582Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8817033Z 
+2026-11-21T08:06:53.8817178Z [16] agent/agent assistant.turn_end turnId=0 +15.938s
+2026-11-21T08:06:53.8817730Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8818051Z 
+2026-11-21T08:06:53.8818972Z [17] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 14.23 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:06:53.8820332Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8820658Z 
+2026-11-21T08:06:53.8820821Z [18] agent/agent session.result  +0s
+2026-11-21T08:06:53.8821471Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8822092Z 
+2026-11-21T08:06:53.8822658Z [19] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.023s
+2026-11-21T08:06:53.8823492Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8823828Z 
+2026-11-21T08:06:53.8823973Z [20] agent/agent session.result durationMs=40849 +0s
+2026-11-21T08:06:53.8824704Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8825336Z 
+2026-11-21T08:06:53.8825533Z [21] agent/agent session.resume [extension payload omitted] +10.584s
+2026-11-21T08:06:53.8826161Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8826808Z 
+2026-11-21T08:06:53.8827183Z [22] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.013s
+2026-11-21T08:06:53.8827982Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8828413Z 
+2026-11-21T08:06:53.8828749Z [24] agent/agent assistant.turn_start turnId=0 interactionId=e0e84528-2e88-4c84-a83d-3f6b84c813b3 +0.212s
+2026-11-21T08:06:53.8829493Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8829813Z 
+2026-11-21T08:06:53.8830061Z [25] agent/agent assistant.turn_end turnId=0 +19.481s
+2026-11-21T08:06:53.8830515Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8831119Z 
+2026-11-21T08:06:53.8832048Z [26] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 17.88 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:06:53.8833419Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8833867Z 
+2026-11-21T08:06:53.8833978Z [27] agent/agent session.result  +0s
+2026-11-21T08:06:53.8834540Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8835152Z 
+2026-11-21T08:06:53.8835522Z [28] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.025s
+2026-11-21T08:06:53.8836186Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8836505Z 
+2026-11-21T08:06:53.8836639Z [29] agent/agent session.result durationMs=71167 +0s
+2026-11-21T08:06:53.8837352Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8837846Z 
+2026-11-21T08:06:53.8838029Z [30] agent/agent session.resume [extension payload omitted] +20.571s
+2026-11-21T08:06:53.8838524Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8838839Z 
+2026-11-21T08:06:53.8839180Z [31] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.01s
+2026-11-21T08:06:53.8839834Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8840147Z 
+2026-11-21T08:06:53.8840453Z [33] agent/agent assistant.turn_start turnId=0 interactionId=650b801d-2b59-4fef-83fa-5c6c91f847ac +0.195s
+2026-11-21T08:06:53.8841060Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8841377Z 
+2026-11-21T08:06:53.8841512Z [34] agent/agent assistant.turn_end turnId=0 +15.27s
+2026-11-21T08:06:53.8841942Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8842254Z 
+2026-11-21T08:06:53.8843263Z [35] agent/agent session.error errorType=query statusCode=502 message=Failed to get response from the AI model; retried 5 times (total retry wait time: 13.64 seconds) Last error: 502 Upstream request failed and no fallback model could be dispatched +0.003s
+2026-11-21T08:06:53.8844367Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8844679Z 
+2026-11-21T08:06:53.8844787Z [36] agent/agent session.result  +0s
+2026-11-21T08:06:53.8845352Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8845836Z 
+2026-11-21T08:06:53.8846199Z [37] agent/agent session.shutdown shutdownType=routine premiumRequests=0 totalApiDurationMs=0 totalNanoAiu=0 +0.026s
+2026-11-21T08:06:53.8846875Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl
+2026-11-21T08:06:53.8847194Z 
+2026-11-21T08:06:53.8847332Z [38] agent/agent session.result durationMs=107242 +0s
+2026-11-21T08:06:53.8848087Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799
+2026-11-21T08:06:53.8848573Z 
+2026-11-21T08:06:53.8848693Z [39] agent/agent session.result numTurns=1 +0s
+2026-11-21T08:06:53.8849282Z   path=copilot-session-state/e8991b68-3492-4685-82f3-078ee5df0799/events.jsonl sessionId=e8991b68-3492-4685-82f3-078ee5df0799

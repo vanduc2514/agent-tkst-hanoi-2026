@@ -1,0 +1,38 @@
+﻿2026-11-21T08:08:38.0301958Z Current runner version: '2.338.2'
+2026-11-21T08:08:38.0328387Z ##[group]Runner Image Provisioner
+2026-11-21T08:08:38.0329294Z Hosted Compute Agent
+2026-11-21T08:08:38.0329867Z Version: 20261111.635
+2026-11-21T08:08:38.0330581Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-21T08:08:38.0331362Z Build Date: 2026-11-11T01:49:01Z
+2026-11-21T08:08:38.0332122Z Worker ID: {94291874-de8a-4aa9-82cb-52fc9893a1d9}
+2026-11-21T08:08:38.0332838Z Region: eastus
+2026-11-21T08:08:38.0333457Z Cloud: Azure
+2026-11-21T08:08:38.0334053Z ##[endgroup]
+2026-11-21T08:08:38.0335813Z ##[group]Operating System
+2026-11-21T08:08:38.0336571Z Ubuntu
+2026-11-21T08:08:38.0337117Z 26.04.1
+2026-11-21T08:08:38.0337716Z LTS
+2026-11-21T08:08:38.0338279Z ##[endgroup]
+2026-11-21T08:08:38.0338830Z ##[group]Runner Image
+2026-11-21T08:08:38.0339475Z Image: ubuntu-26.04
+2026-11-21T08:08:38.0340038Z Version: 20261116.202.1
+2026-11-21T08:08:38.0341169Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-21T08:08:38.0342981Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-21T08:08:38.0344026Z ##[endgroup]
+2026-11-21T08:08:38.0345713Z ##[group]GITHUB_TOKEN Permissions
+2026-11-21T08:08:38.0348413Z Contents: write
+2026-11-21T08:08:38.0349069Z Issues: write
+2026-11-21T08:08:38.0349721Z Metadata: read
+2026-11-21T08:08:38.0350291Z PullRequests: write
+2026-11-21T08:08:38.0350901Z ##[endgroup]
+2026-11-21T08:08:38.0353270Z Secret source: Actions
+2026-11-21T08:08:38.0354402Z Cache mode: write
+2026-11-21T08:08:38.0355825Z Prepare workflow directory
+2026-11-21T08:08:38.0919221Z Prepare all required actions
+2026-11-21T08:08:38.0967919Z Getting action download info
+2026-11-21T08:08:38.3048766Z Download action repository 'github/gh-aw-actions@53d0749e19424a918acd82b4d140264ce48f2f14' (SHA:53d0749e19424a918acd82b4d140264ce48f2f14)
+2026-11-21T08:08:38.6930737Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-11-21T08:08:38.8341464Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-21T08:08:38.8655676Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-11-21T08:08:38.9827334Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-21T08:08:39.1453658Z Complete job name: safe_outputs

@@ -1,0 +1,48 @@
+﻿2026-11-21T07:49:42.9058001Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:49:42.9058867Z with:
+2026-11-21T07:49:42.9062668Z   github-token: ***
+2026-11-21T07:49:42.9064747Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'handle_noop_message.cjs'));
+await main();
+
+2026-11-21T07:49:42.9067516Z   debug: false
+2026-11-21T07:49:42.9068024Z   user-agent: actions/github-script
+2026-11-21T07:49:42.9068605Z   result-encoding: json
+2026-11-21T07:49:42.9069107Z   retries: 0
+2026-11-21T07:49:42.9069616Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:49:42.9070246Z env:
+2026-11-21T07:49:42.9070705Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:42.9071280Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:42.9071855Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:42.9073447Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:42.9075430Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:42.9076003Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:42.9076551Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:42.9077146Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:42.9077792Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:42.9078915Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T07:49:42.9080600Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T07:49:42.9082122Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T07:49:42.9083114Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:42.9083753Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:42.9084502Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c5d70d42f3947df3
+2026-11-21T07:49:42.9085373Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247380470
+2026-11-21T07:49:42.9086070Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T07:49:42.9086714Z   GH_AW_NOOP_MAX: 2
+2026-11-21T07:49:42.9087261Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T07:49:42.9088410Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T07:49:42.9089478Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T07:49:42.9090003Z   GH_AW_ENGINE_MODEL: auto
+2026-11-21T07:49:42.9090802Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44881437491
+2026-11-21T07:49:42.9091681Z   GH_AW_AGENT_CONCLUSION: failure
+2026-11-21T07:49:42.9092265Z   GH_AW_NOOP_REPORT_AS_ISSUE: true
+2026-11-21T07:49:42.9092818Z   GH_AW_AIC: 
+2026-11-21T07:49:42.9093286Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-11-21T07:49:42.9093832Z   GH_AW_AMBIENT_CONTEXT: 
+2026-11-21T07:49:42.9094369Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T07:49:42.9095090Z ##[endgroup]
+2026-11-21T07:49:43.1063263Z Agent output content length: 1297
+2026-11-21T07:49:43.1079231Z No noop items found in agent output

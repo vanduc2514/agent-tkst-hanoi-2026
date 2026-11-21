@@ -1,0 +1,41 @@
+﻿2026-11-21T07:42:05.4245533Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:42:05.4246409Z with:
+2026-11-21T07:42:05.4250105Z   github-token: ***
+2026-11-21T07:42:05.4252210Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'check_daily_aic_workflow_guardrail.cjs'));
+await main();
+
+2026-11-21T07:42:05.4254439Z   debug: false
+2026-11-21T07:42:05.4255172Z   user-agent: actions/github-script
+2026-11-21T07:42:05.4255725Z   result-encoding: json
+2026-11-21T07:42:05.4256190Z   retries: 0
+2026-11-21T07:42:05.4256669Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:42:05.4257269Z env:
+2026-11-21T07:42:05.4257704Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:42:05.4258250Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:42:05.4258796Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:42:05.4260335Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:42:05.4262832Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:42:05.4263379Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:42:05.4263901Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:42:05.4264714Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:42:05.4265799Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:42:05.4266343Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T07:42:05.4271691Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:42:05.4272381Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:42:05.4277704Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7755afd4e9b46145
+2026-11-21T07:42:05.4278561Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246924356
+2026-11-21T07:42:05.4280273Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T07:42:05.4281077Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T07:42:05.4281915Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44881437491
+2026-11-21T07:42:05.4282856Z   GH_AW_WORKFLOW_DISPATCH_AW_CONTEXT: 
+2026-11-21T07:42:05.4286683Z   GH_AW_HAS_SLASH_COMMAND: false
+2026-11-21T07:42:05.4287287Z   GH_AW_HAS_LABEL_COMMAND: false
+2026-11-21T07:42:05.4297576Z   GH_AW_GITHUB_TOKEN: ***
+2026-11-21T07:42:05.4307332Z   GH_AW_MAX_AI_CREDITS: 1000
+2026-11-21T07:42:05.4307900Z ##[endgroup]
+2026-11-21T07:42:05.6710151Z [daily-workflow-aic] Resolved daily AIC guardrail limits: {"dailyAICThreshold":5000,"perRunMaxAICredits":1000,"perRunFallbackAvailable":true}
+2026-11-21T07:42:05.6721380Z Skipping daily workflow AI Credits guardrail for manual or command-driven runs.

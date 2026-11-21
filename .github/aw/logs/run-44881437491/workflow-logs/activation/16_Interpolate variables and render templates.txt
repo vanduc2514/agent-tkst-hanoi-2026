@@ -1,0 +1,120 @@
+﻿2026-11-21T07:42:09.2758690Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T07:42:09.2759518Z with:
+2026-11-21T07:42:09.2760961Z   github-token: no-authentication
+2026-11-21T07:42:09.2767679Z   script: const promptEnvironment = new Set(["GH_AW_ACTIONS_DIR","GH_AW_ENGINE_ID","GH_AW_EXPR_76DF9333","GH_AW_EXPR_77C1A4D2","GH_AW_EXPR_7C248226","GH_AW_EXPR_C19C384F","GH_AW_GITHUB_ACTOR","GH_AW_GITHUB_REPOSITORY","GH_AW_GITHUB_RUN_ID","GH_AW_GITHUB_WORKSPACE","GH_AW_MCP_CLI_SERVERS_LIST","GH_AW_PROMPT","GH_AW_SKILL_DIR","GH_AW_SKILL_EXT","GH_AW_SUB_AGENT_DIR","GH_AW_SUB_AGENT_EXT","GITHUB_ACTION","GITHUB_ACTOR","GITHUB_API_URL","GITHUB_EVENT_NAME","GITHUB_EVENT_PATH","GITHUB_GRAPHQL_URL","GITHUB_JOB","GITHUB_OUTPUT","GITHUB_REF","GITHUB_REPOSITORY","GITHUB_RUN_ATTEMPT","GITHUB_RUN_ID","GITHUB_RUN_NUMBER","GITHUB_SERVER_URL","GITHUB_SHA","GITHUB_STEP_SUMMARY","GITHUB_WORKFLOW","GITHUB_WORKSPACE","PATH","RUNNER_ARCH","RUNNER_OS","RUNNER_TEMP"]);
+for (const name of Object.keys(process.env)) {
+  if (!promptEnvironment.has(name)) delete process.env[name];
+}
+global.core = core;
+global.context = context;
+const { main } = require(process.env.GH_AW_ACTIONS_DIR + '/interpolate_prompt.cjs');
+await main();
+
+2026-11-21T07:42:09.2777130Z   debug: false
+2026-11-21T07:42:09.2777660Z   user-agent: actions/github-script
+2026-11-21T07:42:09.2778230Z   result-encoding: json
+2026-11-21T07:42:09.2778698Z   retries: 0
+2026-11-21T07:42:09.2779188Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T07:42:09.2779791Z env:
+2026-11-21T07:42:09.2780851Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:42:09.2781466Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:42:09.2781999Z   OTEL_SERVICE_NAME: 
+2026-11-21T07:42:09.2782587Z   OTEL_RESOURCE_ATTRIBUTES: 
+2026-11-21T07:42:09.2783111Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:42:09.2784134Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:42:09.2784904Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:42:09.2785442Z   GH_AW_OTLP_ENDPOINTS: 
+2026-11-21T07:42:09.2785936Z   GH_AW_OTLP_IF_MISSING: 
+2026-11-21T07:42:09.2787097Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T07:42:09.2787657Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:42:09.2788248Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:42:09.2788966Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7755afd4e9b46145
+2026-11-21T07:42:09.2789598Z   GITHUB_AW_OTEL_JOB_START_MS: 1795246924356
+2026-11-21T07:42:09.2790261Z   GH_AW_ACTIONS_DIR: /home/runner/work/_temp/gh-aw/actions
+2026-11-21T07:42:09.2790916Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T07:42:09.2791421Z   GH_AW_EXPR_76DF9333: false
+2026-11-21T07:42:09.2791934Z   GH_AW_EXPR_77C1A4D2: 
+2026-11-21T07:42:09.2792426Z   GH_AW_EXPR_7C248226: false
+2026-11-21T07:42:09.2793468Z   GH_AW_EXPR_C19C384F: false
+2026-11-21T07:42:09.2794000Z   GH_AW_GITHUB_ACTOR: vanduc2514
+2026-11-21T07:42:09.2794792Z   GH_AW_GITHUB_REPOSITORY: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T07:42:09.2795469Z   GH_AW_GITHUB_RUN_ID: 44881437491
+2026-11-21T07:42:09.2796765Z   GH_AW_GITHUB_WORKSPACE: /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T07:42:09.2798208Z   GH_AW_MCP_CLI_SERVERS_LIST: - `github` — run `github --help` to see available tools
+- `safeoutputs` — run `safeoutputs --help` to see available tools
+2026-11-21T07:42:09.2800207Z   GH_AW_PROMPT: /home/runner/work/_temp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T07:42:09.2800946Z   GH_AW_SKILL_DIR: .github/skills
+2026-11-21T07:42:09.2801485Z   GH_AW_SKILL_EXT: /SKILL.md
+2026-11-21T07:42:09.2802003Z   GH_AW_SUB_AGENT_DIR: .github/agents
+2026-11-21T07:42:09.2802569Z   GH_AW_SUB_AGENT_EXT: .agent.md
+2026-11-21T07:42:09.2803094Z ##[endgroup]
+2026-11-21T07:42:09.4612640Z ========================================
+2026-11-21T07:42:09.4618489Z [main] Starting interpolate_prompt processing
+2026-11-21T07:42:09.4621485Z ========================================
+2026-11-21T07:42:09.4624366Z [main] Reading prompt file...
+2026-11-21T07:42:09.4638965Z [main] Original content length: 17238 characters
+2026-11-21T07:42:09.4642087Z [main] Writing raw template artifact
+2026-11-21T07:42:09.4656339Z 
+2026-11-21T07:42:09.4656793Z ========================================
+2026-11-21T07:42:09.4660281Z [main] STEP 1: Runtime Imports
+2026-11-21T07:42:09.4664427Z ========================================
+2026-11-21T07:42:09.4669117Z No runtime import macros found, skipping runtime import processing
+2026-11-21T07:42:09.4672951Z [main] Writing import tree artifact
+2026-11-21T07:42:09.4678348Z 
+2026-11-21T07:42:09.4678751Z ========================================
+2026-11-21T07:42:09.4682937Z [main] STEP 1.5: Inline Sub-Agent Extraction
+2026-11-21T07:42:09.4686384Z ========================================
+2026-11-21T07:42:09.4689803Z No inline sub-agent markers found, skipping
+2026-11-21T07:42:09.4692384Z 
+2026-11-21T07:42:09.4692687Z ========================================
+2026-11-21T07:42:09.4696148Z [main] STEP 1.6: Inline Skill Extraction
+2026-11-21T07:42:09.4699272Z ========================================
+2026-11-21T07:42:09.4702820Z No inline skill markers found, skipping
+2026-11-21T07:42:09.4705910Z 
+2026-11-21T07:42:09.4706183Z ========================================
+2026-11-21T07:42:09.4709269Z [main] STEP 2: Variable Interpolation
+2026-11-21T07:42:09.4712171Z ========================================
+2026-11-21T07:42:09.4717699Z Found 4 expression variable(s) to interpolate
+2026-11-21T07:42:09.4723620Z [interpolateVariables] Starting interpolation with 4 variables
+2026-11-21T07:42:09.4727196Z [interpolateVariables] Content length: 17296 characters
+2026-11-21T07:42:09.4739462Z [interpolateVariables] Completed: 8 total replacement(s)
+2026-11-21T07:42:09.4741326Z [interpolateVariables] Result length: 17480 characters
+2026-11-21T07:42:09.4742831Z Successfully interpolated 4 variable(s) in prompt
+2026-11-21T07:42:09.4744283Z Content length change: 17296 -> 17480 (+184)
+2026-11-21T07:42:09.4747683Z 
+2026-11-21T07:42:09.4747936Z ========================================
+2026-11-21T07:42:09.4749317Z [main] STEP 2.5: Experiment Placeholder Substitution
+2026-11-21T07:42:09.4750759Z ========================================
+2026-11-21T07:42:09.4753099Z No experiment placeholders found in prompt
+2026-11-21T07:42:09.4756354Z 
+2026-11-21T07:42:09.4756620Z ========================================
+2026-11-21T07:42:09.4760305Z [main] STEP 3: Template Rendering
+2026-11-21T07:42:09.4762048Z ========================================
+2026-11-21T07:42:09.4764230Z Processing 8 conditional template block(s)
+2026-11-21T07:42:09.4770220Z [renderMarkdownTemplate] Starting template rendering
+2026-11-21T07:42:09.4771947Z [renderMarkdownTemplate] Input length: 17480 characters
+2026-11-21T07:42:09.4903863Z [renderMarkdownTemplate] Preserved 112 code region(s) from template processing
+2026-11-21T07:42:09.4908325Z [renderMarkdownTemplate] Found 8 block conditional(s) and 0 inline conditional(s)
+2026-11-21T07:42:09.4923333Z [renderMarkdownTemplate]   Action: Keeping selected branch with leading newline=true
+2026-11-21T07:42:09.4972398Z [renderMarkdownTemplate]   Action: Keeping selected branch with leading newline=false
+2026-11-21T07:42:09.4980577Z [renderMarkdownTemplate]   Action: Keeping selected branch with leading newline=false
+2026-11-21T07:42:09.5077559Z [renderMarkdownTemplate]   Action: Removing entire block
+2026-11-21T07:42:09.5081781Z [renderMarkdownTemplate]   Action: Removing entire block
+2026-11-21T07:42:09.5085622Z [renderMarkdownTemplate]   Action: Removing entire block
+2026-11-21T07:42:09.5088933Z [renderMarkdownTemplate]   Action: Removing entire block
+2026-11-21T07:42:09.5093373Z [renderMarkdownTemplate]   Action: Keeping selected branch with leading newline=false
+2026-11-21T07:42:09.5095803Z [renderMarkdownTemplate] First pass complete: 4 kept, 4 removed
+2026-11-21T07:42:09.5097719Z [renderMarkdownTemplate] Second pass complete: 0 kept, 0 removed
+2026-11-21T07:42:09.5102369Z [renderMarkdownTemplate] Final output length: 16773 characters
+2026-11-21T07:42:09.5103995Z Template rendered successfully
+2026-11-21T07:42:09.5105807Z Content length change: 17480 -> 16773 (-707)
+2026-11-21T07:42:09.5109254Z 
+2026-11-21T07:42:09.5109493Z ========================================
+2026-11-21T07:42:09.5110788Z [main] STEP 4: Writing Output
+2026-11-21T07:42:09.5111993Z ========================================
+2026-11-21T07:42:09.5113254Z Writing processed prompt
+2026-11-21T07:42:09.5114793Z Final content length: 16773 characters
+2026-11-21T07:42:09.5116377Z Total length change: 17238 -> 16773 (-465)
+2026-11-21T07:42:09.5129945Z ========================================
+2026-11-21T07:42:09.5131578Z [main] Processing complete - SUCCESS
+2026-11-21T07:42:09.5133116Z ========================================

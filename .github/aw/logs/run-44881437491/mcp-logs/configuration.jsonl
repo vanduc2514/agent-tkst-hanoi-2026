@@ -1,0 +1,1 @@
+{"type":"mcp.configuration","timestamp":"2026-11-21T07:44:42.761Z","data":{"servers":[{"serverName":"github","transport":"stdio"},{"serverName":"safeoutputs","transport":"stdio"}]}}

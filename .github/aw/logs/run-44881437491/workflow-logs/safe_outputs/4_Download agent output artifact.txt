@@ -1,0 +1,59 @@
+﻿2026-11-21T07:49:25.5127623Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T07:49:25.5128116Z with:
+2026-11-21T07:49:25.5128363Z   pattern: {agent,agent-output-fallback}
+2026-11-21T07:49:25.5128659Z   merge-multiple: true
+2026-11-21T07:49:25.5128889Z   path: /tmp/gh-aw/
+2026-11-21T07:49:25.5129152Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T07:49:25.5129658Z   run-id: 44881437491
+2026-11-21T07:49:25.5129925Z   skip-decompress: false
+2026-11-21T07:49:25.5130170Z   digest-mismatch: error
+2026-11-21T07:49:25.5130390Z env:
+2026-11-21T07:49:25.5130589Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T07:49:25.5130883Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T07:49:25.5131154Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T07:49:25.5132027Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44881437491,github.run_id=44881437491,gh-aw.engine.id=copilot
+2026-11-21T07:49:25.5132901Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T07:49:25.5133221Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T07:49:25.5133461Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T07:49:25.5133738Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T07:49:25.5134041Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T07:49:25.5134298Z   GH_AW_AGENT_AIC: 
+2026-11-21T07:49:25.5134539Z   GH_AW_AIC: 
+2026-11-21T07:49:25.5134738Z   GH_AW_AMBIENT_CONTEXT: 
+2026-11-21T07:49:25.5135073Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T07:49:25.5135467Z   GH_AW_DETECTION_CONCLUSION: warning
+2026-11-21T07:49:25.5135969Z   GH_AW_DETECTION_REASON: agent_failure
+2026-11-21T07:49:25.5136243Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T07:49:25.5136492Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T07:49:25.5136725Z   GH_AW_ENGINE_MODEL: auto
+2026-11-21T07:49:25.5136959Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T07:49:25.5137221Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T07:49:25.5137479Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T07:49:25.5137739Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T07:49:25.5137985Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T07:49:25.5138213Z   GH_AW_RUN_DETECTION: true
+2026-11-21T07:49:25.5138468Z   GH_AW_THREAT_DETECTION_AIC: 
+2026-11-21T07:49:25.5138715Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T07:49:25.5138998Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T07:49:25.5139860Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T07:49:25.5140508Z   GITHUB_AW_OTEL_TRACE_ID: dc268267c3b022e2154a251a36fd5d9f
+2026-11-21T07:49:25.5140874Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 2ace70341ed689e8
+2026-11-21T07:49:25.5141186Z   GITHUB_AW_OTEL_JOB_START_MS: 1795247365465
+2026-11-21T07:49:25.5141459Z ##[endgroup]
+2026-11-21T07:49:25.7882662Z Found 5 artifact(s)
+2026-11-21T07:49:25.7883773Z Filtering artifacts by pattern '{agent,agent-output-fallback}'
+2026-11-21T07:49:25.7910971Z Preparing to download the following artifacts:
+2026-11-21T07:49:25.7912201Z - agent (ID: 14698526144, Size: 678492, Expected Digest: sha256:936ebe5d79aaf894a62ff3079b5cfc553c4ca355421c2e8863ff69cb86862daf)
+2026-11-21T07:49:25.7913451Z - agent-output-fallback (ID: 14698281857, Size: 1691, Expected Digest: sha256:6a65cef960d53aa0d9b3450473dc6bea59ec43a0fad3b8c828d765212901803f)
+2026-11-21T07:49:25.9363599Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/f0f6bbd1-6881-4acb-bc28-3e9d19bd691a/workflow-job-run-eb50eb0a-9759-5c43-bf8e-9e6e2680a244/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-11-21T07:49:25.9365135Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T07:49:25.9484718Z Redirecting to blob download url: https://productionresultssa11.blob.core.windows.net/actions-results/f0f6bbd1-6881-4acb-bc28-3e9d19bd691a/workflow-job-run-eb50eb0a-9759-5c43-bf8e-9e6e2680a244/artifacts/daa0da78a4f899948f184de1c2267d4cff63de5d280692a88333f56508605a86.zip
+2026-11-21T07:49:25.9486589Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T07:49:25.9813401Z (node:4549) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T07:49:25.9815588Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T07:49:25.9886703Z SHA256 digest of downloaded artifact is 6a65cef960d53aa0d9b3450473dc6bea59ec43a0fad3b8c828d765212901803f
+2026-11-21T07:49:25.9887397Z Artifact download completed successfully.
+2026-11-21T07:49:26.0659809Z SHA256 digest of downloaded artifact is 936ebe5d79aaf894a62ff3079b5cfc553c4ca355421c2e8863ff69cb86862daf
+2026-11-21T07:49:26.0660579Z Artifact download completed successfully.
+2026-11-21T07:49:26.0660908Z Total of 2 artifact(s) downloaded
+2026-11-21T07:49:26.0665431Z Download artifact has finished successfully
