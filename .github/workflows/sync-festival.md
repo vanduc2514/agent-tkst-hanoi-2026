@@ -32,10 +32,15 @@ steps:
     env:
       APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
     run: |
-      python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch
-      python3 .agents/skills/sync-festival/scripts/sync_festival.py diff
-      python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write
-      python3 .agents/skills/sync-festival/scripts/sync_festival.py apply
+      set -e
+      skill=.agents/skills/sync-festival/scripts/sync_festival.py
+      python3 "$skill" fetch
+      # `diff` exits 1 when there is something to review, which is the normal case.
+      rc=0
+      python3 "$skill" diff || rc=$?
+      if [ "$rc" -eq 2 ]; then exit 2; fi
+      python3 "$skill" enrich --write
+      python3 "$skill" apply
   - name: Validate
     run: |
       python3 .agents/skills/sync-festival/scripts/sync_festival.py check
