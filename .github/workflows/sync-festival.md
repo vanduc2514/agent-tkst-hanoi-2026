@@ -14,6 +14,9 @@ network:
   allowed:
     - defaults
 tools:
+  # The agent edits files and opens a PR through safe-outputs; it never needs the
+  # GitHub MCP server, which costs a container pull and ~7 KB of generated steps.
+  github: false
   bash:
     - python3
     - node
