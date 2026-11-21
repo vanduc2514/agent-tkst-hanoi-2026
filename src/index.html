@@ -498,7 +498,7 @@
       opacity: 0; pointer-events: none; transition: opacity .18s ease;
     }
     .welcome.visible { opacity: 1; pointer-events: auto; }
-    .welcome-backdrop { position: absolute; inset: 0; background: rgb(16 34 27 / 38%); }
+    .welcome-backdrop { position: absolute; inset: 0; background: rgb(16 34 27 / 38%); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
     .welcome-card {
       position: relative; display: flex; flex-direction: column;
       width: min(372px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto;
@@ -1423,17 +1423,23 @@
           const button = $("#nearby-toggle");
           if (!button) return;
           const available = state.route.length > 0;
-          const on = available && !!state.nearby;
-          // The control belongs to route planning, so it only appears on that tab.
-          button.classList.toggle("is-hidden", state.tab !== "route");
+          // Only the route view shows the surrounding programme, so the toggle reports
+          // "on" there; from another tab it is the entry point into that view.
+          const onRouteTab = state.tab === "route";
+          const on = available && !!state.nearby && onRouteTab;
+          // The control follows the route, not the tab: once stops exist it stays on the
+          // map as a way back into the route view.
+          button.classList.toggle("is-hidden", !available);
           button.disabled = !available;
           button.classList.toggle("is-on", on);
           button.setAttribute("aria-pressed", String(on));
           button.title = !available
             ? "Thêm điểm dừng vào lộ trình để dùng chế độ lân cận."
-            : on
-              ? "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng."
-              : "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.";
+            : !onRouteTab
+              ? "Mở lộ trình và xem các hoạt động xung quanh các điểm dừng."
+              : on
+                ? "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng."
+                : "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.";
           button.setAttribute("aria-label", `Chế độ lân cận: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
           centerMapNote();
         }
@@ -3016,6 +3022,13 @@
           });
           $("#nearby-toggle").addEventListener("click", () => {
             if ($("#nearby-toggle").disabled) return;
+            // Away from the route tab the toggle is the way in, so it opens the route
+            // view with the surrounding programme already on.
+            if (state.tab !== "route") {
+              setTab("route");
+              setNearby(true, { quiet: false });
+              return;
+            }
             setNearby(!state.nearby, { quiet: false });
           });
           $("#share-route").addEventListener("click", shareRoute);
