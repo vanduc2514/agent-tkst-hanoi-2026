@@ -190,8 +190,8 @@
     .event-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .event-date { color: #73817a; font-size: 10px; font-weight: 700; }
     .event-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 7px; }
-    .event-type { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 3px 8px; color: #45594e; background: #eef4f0; font-size: 9px; font-weight: 800; white-space: nowrap; }
-    .event-type i { color: var(--green); font-size: 9px; }
+    .event-type { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #e5eae6; border-radius: 7px; padding: 2px 8px 2px 2px; color: #3d4f45; background: #fff; font-size: 10px; font-weight: 700; white-space: nowrap; }
+    .event-type i { display: grid; width: 19px; height: 19px; place-items: center; border-radius: 5px; color: #fff; background: var(--type, #556560); font-size: 9.5px; }
     .spotlight-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 99px; padding: 3px 7px; color: #7b4c34; background: #fbede5; font-size: 9px; font-weight: 800; }
     .event-cluster { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 4px 7px; background: #f6f8f6; color: #63716b; font-size: 9px; font-weight: 700; white-space: nowrap; }
     .event-name { margin: 8px 0 5px; font: 700 13px/1.4 Manrope, sans-serif; letter-spacing: -.15px; }
@@ -480,56 +480,38 @@
     .welcome {
       position: fixed; z-index: 5000; inset: 0; display: flex;
       align-items: center; justify-content: center; padding: 20px;
-      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+      opacity: 0; pointer-events: none; transition: opacity .18s ease;
     }
     .welcome.visible { opacity: 1; pointer-events: auto; }
-    .welcome-backdrop { position: absolute; inset: 0; background: rgb(16 34 27 / 46%); backdrop-filter: blur(5px); }
+    .welcome-backdrop { position: absolute; inset: 0; background: rgb(16 34 27 / 38%); }
     .welcome-card {
       position: relative; display: flex; flex-direction: column;
-      width: min(520px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto;
-      border-radius: 20px; padding: 26px 26px 22px; background: #fff;
-      box-shadow: 0 24px 60px rgb(9 26 19 / 34%);
-      transform: translateY(12px) scale(.99); transition: transform .22s ease;
+      width: min(372px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto;
+      border: 1px solid #e4e9e5; border-radius: 13px; padding: 18px 18px 15px; background: #fff;
+      box-shadow: 0 16px 38px rgb(9 26 19 / 20%);
+      transform: translateY(8px); transition: transform .18s ease;
     }
+    .welcome-card:focus { outline: none; }
     .welcome.visible .welcome-card { transform: none; }
+    .welcome-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .welcome-title { margin: 0; font: 700 15px/1.35 Manrope, sans-serif; letter-spacing: -.2px; }
     .welcome-close {
-      position: absolute; top: 14px; right: 14px; display: grid; width: 30px; height: 30px;
-      place-items: center; border: 0; border-radius: 8px; color: #84918b; background: transparent; font-size: 13px;
+      display: grid; flex: none; width: 26px; height: 26px; margin: -3px -3px 0 0;
+      place-items: center; border: 0; border-radius: 6px; color: #8e9893; background: transparent; font-size: 12px;
     }
-    .welcome-close:hover { color: var(--green); background: #f1f6f2; }
-    .welcome-mark {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 46px; height: 46px; border-radius: 15px; color: #fff;
-      background: linear-gradient(145deg, #34765f, #194a3b);
-      box-shadow: 0 6px 16px rgb(36 92 75 / 24%); font-size: 19px;
+    .welcome-close:hover { color: var(--ink); background: #f1f3f1; }
+    .welcome-copy { margin: 6px 0 0; color: #6f7c76; font-size: 11.5px; line-height: 1.55; }
+    .welcome-links { display: grid; margin: 13px 0 0; border-top: 1px solid #eef1ef; }
+    .welcome-link {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      min-height: 42px; border: 0; border-bottom: 1px solid #eef1ef; padding: 0;
+      color: #33443b; background: transparent; font-size: 12px; font-weight: 600; text-align: left;
     }
-    .welcome-eyebrow { margin: 16px 0 6px; color: #8b9791; font-size: 9.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-    .welcome-title { margin: 0; font: 800 22px/1.25 Manrope, sans-serif; letter-spacing: -.7px; }
-    .welcome-copy { margin: 9px 0 0; color: #6d7a74; font-size: 12px; line-height: 1.6; }
-    .welcome-actions { display: grid; gap: 8px; margin-top: 16px; }
-    .welcome-action {
-      display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px;
-      width: 100%; border: 1px solid #e6ece7; border-radius: 12px; padding: 10px 13px 10px 10px;
-      color: var(--ink); background: #fff; text-align: left;
-      transition: border-color .16s, background .16s, transform .16s;
-    }
-    .welcome-action > i {
-      display: grid; width: 38px; height: 38px; place-items: center;
-      border-radius: 11px; color: var(--green); background: #eef6f1; font-size: 15px;
-    }
-    .welcome-action strong { display: block; font: 700 13px/1.3 Manrope, sans-serif; }
-    .welcome-action small { display: block; margin-top: 2px; color: #78857f; font-size: 10.5px; line-height: 1.4; }
-    .welcome-action .welcome-action-arrow { color: #a7b3ad; font-size: 11px; }
-    .welcome-action:hover { border-color: #bdd3c7; background: #f9fcfa; }
-    .welcome-action:hover .welcome-action-arrow { color: var(--green); }
-    .welcome-action:active { transform: translateY(1px); }
-    .welcome-action:focus-visible, .welcome-start:focus-visible, .welcome-close:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-    .welcome-start {
-      width: 100%; min-height: 44px; margin-top: 14px; border: 1px solid var(--green); border-radius: 11px;
-      color: #fff; background: var(--green); font-size: 12px; font-weight: 700;
-    }
-    .welcome-start:hover { background: var(--green-dark); }
-    .welcome-foot { margin: 10px 0 0; color: #98a39d; font-size: 9.5px; line-height: 1.5; text-align: center; }
+    .welcome-link:last-child { border-bottom: 0; }
+    .welcome-link i { color: #adb6b1; font-size: 9px; }
+    .welcome-link:hover, .welcome-link:hover i { color: var(--green); }
+    .welcome-link:focus-visible, .welcome-close:focus-visible { outline: 2px solid var(--green); outline-offset: 1px; border-radius: 4px; }
+    .welcome-foot { margin: 11px 0 0; color: #9aa39e; font-size: 10px; line-height: 1.45; }
     .map-fallback {
       position: absolute; z-index: 500; inset: 0; display: grid; place-content: center; justify-items: center;
       gap: 9px; padding: 86px 24px 128px; text-align: center;
@@ -546,8 +528,7 @@
     .map-fallback button:hover { background: var(--green-dark); }
     @media (max-width: 760px) {
       .welcome { align-items: flex-end; padding: 0; }
-      .welcome-card { width: 100%; max-height: 88dvh; border-radius: 20px 20px 0 0; padding: 22px 20px max(18px, env(safe-area-inset-bottom)); }
-      .welcome-title { font-size: 19px; }
+      .welcome-card { width: 100%; max-height: 88dvh; border-radius: 13px 13px 0 0; padding: 18px 18px max(15px, env(safe-area-inset-bottom)); }
       .map-fallback { padding: 74px 20px 118px; }
     }
     .location-prompt {
@@ -617,31 +598,18 @@
 <body>
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-copy" aria-hidden="true" inert>
     <div class="welcome-backdrop" data-welcome-dismiss></div>
-    <div class="welcome-card" role="document">
-      <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
-      <span class="welcome-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
-      <p class="welcome-eyebrow">Lễ hội Thiết kế Sáng tạo Hà Nội 2026</p>
-      <h2 class="welcome-title" id="welcome-title">Khám phá, hỏi AI, dựng lộ trình</h2>
-      <p class="welcome-copy" id="welcome-copy">Bản đồ gom toàn bộ chương trình chính thức: chọn một điểm để xem chi tiết, hỏi AI để được gợi ý, hoặc tự dựng lộ trình đi bộ.</p>
-      <div class="welcome-actions">
-        <button class="welcome-action" id="welcome-explore" type="button">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-          <span><strong>Khám phá</strong><small>Tìm theo tên, địa điểm hoặc ngày</small></span>
-          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
-        </button>
-        <button class="welcome-action" id="welcome-ai" type="button">
-          <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
-          <span><strong>Hỏi AI</strong><small>Prompt sẵn cho ChatGPT, Claude, Gemini</small></span>
-          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
-        </button>
-        <button class="welcome-action" id="welcome-route" type="button">
-          <i class="fa-solid fa-route" aria-hidden="true"></i>
-          <span><strong>Lộ trình</strong><small>Bắt đầu từ hành trình gợi ý có sẵn</small></span>
-          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
-        </button>
+    <div class="welcome-card" role="document" tabindex="-1">
+      <div class="welcome-head">
+        <h2 class="welcome-title" id="welcome-title">Cách dùng bản đồ</h2>
+        <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <button class="welcome-start" id="welcome-start" type="button">Bắt đầu khám phá</button>
-      <p class="welcome-foot">Chỉ hiện một lần trên trình duyệt này. Mở lại bất cứ lúc nào bằng nút “Hướng dẫn”.</p>
+      <p class="welcome-copy" id="welcome-copy">Chọn một điểm trên bản đồ để xem chi tiết.</p>
+      <div class="welcome-links">
+        <button class="welcome-link" id="welcome-explore" type="button">Khám phá chương trình<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-ai" type="button">Hỏi AI<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-route" type="button">Lên lộ trình<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      </div>
+      <p class="welcome-foot">Mở lại bằng nút “Hướng dẫn” trên bản đồ.</p>
     </div>
   </div>
   <main class="app-shell">
@@ -891,15 +859,15 @@
       // blank on some rows, where the first tag still names the kind. Icons let the
       // Explore list be scanned by type instead of reading every title.
       const EVENT_TYPES = {
-        exhibition: { icon: "fa-image", label: "Triển lãm" },
-        pavilion: { icon: "fa-cube", label: "Gian trưng bày" },
-        fair: { icon: "fa-store", label: "Hội chợ" },
-        performance: { icon: "fa-masks-theater", label: "Biểu diễn" },
-        workshop: { icon: "fa-screwdriver-wrench", label: "Workshop" },
-        talk: { icon: "fa-comments", label: "Toạ đàm" },
-        tour: { icon: "fa-person-walking", label: "Tour" },
-        community: { icon: "fa-people-group", label: "Cộng đồng" },
-        event: { icon: "fa-calendar-day", label: "Sự kiện" }
+        exhibition: { icon: "fa-image", label: "Triển lãm", color: "#a8683a" },
+        pavilion: { icon: "fa-cube", label: "Gian trưng bày", color: "#4f6cae" },
+        fair: { icon: "fa-store", label: "Hội chợ", color: "#b2543c" },
+        performance: { icon: "fa-masks-theater", label: "Biểu diễn", color: "#9c4266" },
+        workshop: { icon: "fa-screwdriver-wrench", label: "Workshop", color: "#2f7660" },
+        talk: { icon: "fa-comments", label: "Toạ đàm", color: "#37768f" },
+        tour: { icon: "fa-person-walking", label: "Tour", color: "#6c7d33" },
+        community: { icon: "fa-people-group", label: "Cộng đồng", color: "#75589f" },
+        event: { icon: "fa-calendar-day", label: "Sự kiện", color: "#556560" }
       };
       const TYPE_BY_TAG = {
         "triển lãm": "exhibition",
@@ -912,7 +880,7 @@
         "workshop": "workshop",
         "cộng đồng": "community"
       };
-      const DEFAULT_EVENT_TYPE = { icon: "fa-calendar-day", label: "Hoạt động" };
+      const DEFAULT_EVENT_TYPE = { icon: "fa-calendar-day", label: "Hoạt động", color: "#556560" };
 
       function eventType(event) {
         const primary = String(event.officialType || "").split(",")[0].trim().toLowerCase();
@@ -1826,7 +1794,7 @@
               <div class="event-topline"><span class="event-date">${escapeHtml(dayLabel)}</span>
                 <span class="event-cluster"><i class="cluster-dot" style="background:${cluster.color}"></i>${escapeHtml(cluster.name)}</span></div>
               <h3 class="event-name"><span class="event-index" style="background:${cluster.color}">${event.number}</span>${escapeHtml(event.title)}</h3>
-              <div class="event-badges"><span class="event-type"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>
+              <div class="event-badges"><span class="event-type" style="--type:${type.color}"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>
                 ${event.spotlight ? '<span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span>' : ""}</div>
               <div class="event-place"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(place.name)}</span></div>
               <p class="event-desc">${escapeHtml(event.description)}</p>
@@ -2341,7 +2309,7 @@
           overlay.classList.add("visible");
           overlay.setAttribute("aria-hidden", "false");
           overlay.inert = false;
-          requestAnimationFrame(() => $("#welcome-start")?.focus({ preventScroll: true }));
+          requestAnimationFrame(() => $("#welcome .welcome-card")?.focus({ preventScroll: true }));
         }
 
         function closeWelcome(remember = true) {
@@ -2383,7 +2351,6 @@
             if (!event.target.closest(".welcome-card")) closeWelcome();
           });
           $("#welcome-close").addEventListener("click", () => closeWelcome());
-          $("#welcome-start").addEventListener("click", () => closeWelcome());
           $("#welcome-explore").addEventListener("click", () => runWelcomeAction("explore"));
           $("#welcome-ai").addEventListener("click", () => runWelcomeAction("ai"));
           $("#welcome-route").addEventListener("click", () => runWelcomeAction("route"));
