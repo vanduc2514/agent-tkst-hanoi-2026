@@ -204,7 +204,8 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     add("")
 
     add("## Needs your review\n")
-    add("| Event | id | Change | Source |")
+    add("`Difference` is ours against the remote value in the last column; social wins when both disagree.\n")
+    add("| Event | id | Difference | Remote source |")
     add("|---|---|---|---|")
     pending = 0
     for row in human:
@@ -212,26 +213,37 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         title = event.get("title") or row["id"]
         for change in row["changes"]:
             if change["field"] == "title":
-                add(f"| {title} | `{row['id']}` | title kept, listing says \"{change['site']}\" | listing |")
+                add(f"| {title} | `{row['id']}` | title — ours \"{change['was']}\" | "
+                    f"\"{change['site']}\" — listing |")
                 pending += 1
         for date in row["dates"]:
             if not date.get("curated"):
-                add(f"| {title} | `{row['id']}` | {_label(date['field'])} {date['was']} (listing {date['site']}) | listing |")
+                add(f"| {title} | `{row['id']}` | {_label(date['field'])} — ours {date['was']} | "
+                    f"{date['site']} — listing |")
                 pending += 1
     for event, proposal, changes in review:
-        detail = ", ".join(f"{_label(c['field'])} {c['was']} → post {c['social']}" for c in changes)
-        posted = f"{proposal['network'] or 'post'} · {proposal['postedAt'] or '—'}"
-        add(f"| {event['title']} | `{event['id']}` | {detail} — one session of a longer run | {_source(posted, proposal.get('postUrl'))} |")
-        pending += 1
+        label = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
+        source = _source(label, proposal.get("postUrl"))
+        note = ""
+        if not schedule.can_override(event, proposal):
+            # The post names one session inside a longer run, not a reschedule.
+            session = (proposal.get("dates") or [""])[0]
+            changes = [change for change in changes if change["field"] in ("startTime", "endTime")]
+            note = f", session on {session} inside our run"
+        for change in changes:
+            add(f"| {event['title']} | `{event['id']}` | {_label(change['field'])} — ours {change['was']} | "
+                f"{change['social']} — {source}{note} |")
+            pending += 1
     for row in new_in:
         start = row["start"] or {}
         when = f"{start.get('date', '—')} {start.get('time', '')}".strip()
         venue = row["item"].get("venueName")
         where = f" at {venue}" if venue else ""
-        add(f"| {row['item']['title']} | `{row['slug']}` | new event, starts {when}{where} | listing |")
+        add(f"| {row['item']['title']} | `{row['slug']}` | not in events.json | "
+            f"starts {when}{where} — listing |")
         pending += 1
     for event in missing:
-        add(f"| {event['title']} | `{event['id']}` | listing page gone, both slug and sitemap | listing |")
+        add(f"| {event['title']} | `{event['id']}` | ours is still here | gone from the slug and the sitemap — listing |")
         pending += 1
     if not pending:
         add("| — | — | nothing to decide | — |")

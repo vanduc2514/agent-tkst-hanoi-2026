@@ -414,13 +414,30 @@ class Report(unittest.TestCase):
         self.assertIn("## Changes made", text)
         self.assertIn("## Needs your review", text)
         self.assertLess(text.index("## Changes made"), text.index("## Needs your review"))
-        self.assertEqual(text.count("| Event | id | Change | Source |"), 2)
+        self.assertEqual(text.count("| Event | id | Change | Source |"), 1)
+        self.assertIn("| Event | id | Difference | Remote source |", text)
         self.assertIn(f"| {event['title']} | `{event['id']}` | end 17:00 → 17:30 | facebook · 2026-11-20 |", text)
+
+    def test_a_post_row_links_the_post(self):
+        data = {"clusters": {}, "places": [], "events": [{
+            "id": "e001", "title": "Pavilion Hồ Gương", "date": "2026-11-13",
+            "dateEnd": "2026-11-28", "startTime": "09:00", "endTime": "19:00"}]}
+        proposals = [{
+            "eventId": "e001", "title": "Pavilion Hồ Gương", "dates": ["2026-11-20"],
+            "startTime": "10:00", "endTime": "18:00", "network": "facebook",
+            "postedAt": "2026-11-20", "postUrl": "https://example.test/post"}]
+        text = cli.render(data, [{"kind": "same"}], [], [], None, proposals, None)
+        self.assertIn("| Event | id | Difference | Remote source |", text)
+        self.assertIn("start — ours 09:00", text)
+        self.assertIn("[facebook post, 2026-11-20](https://example.test/post)", text)
+        self.assertIn("session on 2026-11-20 inside our run", text)
+        self.assertNotIn("date — ours", text, "a session date is not a reschedule")
 
     def test_without_a_ledger(self):
         text = cli.render(load(), [{"kind": "same"}], [], [], None, None, None)
         self.assertIn("Nothing written yet", text)
         self.assertIn("| — | — | nothing to decide | — |", text)
+        self.assertIn("| Event | id | Difference | Remote source |", text)
 
 
 class Apify(unittest.TestCase):

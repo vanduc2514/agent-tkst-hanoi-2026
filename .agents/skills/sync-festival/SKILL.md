@@ -64,14 +64,20 @@ The report has exactly two sections, both keyed by event name then id:
 
 | Section | Rows | Action |
 |---|---|---|
-| Changes made | what the last `apply` wrote, with the post or listing it came from | none, it is a record |
-| Needs your review | title or schedule drift, single sessions of a longer run, new slugs, dead listing pages | read the row, then edit by hand or run `apply` |
+| Changes made | what the last `apply` wrote, with the post (linked) or listing it came from | none, it is a record |
+| Needs your review | the field that differs and both values, social first | read the row, then edit by hand or run `apply` |
 
-Both tables use `| Event | id | Change | Source |`. A row whose difference a post
-already settles is not repeated under review. Everything the sync deliberately
-leaves alone — curated official values, per-day schedules, venue-label notes, posts
-outside the window — is a single "Nothing to do" line under the tables, along with
-the ids that have no listing URL.
+"Changes made" uses `| Event | id | Change | Source |`, where the source is the post
+it came from, linked, or `listing`. "Needs your review" uses
+`| Event | id | Difference | Remote source |`: the difference column states the field
+and our value, the last column states the remote value and where it came from — a
+linked post when one exists, `listing` otherwise. A post row also says when its date
+is one session inside our longer run rather than a reschedule.
+
+A difference a post already settles is not repeated under review. Everything the sync
+deliberately leaves alone — curated official values, per-day schedules, venue-label
+notes, posts outside the window — is a single "Nothing to do" line under the tables,
+along with the ids that have no listing URL.
 
 ### 3. Apply
 
@@ -103,7 +109,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 40 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 41 offline tests over the
 parsers, matcher, diff, schedule override and inserter; it must pass before any
 edit is committed.
 
@@ -167,7 +173,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 40 offline tests |
+| `scripts/selftest.py` | 41 offline tests |
 | `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
