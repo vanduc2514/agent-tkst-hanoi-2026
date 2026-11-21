@@ -14,11 +14,13 @@ import social
 import apify
 from config import EVENTS
 from events_model import load, new_event, validate, within_festival
-from extract import fold, html_to_text, in_window, parse_dates, parse_times, prose_facts, same_text, vn_parts
-from match import best_event, best_place, coverage, find_duplicate, genre_tag, slug_of
+from extract import (fold, html_to_text, in_window, parse_dates, parse_times, prose_facts,
+                     same_text, schedule_claim, vn_parts)
+from match import best_event, best_place, coverage, find_duplicate, genre_tag, named_event, slug_of
 from enrich import apply_registrations, form_links, registration_proposals
 
 sys.path.insert(0, str(Path(__file__).parent))
+import schedule  # noqa: E402
 import sync_festival as cli  # noqa: E402
 
 
@@ -73,6 +75,27 @@ class Helpers(unittest.TestCase):
         self.assertTrue(in_window("2026-11-20", "2026-12-13"))
         self.assertFalse(in_window("2026-11-12"))
         self.assertFalse(in_window("2024-11-13"))
+
+    def test_schedule_claim_reads_only_the_labelled_line(self):
+        text = ("Lễ hội diễn ra từ 13/11 đến 28/11/2026.\n"
+                "Thời gian: 09h00 – 11h00, Chủ nhật, ngày 22/11/2026\n"
+                "Địa điểm: 47 Hàng Dầu")
+        claim = schedule_claim(text)
+        self.assertEqual(claim["times"], ["09:00–11:00"])
+        self.assertEqual(claim["dates"], ["2026-11-22"])
+        self.assertFalse(claim["ambiguous"])
+
+    def test_schedule_claim_without_a_label_uses_the_sentence(self):
+        claim = schedule_claim('Trình diễn "Sắc mưa" diễn ra lúc 15:00 - 16:00 ngày 14/11/2026 tại Hà Nội.')
+        self.assertEqual(claim["times"], ["15:00–16:00"])
+        self.assertEqual(claim["dates"], ["2026-11-14"])
+
+    def test_schedule_claim_flags_two_different_sessions(self):
+        text = ("Trình diễn A\nThời gian: 15:00 - 16:00 ngày 14/11/2026\n"
+                "Trình diễn B\nThời gian: 20:00 - 21:00 ngày 15/11/2026")
+        self.assertTrue(schedule_claim(text)["ambiguous"])
+        bilingual = "Thời gian: 09:00 - 11:00 ngày 22/11/2026\nTime: 9:00 - 11:00, 22 November 2026"
+        self.assertFalse(schedule_claim(bilingual)["ambiguous"])
 
 
 class Matching(unittest.TestCase):
@@ -272,6 +295,75 @@ class Apply(unittest.TestCase):
         self.assertEqual(len(skipped), 1)
         self.assertEqual(data["events"][-1]["placeId"], "p01")
         self.assertEqual(data["events"][-1]["number"], before + 1)
+
+
+class SocialSchedule(unittest.TestCase):
+    def setUp(self):
+        # Synthetic events: the real file changes as the sync writes overrides.
+        self.events = [
+            {"id": "e001", "title": 'Trao đổi chuyên môn "Trình diễn thơ - Vượt qua đường biên chữ"',
+             "date": "2026-11-22", "dateEnd": "2026-11-22", "startTime": "09:00", "endTime": "12:00"},
+            {"id": "e002", "title": 'Pavilion "Hồ Gương"',
+             "date": "2026-11-13", "dateEnd": "2026-11-28", "startTime": "09:00", "endTime": "19:00"},
+            {"id": "e003", "title": "Chuỗi Culture Show: Xẩm, Ca trù",
+             "date": "2026-11-15", "dateEnd": "2026-11-28", "startTime": "20:00", "endTime": "21:00",
+             "days": ["2026-11-15", "2026-11-21"]},
+            {"id": "e004", "title": 'Trao đổi chuyên môn "Di sản tự sinh"',
+             "date": "2026-11-20", "dateEnd": "2026-11-20", "startTime": "09:00", "endTime": "11:00"},
+        ]
+
+    def data(self):
+        return {"events": json.loads(json.dumps(self.events))}
+
+    def post(self, text, posted="2026-11-20"):
+        return {"text": text, "source": "https://example.test/p/1", "posted_at": posted, "network": "facebook"}
+
+    def test_named_event_skips_a_generic_heading(self):
+        text = 'Trao đổi chuyên môn "Trình diễn thơ - Vượt qua đường biên chữ" - Thời gian: 09h00 – 11h00'
+        self.assertEqual(named_event(text, self.events)["id"], "e001")
+        self.assertIsNone(named_event("Trao đổi chuyên môn", self.events))
+        self.assertIsNone(named_event("HFCD26 OFFICAL AGENDA gần 150 hoạt động", self.events))
+
+    def test_social_wins_the_schedule(self):
+        text = ("📍 Trao đổi chuyên môn “Trình diễn thơ – Vượt qua đường biên chữ”\n"
+                "Thời gian: 09h00 – 11h00, Chủ nhật, ngày 22/11/2026\n"
+                "Địa điểm: Hội trường Sở Văn hóa, Thể thao và Du lịch Hà Nội, 47 Hàng Dầu")
+        proposals = schedule.schedule_proposals([self.post(text)], self.events)
+        self.assertEqual([p["eventId"] for p in proposals], ["e001"])
+
+        data = self.data()
+        applied, review = schedule.apply_schedules(data, proposals)
+        event = data["events"][0]
+        self.assertEqual([eid for eid, _ in applied], ["e001"])
+        self.assertEqual(review, [])
+        self.assertEqual([event["startTime"], event["endTime"]], ["09:00", "11:00"])
+        self.assertEqual(event["date"], "2026-11-22")
+
+    def test_a_single_date_in_a_longer_run_is_not_a_reschedule(self):
+        text = "Pavilion “Hồ Gương”\nThời gian: 10:00 - 18:00 ngày 20/11/2026"
+        data = self.data()
+        proposals = schedule.schedule_proposals([self.post(text)], self.events)
+        applied, review = schedule.apply_schedules(data, proposals)
+        self.assertEqual(applied, [])
+        self.assertEqual([event["id"] for event, _, _ in review], ["e002"])
+        self.assertEqual(data["events"][1]["startTime"], "09:00")
+
+    def test_curated_per_day_schedule_is_left_alone(self):
+        text = "Chuỗi Culture Show: Xẩm, Ca trù\nThời gian: 20:00 - 21:30 ngày 27/11/2026"
+        self.assertEqual(schedule.schedule_proposals([self.post(text)], self.events), [])
+
+    def test_newest_post_wins(self):
+        older = self.post('Trao đổi chuyên môn "Trình diễn thơ" - Thời gian: 09:00 - 10:00 ngày 22/11/2026',
+                          posted="2026-11-18")
+        newer = self.post('Trao đổi chuyên môn "Trình diễn thơ" - Thời gian: 09:00 - 11:00 ngày 22/11/2026',
+                          posted="2026-11-20")
+        proposals = schedule.schedule_proposals([newer, older], self.events)
+        self.assertEqual(proposals[0]["endTime"], "11:00")
+
+    def test_real_file_still_matches_the_poetry_talk(self):
+        events = load()["events"]
+        text = 'Trao đổi chuyên môn "Trình diễn thơ - Vượt qua đường biên chữ"'
+        self.assertEqual(named_event(text, events)["id"], "e130")
 
 
 class Enrichment(unittest.TestCase):

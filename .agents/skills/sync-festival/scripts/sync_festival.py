@@ -23,6 +23,7 @@ import urllib.request
 
 import apify
 import enrich
+import schedule
 import social
 from config import EVENTS, FESTIVAL_END, FESTIVAL_START, PUBLIC_API, WORK
 from events_model import (
@@ -129,7 +130,25 @@ def compare(data, remote):
     return {"rows": rows, "missing": missing, "unlinked": unlinked}
 
 
-def render(data, rows, missing, unlinked, social_drafts=None):
+def social_schedule(data, proposals):
+    """Split the post claims into the ones a post may override and the ones to review."""
+    events = {event["id"]: event for event in data["events"]}
+    applied, review = [], []
+    for proposal in proposals or []:
+        event = events.get(proposal["eventId"])
+        if not event:
+            continue
+        changes = schedule.schedule_changes(event, proposal)
+        if not changes:
+            continue
+        if schedule.can_override(event, proposal):
+            applied.append((event, proposal, changes))
+        else:
+            review.append((event, proposal, changes))
+    return applied, review
+
+
+def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals=None):
     """A 4 KB triage sheet: what to fix, what is safe, what to ignore."""
     lines = []
     add = lines.append
@@ -137,6 +156,7 @@ def render(data, rows, missing, unlinked, social_drafts=None):
     same = [row for row in rows if row["kind"] == "same"]
     new_in = [row for row in rows if row["kind"] == "new" and within_festival({"date": (row["start"] or {}).get("date", ""), "dateEnd": (row["end"] or {}).get("date")})]
     new_out = [row for row in rows if row["kind"] == "new" and row not in new_in]
+    overrides, review = social_schedule(data, schedule_proposals)
 
     human = [row for row in changed if any(c["field"] == "title" for c in row["changes"])
              or any(not d.get("curated") for d in row["dates"])]
@@ -148,6 +168,8 @@ def render(data, rows, missing, unlinked, social_drafts=None):
     add("| bucket | count | action |")
     add("|---|---|---|")
     add(f"| needs a human | {len(human)} | read the table, edit by hand |")
+    add(f"| social overrides | {len(overrides)} | `sync_festival.py apply` (social wins) |")
+    add(f"| social needs a review | {len(review)} | read the post, edit by hand |")
     add(f"| safe fills | {len(fills)} | `sync_festival.py apply` |")
     add(f"| kept curated | {len(kept)} | already set here, left alone |")
     add(f"| new in window | {len(new_in)} | review, then add by hand |")
@@ -177,6 +199,31 @@ def render(data, rows, missing, unlinked, social_drafts=None):
             for date in row["dates"]:
                 if not date.get("curated"):
                     add(f"| `{row['id']}` | {date['field']} | {date['was']} | {date['site']} |")
+        covered = sorted({proposal["eventId"] for proposal in schedule_proposals or []}
+                         & {row["id"] for row in human})
+        if covered:
+            add("")
+            add(f"Posts already confirm the stored hours for {', '.join(f'`{eid}`' for eid in covered)};")
+            add("the site listing is the stale side there.")
+        add("")
+
+    if overrides:
+        add("## Social overrides the schedule\n")
+        add("The organiser posted newer hours; social wins, `apply` writes these.\n")
+        add("| id | field | events.json | social | post |")
+        add("|---|---|---|---|---|")
+        for event, proposal, changes in overrides:
+            for change in changes:
+                posted = f"{proposal['postedAt'] or '—'} {proposal['network'] or ''}".strip()
+                add(f"| `{event['id']}` | {change['field']} | {change['was']} | {change['social']} | {posted} |")
+        add("")
+
+    if review:
+        add("## Social schedule needs a review\n")
+        add("A single session inside a longer run, so it is reported and not applied.\n")
+        for event, proposal, changes in review:
+            detail = ", ".join(f"{c['field']} {c['was']} → {c['social']}" for c in changes)
+            add(f"- `{event['id']}` {event['title']}: {detail} (post {proposal['postedAt'] or '—'})")
         add("")
 
     if fills:
@@ -315,11 +362,14 @@ def cmd_diff(args):
     remote = site_events()
     diff = compare(data, remote)
     drafts = read_social()
+    proposals = None
     if drafts:
+        proposals = schedule.schedule_proposals(drafts, data["events"])
         drafts = [social.build_draft(post, data["events"], data["places"]) for post in drafts]
 
     WORK.mkdir(parents=True, exist_ok=True)
-    (WORK / "report.md").write_text(render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts), encoding="utf-8")
+    (WORK / "report.md").write_text(
+        render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts, proposals), encoding="utf-8")
     if drafts is not None:
         (WORK / "social-drafts.json").write_text(json.dumps(drafts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -337,15 +387,26 @@ def cmd_apply(args):
     diff = compare(data, site_events())
     filled, kept = apply_safe(data, diff["rows"])
     inserted, skipped = [], []
+    applied_schedule, review_schedule = [], []
+    if not args.no_social:
+        posts = read_social() or []
+        applied_schedule, review_schedule = schedule.apply_schedules(
+            data, schedule.schedule_proposals(posts, data["events"]))
     if args.insert_social:
         drafts = read_social() or []
         drafts = [social.build_draft(post, data["events"], data["places"]) for post in drafts]
         inserted, skipped = apply_social(data, drafts)
     save(data)
 
-    print(f"filled {len(filled)} · kept curated {len(kept)} · inserted {len(inserted)}")
+    print(f"filled {len(filled)} · kept curated {len(kept)} · social schedule {len(applied_schedule)} · "
+          f"inserted {len(inserted)}")
     for eid, field in filled[:15]:
         print(f"  {eid}: {field}")
+    for eid, changes in applied_schedule:
+        detail = ", ".join(f"{c['field']} {c['was']}→{c['social']}" for c in changes)
+        print(f"  social {eid}: {detail}")
+    for event, proposal, changes in review_schedule[:10]:
+        print(f"  review {event['id']}: a single session of a longer run, left alone")
     for eid, field, kept_value, site_value in kept[:10]:
         print(f"  kept {eid} {field}={kept_value!r} (site {site_value!r})")
     for eid, title in inserted:
@@ -438,8 +499,9 @@ def main(argv=None):
     diff = sub.add_parser("diff", help="compare the site with events.json")
     diff.set_defaults(func=cmd_diff)
 
-    apply_cmd = sub.add_parser("apply", help="write safe fills")
+    apply_cmd = sub.add_parser("apply", help="write safe fills and the social schedule overrides")
     apply_cmd.add_argument("--insert-social", action="store_true", help="also add new events from social drafts")
+    apply_cmd.add_argument("--no-social", action="store_true", help="skip the schedule overrides from posts")
     apply_cmd.set_defaults(func=cmd_apply)
 
     enrich_cmd = sub.add_parser("enrich", help="registration links from social posts")

@@ -16,6 +16,8 @@ _ENTITIES = {
 
 _QUOTED = re.compile(r"[“\"]([^”\"]{3,})[”\"]")
 _TIME_RANGE = re.compile(r"(\d{1,2})[:h](\d{2})\s*[-–—]\s*(\d{1,2})[:h](\d{2})")
+_LABEL_SCHEDULE = re.compile(r"(?:Thời gian|Time)\s*[:：]\s*([^\n]{0,240})", re.I)
+_SENTENCE_SPLIT = re.compile(r"[^.!?\n]+[.!?]?")
 _FULL_RANGE = re.compile(r"(\d{1,2})/(\d{1,2})\s*(?:[-–—]|đến)\s*(\d{1,2})/(\d{1,2})(?:/(\d{4}))?")
 _DAY_RANGE = re.compile(r"(?<![/\d])(\d{1,2})\s*(?:[-–—]|đến)\s*(\d{1,2})/(\d{1,2})(?:/(\d{4}))?")
 _SINGLE_DATE = re.compile(r"(?:ngày\s+)?(\d{1,2})/(\d{1,2})(?:/(\d{4}))?")
@@ -145,6 +147,37 @@ def prose_facts(text):
 def quoted(text):
     match = _QUOTED.search(text or "")
     return match.group(1) if match else None
+
+
+def schedule_claim(text):
+    """Dates and times from the post's own schedule, not from the whole caption.
+
+    Captions usually repeat the festival's 13–28/11 window in a footer, so reading
+    the whole text would turn every post into a claim about the entire festival.
+    Only the "Thời gian / Time" labels, or the sentences that carry a time range,
+    are read.
+    """
+    source = text or ""
+    segments = [match.group(1) for match in _LABEL_SCHEDULE.finditer(source)]
+    if not segments:
+        segments = [part.strip() for part in _SENTENCE_SPLIT.findall(source)
+                    if _TIME_RANGE.search(part)]
+
+    claims = [(parse_times(segment), parse_dates(segment)) for segment in segments]
+    first_times = [times[0] for times, _ in claims if times]
+    if len(set(first_times)) > 1:
+        # Two different schedules: the post describes several sessions.
+        return {"dates": [], "times": [], "ambiguous": True}
+
+    dates, times = [], []
+    for segment_times, segment_dates in claims:
+        for value in segment_times:
+            if value not in times:
+                times.append(value)
+        for value in segment_dates:
+            if value not in dates:
+                dates.append(value)
+    return {"dates": sorted(dates), "times": times, "ambiguous": False}
 
 
 def in_window(start, end=None):

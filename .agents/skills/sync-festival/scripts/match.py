@@ -142,6 +142,23 @@ def best_event(text, events):
     return None
 
 
+def named_event(text, events):
+    """The single event a post names, or None when no name is unambiguous.
+
+    Names are tried from the most specific to the most generic, and the first one
+    that matches exactly one event wins. A heading that is shared by many events
+    ("Trao đổi chuyên môn") is therefore skipped in favour of the quoted title.
+    """
+    titles = [(event["id"], fold(event.get("title") or "")) for event in events]
+    by_id = {event["id"]: event for event in events}
+    for name in _post_names(text):
+        folded = fold(name)
+        found = [event_id for event_id, title in titles if folded in title]
+        if len(found) == 1:
+            return by_id[found[0]]
+    return None
+
+
 def genre_tag(event_type):
     first = (event_type or "").split(",")[0].strip()
     return GENRE.get(first, first.lower())

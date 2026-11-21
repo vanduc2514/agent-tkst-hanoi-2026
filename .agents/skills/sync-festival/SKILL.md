@@ -1,6 +1,6 @@
 ---
 name: sync-festival
-description: Refresh src/events.json from the Hanoi Design Festival's official site and from the organiser's Facebook, Instagram and Threads accounts, retrieved through Apify. Use when events may have been added, moved, renamed or cancelled, before a deploy, or when a poster or social post disagrees with the local data. Compares the official JSON API with the local file, applies only fields the organiser owns, and never overwrites curated times or map pins.
+description: Refresh src/events.json from the Hanoi Design Festival's official site and from the organiser's Facebook, Instagram and Threads accounts, retrieved through Apify. Use when events may have been added, moved, renamed or cancelled, before a deploy, or when a poster or social post disagrees with the local data. The organiser's posts win every date and time conflict, because they are the freshest source; map pins and curated per-day schedules are never overwritten.
 argument-hint: "[fetch|diff|apply|check]"
 ---
 
@@ -12,11 +12,11 @@ Two sources, two jobs:
 
 | Source | Retrieved with | Provides |
 |---|---|---|
-| `lehoithietkesangtao.vn` | its public JSON API | titles, types, venues, detail prose, dates |
-| Facebook, Instagram, Threads | **Apify actors** | changes and additions the site has not published |
+| `lehoithietkesangtao.vn` | its public JSON API | titles, types, venues, detail prose |
+| Facebook, Instagram, Threads | **Apify actors** | changes, additions and the real schedule |
 
-The map pins, clusters, opening times and routes in the repo are curated here.
-They are never overwritten automatically.
+The map pins, clusters and per-day schedules in the repo are curated here. A post
+only overrides `date`, `dateEnd`, `startTime` and `endTime`.
 
 ## Ground rules
 
@@ -27,10 +27,16 @@ They are never overwritten automatically.
 3. **The site's dates are coarse.** `startAt`/`endAt` are UTC listing values and
    often contradict the event's own prose. They surface in the report; they are
    never applied.
-4. **Two field classes.** `official*` belongs to the organiser and may be
-   refreshed. `date`, `dateEnd`, `startTime`, `endTime`, `slots`, `lineup`,
-   `placeId`, `clusterId`, `tags`, `spotlight`, `number` are curated and only
-   change by hand.
+4. **Social wins a schedule conflict.** The accounts post the real hours and any
+   change, and they post it later than the listing is updated. When a post names
+   exactly one event and carries its own schedule, it overrides `date`,
+   `dateEnd`, `startTime` and `endTime`. The report states every override before
+   `apply` writes it.
+5. **Two field classes.** `official*` belongs to the organiser and may be
+   refreshed. `slots`, `lineup`, `days`, `placeId`, `clusterId`, `tags`,
+   `spotlight` and `number` are curated and only change by hand — a curated
+   per-day schedule is richer than one post, so an event that has one is never
+   overridden.
 
 ## Workflow
 
@@ -57,11 +63,13 @@ Writes `tmp/sync/report.md` — a 2–3 KB triage sheet — and
 | Section | Meaning | Action |
 |---|---|---|
 | needs a human | title or date differs | read the detail page, decide |
+| social overrides | a post has newer hours | `apply` writes it, social wins |
+| social needs a review | a post names one session of a longer run | read the post, edit by hand |
 | safe fills | empty `official*` field | `apply` |
 | kept curated | the repo already has a different value | leave it |
 | new in window | slug the repo has never seen | review, add by hand |
 | new outside the window | past editions and announcements | ignore |
-| curated schedules | event has `slots`/`lineup` | leave it |
+| curated schedules | event has `slots`/`lineup`/`days` | leave it |
 | no officialUrl | curated from posters, unverifiable | attach a URL when found |
 | social posts | drafts with `ready` / `duplicate` / `announcement` flags | see below |
 
@@ -69,12 +77,21 @@ Writes `tmp/sync/report.md` — a 2–3 KB triage sheet — and
 
 ```sh
 python3 .agents/skills/sync-festival/scripts/sync_festival.py apply
+python3 .agents/skills/sync-festival/scripts/sync_festival.py apply --no-social
 python3 .agents/skills/sync-festival/scripts/sync_festival.py apply --insert-social
 ```
 
-`apply` fills empty organiser fields and reports what it kept. Add
-`--insert-social` to insert drafts that carry a date, a time, a resolvable place
-and an event-like title, and that are not duplicates or outside 13–28/11.
+`apply` writes the social schedule overrides first, then fills empty organiser
+fields, and reports what it kept. `--no-social` skips the overrides when the
+fetched posts are stale. Add `--insert-social` to insert drafts that carry a date,
+a time, a resolvable place and an event-like title, and that are not duplicates or
+outside 13–28/11.
+
+An override only happens when the post names exactly one event, carries its own
+`Thời gian`/`Time` line (or a sentence with a time range), and either gives a date
+range or targets a single-day event. A single date inside a longer run is one
+session, not a reschedule: it lands in "social needs a review" instead. The newest
+post per event wins.
 
 ### 4. Check
 
@@ -86,8 +103,9 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 29 offline tests over the
-parsers, matcher, diff and inserter; it must pass before any edit is committed.
+`dateEnd < date` and broken numbering. `selftest.py` is 38 offline tests over the
+parsers, matcher, diff, schedule override and inserter; it must pass before any
+edit is committed.
 
 ## Commands
 
@@ -97,7 +115,7 @@ parsers, matcher, diff and inserter; it must pass before any edit is committed.
 | `diff` | site API + social → `tmp/sync/report.md`, `social-drafts.json` |
 | `enrich [--write]` | registration links from the fetched posts → `registrationUrl` |
 | `social` | rebuild drafts from `social.json` without touching the site |
-| `apply [--insert-social]` | write safe fills, optionally insert drafts |
+| `apply [--no-social] [--insert-social]` | write social schedule overrides + safe fills |
 | `check` | validate `events.json`, no network |
 
 Exit codes: `0` clean, `1` something to review or a validation problem, `2`
@@ -111,7 +129,7 @@ retrieval failed.
 | `officialUrl`, `officialType`, `officialVenue`, `officialVenueAddress` | organiser | `apply`, only when empty |
 | `officialDetail`, `officialSummary` | organiser | manual |
 | `registrationUrl` | organiser (posted on social) | `enrich` |
-| `date`, `dateEnd`, `startTime`, `endTime` | curated | manual |
+| `date`, `dateEnd`, `startTime`, `endTime` | organiser (posted on social), else curated | `apply` from the newest post |
 | `slots`, `lineup`, `days` | curated | manual |
 | `placeId`, `clusterId` | curated map pins | manual |
 | `tags`, `description`, `spotlight`, `number` | curated | `apply --insert-social` adds, then renumbers |
@@ -141,11 +159,12 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/apify.py` | Apify REST client: run actor, poll, read dataset |
 | `scripts/social.py` | dataset shapes → drafts (pure) |
 | `scripts/enrich.py` | registration links from posts (pure) |
+| `scripts/schedule.py` | schedule overrides from posts (pure) |
 | `scripts/extract.py` | text normalising, HTML, dates, times (pure) |
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 26 offline tests |
+| `scripts/selftest.py` | 38 offline tests |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
 | `references/ui-checklist.md` | wiring new metadata into the page |
@@ -160,3 +179,4 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `fetch` reports 0 items | actors see no new posts | widen `--limit`; check the accounts still exist |
 | many `announcement` drafts | the organiser posts updates, not events | normal; only `ready` drafts are insertable |
 | `needs a human` rows repeat | the site is coarser than the curated value | leave them; the report is a triage sheet, not a work list |
+| a schedule override looks wrong | the post describes one session of a run, or a stale fetch | check the post URL in the report; rerun with `--no-social` to skip |

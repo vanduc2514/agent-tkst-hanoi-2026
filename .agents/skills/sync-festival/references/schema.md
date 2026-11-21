@@ -36,9 +36,9 @@ pin goes.
 | Field | Type | Owner | Written by |
 |---|---|---|---|
 | `id`, `number` | `eNNN`, int | repo | `apply --insert-social` |
-| `date`, `dateEnd` | `YYYY-MM-DD` | repo | manual |
+| `date`, `dateEnd` | `YYYY-MM-DD` | organiser (posted on social), else repo | `apply` from the newest post, else manual |
 | `days` | `string[]` | repo | manual |
-| `startTime`, `endTime` | `HH:MM`, UTC+7 | repo | manual |
+| `startTime`, `endTime` | `HH:MM`, UTC+7 | organiser (posted on social), else repo | `apply` from the newest post, else manual |
 | `slots` | `[{date,start,end}]` | repo | manual |
 | `lineup` | `[{date,start,end,act}]` | repo | manual |
 | `title` | string | organiser | manual |
@@ -52,6 +52,10 @@ pin goes.
 
 `endTime` may be earlier than `startTime` on a single day for the events whose
 listing publishes no hours (`e102`, `e140`); `check` reports them as notes.
+
+The organiser's posts are the freshest schedule, so `apply` lets them override
+`date`, `dateEnd`, `startTime` and `endTime`. An event that carries `slots`,
+`lineup` or `days` is skipped: a curated per-day schedule is richer than one post.
 
 ## Extending the schema
 
