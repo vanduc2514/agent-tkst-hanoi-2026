@@ -58,6 +58,8 @@
       box-shadow: 0 4px 11px rgb(36 92 75 / 22%); font-size: 17px;
     }
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
+    .brand-sub { margin: 7px 0 0; color: #78857f; font-size: 10.5px; font-weight: 500; line-height: 1.5; }
+    .brand-sub strong { color: var(--green); font-weight: 700; }
     .prompts-intro { margin: 0 0 12px; color: #718078; font-size: 10.5px; line-height: 1.5; }
     .ai-prompt-list { display: grid; gap: 18px; }
     .ai-prompt-group { display: grid; gap: 9px; }
@@ -447,6 +449,82 @@
     .toast { position: fixed; z-index: 3000; right: 20px; bottom: 20px; max-width: calc(100vw - 40px); border-radius: 9px; padding: 11px 14px; color: #fff; background: #203d33; box-shadow: 0 8px 24px #10281f40; font-size: 11px; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s; }
     .toast.visible { opacity: 1; transform: translateY(0); }
     .mobile-scrim { display: none; }
+    .welcome {
+      position: fixed; z-index: 5000; inset: 0; display: flex;
+      align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity .22s ease;
+    }
+    .welcome.visible { opacity: 1; pointer-events: auto; }
+    .welcome-backdrop { position: absolute; inset: 0; background: rgb(16 34 27 / 46%); backdrop-filter: blur(5px); }
+    .welcome-card {
+      position: relative; display: flex; flex-direction: column;
+      width: min(520px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto;
+      border-radius: 20px; padding: 26px 26px 22px; background: #fff;
+      box-shadow: 0 24px 60px rgb(9 26 19 / 34%);
+      transform: translateY(12px) scale(.99); transition: transform .22s ease;
+    }
+    .welcome.visible .welcome-card { transform: none; }
+    .welcome-close {
+      position: absolute; top: 14px; right: 14px; display: grid; width: 30px; height: 30px;
+      place-items: center; border: 0; border-radius: 8px; color: #84918b; background: transparent; font-size: 13px;
+    }
+    .welcome-close:hover { color: var(--green); background: #f1f6f2; }
+    .welcome-mark {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 46px; height: 46px; border-radius: 15px; color: #fff;
+      background: linear-gradient(145deg, #34765f, #194a3b);
+      box-shadow: 0 6px 16px rgb(36 92 75 / 24%); font-size: 19px;
+    }
+    .welcome-eyebrow { margin: 16px 0 6px; color: #8b9791; font-size: 9.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .welcome-title { margin: 0; font: 800 22px/1.25 Manrope, sans-serif; letter-spacing: -.7px; }
+    .welcome-copy { margin: 9px 0 0; color: #6d7a74; font-size: 12px; line-height: 1.6; }
+    .welcome-stats { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
+    .welcome-stat { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 5px 10px; color: #52645b; background: #f2f7f3; font-size: 10px; font-weight: 700; }
+    .welcome-stat i { color: var(--green); font-size: 10px; }
+    .welcome-actions { display: grid; gap: 8px; margin-top: 16px; }
+    .welcome-action {
+      display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px;
+      width: 100%; border: 1px solid #e6ece7; border-radius: 12px; padding: 10px 13px 10px 10px;
+      color: var(--ink); background: #fff; text-align: left;
+      transition: border-color .16s, background .16s, transform .16s;
+    }
+    .welcome-action > i {
+      display: grid; width: 38px; height: 38px; place-items: center;
+      border-radius: 11px; color: var(--green); background: #eef6f1; font-size: 15px;
+    }
+    .welcome-action strong { display: block; font: 700 13px/1.3 Manrope, sans-serif; }
+    .welcome-action small { display: block; margin-top: 2px; color: #78857f; font-size: 10.5px; line-height: 1.4; }
+    .welcome-action .welcome-action-arrow { color: #a7b3ad; font-size: 11px; }
+    .welcome-action:hover { border-color: #bdd3c7; background: #f9fcfa; }
+    .welcome-action:hover .welcome-action-arrow { color: var(--green); }
+    .welcome-action:active { transform: translateY(1px); }
+    .welcome-action:focus-visible, .welcome-start:focus-visible, .welcome-close:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .welcome-start {
+      width: 100%; min-height: 44px; margin-top: 14px; border: 1px solid var(--green); border-radius: 11px;
+      color: #fff; background: var(--green); font-size: 12px; font-weight: 700;
+    }
+    .welcome-start:hover { background: var(--green-dark); }
+    .welcome-foot { margin: 10px 0 0; color: #98a39d; font-size: 9.5px; line-height: 1.5; text-align: center; }
+    .map-fallback {
+      position: absolute; z-index: 500; inset: 0; display: grid; place-content: center; justify-items: center;
+      gap: 9px; padding: 86px 24px 128px; text-align: center;
+      background: radial-gradient(circle at 50% 38%, #f1f6f2, #e5ece6);
+    }
+    .map-fallback > i { padding: 13px; border-radius: 50%; color: #8fa198; background: #fff; box-shadow: 0 3px 10px rgb(30 45 38 / 7%); font-size: 22px; }
+    .map-fallback strong { font: 800 15px/1.35 Manrope, sans-serif; letter-spacing: -.2px; }
+    .map-fallback p { max-width: 330px; margin: 0; color: #6f7d77; font-size: 11.5px; line-height: 1.6; }
+    .map-fallback button {
+      display: inline-flex; min-height: 38px; align-items: center; gap: 8px; margin-top: 4px;
+      border: 1px solid var(--green); border-radius: 9px; padding: 0 14px;
+      color: #fff; background: var(--green); font-size: 11px; font-weight: 700;
+    }
+    .map-fallback button:hover { background: var(--green-dark); }
+    @media (max-width: 760px) {
+      .welcome { align-items: flex-end; padding: 0; }
+      .welcome-card { width: 100%; max-height: 88dvh; border-radius: 20px 20px 0 0; padding: 22px 20px max(18px, env(safe-area-inset-bottom)); }
+      .welcome-title { font-size: 19px; }
+      .map-fallback { padding: 74px 20px 118px; }
+    }
     .location-prompt {
       position: fixed; z-index: 4000; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); left: 12px;
       display: flex; justify-content: center; padding: 0;
@@ -489,6 +567,8 @@
       .event-pin-body > span { font-size: 9px; }
       .route-badge { top: -5px; right: -5px; min-width: 15px; height: 15px; font-size: 8px; }
       .map-topbar > .map-pill:not(.map-toggle) { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .map-topbar > .map-toggle { flex-shrink: 0; }
+      .map-toggle span { white-space: nowrap; }
       .map-status-note { max-width: min(240px, 72vw); }
       .map-footer { right: 6px; bottom: max(5px, env(safe-area-inset-bottom)); left: 6px; gap: 6px; }
       .map-repo-link, .map-attribution { font-size: 7px; }
@@ -510,6 +590,36 @@
   </style>
 </head>
 <body>
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title" aria-describedby="welcome-copy" aria-hidden="true" inert>
+    <div class="welcome-backdrop" data-welcome-dismiss></div>
+    <div class="welcome-card" role="document">
+      <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      <span class="welcome-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
+      <p class="welcome-eyebrow">Lễ hội Thiết kế Sáng tạo Hà Nội 2026</p>
+      <h2 class="welcome-title" id="welcome-title">Tìm hoạt động, dựng lộ trình, hỏi AI</h2>
+      <p class="welcome-copy" id="welcome-copy">Bản đồ gom toàn bộ chương trình chính thức: chọn một điểm để xem chi tiết, thêm vào lộ trình đi bộ, hoặc để AI gợi ý buổi đi hợp với bạn.</p>
+      <div class="welcome-stats" id="welcome-stats"></div>
+      <div class="welcome-actions">
+        <button class="welcome-action" id="welcome-today" type="button">
+          <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
+          <span><strong>Hôm nay có gì</strong><small>Chỉ hiện hoạt động còn mở trong hôm nay</small></span>
+          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
+        </button>
+        <button class="welcome-action" id="welcome-route" type="button">
+          <i class="fa-solid fa-route" aria-hidden="true"></i>
+          <span><strong>Dựng lộ trình</strong><small>Bắt đầu từ hành trình gợi ý có sẵn</small></span>
+          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
+        </button>
+        <button class="welcome-action" id="welcome-ai" type="button">
+          <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
+          <span><strong>Hỏi AI</strong><small>Prompt sẵn cho ChatGPT, Claude, Gemini</small></span>
+          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
+        </button>
+      </div>
+      <button class="welcome-start" id="welcome-start" type="button">Bắt đầu khám phá</button>
+      <p class="welcome-foot">Chỉ hiện một lần trên trình duyệt này. Mở lại bất cứ lúc nào bằng nút “Hướng dẫn”.</p>
+    </div>
+  </div>
   <main class="app-shell">
     <aside class="sidebar" id="sidebar" aria-label="Bảng điều khiển bản đồ">
       <header class="brand-bar">
@@ -518,6 +628,7 @@
             <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
             <div>
               <h1 class="brand-title">Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026</h1>
+              <p class="brand-sub" id="brand-sub">Lịch chính thức · bản đồ · lộ trình · gợi ý AI</p>
             </div>
           </div>
         </div>
@@ -630,6 +741,7 @@
         <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
         <div class="map-actions">
+          <button class="map-pill" id="help-toggle" type="button" aria-label="Mở hướng dẫn sử dụng"><i class="fa-regular fa-circle-question"></i><span class="hidden sm:inline">Hướng dẫn</span></button>
           <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
         </div>
       </div>
@@ -673,6 +785,8 @@
       let spotlightIds;
       let FESTIVAL_START;
       let FESTIVAL_END;
+      // Swapped for the stub if the CDN script or WebGL is unavailable at map creation.
+      let ml = window.maplibregl || createMaplibreStub();
 
       function haversineKm(pointA, pointB) {
         const toRadians = (degrees) => degrees * Math.PI / 180;
@@ -907,6 +1021,91 @@
       }
 
 
+      // MapLibre arrives from a CDN and needs WebGL. When either is unavailable the map
+      // is replaced by a no-op stand-in so the list, filters and route planner keep
+      // working instead of failing with a misleading data error.
+      function createMaplibreStub() {
+        class StubSource {
+          constructor(data) { this.data = data; }
+          setData(data) { this.data = data; }
+          getData() { return this.data; }
+        }
+        class StubMap {
+          constructor(options = {}) {
+            this.container = document.getElementById(options.container || "map") || document.body;
+            this.sources = new Map();
+            this.center = { lat: 21.0315, lng: 105.8425 };
+            this.zoom = 13;
+          }
+          addControl() { return this; }
+          on() { return this; }
+          once() { return this; }
+          off() { return this; }
+          isStyleLoaded() { return true; }
+          addSource(id, options) { this.sources.set(id, new StubSource(options?.data)); return this; }
+          getSource(id) { return this.sources.get(id); }
+          addLayer() { return this; }
+          removeLayer() { return this; }
+          setPaintProperty() { return this; }
+          fitBounds() { return this; }
+          flyTo() { return this; }
+          easeTo() { return this; }
+          resize() { return this; }
+          getContainer() { return this.container; }
+          getCenter() { return this.center; }
+          getZoom() { return this.zoom; }
+          project() { return { x: 0, y: 0 }; }
+          getCanvas() { return { style: {} }; }
+        }
+        class StubPopup {
+          setLngLat() { return this; }
+          setHTML() { return this; }
+          addTo() { return this; }
+          remove() {}
+        }
+        class StubMarker {
+          constructor(options = {}) { this.element = options.element || document.createElement("div"); }
+          setLngLat() { return this; }
+          addTo() { return this; }
+          setDraggable() { return this; }
+          togglePopup() { return this; }
+          getElement() { return this.element; }
+          getLngLat() { return { lat: 0, lng: 0 }; }
+          remove() { this.element.remove(); }
+        }
+        class StubBounds {
+          extend() { return this; }
+        }
+        class StubControl {
+          constructor() { this.onAdd = () => document.createElement("div"); }
+        }
+        return {
+          Map: StubMap,
+          Popup: StubPopup,
+          Marker: StubMarker,
+          LngLatBounds: StubBounds,
+          NavigationControl: StubControl
+        };
+      }
+
+      function showMapFallback() {
+        const area = document.querySelector(".map-area");
+        if (!area || area.querySelector(".map-fallback")) return;
+        const note = document.createElement("div");
+        note.className = "map-fallback";
+        note.innerHTML = `
+          <i class="fa-solid fa-map" aria-hidden="true"></i>
+          <strong>Bản đồ tương tác chưa tải được</strong>
+          <p>Trình duyệt đang chặn WebGL hoặc CDN. Danh sách hoạt động, bộ lọc và lộ trình vẫn dùng bình thường.</p>
+          <button type="button" id="map-fallback-open"><i class="fa-solid fa-list" aria-hidden="true"></i>Mở danh sách hoạt động</button>`;
+        area.append(note);
+        const open = note.querySelector("#map-fallback-open");
+        if (open) open.addEventListener("click", () => {
+          if (window.innerWidth <= 760) window.dispatchEvent(new Event("tkst:open-sidebar"));
+          document.querySelector("#search-input")?.focus({ preventScroll: true });
+        });
+      }
+
       function init() {
         // Touch releases are not taps on their own: pinching to zoom or dragging the map
         // also ends with a pointerup that can land on a pin. A real tap is short,
@@ -918,17 +1117,25 @@
         let gestureEpoch = 0;
         const activeTouchPointers = new Set();
         const noteGesture = () => { gestureEpoch += 1; };
-        const map = new maplibregl.Map({
-          container: "map",
-          style: "https://tiles.openfreemap.org/styles/bright",
-          center: [105.8425, 21.0315],
-          zoom: 13,
-          maxZoom: 19,
-          attributionControl: false,
-          dragRotate: false,
-          pitchWithRotate: false
-        });
-        map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+        let map;
+        try {
+          map = new ml.Map({
+            container: "map",
+            style: "https://tiles.openfreemap.org/styles/bright",
+            center: [105.8425, 21.0315],
+            zoom: 13,
+            maxZoom: 19,
+            attributionControl: false,
+            dragRotate: false,
+            pitchWithRotate: false
+          });
+        } catch (error) {
+          console.warn("Bản đồ không khởi tạo được, chuyển sang chế độ danh sách.", error);
+          ml = createMaplibreStub();
+          map = new ml.Map({ container: "map" });
+          showMapFallback();
+        }
+        map.addControl(new ml.NavigationControl({ showCompass: false }), "bottom-right");
         const navigationGroup = map.getContainer().querySelector(".maplibregl-ctrl-bottom-right .maplibregl-ctrl-group");
         const locateButton = document.createElement("button");
         locateButton.id = "locate-me";
@@ -937,7 +1144,8 @@
         locateButton.setAttribute("aria-label", "Hiển thị vị trí hiện tại của tôi");
         locateButton.title = "Vị trí hiện tại";
         locateButton.innerHTML = '<i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>';
-        navigationGroup.prepend(locateButton);
+        if (navigationGroup) navigationGroup.prepend(locateButton);
+        else map.getContainer().append(locateButton);
         // Zoom gestures are the ones that used to open a pin: the finger on the pin stays
         // still while the map scales under it, so screen movement alone cannot detect it.
         map.on("zoomstart", noteGesture);
@@ -972,7 +1180,7 @@
         }
         function fitToPoints(points, padding, maxZoom) {
           if (!points.length) return;
-          const bounds = new maplibregl.LngLatBounds();
+          const bounds = new ml.LngLatBounds();
           points.forEach(([lat, lng]) => bounds.extend([lng, lat]));
           map.fitBounds(bounds, { padding, maxZoom, duration: 0 });
         }
@@ -1216,7 +1424,7 @@
           return `https://www.google.com/maps/dir/?${params.toString()}`;
         }
 
-        const hoverPopup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 30, className: "event-tooltip" });
+        const hoverPopup = new ml.Popup({ closeButton: false, closeOnClick: false, offset: 30, className: "event-tooltip" });
 
         function hideHoverPopup() {
           hoverPopup.remove();
@@ -1354,7 +1562,7 @@
             }, DOUBLE_TAP_WINDOW);
           });
           pin.addEventListener("pointercancel", () => { tapStart = null; });
-          const marker = new maplibregl.Marker({ element: host, anchor: "bottom", offset: [0, 2] })
+          const marker = new ml.Marker({ element: host, anchor: "bottom", offset: [0, 2] })
             .setLngLat([lngLat.lng, lngLat.lat])
             .addTo(map);
           marker.__pinEl = pin;
@@ -2014,6 +2222,109 @@
           syncUrlState();
         }
 
+        // First-visit orientation: one shortcut per tab, remembered per browser so a
+        // returning visitor lands straight on the map. Reopenable from "Hướng dẫn".
+        const WELCOME_KEY = "tkst:welcome:v1";
+        let welcomeReturnFocus = null;
+
+        function welcomeSeen() {
+          try { return localStorage.getItem(WELCOME_KEY) === "seen"; } catch { return false; }
+        }
+
+        function rememberWelcome() {
+          try { localStorage.setItem(WELCOME_KEY, "seen"); } catch { /* storage blocked */ }
+        }
+
+        function renderWelcomeStats() {
+          const today = hanoiDateTime(new Date()).date;
+          const stats = [
+            ["fa-calendar-check", `${events.length} hoạt động`],
+            ["fa-layer-group", `${Object.keys(clusters).length} cụm`],
+            ["fa-clock", `${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`]
+          ];
+          if (today >= FESTIVAL_START && today <= FESTIVAL_END) {
+            stats.splice(1, 0, ["fa-bolt", `${eventsOnDate(today).length} hôm nay`]);
+          }
+          $("#welcome-stats").innerHTML = stats.map(([icon, text]) =>
+            `<span class="welcome-stat"><i class="fa-solid ${icon}" aria-hidden="true"></i>${escapeHtml(text)}</span>`
+          ).join("");
+        }
+
+        function openWelcome(returnFocus) {
+          const overlay = $("#welcome");
+          if (!overlay || overlay.classList.contains("visible")) return;
+          welcomeReturnFocus = returnFocus || document.activeElement;
+          renderWelcomeStats();
+          overlay.classList.add("visible");
+          overlay.setAttribute("aria-hidden", "false");
+          overlay.inert = false;
+          requestAnimationFrame(() => $("#welcome-start")?.focus({ preventScroll: true }));
+        }
+
+        function closeWelcome(remember = true) {
+          const overlay = $("#welcome");
+          if (!overlay || !overlay.classList.contains("visible")) return;
+          if (remember) rememberWelcome();
+          overlay.classList.remove("visible");
+          overlay.setAttribute("aria-hidden", "true");
+          overlay.inert = true;
+          if (welcomeReturnFocus instanceof HTMLElement && welcomeReturnFocus.isConnected) {
+            welcomeReturnFocus.focus({ preventScroll: true });
+          }
+          welcomeReturnFocus = null;
+        }
+
+        function runWelcomeAction(kind) {
+          closeWelcome();
+          const tab = kind === "today" ? "explore" : kind === "route" ? "route" : "prompts";
+          setTab(tab);
+          if (isNarrowViewport()) openMobileSidebar();
+          if (kind === "today") {
+            if (!$("#live-toggle").disabled) setLive(true, { quiet: true });
+            const today = hanoiDateTime(new Date()).date;
+            const openToday = today >= FESTIVAL_START && today <= FESTIVAL_END && eventsOnDate(today).length > 0;
+            showMapNote(openToday
+              ? "Đang hiện các hoạt động còn mở hôm nay."
+              : "Hôm nay không có hoạt động; đang hiện toàn bộ chương trình.");
+          } else if (kind === "route") {
+            const disclosure = $("#preset-disclosure");
+            if (disclosure) disclosure.open = true;
+          }
+          $("#tab-" + tab)?.focus({ preventScroll: true });
+        }
+
+        function setupWelcome() {
+          const overlay = $("#welcome");
+          if (!overlay) return;
+          overlay.addEventListener("click", (event) => {
+            if (!event.target.closest(".welcome-card")) closeWelcome();
+          });
+          $("#welcome-close").addEventListener("click", () => closeWelcome());
+          $("#welcome-start").addEventListener("click", () => closeWelcome());
+          $("#welcome-today").addEventListener("click", () => runWelcomeAction("today"));
+          $("#welcome-route").addEventListener("click", () => runWelcomeAction("route"));
+          $("#welcome-ai").addEventListener("click", () => runWelcomeAction("ai"));
+          $("#help-toggle").addEventListener("click", () => openWelcome($("#help-toggle")));
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && overlay.classList.contains("visible")) closeWelcome();
+          });
+          overlay.addEventListener("keydown", (event) => {
+            if (event.key !== "Tab") return;
+            const focusable = [...overlay.querySelectorAll("button:not([disabled]), [href], input, select, textarea")];
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault();
+              last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault();
+              first.focus();
+            }
+          });
+          window.addEventListener("tkst:open-sidebar", openMobileSidebar);
+        }
+
         function openMobileSidebar() {
           $("#sidebar").classList.add("mobile-open");
           $("#mobile-scrim").classList.add("visible");
@@ -2047,7 +2358,7 @@
             element.innerHTML = '<span class="user-location-ring" aria-hidden="true"></span><span class="user-location-dot" aria-hidden="true"></span>';
             element.setAttribute("role", "img");
             element.setAttribute("aria-label", label);
-            userLocationMarker = new maplibregl.Marker({ element, anchor: "center" })
+            userLocationMarker = new ml.Marker({ element, anchor: "center" })
               .setLngLat([lng, lat])
               .addTo(map);
             return;
@@ -2150,7 +2461,7 @@
           prompt.addEventListener("click", (event) => {
             if (event.target === prompt) hidePrompt();
           });
-          $("#locate-me").addEventListener("click", () => {
+          $("#locate-me")?.addEventListener("click", () => {
             if (state.origin) map.flyTo({ center: [state.origin.lng, state.origin.lat], zoom: 15, duration: 600 });
             else showPrompt();
           });
@@ -2529,16 +2840,23 @@
           });
         }
 
+        // Read the query before setTab() normalises it away: a shared link already
+        // carries the visitor somewhere specific, so the welcome tour stays closed.
+        const hasDeepLink = window.location.search.length > 0;
         const initialTab = applyUrlState();
         state.tab = initialTab;
         renderFilters();
+        $("#brand-sub").innerHTML = `<strong>${events.length} hoạt động</strong> · ${Object.keys(clusters).length} cụm · ${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`;
         renderEventMarkers();
         buildPresets();
         bindControls();
+        setupWelcome();
         loadPrompts();
         setupLocationSharing();
         renderAll();
         setTab(initialTab);
+        // Deep links (?route=, ?tab=) already carry the visitor somewhere specific.
+        if (!welcomeSeen() && !hasDeepLink) openWelcome($("#help-toggle"));
         if (state.route.length) {
           if (map.isStyleLoaded()) fitRouteView();
           else map.once("load", fitRouteView);
@@ -2603,7 +2921,17 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
-        loadFestivalData().then(init).catch(showDataError);
+        loadFestivalData()
+          .then(() => {
+            try {
+              init();
+            } catch (error) {
+              // Data is fine; only the map failed. Keep the list usable.
+              console.error("Không khởi tạo được giao diện", error);
+              showMapFallback();
+            }
+          })
+          .catch(showDataError);
       });
     })();
   </script>
