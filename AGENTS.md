@@ -50,7 +50,13 @@ skill, and opens a pull request whose body is `tmp/sync/report.md`. `sync-festiv
 generated — edit the `.md` and run `gh aw compile`, never the lock file.
 
 Required repository secrets: `APIFY_TOKEN` and `COPILOT_GITHUB_TOKEN`. The Copilot secret must be
-a fine-grained PAT (`github_pat_…`) with Copilot access; OAuth tokens (`gho_…`) are rejected.
+a fine-grained PAT (`github_pat_…`) whose only permission is Account → Copilot Requests; OAuth
+tokens (`gho_…`) are rejected. Push the Apify secret from the local mise profile, never from a
+copy of the value:
+
+```sh
+mise exec -- bash -c 'printf "%s" "$APIFY_TOKEN" | gh secret set APIFY_TOKEN --repo vanduc2514/agent-tkst-hanoi-2026'
+```
 
 ## Conventions
 - There is no test suite, linter, or package manager. Verify changes by serving the page and open the page via browser
