@@ -1,0 +1,47 @@
+name: Mirror to Forgejo
+
+# GitHub is the primary repository; Forgejo is the secondary mirror.
+on:
+  push:
+    branches: [main]
+    tags: ["*"]
+  workflow_dispatch:
+
+concurrency:
+  group: mirror-forgejo
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    name: Push main to Forgejo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the token is configured
+        id: check
+        env:
+          TOKEN: ${{ secrets.FORGEJO_TOKEN }}
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "::warning::FORGEJO_TOKEN is not set; skipping the mirror"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.check.outputs.skip != 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Forgejo
+        if: steps.check.outputs.skip != 'true'
+        env:
+          TOKEN: ${{ secrets.FORGEJO_TOKEN }}
+          REPO: nvduc/tkst
+          HOST: git.nvduc.lab
+        run: |
+          git remote add forgejo "https://oauth2:${TOKEN}@${HOST}/${REPO}.git"
+          git push forgejo "HEAD:refs/heads/main" --force
+          git push forgejo --tags --force
