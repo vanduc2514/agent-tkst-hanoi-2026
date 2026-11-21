@@ -433,6 +433,17 @@ class Report(unittest.TestCase):
         self.assertIn("a session on 2026-11-20 inside our run", text)
         self.assertNotIn("date differs", text, "a session date is not a reschedule")
 
+    def test_a_listing_row_links_the_listing(self):
+        data = {"clusters": {}, "places": [], "events": [{
+            "id": "e001", "title": "A", "date": "2026-11-14", "dateEnd": "2026-11-14",
+            "startTime": "09:00", "endTime": "17:00",
+            "officialUrl": "https://lehoithietkesangtao.vn/su-kien/a.html"}]}
+        rows = [{"kind": "changed", "id": "e001", "changes": [],
+                 "dates": [{"field": "end", "was": "2026-11-14 17:00", "site": "2026-11-14 18:00"}]}]
+        text = cli.render(data, rows, [], [], None, None, None)
+        self.assertIn("end differs: ours 2026-11-14 17:00, "
+                      "[listing](https://lehoithietkesangtao.vn/su-kien/a.html) 2026-11-14 18:00", text)
+
     def test_without_a_ledger(self):
         text = cli.render(load(), [{"kind": "same"}], [], [], None, None, None)
         self.assertIn("Nothing written yet", text)

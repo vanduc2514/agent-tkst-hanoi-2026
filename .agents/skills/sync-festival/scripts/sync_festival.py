@@ -164,6 +164,11 @@ def _source(label, url=None):
     return f"[{label}]({url})" if url else label
 
 
+def _listing(event):
+    """The word `listing`, linked to the organiser page it was read from."""
+    return _source("listing", event.get("officialUrl") or official_url(event.get("slug") or ""))
+
+
 def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals=None, ledger=None):
     """Two sections: what `apply` wrote, and what a human has to decide."""
     lines = []
@@ -214,12 +219,12 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         for change in row["changes"]:
             if change["field"] == "title":
                 add(f"| {title} | `{row['id']}` | title differs: ours \"{change['was']}\", "
-                    f"listing \"{change['site']}\" |")
+                    f"{_listing(event)} \"{change['site']}\" |")
                 pending += 1
         for date in row["dates"]:
             if not date.get("curated"):
                 add(f"| {title} | `{row['id']}` | {_label(date['field'])} differs: ours {date['was']}, "
-                    f"listing {date['site']} |")
+                    f"{_listing(event)} {date['site']} |")
                 pending += 1
     for event, proposal, changes in review:
         label = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
@@ -239,12 +244,12 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         when = f"{start.get('date', '—')} {start.get('time', '')}".strip()
         venue = row["item"].get("venueName")
         where = f" at {venue}" if venue else ""
-        add(f"| {row['item']['title']} | `{row['slug']}` | not in events.json: the listing has it "
-            f"starting {when}{where} |")
+        add(f"| {row['item']['title']} | `{row['slug']}` | not in events.json: "
+            f"{_source('listing', official_url(row['slug']))} has it starting {when}{where} |")
         pending += 1
     for event in missing:
-        add(f"| {event['title']} | `{event['id']}` | we still list it: the listing dropped the slug "
-            f"and the sitemap |")
+        add(f"| {event['title']} | `{event['id']}` | we still list it: {_listing(event)} dropped the "
+            f"slug and the sitemap |")
         pending += 1
     if not pending:
         add("| — | — | nothing to decide |")

@@ -69,10 +69,10 @@ The report has exactly two sections, both keyed by event name then id:
 
 "Changes made" uses `| Event | id | Change | Source |`, where the source is the post
 it came from, linked, or `listing`. "Needs your review" uses
-`| Event | id | Difference |`: the cell names the field, our value, the remote value
-and where the remote value came from — the post it is linked to when one exists,
-`listing` otherwise. A post row also says when its date is one session inside our
-longer run rather than a reschedule.
+`| Event | id | Difference |`: the cell names the field, our value, and the remote
+value with its origin linked — the post when one exists, the organiser page
+otherwise. A post row also says when its date is one session inside our longer run
+rather than a reschedule.
 
 A difference a post already settles is not repeated under review. Everything the sync
 deliberately leaves alone — curated official values, per-day schedules, venue-label
@@ -109,7 +109,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 41 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 42 offline tests over the
 parsers, matcher, diff, schedule override and inserter; it must pass before any
 edit is committed.
 
@@ -173,7 +173,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 41 offline tests |
+| `scripts/selftest.py` | 42 offline tests |
 | `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
