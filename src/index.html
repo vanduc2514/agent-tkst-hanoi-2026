@@ -892,19 +892,23 @@
         fair: { icon: "fa-store", label: "Hội chợ", color: "#b2543c" },
         film: { icon: "fa-film", label: "Chiếu phim", color: "#55607f" },
         performance: { icon: "fa-masks-theater", label: "Biểu diễn", color: "#9c4266" },
-        experience: { icon: "fa-hand-sparkles", label: "Trải nghiệm", color: "#75589f" },
+        class: { icon: "fa-person-chalkboard", label: "Lớp học", color: "#3c7f8a" },
+        game: { icon: "fa-dice", label: "Trò chơi", color: "#5b6b93" },
+        reading: { icon: "fa-book-open", label: "Đọc sách", color: "#7d6a4a" },
         food: { icon: "fa-utensils", label: "Ẩm thực", color: "#a8642f" },
         award: { icon: "fa-award", label: "Trao giải", color: "#8d6b1f" }
       };
       const EVENT_TYPE_RULES = [
         ["exhibition", /triển lãm|trưng bày|sắp đặt|mở xưởng|pavilion|tác phẩm|khu trưng bày/i],
+        ["class", /yoga/i],
         ["workshop", /workshop|thực hành|hướng dẫn|lớp học|làm nghề|craft toolkit/i],
+        ["game", /gameplay|trò chơi|board game/i],
+        ["reading", /reading party|đọc sách|book show/i],
         ["talk", /t[ọo][ạa]\s*đàm|trao đổi|hội thảo|thảo luận|talk/i],
         ["tour", /tour|đi bộ|bộ hành|tham quan|dạo phố/i],
         ["fair", /hội chợ|chợ phiên/i],
         ["film", /chiếu phim|điện ảnh/i],
         ["performance", /biểu diễn|trình diễn|nghệ thuật|sân khấu|hòa nhạc|hoà nhạc|múa|xiếc|ca nhạc|đêm nhạc|tuồng|chèo|diễn xướng/i],
-        ["experience", /trải nghiệm|gameplay|trò chơi|yoga|đọc sách|reading/i],
         ["food", /ẩm thực|bia thủ công|đồ uống/i],
         ["award", /trao giải/i]
       ];
@@ -920,15 +924,15 @@
         "hội chợ": "fair",
         "chiếu phim": "film",
         "trình diễn": "performance",
-        "trải nghiệm": "experience",
         "ẩm thực": "food"
       };
-      // Five rows name no kind anywhere in the title or tags; each is placed from its
-      // official description so no card is left without a label.
+      // Rows whose title and tags name no kind. Each is placed from the organiser's own
+      // material: the official description, or a festival post for the creative fair.
+      // Rows that still say nothing stay unlabelled on purpose instead of guessing.
       const EVENT_TYPE_OVERRIDES = {
-        e49: "experience", // Trung tâm Thiên nhiên Lưu động: khu trải nghiệm lưu động ở công viên
+        e11: "tour", // Tuyến đường sinh thái bờ vở sông Hồng: a route along the river
+        e22: "fair", // Làng Khai Cuộc: the festival's Creative Fair
         e100: "performance", // Điền dã "Gió Gió Mây Mây": buổi trình diễn 30 phút
-        e112: "experience", // Hà Nội Mở 2: chương trình mở của COMPLEX Fest
         e113: "exhibition", // Lễ hội xe và đam mê: khu trưng bày xe
         e140: "tour" // Ngày Di sản SIS: hành trình di sản
       };
