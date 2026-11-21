@@ -190,10 +190,9 @@
     .event-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .event-date { color: #73817a; font-size: 10px; font-weight: 700; }
     .event-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 7px; }
-    .event-type { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #e5eae6; border-radius: 7px; padding: 2px 8px 2px 2px; color: #3d4f45; background: #fff; font-size: 10px; font-weight: 700; white-space: nowrap; }
-    .event-type i { display: grid; width: 19px; height: 19px; place-items: center; border-radius: 5px; color: #fff; background: var(--type, #556560); font-size: 9.5px; }
+    .event-type { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 4px 9px 4px 8px; color: #55665d; background: #f2f6f3; font-size: 9.5px; font-weight: 700; white-space: nowrap; }
+    .event-type i { color: var(--type, #7d8b83); font-size: 10px; }
     .spotlight-badge { display: inline-flex; align-items: center; gap: 4px; border-radius: 99px; padding: 3px 7px; color: #7b4c34; background: #fbede5; font-size: 9px; font-weight: 800; }
-    .event-cluster { display: inline-flex; align-items: center; gap: 5px; border-radius: 99px; padding: 4px 7px; background: #f6f8f6; color: #63716b; font-size: 9px; font-weight: 700; white-space: nowrap; }
     .event-name { margin: 8px 0 5px; font: 700 13px/1.4 Manrope, sans-serif; letter-spacing: -.15px; }
     .event-place { display: flex; align-items: center; gap: 7px; color: #78847f; font-size: 10px; line-height: 1.5; }
     .event-place i { width: 12px; color: #9ba6a1; text-align: center; }
@@ -880,39 +879,59 @@
 
       const slotClose = (end) => (end === "00:00" ? "23:59" : end);
 
-      // The organiser lists a primary kind first ("Performance, Event") and leaves it
-      // blank on some rows, where the first tag still names the kind. Icons let the
-      // Explore list be scanned by type instead of reading every title.
+      // The organiser's own type field disagrees with the title often enough that it
+      // cannot be trusted (a "Triển lãm" row filed as Workshop, and eleven rows typed
+      // only "Event"). The title says what a visitor will actually do, so that decides
+      // first, the curated tag second, and rows that name no kind get no label instead
+      // of a meaningless "Sự kiện".
       const EVENT_TYPES = {
         exhibition: { icon: "fa-image", label: "Triển lãm", color: "#a8683a" },
-        pavilion: { icon: "fa-cube", label: "Gian trưng bày", color: "#4f6cae" },
-        fair: { icon: "fa-store", label: "Hội chợ", color: "#b2543c" },
-        performance: { icon: "fa-masks-theater", label: "Biểu diễn", color: "#9c4266" },
-        workshop: { icon: "fa-screwdriver-wrench", label: "Workshop", color: "#2f7660" },
+        workshop: { icon: "fa-pen-ruler", label: "Workshop", color: "#2f7660" },
         talk: { icon: "fa-comments", label: "Toạ đàm", color: "#37768f" },
         tour: { icon: "fa-person-walking", label: "Tour", color: "#6c7d33" },
-        community: { icon: "fa-people-group", label: "Cộng đồng", color: "#75589f" },
-        event: { icon: "fa-calendar-day", label: "Sự kiện", color: "#556560" }
+        fair: { icon: "fa-store", label: "Hội chợ", color: "#b2543c" },
+        film: { icon: "fa-film", label: "Chiếu phim", color: "#55607f" },
+        performance: { icon: "fa-masks-theater", label: "Biểu diễn", color: "#9c4266" },
+        experience: { icon: "fa-hand-sparkles", label: "Trải nghiệm", color: "#75589f" },
+        ceremony: { icon: "fa-award", label: "Lễ hội", color: "#a9762f" }
       };
+      const EVENT_TYPE_RULES = [
+        ["exhibition", /triển lãm|trưng bày|sắp đặt|mở xưởng|pavilion|tác phẩm|khu trưng bày/i],
+        ["workshop", /workshop|thực hành|hướng dẫn|lớp học|làm nghề|craft toolkit/i],
+        ["talk", /t[ọo][ạa]\s*đàm|trao đổi|hội thảo|thảo luận|talk/i],
+        ["tour", /tour|đi bộ|tham quan|dạo phố/i],
+        ["fair", /hội chợ|chợ phiên/i],
+        ["film", /chiếu phim|điện ảnh/i],
+        ["performance", /biểu diễn|trình diễn|nghệ thuật|sân khấu|hòa nhạc|hoà nhạc|múa|xiếc|ca nhạc|đêm nhạc|tuồng|chèo|diễn xướng/i],
+        ["experience", /trải nghiệm|gameplay|trò chơi|yoga|đọc sách|reading/i],
+        ["ceremony", /lễ hội|lễ trao giải|trao giải|khai mạc|bế mạc/i]
+      ];
       const TYPE_BY_TAG = {
         "triển lãm": "exhibition",
+        "trưng bày": "exhibition",
         "sắp đặt": "exhibition",
+        "pavilion": "exhibition",
+        "workshop": "workshop",
         "toạ đàm": "talk",
         "tọa đàm": "talk",
         "tour": "tour",
-        "trình diễn": "performance",
         "hội chợ": "fair",
-        "workshop": "workshop",
-        "cộng đồng": "community"
+        "chiếu phim": "film",
+        "trình diễn": "performance",
+        "trải nghiệm": "experience",
+        "lễ": "ceremony"
       };
-      const DEFAULT_EVENT_TYPE = { icon: "fa-calendar-day", label: "Hoạt động", color: "#556560" };
 
       function eventType(event) {
-        const primary = String(event.officialType || "").split(",")[0].trim().toLowerCase();
-        if (EVENT_TYPES[primary]) return EVENT_TYPES[primary];
-        const tag = String(event.tags?.[0] || "").trim().toLowerCase();
-        const fromTag = TYPE_BY_TAG[tag];
-        return fromTag ? EVENT_TYPES[fromTag] : DEFAULT_EVENT_TYPE;
+        const title = event.title || "";
+        for (const [key, pattern] of EVENT_TYPE_RULES) {
+          if (pattern.test(title)) return EVENT_TYPES[key];
+        }
+        for (const tag of event.tags || []) {
+          const key = TYPE_BY_TAG[String(tag).trim().toLowerCase()];
+          if (key) return EVENT_TYPES[key];
+        }
+        return null;
       }
 
       // Live mode keeps only what a visitor can still reach today: events that are on
@@ -1823,10 +1842,9 @@
           const type = eventType(event);
           return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="Xem chi tiết ${escapeHtml(event.title)}">
               <div class="event-topline"><span class="event-date">${escapeHtml(dayLabel)}</span>
-                <span class="event-cluster"><i class="cluster-dot" style="background:${cluster.color}"></i>${escapeHtml(cluster.name)}</span></div>
+                ${type ? `<span class="event-type" style="--type:${type.color}"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>` : ""}</div>
               <h3 class="event-name"><span class="event-index" style="background:${cluster.color}">${event.number}</span>${escapeHtml(event.title)}</h3>
-              <div class="event-badges"><span class="event-type" style="--type:${type.color}"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>
-                ${event.spotlight ? '<span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span>' : ""}</div>
+              ${event.spotlight ? '<div class="event-badges"><span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span></div>' : ""}
               <div class="event-place"><i class="fa-solid fa-location-dot"></i><span>${escapeHtml(place.name)}</span></div>
               <p class="event-desc">${escapeHtml(event.description)}</p>
               ${moreInfoHtml(event)}
@@ -1949,7 +1967,7 @@
               </p>` : ""}
               ${event.officialDetail || event.officialType || event.officialUrl ? `<section class="detail-official">
                 <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>Thông tin từ ban tổ chức</h3>
-                ${event.officialType ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong><i class="fa-solid ${type.icon}" aria-hidden="true"></i> ${escapeHtml(type.label)}</strong></p>` : ""}
+                ${type ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong><i class="fa-solid ${type.icon}" aria-hidden="true"></i> ${escapeHtml(type.label)}</strong></p>` : ""}
                 ${event.officialDetail ? `<p class="detail-official-text">${escapeHtml(event.officialDetail)}</p>` : ""}
                 ${event.officialUrl ? `<a class="detail-official-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Xem trên trang chính thức</a>` : ""}
               </section>` : ""}
