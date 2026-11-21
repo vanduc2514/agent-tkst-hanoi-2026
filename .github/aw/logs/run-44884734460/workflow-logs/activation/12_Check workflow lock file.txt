@@ -1,0 +1,48 @@
+﻿2026-11-21T08:24:39.0050807Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:24:39.0051601Z with:
+2026-11-21T08:24:39.0053889Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'check_workflow_timestamp_api.cjs'));
+await main();
+
+2026-11-21T08:24:39.0059229Z   github-token: ***
+2026-11-21T08:24:39.0059674Z   debug: false
+2026-11-21T08:24:39.0060107Z   user-agent: actions/github-script
+2026-11-21T08:24:39.0060638Z   result-encoding: json
+2026-11-21T08:24:39.0061087Z   retries: 0
+2026-11-21T08:24:39.0061542Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:24:39.0062819Z env:
+2026-11-21T08:24:39.0064477Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:24:39.0066044Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:24:39.0066596Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:24:39.0068118Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:24:39.0069576Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:24:39.0070067Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:24:39.0070548Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:24:39.0071130Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:24:39.0071710Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:24:39.0072211Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:24:39.0072723Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:24:39.0073528Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:24:39.0074209Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c2da7ec2f3cf2759
+2026-11-21T08:24:39.0074817Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249475503
+2026-11-21T08:24:39.0075395Z   GH_AW_WORKFLOW_FILE: sync-festival.lock.yml
+2026-11-21T08:24:39.0076395Z   GH_AW_CONTEXT_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:24:39.0077347Z ##[endgroup]
+2026-11-21T08:24:39.1343819Z Checking for stale lock file using frontmatter hash:
+2026-11-21T08:24:39.1349561Z   Source: .github/workflows/sync-festival.md
+2026-11-21T08:24:39.1352646Z   Lock file: .github/workflows/sync-festival.lock.yml
+2026-11-21T08:24:39.1357261Z Using immutable workflow revision from GITHUB_WORKFLOW_SHA: d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:39.1361803Z Env workflow ref already identifies this workflow, skipping referenced_workflows API lookup
+2026-11-21T08:24:39.1365777Z GITHUB_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:24:39.1369922Z GH_AW_CONTEXT_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main (available as env fallback)
+2026-11-21T08:24:39.1374032Z GITHUB_REPOSITORY: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:24:39.1376443Z Resolved source repo: vanduc2514/agent-tkst-hanoi-2026 @ d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:39.1380600Z Same-repo invocation: checking out vanduc2514/agent-tkst-hanoi-2026 @ d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:39.5481461Z Frontmatter hash comparison:
+2026-11-21T08:24:39.5485114Z   Lock file hash:    c44a83255aa5396b844f4356016bc4b4bbb412b1c9cd6c2264f111518bc85724
+2026-11-21T08:24:39.5489002Z   Recomputed hash:   c44a83255aa5396b844f4356016bc4b4bbb412b1c9cd6c2264f111518bc85724
+2026-11-21T08:24:39.5492723Z   Status: ✅ Hashes match
+2026-11-21T08:24:39.5495278Z ✅ Lock file is up to date (hashes match)

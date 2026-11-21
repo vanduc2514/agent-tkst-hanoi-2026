@@ -1,0 +1,62 @@
+﻿2026-11-21T08:30:28.8424104Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:30:28.8424559Z with:
+2026-11-21T08:30:28.8424786Z   name: safe-outputs-items
+2026-11-21T08:30:28.8425449Z   path: /tmp/gh-aw/safe-output-items.jsonl
+/tmp/gh-aw/safe-output-outcomes.jsonl
+/tmp/gh-aw/temporary-id-map.json
+/tmp/gh-aw/safe-output-errors.json
+
+2026-11-21T08:30:28.8426153Z   if-no-files-found: ignore
+2026-11-21T08:30:28.8426428Z   retention-days: 0
+2026-11-21T08:30:28.8426653Z   compression-level: 6
+2026-11-21T08:30:28.8426887Z   overwrite: false
+2026-11-21T08:30:28.8427111Z   include-hidden-files: false
+2026-11-21T08:30:28.8427368Z   archive: true
+2026-11-21T08:30:28.8427576Z env:
+2026-11-21T08:30:28.8427790Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:28.8428059Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:28.8428339Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:28.8429458Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:28.8430383Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:28.8430650Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:28.8430902Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:28.8431192Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:28.8431687Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:28.8431946Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:28.8432181Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:28.8432412Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:28.8432780Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:28.8433186Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:28.8433466Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:28.8433711Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:28.8433976Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:28.8434217Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:28.8434485Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:28.8434763Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:28.8435030Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:28.8435302Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:28.8435570Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:28.8435815Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:28.8436071Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:28.8436362Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:28.8436667Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:28.8437284Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:28.8437928Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:28.8438309Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:28.8438638Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:28.8438927Z   GH_HOST: github.com
+2026-11-21T08:30:28.8439335Z ##[endgroup]
+2026-11-21T08:30:28.9884818Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:30:28.9887264Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-11-21T08:30:28.9888151Z With the provided path, there will be 3 files uploaded
+2026-11-21T08:30:28.9900345Z Artifact name is valid!
+2026-11-21T08:30:28.9900940Z Root directory input is valid!
+2026-11-21T08:30:29.2253196Z Uploading artifact: safe-outputs-items.zip
+2026-11-21T08:30:29.2290573Z Beginning upload of artifact content to blob storage
+2026-11-21T08:30:29.3030807Z Uploaded bytes 574
+2026-11-21T08:30:29.3167825Z Finished uploading artifact content to blob storage!
+2026-11-21T08:30:29.3168809Z SHA256 digest of uploaded artifact is 312ad1d39c06a982d762ebaea91f1575c83b13d41b627458643093245014b99b
+2026-11-21T08:30:29.3169665Z Finalizing artifact upload
+2026-11-21T08:30:29.6654867Z Artifact safe-outputs-items successfully finalized. Artifact ID 14699377416
+2026-11-21T08:30:29.6657551Z Artifact safe-outputs-items has been successfully uploaded! Final size is 574 bytes. Artifact ID is 14699377416
+2026-11-21T08:30:29.6660050Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44884734460/artifacts/14699377416

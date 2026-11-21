@@ -1,0 +1,39 @@
+﻿2026-11-21T08:30:45.0686345Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:30:45.0687249Z with:
+2026-11-21T08:30:45.0687718Z   pattern: safe-outputs-items
+2026-11-21T08:30:45.0688287Z   merge-multiple: true
+2026-11-21T08:30:45.0688787Z   path: /tmp/gh-aw/
+2026-11-21T08:30:45.0689323Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:30:45.0690021Z   run-id: 44884734460
+2026-11-21T08:30:45.0690525Z   skip-decompress: false
+2026-11-21T08:30:45.0691053Z   digest-mismatch: error
+2026-11-21T08:30:45.0691555Z env:
+2026-11-21T08:30:45.0692008Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:45.0692571Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:45.0693181Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:45.0695068Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:45.0696636Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:45.0697230Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:45.0697769Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:45.0698373Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:45.0699019Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:45.0700142Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:30:45.0701864Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"success"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:30:45.0703671Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:30:45.0704693Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:45.0705320Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:45.0706062Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f99f45858c3a5230
+2026-11-21T08:30:45.0706736Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249842242
+2026-11-21T08:30:45.0707326Z ##[endgroup]
+2026-11-21T08:30:45.4075317Z Found 6 artifact(s)
+2026-11-21T08:30:45.4082803Z Filtering artifacts by pattern 'safe-outputs-items'
+2026-11-21T08:30:45.4108678Z Preparing to download the following artifacts:
+2026-11-21T08:30:45.4112760Z - safe-outputs-items (ID: 14699377416, Size: 574, Expected Digest: sha256:312ad1d39c06a982d762ebaea91f1575c83b13d41b627458643093245014b99b)
+2026-11-21T08:30:45.6797198Z Redirecting to blob download url: https://productionresultssa32.blob.core.windows.net/actions-results/50d6f9b4-209d-4c62-aa41-6e7ecd39dbff/workflow-job-run-fb0ebd1e-47c9-5140-80b5-d7adc99781fe/artifacts/140086647422da92f7ddc36c3ae296f3ebb1dfa20d074a5f6305bad1022cc591.zip
+2026-11-21T08:30:45.6801269Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:30:45.8452263Z (node:2424) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:30:45.8457095Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:30:45.8549675Z SHA256 digest of downloaded artifact is 312ad1d39c06a982d762ebaea91f1575c83b13d41b627458643093245014b99b
+2026-11-21T08:30:45.8554413Z Artifact download completed successfully.
+2026-11-21T08:30:45.8557804Z Total of 1 artifact(s) downloaded
+2026-11-21T08:30:45.8565998Z Download artifact has finished successfully

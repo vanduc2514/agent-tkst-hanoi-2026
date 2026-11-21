@@ -1,0 +1,290 @@
+{
+  "schema": "usage-activity-summary/v1",
+  "firewall": {
+    "total_requests": 30,
+    "allowed_requests": 30,
+    "blocked_requests": 0,
+    "allowed_domains": [
+      "api.github.com:443",
+      "api.githubcopilot.com:443"
+    ],
+    "blocked_domains": [],
+    "requests_by_domain": {
+      "api.github.com:443": {
+        "allowed": 8,
+        "blocked": 0
+      },
+      "api.githubcopilot.com:443": {
+        "allowed": 22,
+        "blocked": 0
+      }
+    }
+  },
+  "session": {
+    "total_events": 51,
+    "session_starts": 1,
+    "session_shutdowns": 1,
+    "turns": 1,
+    "assistant_messages": 7,
+    "reasoning_events": 0,
+    "tool_execution_starts": 6,
+    "tool_execution_completes": 6,
+    "failed_tool_executions": 4
+  },
+  "gateway": {
+    "total_calls": 1,
+    "failed_calls": 0,
+    "total_input_size": 378,
+    "total_output_size": 0,
+    "avg_input_size": 378,
+    "avg_output_size": 0,
+    "max_input_size": 378,
+    "max_output_size": 0,
+    "total_duration_ms": 0,
+    "max_duration_ms": 0,
+    "tool_calls": [
+      {
+        "tool_call_id": "call-1",
+        "timestamp": "2026-11-21T08:28:23.588Z",
+        "server_name": "safeoutputs",
+        "tool_name": "report_incomplete",
+        "request_size": 378,
+        "response_size": 0,
+        "duration_ms": 0,
+        "outcome": "incomplete"
+      }
+    ],
+    "servers": [
+      {
+        "server_name": "safeoutputs",
+        "request_count": 1,
+        "tool_call_count": 1,
+        "failed_calls": 0,
+        "total_input_size": 378,
+        "total_output_size": 0,
+        "max_input_size": 378,
+        "max_output_size": 0,
+        "total_duration_ms": 0,
+        "avg_input_size": 378,
+        "avg_output_size": 0,
+        "avg_duration_ms": 0
+      }
+    ],
+    "tools": [
+      {
+        "server_name": "safeoutputs",
+        "tool_name": "report_incomplete",
+        "call_count": 1,
+        "failed_calls": 0,
+        "total_input_size": 378,
+        "total_output_size": 0,
+        "max_input_size": 378,
+        "max_output_size": 0,
+        "total_duration_ms": 0,
+        "max_duration_ms": 0,
+        "avg_input_size": 378,
+        "avg_output_size": 0,
+        "avg_duration_ms": 0
+      }
+    ]
+  },
+  "safe_outputs": {
+    "total_items": 0,
+    "items_by_type": {},
+    "items": []
+  },
+  "ledger": {
+    "transactions_added": 0
+  },
+  "working_set": {
+    "measurement_state": "measured",
+    "cumulative_input_tokens": 28830,
+    "peak_input_tokens": 24255,
+    "rebuild_excess_tokens": 4575,
+    "invocations": 7,
+    "rebuild_factor": 1.1886209029066173
+  },
+  "friction": {
+    "measurement_state": "statistical",
+    "canonical_unit": "aic",
+    "sources": [
+      "agent_session",
+      "agent_token_usage",
+      "firewall",
+      "mcp_gateway"
+    ],
+    "total_events": 1,
+    "total_occurrences": 4,
+    "counted_occurrences": 4,
+    "suppressed_occurrences": 0,
+    "linked_invocations": 0,
+    "unattributed_occurrences": 0,
+    "cost": {
+      "aic": 8.232914285714285,
+      "tokens": {
+        "input": 16474,
+        "output": 266,
+        "cache_read": 94501,
+        "cache_write": 0,
+        "reasoning": 0,
+        "total": 111241
+      },
+      "turns": 0,
+      "tool_calls": 4,
+      "latency_ms": 0
+    },
+    "total_run_aic": 14.4076,
+    "friction_ratio": 0.5714285714285714,
+    "dimension_states": {
+      "aic": "statistical",
+      "tokens": "statistical",
+      "turns": "unavailable",
+      "tool_calls": "measured",
+      "latency_ms": "unavailable"
+    },
+    "uncertainty": {
+      "aic": {
+        "state": "statistical",
+        "method": "mean_invocation_apportionment",
+        "confidence": "medium",
+        "sample_size": 7,
+        "basis": "AI credits of errored invocations (measured), of linked follow-up invocations (causal), or the mean healthy-invocation cost (statistical)",
+        "relative_error": 0.23156029316007937,
+        "confidence_level": 0.95,
+        "lower_bound": 4.4963388364131465,
+        "upper_bound": 11.969489735015424
+      },
+      "tokens": {
+        "state": "statistical",
+        "method": "mean_invocation_apportionment",
+        "confidence": "medium",
+        "sample_size": 7,
+        "basis": "token classes of the attributed invocations",
+        "relative_error": 0.02146228656378333,
+        "confidence_level": 0.95,
+        "lower_bound": 106561.52700950202,
+        "upper_bound": 115920.47299049798
+      },
+      "turns": {
+        "state": "unavailable",
+        "method": "none",
+        "confidence": "none",
+        "sample_size": 0,
+        "basis": "one additional turn per errored or retried model invocation"
+      },
+      "tool_calls": {
+        "state": "measured",
+        "method": "direct_record",
+        "confidence": "high",
+        "sample_size": 4,
+        "basis": "counted friction occurrences that consumed a tool call",
+        "relative_error": 0,
+        "lower_bound": 4,
+        "upper_bound": 4
+      },
+      "latency_ms": {
+        "state": "unavailable",
+        "method": "none",
+        "confidence": "none",
+        "sample_size": 1,
+        "basis": "wall-clock duration recorded on the failing tool call or invocation"
+      }
+    },
+    "drivers": [
+      {
+        "driver": "session_tool_failure",
+        "class": "tool_failure",
+        "source": "agent_session",
+        "events": 1,
+        "occurrences": 4,
+        "counted_occurrences": 4,
+        "suppressed_occurrences": 0,
+        "state": "statistical",
+        "cost": {
+          "aic": 8.232914285714285,
+          "tokens": {
+            "input": 16474,
+            "output": 266,
+            "cache_read": 94501,
+            "cache_write": 0,
+            "reasoning": 0,
+            "total": 111241
+          },
+          "turns": 0,
+          "tool_calls": 4,
+          "latency_ms": 0
+        }
+      }
+    ],
+    "groups": [
+      {
+        "group_id": "tool_failure",
+        "primary_source": "agent_session",
+        "event_ids": [
+          "session_tool_failure:aggregate"
+        ],
+        "total_occurrences": 4,
+        "counted_occurrences": 4,
+        "suppressed_occurrences": 0,
+        "rule": "highest-fidelity source owns overlapping occurrences; lower-fidelity sources contribute only their excess"
+      }
+    ],
+    "events": [
+      {
+        "id": "session_tool_failure:aggregate",
+        "driver": "session_tool_failure",
+        "source": "agent_session",
+        "group_id": "tool_failure",
+        "label": "agent session tool executions",
+        "occurrences": 4,
+        "counted_occurrences": 4,
+        "suppressed_occurrences": 0,
+        "attribution_class": "statistically_estimated",
+        "state": "statistical",
+        "estimation_method": "mean_invocation_apportionment",
+        "dimension_states": {
+          "aic": "statistical",
+          "tokens": "statistical",
+          "turns": "unsupported",
+          "tool_calls": "measured",
+          "latency_ms": "unsupported"
+        },
+        "cost": {
+          "aic": 8.232914285714285,
+          "tokens": {
+            "input": 16474,
+            "output": 266,
+            "cache_read": 94501,
+            "cache_write": 0,
+            "reasoning": 0,
+            "total": 111241
+          },
+          "turns": 0,
+          "tool_calls": 4,
+          "latency_ms": 0
+        },
+        "confidence": "medium",
+        "lower_bound_aic": 4.4963388364131465,
+        "upper_bound_aic": 11.969489735015424
+      }
+    ],
+    "unmeasured_drivers": [
+      {
+        "driver": "agent_api_error",
+        "reason": "no_occurrences"
+      },
+      {
+        "driver": "firewall_block",
+        "reason": "no_occurrences"
+      },
+      {
+        "driver": "integrity_filter",
+        "reason": "no_occurrences"
+      },
+      {
+        "driver": "mcp_tool_error",
+        "reason": "no_occurrences"
+      }
+    ]
+  }
+}

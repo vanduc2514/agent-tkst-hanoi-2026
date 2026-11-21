@@ -45,9 +45,14 @@ another file.
 
 ### Scheduled festival sync
 
-`.github/workflows/sync-festival.md` is a GitHub Agentic Workflow: it runs daily, executes the
-skill, and opens a pull request whose body is `tmp/sync/report.md`. `sync-festival.lock.yml` is
-generated — edit the `.md` and run `gh aw compile`, never the lock file.
+`.github/workflows/sync-festival.md` is a GitHub Agentic Workflow: it executes the skill in
+frontmatter `steps` (so `APIFY_TOKEN` never reaches the agent), then lets the agent resolve the
+review rows and open a pull request whose body is `tmp/sync/report.md`. `sync-festival.lock.yml`
+is generated — edit the `.md` and run `gh aw compile`, never the lock file.
+
+The schedule is paused; triggers are manual (`gh aw run sync-festival`) until the model routing
+below is confirmed. `model: gpt-4.1` is pinned because the default `auto` resolves to a model the
+token cannot call, which the API answers with 502.
 
 Required repository secrets: `APIFY_TOKEN` and `COPILOT_GITHUB_TOKEN`. The Copilot secret must be
 a fine-grained PAT (`github_pat_…`) whose only permission is Account → Copilot Requests; OAuth

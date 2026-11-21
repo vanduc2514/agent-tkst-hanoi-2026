@@ -1,0 +1,21 @@
+﻿2026-11-21T08:28:53.1179145Z ##[group]Run mkdir -p "/tmp/gh-aw/threat-detection"
+2026-11-21T08:28:53.1179676Z [36;1mmkdir -p "/tmp/gh-aw/threat-detection"[0m
+2026-11-21T08:28:53.1180196Z [36;1mevidence_tmp="/tmp/gh-aw/threat-detection/execution.json.tmp"[0m
+2026-11-21T08:28:53.1181139Z [36;1mprintf '{"version":1,"component":"detection","run_id":%s,"run_attempt":%s,"state":"not_started"}\n' "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" > "$evidence_tmp"[0m
+2026-11-21T08:28:53.1182067Z [36;1mmv "$evidence_tmp" "/tmp/gh-aw/threat-detection/execution.json"[0m
+2026-11-21T08:28:53.1210765Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:28:53.1211002Z env:
+2026-11-21T08:28:53.1211197Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:28:53.1211450Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:28:53.1211691Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:28:53.1212381Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:28:53.1213069Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:28:53.1213294Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:28:53.1213507Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:28:53.1225095Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:28:53.1225495Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:28:53.1225817Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:28:53.1226090Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:28:53.1226397Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 5807a1bb6969b08a
+2026-11-21T08:28:53.1226676Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249731688
+2026-11-21T08:28:53.1226925Z ##[endgroup]

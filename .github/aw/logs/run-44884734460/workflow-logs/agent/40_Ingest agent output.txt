@@ -1,0 +1,75 @@
+﻿2026-11-21T08:28:30.8505539Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:28:30.8505856Z with:
+2026-11-21T08:28:30.8506720Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'collect_ndjson_output.cjs'));
+await main();
+
+2026-11-21T08:28:30.8509327Z   github-token: ***
+2026-11-21T08:28:30.8509607Z   debug: false
+2026-11-21T08:28:30.8509804Z   user-agent: actions/github-script
+2026-11-21T08:28:30.8510026Z   result-encoding: json
+2026-11-21T08:28:30.8510216Z   retries: 0
+2026-11-21T08:28:30.8510409Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:28:30.8510655Z env:
+2026-11-21T08:28:30.8510826Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:28:30.8511037Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:28:30.8511260Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:28:30.8511921Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:28:30.8512527Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:28:30.8512808Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:28:30.8513003Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:28:30.8513232Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:28:30.8513467Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:28:30.8514220Z   DEFAULT_BRANCH: main
+2026-11-21T08:28:30.8514411Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:28:30.8514619Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:28:30.8514805Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:28:30.8515031Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:28:30.8515287Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:28:30.8515502Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:28:30.8515714Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:28:30.8515918Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:28:30.8516118Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:28:30.8516311Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:28:30.8516508Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:28:30.8516703Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:28:30.8516894Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:28:30.8517086Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:28:30.8517265Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:28:30.8517458Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:28:30.8517653Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:28:30.8517918Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:28:30.8518197Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7c2369934a8f5e23
+2026-11-21T08:28:30.8518434Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249503374
+2026-11-21T08:28:30.8518689Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:28:30.8518983Z   GH_AW_RUNTIME_TMP_ID: 64512:8279374:1001
+2026-11-21T08:28:30.8519215Z   TMPDIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:28:30.8519567Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: 6002bcf216913aad878adbd6c0c24f2e239e8255f2056b8752df58934f918de2
+2026-11-21T08:28:30.8520032Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:28:30.8520434Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-11-21T08:28:30.8523314Z   GH_AW_ALLOWED_DOMAINS: archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,s.symcb.com,s.symcd.com,security.ubuntu.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com
+2026-11-21T08:28:30.8526234Z   GITHUB_SERVER_URL: https://github.com
+2026-11-21T08:28:30.8526573Z   GITHUB_API_URL: https://api.github.com
+2026-11-21T08:28:30.8526787Z ##[endgroup]
+2026-11-21T08:28:30.9489449Z Loaded validation config from /home/runner/work/_temp/gh-aw/safeoutputs/validation.json
+2026-11-21T08:28:30.9490284Z [INGESTION] Reading config from: /home/runner/work/_temp/gh-aw/safeoutputs/config.json
+2026-11-21T08:28:30.9493673Z [INGESTION] Raw config content: {"create_pull_request":{"base_branch":"main","labels":["festival-sync"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"allowed","title_prefix":"[sync] "},"create_report_incomplete_issue":{},"noop":{"max":2,"report-as-issue":"true"},"report_incomplete":{},"report_missing_data":{},"report_missing_tool":{}}
+2026-11-21T08:28:30.9497096Z [INGESTION] Parsed config keys: ["create_pull_request","create_report_incomplete_issue","noop","report_incomplete","report_missing_data","report_missing_tool"]
+2026-11-21T08:28:30.9497870Z [INGESTION] Output file path: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-11-21T08:28:30.9498272Z Raw output content length: 436
+2026-11-21T08:28:30.9499423Z [INGESTION] First 500 chars of output: {"details":"The sync-festival workflow requires APIFY_TOKEN to access Apify actors via mise exec. Non-interactive sessions cannot provide the token, so the sync cannot proceed. Retry in an interactive session or ensure APIFY_TOKEN is available to the agent.","reason":"APIFY_TOKEN is not available in the environment for non-interactive sessions, blocking sync-festival fetch.","type":"report_incomplete","output_id":"so_ErsN2D7jT8eJ"}
+2026-11-21T08:28:30.9500526Z 
+2026-11-21T08:28:30.9500657Z [INGESTION] Normalizing config keys (dash -> underscore)
+2026-11-21T08:28:30.9501206Z [INGESTION] Expected output types after normalization: ["create_pull_request","create_report_incomplete_issue","noop","report_incomplete","report_missing_data","report_missing_tool"]
+2026-11-21T08:28:30.9503921Z [INGESTION] Expected output types full config: {"create_pull_request":{"base_branch":"main","labels":["festival-sync"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"allowed","title_prefix":"[sync] "},"create_report_incomplete_issue":{},"noop":{"max":2,"report-as-issue":"true"},"report_incomplete":{},"report_missing_data":{},"report_missing_tool":{}}
+2026-11-21T08:28:30.9506730Z [INGESTION] Processing line 1: {"details":"The sync-festival workflow requires APIFY_TOKEN to access Apify actors via mise exec. Non-interactive sessions cannot provide the token, so the sync cannot proceed. Retry in an interactive...
+2026-11-21T08:28:30.9507458Z [INGESTION] Line 1: Original type='report_incomplete', Normalized type='report_incomplete'
+2026-11-21T08:28:30.9507894Z Line 1: type 'report_incomplete'
+2026-11-21T08:28:30.9541115Z Line 1: Valid report_incomplete item
+2026-11-21T08:28:30.9541882Z Successfully parsed 1 valid output items
+2026-11-21T08:28:30.9859964Z Stored validated output to: /tmp/gh-aw/agent_output.json
+2026-11-21T08:28:30.9864985Z output_types: report_incomplete
+2026-11-21T08:28:30.9866085Z No patch or bundle files found in: /tmp/gh-aw

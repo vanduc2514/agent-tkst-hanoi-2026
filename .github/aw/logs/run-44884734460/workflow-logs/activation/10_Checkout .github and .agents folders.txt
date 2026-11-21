@@ -1,0 +1,137 @@
+﻿2026-11-21T08:24:36.6407841Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-21T08:24:36.6408607Z with:
+2026-11-21T08:24:36.6409017Z   persist-credentials: false
+2026-11-21T08:24:36.6409976Z   sparse-checkout: .github
+.agents
+.claude
+.codex
+.gemini
+.pi
+
+2026-11-21T08:24:36.6410690Z   sparse-checkout-cone-mode: true
+2026-11-21T08:24:36.6411192Z   fetch-depth: 1
+2026-11-21T08:24:36.6411655Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:24:36.6415608Z   token: ***
+2026-11-21T08:24:36.6416038Z   ssh-strict: true
+2026-11-21T08:24:36.6416454Z   ssh-user: git
+2026-11-21T08:24:36.6416849Z   clean: true
+2026-11-21T08:24:36.6417245Z   fetch-tags: false
+2026-11-21T08:24:36.6417672Z   show-progress: true
+2026-11-21T08:24:36.6418103Z   lfs: false
+2026-11-21T08:24:36.6418501Z   submodules: false
+2026-11-21T08:24:36.6418925Z   set-safe-directory: true
+2026-11-21T08:24:36.6419412Z   allow-unsafe-pr-checkout: false
+2026-11-21T08:24:36.6419899Z env:
+2026-11-21T08:24:36.6420376Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:24:36.6420928Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:24:36.6421433Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:24:36.6423112Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:24:36.6424615Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:24:36.6425298Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:24:36.6425785Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:24:36.6426309Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:24:36.6426892Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:24:36.6427385Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:24:36.6427894Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:24:36.6428443Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:24:36.6429117Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c2da7ec2f3cf2759
+2026-11-21T08:24:36.6429899Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249475503
+2026-11-21T08:24:36.6430441Z ##[endgroup]
+2026-11-21T08:24:36.7946589Z Syncing repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:24:36.7947987Z ##[group]Getting Git version info
+2026-11-21T08:24:36.7948797Z Working directory is '/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026'
+2026-11-21T08:24:36.7949913Z [command]/usr/bin/git version
+2026-11-21T08:24:37.7607220Z git version 2.56.1
+2026-11-21T08:24:37.7621216Z ##[endgroup]
+2026-11-21T08:24:37.7627280Z Temporarily overriding HOME='/home/runner/work/_temp/58eb015e-78bd-4135-8a8c-bea7decfcdd5' before making global git config changes
+2026-11-21T08:24:37.7628624Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-21T08:24:37.7629864Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:24:37.7631677Z Deleting the contents of '/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026'
+2026-11-21T08:24:37.7632816Z ##[group]Determining repository object format
+2026-11-21T08:24:37.7634000Z ##[endgroup]
+2026-11-21T08:24:37.7634685Z ##[group]Initializing the repository
+2026-11-21T08:24:37.7635466Z [command]/usr/bin/git init /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:24:37.7636468Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-21T08:24:37.7637382Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-21T08:24:37.7638282Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-21T08:24:37.7638999Z hint: call:
+2026-11-21T08:24:37.7639381Z hint:
+2026-11-21T08:24:37.7639870Z hint: 	git config --global init.defaultBranch <name>
+2026-11-21T08:24:37.7640478Z hint:
+2026-11-21T08:24:37.7641030Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-21T08:24:37.7641932Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-21T08:24:37.7643706Z hint:
+2026-11-21T08:24:37.7644261Z hint: 	git branch -m <name>
+2026-11-21T08:24:37.7644729Z hint:
+2026-11-21T08:24:37.7645339Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-21T08:24:37.7646444Z Initialized empty Git repository in /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git/
+2026-11-21T08:24:37.7648179Z [command]/usr/bin/git remote add origin https://github.com/vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:24:37.7649736Z ##[endgroup]
+2026-11-21T08:24:37.7650447Z ##[group]Disabling automatic garbage collection
+2026-11-21T08:24:37.7651066Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-21T08:24:37.7652367Z ##[endgroup]
+2026-11-21T08:24:37.7653221Z ##[group]Setting up auth
+2026-11-21T08:24:37.7653728Z Removing SSH command configuration
+2026-11-21T08:24:37.7654452Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-21T08:24:37.7656764Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-21T08:24:37.7658629Z Removing HTTP extra header
+2026-11-21T08:24:37.7659441Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-21T08:24:37.7661765Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-21T08:24:37.7664104Z Removing includeIf entries pointing to credentials config files
+2026-11-21T08:24:37.7664989Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-21T08:24:37.7666725Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-21T08:24:37.7669884Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-21T08:24:37.7673161Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git.path /home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:37.7676192Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:37.7678951Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:37.7681624Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:37.7683841Z ##[endgroup]
+2026-11-21T08:24:37.7684521Z ##[group]Fetching the repository
+2026-11-21T08:24:37.7685877Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin +d2c0da59ab8827579dbf93d0f801a9d161cfa5b8:refs/remotes/origin/main
+2026-11-21T08:24:37.7687348Z From https://github.com/vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:24:37.7688117Z  * [new ref]         d2c0da59ab8827579dbf93d0f801a9d161cfa5b8 -> origin/main
+2026-11-21T08:24:37.7689397Z [command]/usr/bin/git branch --list --remote origin/main
+2026-11-21T08:24:37.7689993Z   origin/main
+2026-11-21T08:24:37.7691008Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-11-21T08:24:37.7691640Z d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:37.7693973Z ##[endgroup]
+2026-11-21T08:24:37.7694699Z ##[group]Determining the checkout info
+2026-11-21T08:24:37.7695473Z ##[endgroup]
+2026-11-21T08:24:37.7696300Z ##[group]Setting up sparse checkout
+2026-11-21T08:24:37.7697346Z [command]/usr/bin/git sparse-checkout set .github .agents .claude .codex .gemini .pi
+2026-11-21T08:24:37.7698904Z ##[endgroup]
+2026-11-21T08:24:37.7699595Z ##[group]Checking out the ref
+2026-11-21T08:24:37.7700321Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-11-21T08:24:38.3238427Z Switched to a new branch 'main'
+2026-11-21T08:24:38.3239103Z branch 'main' set up to track 'origin/main'.
+2026-11-21T08:24:38.3240660Z ##[endgroup]
+2026-11-21T08:24:38.3241659Z [command]/usr/bin/git log -1 --format=%H
+2026-11-21T08:24:38.3242252Z d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:38.3243914Z ##[group]Removing auth
+2026-11-21T08:24:38.3244414Z Removing SSH command configuration
+2026-11-21T08:24:38.3245159Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-21T08:24:38.3247185Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-21T08:24:38.3249016Z Removing HTTP extra header
+2026-11-21T08:24:38.3249838Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-21T08:24:38.3252624Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-21T08:24:38.3255056Z Removing includeIf entries pointing to credentials config files
+2026-11-21T08:24:38.3255963Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-21T08:24:38.3257007Z includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git.path
+2026-11-21T08:24:38.3258214Z includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git/worktrees/*.path
+2026-11-21T08:24:38.3259934Z includeif.gitdir:/github/workspace/.git.path
+2026-11-21T08:24:38.3260954Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-21T08:24:38.3262727Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git.path
+2026-11-21T08:24:38.3264517Z /home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:38.3266956Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-902cfa74\-dbf1\-4790\-b530\-ef622db9e467\.config
+2026-11-21T08:24:38.3269642Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git/worktrees/*.path
+2026-11-21T08:24:38.3271035Z /home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:38.3273827Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-902cfa74\-dbf1\-4790\-b530\-ef622db9e467\.config
+2026-11-21T08:24:38.3276537Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-21T08:24:38.3277593Z /github/runner_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:38.3279653Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-902cfa74\-dbf1\-4790\-b530\-ef622db9e467\.config
+2026-11-21T08:24:38.3281803Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-21T08:24:38.3283811Z /github/runner_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config
+2026-11-21T08:24:38.3285982Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-902cfa74\-dbf1\-4790\-b530\-ef622db9e467\.config
+2026-11-21T08:24:38.3288635Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-21T08:24:38.3290606Z Removing credentials config '/home/runner/work/_temp/git-credentials-902cfa74-dbf1-4790-b530-ef622db9e467.config'
+2026-11-21T08:24:38.3292170Z ##[endgroup]

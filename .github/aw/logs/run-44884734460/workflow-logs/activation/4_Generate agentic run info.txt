@@ -1,0 +1,65 @@
+﻿2026-11-21T08:24:35.5931134Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:24:35.5931959Z with:
+2026-11-21T08:24:35.5934315Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'generate_aw_info.cjs'));
+await main(core, context);
+
+2026-11-21T08:24:35.5939758Z   github-token: ***
+2026-11-21T08:24:35.5940220Z   debug: false
+2026-11-21T08:24:35.5940668Z   user-agent: actions/github-script
+2026-11-21T08:24:35.5941203Z   result-encoding: json
+2026-11-21T08:24:35.5941651Z   retries: 0
+2026-11-21T08:24:35.5942129Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:24:35.5942695Z env:
+2026-11-21T08:24:35.5943556Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:24:35.5944090Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:24:35.5944606Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:24:35.5946138Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:24:35.5950340Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:24:35.5950875Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:24:35.5951370Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:24:35.5951915Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:24:35.5952514Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:24:35.5953218Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:24:35.5953745Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:24:35.5954315Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:24:35.5954995Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c2da7ec2f3cf2759
+2026-11-21T08:24:35.5955618Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249475503
+2026-11-21T08:24:35.5956180Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-11-21T08:24:35.5958491Z   GH_AW_INFO_ENGINE_NAME: GitHub Copilot CLI
+2026-11-21T08:24:35.5959154Z   GH_AW_INFO_MODEL: gpt-4.1
+2026-11-21T08:24:35.5959654Z   GH_AW_INFO_VERSION: 1.0.103
+2026-11-21T08:24:35.5960165Z   GH_AW_INFO_AGENT_VERSION: 1.0.103
+2026-11-21T08:24:35.5960696Z   GH_AW_INFO_CLI_VERSION: v1.2.2
+2026-11-21T08:24:35.5961278Z   GH_AW_INFO_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:24:35.5962314Z   GH_AW_INFO_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:24:35.5963635Z   GH_AW_INFO_WORKFLOW_SHA: d2c0da59ab8827579dbf93d0f801a9d161cfa5b8
+2026-11-21T08:24:35.5964340Z   GH_AW_INFO_EXPERIMENTAL: false
+2026-11-21T08:24:35.5964876Z   GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: true
+2026-11-21T08:24:35.5965437Z   GH_AW_INFO_STAGED: false
+2026-11-21T08:24:35.5965932Z   GH_AW_INFO_ALLOWED_DOMAINS: ["defaults"]
+2026-11-21T08:24:35.5966495Z   GH_AW_INFO_FIREWALL_ENABLED: true
+2026-11-21T08:24:35.5967012Z   GH_AW_INFO_AWF_VERSION: v0.29.11
+2026-11-21T08:24:35.5967534Z   GH_AW_INFO_AWMG_VERSION: 
+2026-11-21T08:24:35.5968017Z   GH_AW_INFO_FIREWALL_TYPE: squid
+2026-11-21T08:24:35.5968526Z   GH_AW_INFO_AGENT_RUNTIME: 
+2026-11-21T08:24:35.5969034Z   GH_AW_INFO_ENGINE_HARNESS: copilot-cli
+2026-11-21T08:24:35.5969980Z   GH_AW_INFO_MODEL_CONFIG: {"routing":{"enabled":false},"models":{"allowed":[],"blocked":[]},"max_ai_credits_source":"default"}
+2026-11-21T08:24:35.5970933Z   GH_AW_INFO_MAX_AI_CREDITS: 1000
+2026-11-21T08:24:35.5971453Z   GH_AW_COMPILED_STRICT: true
+2026-11-21T08:24:35.5972452Z   GH_AW_INFO_MODEL_COSTS: {"providers":{"github-copilot":{"models":{"gpt-4.1":{"cost":{"cache_read":"5e-07","input":"2e-06","output":"8e-06"}}}}}}
+2026-11-21T08:24:35.5973629Z ##[endgroup]
+2026-11-21T08:24:35.7507576Z Starting context variable validation...
+2026-11-21T08:24:35.7515400Z ✓ github.event.repository.id is valid: 1461324590
+2026-11-21T08:24:35.7520023Z ✓ github.event.sender.id is valid: 52255055
+2026-11-21T08:24:35.7525409Z Validated 2 context variables
+2026-11-21T08:24:35.7528905Z ✅ All context variables validated successfully
+2026-11-21T08:24:35.7533527Z Lockdown mode not explicitly enabled, skipping validation
+2026-11-21T08:24:35.7536745Z Repository visibility: unknown
+2026-11-21T08:24:35.7539964Z Compiled with strict mode: true
+2026-11-21T08:24:36.0551218Z Generated merged models.json at: /tmp/gh-aw/models.json
+2026-11-21T08:24:36.0556483Z Generated aw_info.json at: /tmp/gh-aw/aw_info.json
+2026-11-21T08:24:36.0599148Z Generated workflow overview in step summary

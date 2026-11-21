@@ -1,0 +1,54 @@
+﻿2026-11-21T08:30:16.1885957Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/conclude_threat_detection.sh" /tmp/gh-aw/threat-detection/detection_result.json
+2026-11-21T08:30:16.1886661Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/conclude_threat_detection.sh" /tmp/gh-aw/threat-detection/detection_result.json[0m
+2026-11-21T08:30:16.1917057Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:30:16.1917288Z env:
+2026-11-21T08:30:16.1917482Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:16.1917723Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:16.1917967Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:16.1918650Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:16.1919301Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:16.1919531Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:16.1919757Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:16.1920007Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:16.1920300Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:16.1920530Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:16.1920786Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:16.1921098Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 5807a1bb6969b08a
+2026-11-21T08:30:16.1921376Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249731688
+2026-11-21T08:30:16.1921654Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:30:16.1921951Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-v491kP
+2026-11-21T08:30:16.1922224Z   GH_AW_RUNTIME_TMP_ID: 66305:8305591:1001
+2026-11-21T08:30:16.1922504Z   TMPDIR: /tmp/gh-aw-runtime-v491kP
+2026-11-21T08:30:16.1922865Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:30:16.1923234Z   GH_AW_PRIMARY_MODEL: gpt-4.1-2025-04-14
+2026-11-21T08:30:16.1923478Z   GH_AW_AIC: 22.1606
+2026-11-21T08:30:16.1923685Z   GH_AW_AMBIENT_CONTEXT: 30527
+2026-11-21T08:30:16.1923905Z   RUN_DETECTION: true
+2026-11-21T08:30:16.1924135Z   DETECTION_AGENTIC_EXECUTION_OUTCOME: success
+2026-11-21T08:30:16.1924480Z   THREAT_DETECT_INSTALL_OUTCOME: success
+2026-11-21T08:30:16.1924736Z   GH_AW_DETECTION_CONTINUE_ON_ERROR: true
+2026-11-21T08:30:16.1924978Z ##[endgroup]
+2026-11-21T08:30:16.2028905Z ════════════════════════════════════════════════════════
+2026-11-21T08:30:16.2029609Z 🛡️  Threat Detection: Parse Results & Conclude
+2026-11-21T08:30:16.2030222Z ════════════════════════════════════════════════════════
+2026-11-21T08:30:16.2030665Z 📋 RUN_DETECTION env: "true"
+2026-11-21T08:30:16.2030946Z 📋 continue-on-error: true
+2026-11-21T08:30:16.2031256Z 📋 detection execution outcome: "success"
+2026-11-21T08:30:16.2031673Z 📁 Threat detection directory: /tmp/gh-aw/threat-detection
+2026-11-21T08:30:16.2032145Z 📄 Detection log path: /tmp/gh-aw/threat-detection/detection.log
+2026-11-21T08:30:16.2032659Z 📄 Structured result path: /tmp/gh-aw/threat-detection/detection_result.json
+2026-11-21T08:30:16.2033187Z 📄 Full result path: /tmp/gh-aw/threat-detection/detection_result_full.json
+2026-11-21T08:30:16.2033689Z 🔍 Detection is required. Proceeding to parse detection result...
+2026-11-21T08:30:16.2034264Z 🔎 Checking for structured result file: /tmp/gh-aw/threat-detection/detection_result.json
+2026-11-21T08:30:16.2034986Z ✔️  Structured result file found and parsed successfully.
+2026-11-21T08:30:16.2035378Z ✔️  Full result file found; recovered 0 reason(s).
+2026-11-21T08:30:16.2035791Z 📋 Threat detection verdict (from structured result file):
+2026-11-21T08:30:16.2036107Z    prompt_injection : false
+2026-11-21T08:30:16.2036339Z    secret_leak      : false
+2026-11-21T08:30:16.2036553Z    malicious_patch  : false
+2026-11-21T08:30:16.2036763Z    reasons          : (none)
+2026-11-21T08:30:16.2036986Z    warnings         : (none)
+2026-11-21T08:30:16.2037329Z ✅ No security threats detected. Safe outputs may proceed.
+2026-11-21T08:30:16.2037749Z ════════════════════════════════════════════════════════
+2026-11-21T08:30:16.2038291Z 🛡️  Threat detection conclusion complete.
+2026-11-21T08:30:16.2038660Z ════════════════════════════════════════════════════════

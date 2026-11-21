@@ -1,6 +1,7 @@
 ---
 on:
-  schedule: daily
+  # Paused until the Copilot model routing is confirmed on this account; a daily
+  # run that fails only produces noise. Re-enable with `schedule: daily`.
   workflow_dispatch:
 engine: copilot
 # The fine-grained PAT behind COPILOT_GITHUB_TOKEN is entitled to the GPT chat
@@ -30,6 +31,8 @@ safe-outputs:
     labels: [festival-sync]
     base-branch: main
     protected-files: allowed
+  # Failures are visible in the Actions tab; do not open an issue per attempt.
+  report-failure-as-issue: false
   noop:
 steps:
   - name: Fetch and resolve the programme
@@ -58,21 +61,30 @@ Keep `src/events.json` in step with the organiser, following
 `.agents/skills/sync-festival/SKILL.md`. Read that file first; it defines the
 sources, the precedence rules and the reporting contract.
 
-## Steps
+## Already done, before you started
 
-1. Run the retrieval and the comparison, in this order:
+The `Fetch and resolve the programme` step has run these, with `APIFY_TOKEN` in
+its own environment:
 
-   ```sh
-   python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch
-   python3 .agents/skills/sync-festival/scripts/sync_festival.py diff
-   python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write
-   python3 .agents/skills/sync-festival/scripts/sync_festival.py apply
-   ```
+```sh
+sync_festival.py fetch
+sync_festival.py diff        # exit 1 means "something to review", not an error
+sync_festival.py enrich --write
+sync_festival.py apply
+```
 
-   The Apify token is already in the environment as `APIFY_TOKEN`. Never write it
-   to a file, a commit or the pull request.
+and the `Validate` step has run `check`, `selftest.py` and the agent-file build.
+So `tmp/sync/report.md` and the resolved `src/events.json` are on disk. That
+retrieval is finished: do not repeat it, and do not look for `APIFY_TOKEN`. It is
+not in your environment on purpose, and the Apify spend is already made.
 
-2. Run the checks and stop if either fails:
+## Your job
+
+1. Read `tmp/sync/report.md`. That is the report for this run.
+
+2. The `## Needs your review` rows are for a human unless one of them is a value
+   the sources already settle and the skill has a rule for. In that case, make the
+   smallest edit that rule allows, then re-run the checks:
 
    ```sh
    python3 .agents/skills/sync-festival/scripts/sync_festival.py check
@@ -80,25 +92,25 @@ sources, the precedence rules and the reporting contract.
    node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
    ```
 
-3. Resolve what the report still lists under "Needs your review", but only where
-   the sources let you. The rules are in the skill's ground rules: a curated
-   per-day schedule stays; a conflict between the site and a post stays; a slug
-   that needs a map pin stays. Do not invent a value.
+   Leave alone, without exception: a curated per-day schedule, a conflict between
+   the site and a post, a slug that needs a map pin, and a page that disappeared.
+   Never invent a value. If every row is one of those, that is a valid outcome.
 
-4. If `src/events.json` did not change, call `noop` with a one-line summary and
+3. If `src/events.json` did not change, call `noop` with a one-line summary and
    stop. Do not open an empty pull request.
 
-5. Open a pull request with `create-pull-request`:
+4. Otherwise open a pull request with `create-pull-request`:
 
    - Title: `Sync the festival programme for <date>`
    - Body: the **full, unmodified contents of `tmp/sync/report.md`**, pasted as
-     Markdown, followed by one line naming the commands that ran.
-   - Commit only `src/events.json`, `src/index.md`, `src/llms.txt` and the two
-     HTML wrappers when they changed. `tmp/` is gitignored and must stay out.
+     Markdown, followed by one line naming what you changed.
+   - Commit only `src/events.json` and the generated `src/index.md`,
+     `src/llms.txt`, `src/index.md.html`, `src/llms.txt.html` when they changed.
+     `tmp/` is gitignored and must stay out.
 
 ## Rules
 
 - Never deploy, never build an image, never touch `.github/`.
-- Never edit `src/events.json` by hand when the skill can do it.
+- Never edit `src/events.json` by hand outside the skill's own rules.
 - The report body must keep its two sections, `## Changes made` and
   `## Needs your review`, exactly as generated.

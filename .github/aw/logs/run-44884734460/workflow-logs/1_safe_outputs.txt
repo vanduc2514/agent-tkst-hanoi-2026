@@ -1,0 +1,572 @@
+﻿2026-11-21T08:30:20.5458169Z Current runner version: '2.338.2'
+2026-11-21T08:30:20.5494196Z ##[group]Runner Image Provisioner
+2026-11-21T08:30:20.5495689Z Hosted Compute Agent
+2026-11-21T08:30:20.5496707Z Version: 20261111.635
+2026-11-21T08:30:20.5498014Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-21T08:30:20.5499609Z Build Date: 2026-11-11T01:49:01Z
+2026-11-21T08:30:20.5500941Z Worker ID: {43e864c2-e61f-4657-b1a0-7fe542ff9124}
+2026-11-21T08:30:20.5502348Z Region: eastus
+2026-11-21T08:30:20.5503305Z Cloud: Azure
+2026-11-21T08:30:20.5504353Z ##[endgroup]
+2026-11-21T08:30:20.5506904Z ##[group]Operating System
+2026-11-21T08:30:20.5508088Z Ubuntu
+2026-11-21T08:30:20.5509266Z 26.04.1
+2026-11-21T08:30:20.5510203Z LTS
+2026-11-21T08:30:20.5511113Z ##[endgroup]
+2026-11-21T08:30:20.5512097Z ##[group]Runner Image
+2026-11-21T08:30:20.5513156Z Image: ubuntu-26.04
+2026-11-21T08:30:20.5514121Z Version: 20261116.202.1
+2026-11-21T08:30:20.5516325Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261116.202/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-21T08:30:20.5519284Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261116.202
+2026-11-21T08:30:20.5521033Z ##[endgroup]
+2026-11-21T08:30:20.5523410Z ##[group]GITHUB_TOKEN Permissions
+2026-11-21T08:30:20.5527057Z Contents: write
+2026-11-21T08:30:20.5528221Z Issues: write
+2026-11-21T08:30:20.5529585Z Metadata: read
+2026-11-21T08:30:20.5530714Z PullRequests: write
+2026-11-21T08:30:20.5531740Z ##[endgroup]
+2026-11-21T08:30:20.5535364Z Secret source: Actions
+2026-11-21T08:30:20.5537136Z Cache mode: write
+2026-11-21T08:30:20.5538908Z Prepare workflow directory
+2026-11-21T08:30:20.6326054Z Prepare all required actions
+2026-11-21T08:30:20.6374084Z Getting action download info
+2026-11-21T08:30:20.8298726Z Download action repository 'github/gh-aw-actions@53d0749e19424a918acd82b4d140264ce48f2f14' (SHA:53d0749e19424a918acd82b4d140264ce48f2f14)
+2026-11-21T08:30:21.2104448Z Download action repository 'actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333' (SHA:9000827ccba6bdab643e8b6fd33ac0654aef8333)
+2026-11-21T08:30:21.3312269Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-21T08:30:21.3622559Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-11-21T08:30:21.4573185Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-21T08:30:21.6175872Z Complete job name: safe_outputs
+2026-11-21T08:30:21.7138305Z ##[group]Run github/gh-aw-actions/setup@53d0749e19424a918acd82b4d140264ce48f2f14
+2026-11-21T08:30:21.7140527Z with:
+2026-11-21T08:30:21.7141137Z   destination: /home/runner/work/_temp/gh-aw/actions
+2026-11-21T08:30:21.7141950Z   job-name: safe_outputs
+2026-11-21T08:30:21.7142576Z   trace-id: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:21.7143206Z   parent-span-id: c2da7ec2f3cf2759
+2026-11-21T08:30:21.7143998Z   safe-output-artifact-client: false
+2026-11-21T08:30:21.7145064Z env:
+2026-11-21T08:30:21.7145591Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:21.7146302Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:21.7146903Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:21.7148868Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:21.7150875Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:21.7151513Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:21.7152074Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:21.7152673Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:21.7153322Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:21.7153870Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:21.7154379Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:21.7154874Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:21.7155923Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:21.7156748Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:21.7157334Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:21.7157869Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:21.7158424Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:21.7159200Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:21.7159824Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:21.7160401Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:21.7160973Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:21.7161576Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:21.7162144Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:21.7162677Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:21.7163334Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:21.7163949Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:21.7164582Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:21.7165755Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:21.7166958Z   GH_AW_SETUP_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:21.7168117Z   GH_AW_CURRENT_WORKFLOW_REF: vanduc2514/agent-tkst-hanoi-2026/.github/workflows/sync-festival.lock.yml@refs/heads/main
+2026-11-21T08:30:21.7169459Z   GH_AW_INFO_VERSION: 1.0.103
+2026-11-21T08:30:21.7170038Z   GH_AW_INFO_AWF_VERSION: v0.29.11
+2026-11-21T08:30:21.7170622Z   GH_AW_INFO_ENGINE_ID: copilot
+2026-11-21T08:30:21.7171176Z   GH_AW_SETUP_AW_CONTEXT: 
+2026-11-21T08:30:21.7171693Z ##[endgroup]
+2026-11-21T08:30:25.5850225Z Successfully copied 795 files to /home/runner/work/_temp/gh-aw/actions
+2026-11-21T08:30:25.5870455Z ##[group]Runtime TLS inventory (not a trust-store attestation)
+2026-11-21T08:30:25.5961939Z curl 8.18.0 (x86_64-pc-linux-gnu) libcurl/8.18.0 OpenSSL/3.5.5 zlib/1.3.1 brotli/1.2.0 zstd/1.5.7 libidn2/2.3.8 libpsl/0.21.2 libssh2/1.11.1 nghttp2/1.68.0 librtmp/2.3 mit-krb5/1.22.1 OpenLDAP/2.6.10
+2026-11-21T08:30:25.6224478Z Node v24.22.3; OpenSSL 3.5.9
+2026-11-21T08:30:26.1557855Z go1.26.11
+2026-11-21T08:30:26.1723685Z /usr/bin/gh: go1.27.4
+2026-11-21T08:30:26.1727116Z gh-aw: unavailable for build-toolchain inspection
+2026-11-21T08:30:26.1728345Z Python/certifi: not inspected by shell setup; record each client's interpreter, TLS backend and selected CA bundle separately.
+2026-11-21T08:30:26.1730032Z Container, proxy and MCP trust stores require separate image/vendor evidence.
+2026-11-21T08:30:26.1731157Z Browser updates and successful HTTPS connections do not attest CA distrust.
+2026-11-21T08:30:26.1733977Z ##[endgroup]
+2026-11-21T08:30:26.7704136Z Successfully copied 119 mcp-scripts files to /home/runner/work/_temp/gh-aw/mcp-scripts
+2026-11-21T08:30:27.0489952Z Successfully copied 183 safe-outputs files to /home/runner/work/_temp/gh-aw/safeoutputs
+2026-11-21T08:30:27.1165483Z [info] [otlp] INPUT_TRACE_ID=c95629dc157460cb6f7774b50f90c2af (will reuse activation trace)
+2026-11-21T08:30:27.1167094Z [info] [otlp] INPUT_PARENT_SPAN_ID=c2da7ec2f3cf2759 (will parent setup span)
+2026-11-21T08:30:27.1214133Z [info] [otlp] no OTLP endpoints have usable credentials, skipping setup span
+2026-11-21T08:30:27.1265408Z [info] [otlp] resolved trace-id=c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:27.1266412Z [info] [otlp] trace-id=c95629dc157460cb6f7774b50f90c2af written to GITHUB_OUTPUT
+2026-11-21T08:30:27.1267553Z [info] [otlp] span-id=1f9d84ea4962121b written to GITHUB_OUTPUT
+2026-11-21T08:30:27.1268450Z [info] [otlp] parent-span-id=c2da7ec2f3cf2759 written to GITHUB_OUTPUT
+2026-11-21T08:30:27.1275717Z [info] [otlp] GITHUB_AW_OTEL_TRACE_ID written to GITHUB_ENV
+2026-11-21T08:30:27.1276383Z [info] [otlp] GITHUB_AW_OTEL_PARENT_SPAN_ID written to GITHUB_ENV
+2026-11-21T08:30:27.1276864Z [info] [otlp] GITHUB_AW_OTEL_JOB_START_MS written to GITHUB_ENV
+2026-11-21T08:30:27.1500999Z ##[group]Run bash "${RUNNER_TEMP}/gh-aw/actions/mask_otlp_headers.sh"
+2026-11-21T08:30:27.1501591Z [36;1mbash "${RUNNER_TEMP}/gh-aw/actions/mask_otlp_headers.sh"[0m
+2026-11-21T08:30:27.1538552Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:30:27.1538846Z env:
+2026-11-21T08:30:27.1539323Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:27.1539601Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:27.1539906Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:27.1540808Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:27.1541655Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:27.1541900Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:27.1542134Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:27.1542407Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:27.1542744Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:27.1542997Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:27.1543223Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:27.1543446Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:27.1543794Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:27.1544185Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:27.1544445Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:27.1544676Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:27.1544918Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:27.1545153Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:27.1545400Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:27.1545663Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:27.1545920Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:27.1546169Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:27.1546410Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:27.1546637Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:27.1546876Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:27.1547150Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:27.1547436Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:27.1548134Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:27.1548770Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:27.1549287Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:27.1549598Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:27.1549867Z ##[endgroup]
+2026-11-21T08:30:27.1750857Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:30:27.1751309Z with:
+2026-11-21T08:30:27.1751542Z   pattern: {agent,agent-output-fallback}
+2026-11-21T08:30:27.1751830Z   merge-multiple: true
+2026-11-21T08:30:27.1752054Z   path: /tmp/gh-aw/
+2026-11-21T08:30:27.1752304Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:30:27.1752599Z   run-id: 44884734460
+2026-11-21T08:30:27.1752822Z   skip-decompress: false
+2026-11-21T08:30:27.1753054Z   digest-mismatch: error
+2026-11-21T08:30:27.1753264Z env:
+2026-11-21T08:30:27.1753483Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:27.1753738Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:27.1753998Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:27.1754853Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:27.1755746Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:27.1755997Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:27.1756234Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:27.1756515Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:27.1756828Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:27.1757103Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:27.1757321Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:27.1757531Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:27.1757873Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:27.1758446Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:27.1758715Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:27.1759144Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:27.1759452Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:27.1759683Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:27.1759931Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:27.1760185Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:27.1760434Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:27.1760689Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:27.1760929Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:27.1761175Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:27.1761420Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:27.1761687Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:27.1761973Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:27.1762587Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:27.1763210Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:27.1763567Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:27.1763884Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:27.1764156Z ##[endgroup]
+2026-11-21T08:30:27.4292133Z Found 5 artifact(s)
+2026-11-21T08:30:27.4293569Z Filtering artifacts by pattern '{agent,agent-output-fallback}'
+2026-11-21T08:30:27.4319225Z Preparing to download the following artifacts:
+2026-11-21T08:30:27.4320382Z - agent (ID: 14699881197, Size: 353275, Expected Digest: sha256:bd7a077a69692479c76dc8331923615cfe0f3d74b802bc4b5848a7d07225a654)
+2026-11-21T08:30:27.4321788Z - agent-output-fallback (ID: 14699438026, Size: 2722, Expected Digest: sha256:3df1bc30be64585e921a6f787cbe3ff29d543a4a2d41cee89551b3ae1a47a1a8)
+2026-11-21T08:30:27.5661203Z Redirecting to blob download url: https://productionresultssa32.blob.core.windows.net/actions-results/50d6f9b4-209d-4c62-aa41-6e7ecd39dbff/workflow-job-run-50af6fa7-54b3-5df2-80e8-15ff496d4077/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-11-21T08:30:27.5662990Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:30:27.5739216Z Redirecting to blob download url: https://productionresultssa32.blob.core.windows.net/actions-results/50d6f9b4-209d-4c62-aa41-6e7ecd39dbff/workflow-job-run-50af6fa7-54b3-5df2-80e8-15ff496d4077/artifacts/daa0da78a4f899948f184de1c2267d4cff63de5d280692a88333f56508605a86.zip
+2026-11-21T08:30:27.5740908Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:30:27.6129975Z (node:4565) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:30:27.6131173Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:30:27.6212913Z SHA256 digest of downloaded artifact is 3df1bc30be64585e921a6f787cbe3ff29d543a4a2d41cee89551b3ae1a47a1a8
+2026-11-21T08:30:27.6213946Z Artifact download completed successfully.
+2026-11-21T08:30:27.6670572Z SHA256 digest of downloaded artifact is bd7a077a69692479c76dc8331923615cfe0f3d74b802bc4b5848a7d07225a654
+2026-11-21T08:30:27.6671276Z Artifact download completed successfully.
+2026-11-21T08:30:27.6671634Z Total of 2 artifact(s) downloaded
+2026-11-21T08:30:27.6676114Z Download artifact has finished successfully
+2026-11-21T08:30:27.6808457Z ##[group]Run mkdir -p /tmp/gh-aw/
+2026-11-21T08:30:27.6808813Z [36;1mmkdir -p /tmp/gh-aw/[0m
+2026-11-21T08:30:27.6809530Z [36;1mfind "/tmp/gh-aw/" -type f -print[0m
+2026-11-21T08:30:27.6809932Z [36;1mif [ -f "/tmp/gh-aw/agent_output.json" ]; then[0m
+2026-11-21T08:30:27.6810417Z [36;1m  echo "GH_AW_AGENT_OUTPUT=/tmp/gh-aw/agent_output.json" >> "$GITHUB_OUTPUT"[0m
+2026-11-21T08:30:27.6810860Z [36;1mfi[0m
+2026-11-21T08:30:27.6842264Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:30:27.6842529Z env:
+2026-11-21T08:30:27.6842777Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:27.6843066Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:27.6843530Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:27.6844411Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:27.6845290Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:27.6845586Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:27.6845846Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:27.6846133Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:27.6846448Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:27.6846699Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:27.6846928Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:27.6847158Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:27.6847515Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:27.6847926Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:27.6848202Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:27.6848451Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:27.6848722Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:27.6849140Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:27.6849424Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:27.6849700Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:27.6849952Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:27.6850229Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:27.6850487Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:27.6850737Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:27.6850994Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:27.6851276Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:27.6851575Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:27.6852210Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:27.6852841Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:27.6853223Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:27.6853585Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:27.6853873Z ##[endgroup]
+2026-11-21T08:30:27.6950402Z /tmp/gh-aw/agent-session.jsonl
+2026-11-21T08:30:27.6951020Z /tmp/gh-aw/agent_execution_exit_code.txt
+2026-11-21T08:30:27.6951548Z /tmp/gh-aw/aw-prompts/system.txt
+2026-11-21T08:30:27.6952047Z /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:30:27.6952513Z /tmp/gh-aw/aw-prompts/user.txt
+2026-11-21T08:30:27.6952956Z /tmp/gh-aw/runtime/aw_info.json
+2026-11-21T08:30:27.6953414Z /tmp/gh-aw/github_rate_limits.jsonl
+2026-11-21T08:30:27.6953883Z /tmp/gh-aw/awf-config.json
+2026-11-21T08:30:27.6954385Z /tmp/gh-aw/mcp-logs/observed-url-domains.json
+2026-11-21T08:30:27.6955007Z /tmp/gh-aw/mcp-logs/github.log
+2026-11-21T08:30:27.6955493Z /tmp/gh-aw/mcp-logs/safeoutputs.log
+2026-11-21T08:30:27.6955972Z /tmp/gh-aw/mcp-logs/rpc-messages.jsonl
+2026-11-21T08:30:27.6956305Z /tmp/gh-aw/mcp-logs/configuration.jsonl
+2026-11-21T08:30:27.6956637Z /tmp/gh-aw/mcp-logs/gateway.md
+2026-11-21T08:30:27.6956938Z /tmp/gh-aw/mcp-logs/mcp-gateway.log
+2026-11-21T08:30:27.6957239Z /tmp/gh-aw/mcp-logs/tools.json
+2026-11-21T08:30:27.6957527Z /tmp/gh-aw/skill_inventory.json
+2026-11-21T08:30:27.6957818Z /tmp/gh-aw/pre-agent-audit.txt
+2026-11-21T08:30:27.6958107Z /tmp/gh-aw/safeoutputs.jsonl
+2026-11-21T08:30:27.6958606Z /tmp/gh-aw/agent_output.json
+2026-11-21T08:30:27.6958888Z /tmp/gh-aw/otel.jsonl
+2026-11-21T08:30:27.6959386Z /tmp/gh-aw/agent_execution.json
+2026-11-21T08:30:27.6959697Z /tmp/gh-aw/agent/harness_retry.json
+2026-11-21T08:30:27.6960016Z /tmp/gh-aw/agent/model-resolution.json
+2026-11-21T08:30:27.6960344Z /tmp/gh-aw/agent-errors.jsonl
+2026-11-21T08:30:27.6960631Z /tmp/gh-aw/agent-stdio.log
+2026-11-21T08:30:27.6960908Z /tmp/gh-aw/agent_usage.json
+2026-11-21T08:30:27.6961271Z /tmp/gh-aw/sandbox/agent/logs/copilot-model-selection.json
+2026-11-21T08:30:27.6961907Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/checkpoints/index.md
+2026-11-21T08:30:27.6962843Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:30:27.6963653Z /tmp/gh-aw/sandbox/agent/logs/copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/rewind-file-snapshots/tracking.json
+2026-11-21T08:30:27.6964313Z /tmp/gh-aw/sandbox/agent/logs/process-1795249673115-1839.log
+2026-11-21T08:30:27.6964687Z /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-11-21T08:30:27.6965039Z /tmp/gh-aw/sandbox/firewall/audit/sensitive-paths.json
+2026-11-21T08:30:27.6965416Z /tmp/gh-aw/sandbox/firewall/audit/policy-manifest.json
+2026-11-21T08:30:27.6965778Z /tmp/gh-aw/sandbox/firewall/audit/image-manifest.json
+2026-11-21T08:30:27.6966114Z /tmp/gh-aw/sandbox/firewall/audit/squid.conf
+2026-11-21T08:30:27.6966485Z /tmp/gh-aw/sandbox/firewall/audit/docker-compose.redacted.yml
+2026-11-21T08:30:27.6966893Z /tmp/gh-aw/sandbox/firewall/audit/awf-resolved-config.json
+2026-11-21T08:30:27.6967246Z /tmp/gh-aw/sandbox/firewall/logs/cache.log
+2026-11-21T08:30:27.6967656Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/harness-observation.json
+2026-11-21T08:30:27.6968111Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/models.json
+2026-11-21T08:30:27.6968570Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/agent-runtime/started-at-ms
+2026-11-21T08:30:27.6969297Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/otel.jsonl
+2026-11-21T08:30:27.6969867Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-tracker-audit.jsonl
+2026-11-21T08:30:27.6970354Z /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:30:27.6970741Z /tmp/gh-aw/sandbox/firewall/logs/audit.jsonl
+2026-11-21T08:30:27.6971096Z /tmp/gh-aw/sandbox/firewall/logs/access.log
+2026-11-21T08:30:27.7066343Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:30:27.7066800Z with:
+2026-11-21T08:30:27.7066999Z   name: agent
+2026-11-21T08:30:27.7067214Z   path: /tmp/gh-aw/
+2026-11-21T08:30:27.7067446Z   merge-multiple: false
+2026-11-21T08:30:27.7067729Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:30:27.7068042Z   run-id: 44884734460
+2026-11-21T08:30:27.7068270Z   skip-decompress: false
+2026-11-21T08:30:27.7068506Z   digest-mismatch: error
+2026-11-21T08:30:27.7068733Z env:
+2026-11-21T08:30:27.7069171Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:27.7069537Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:27.7069840Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:27.7070707Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:27.7071599Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:27.7071858Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:27.7072100Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:27.7072383Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:27.7072692Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:27.7072954Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:27.7073185Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:27.7073406Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:27.7073763Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:27.7074161Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:27.7074434Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:27.7074679Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:27.7074932Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:27.7075175Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:27.7075432Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:27.7075711Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:27.7075974Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:27.7076238Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:27.7076486Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:27.7076718Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:27.7076971Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:27.7077414Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:27.7077710Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:27.7078324Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:27.7079158Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:27.7079592Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:27.7079919Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:27.7080205Z ##[endgroup]
+2026-11-21T08:30:27.8443453Z Downloading single artifact
+2026-11-21T08:30:27.9284034Z Preparing to download the following artifacts:
+2026-11-21T08:30:27.9285081Z - agent (ID: 14699881197, Size: 353275, Expected Digest: sha256:bd7a077a69692479c76dc8331923615cfe0f3d74b802bc4b5848a7d07225a654)
+2026-11-21T08:30:28.0886817Z Redirecting to blob download url: https://productionresultssa32.blob.core.windows.net/actions-results/50d6f9b4-209d-4c62-aa41-6e7ecd39dbff/workflow-job-run-50af6fa7-54b3-5df2-80e8-15ff496d4077/artifacts/d4f0bc5a29de06b510f9aa428f1eedba926012b591fef7a518e776a7c9bd1824.zip
+2026-11-21T08:30:28.0889593Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:30:28.1489886Z (node:4580) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:30:28.1492042Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:30:28.2025618Z SHA256 digest of downloaded artifact is bd7a077a69692479c76dc8331923615cfe0f3d74b802bc4b5848a7d07225a654
+2026-11-21T08:30:28.2026231Z Artifact download completed successfully.
+2026-11-21T08:30:28.2027133Z Total of 1 artifact(s) downloaded
+2026-11-21T08:30:28.2031160Z Download artifact has finished successfully
+2026-11-21T08:30:28.2245247Z ##[group]Run # Derive GH_HOST from GITHUB_SERVER_URL so the gh CLI targets the correct
+2026-11-21T08:30:28.2246151Z [36;1m# Derive GH_HOST from GITHUB_SERVER_URL so the gh CLI targets the correct[0m
+2026-11-21T08:30:28.2246984Z [36;1m# GitHub instance (GHES/GHEC). On github.com this is a harmless no-op.[0m
+2026-11-21T08:30:28.2247650Z [36;1mGH_HOST="${GITHUB_SERVER_URL#https://}"[0m
+2026-11-21T08:30:28.2248135Z [36;1mGH_HOST="${GH_HOST#http://}"[0m
+2026-11-21T08:30:28.2248604Z [36;1mecho "GH_HOST=${GH_HOST}" >> "$GITHUB_ENV"[0m
+2026-11-21T08:30:28.2294076Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-21T08:30:28.2294711Z env:
+2026-11-21T08:30:28.2295094Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:28.2295585Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:28.2296104Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:28.2297733Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:28.2299558Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:28.2300037Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:28.2300462Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:28.2300948Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:28.2301499Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:28.2302001Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:28.2302341Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:28.2302579Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:28.2302976Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:28.2303396Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:28.2303680Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:28.2303924Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:28.2304187Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:28.2304426Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:28.2304699Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:28.2304966Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:28.2305227Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:28.2305688Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:28.2305959Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:28.2306198Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:28.2306459Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:28.2306739Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:28.2307042Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:28.2307674Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:28.2308317Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:28.2308692Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:28.2309338Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:28.2309658Z ##[endgroup]
+2026-11-21T08:30:28.2420461Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:30:28.2420901Z with:
+2026-11-21T08:30:28.2423624Z   github-token: ***
+2026-11-21T08:30:28.2425001Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit, process.env.GH_AW_GITHUB_TOKEN_SOURCE);
+const { main } = require(path.join(actionsDir, 'process_safe_outputs.cjs'));
+await main();
+
+2026-11-21T08:30:28.2426394Z   debug: false
+2026-11-21T08:30:28.2426628Z   user-agent: actions/github-script
+2026-11-21T08:30:28.2426911Z   result-encoding: json
+2026-11-21T08:30:28.2427147Z   retries: 0
+2026-11-21T08:30:28.2427391Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:30:28.2427697Z env:
+2026-11-21T08:30:28.2427904Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:28.2428205Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:28.2428486Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:28.2429517Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:28.2430390Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:28.2430648Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:28.2430906Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:28.2431188Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:28.2431508Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:28.2431763Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:28.2432004Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:28.2432231Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:28.2432596Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:28.2433001Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:28.2433289Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:28.2433540Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:28.2433810Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:28.2434052Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:28.2434323Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:28.2434593Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:28.2434861Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:28.2435135Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:28.2435393Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:28.2435648Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:28.2435906Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:28.2436189Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:28.2436489Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:28.2437110Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:28.2437740Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:28.2438122Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:28.2438458Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:28.2438748Z   GH_HOST: github.com
+2026-11-21T08:30:28.2439296Z   GH_AW_JOB_CHECK_RUN_ID: 136788835049
+2026-11-21T08:30:28.2439620Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:30:28.2439927Z   GH_AW_COMMENT_ID: 
+2026-11-21T08:30:28.2442547Z   GH_AW_MENTIONS_GITHUB_TOKEN: ***
+2026-11-21T08:30:28.2446257Z   GH_AW_ALLOWED_DOMAINS: archive.ubuntu.com,azure.archive.ubuntu.com,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,json-schema.org,json.schemastore.org,keyserver.ubuntu.com,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,s.symcb.com,s.symcd.com,security.ubuntu.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com
+2026-11-21T08:30:28.2450260Z   GITHUB_SERVER_URL: https://github.com
+2026-11-21T08:30:28.2450592Z   GITHUB_API_URL: https://api.github.com
+2026-11-21T08:30:28.2454070Z   GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"base_branch":"main","labels":["festival-sync"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"allowed","title_prefix":"[sync] "},"create_report_incomplete_issue":{},"noop":{"max":2,"report-as-issue":"true"},"report_incomplete":{},"report_missing_data":{},"report_missing_tool":{}}
+2026-11-21T08:30:28.2457687Z   GH_AW_CI_TRIGGER_TOKEN: 
+2026-11-21T08:30:28.2457962Z   GH_AW_GITHUB_TOKEN_SOURCE: github_actions
+2026-11-21T08:30:28.2458252Z ##[endgroup]
+2026-11-21T08:30:28.3994369Z Safe Output Handler Manager starting...
+2026-11-21T08:30:28.4004549Z Loaded config from GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: {"create_pull_request":{"base_branch":"main","labels":["festival-sync"],"max":1,"max_patch_files":100,"max_patch_size":4096,"protect_top_level_dot_folders":true,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","README.md","CONTRIBUTING.md","SECURITY.md","CODE_OF_CONDUCT.md","AGENTS.md"],"protected_files_policy":"allowed","title_prefix":"[sync] "},"create_report_incomplete_issue":{},"noop":{"max":2,"report-as-issue":"true"},"report_incomplete":{},"report_missing_data":{},"report_missing_tool":{}}
+2026-11-21T08:30:28.4009683Z Agent output content length: 459
+2026-11-21T08:30:28.4010004Z Found 1 message(s) in agent output
+2026-11-21T08:30:28.4014397Z Loading and initializing safe output handlers based on configuration...
+2026-11-21T08:30:28.4178885Z Found 1 unique mentions in text
+2026-11-21T08:30:28.6334094Z Cached 1 recent collaborators for optimistic resolution
+2026-11-21T08:30:28.6335204Z Resolved 0 mentions via individual API calls
+2026-11-21T08:30:28.6336187Z Total allowed mentions: 1
+2026-11-21T08:30:28.6337060Z [OUTPUT COLLECTOR] Allowed mentions: vanduc2514
+2026-11-21T08:30:28.6345506Z Base branch: main
+2026-11-21T08:30:28.6346328Z Default target repo: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:30:28.6347401Z Default labels: festival-sync
+2026-11-21T08:30:28.6348568Z Title prefix: [sync] 
+2026-11-21T08:30:28.6349453Z Draft default: true
+2026-11-21T08:30:28.6350121Z If no changes: warn
+2026-11-21T08:30:28.6350738Z Allow empty: false
+2026-11-21T08:30:28.6351375Z Auto-merge: false
+2026-11-21T08:30:28.6351971Z Signed commits: true
+2026-11-21T08:30:28.6352657Z Max count: 1
+2026-11-21T08:30:28.6353334Z Max patch size: 4096 KB
+2026-11-21T08:30:28.6354077Z Max patch files: 100
+2026-11-21T08:30:28.6355243Z ✓ Loaded and initialized handler for: create_pull_request
+2026-11-21T08:30:28.6369186Z Max count: unlimited
+2026-11-21T08:30:28.6370215Z ✓ Loaded and initialized handler for: report_missing_tool
+2026-11-21T08:30:28.6371742Z Max count: unlimited
+2026-11-21T08:30:28.6372680Z ✓ Loaded and initialized handler for: report_missing_data
+2026-11-21T08:30:28.6375731Z Max count: 2
+2026-11-21T08:30:28.6376616Z ✓ Loaded and initialized handler for: noop
+2026-11-21T08:30:28.6377471Z Max count: unlimited
+2026-11-21T08:30:28.6378624Z ✓ Loaded and initialized handler for: report_incomplete
+2026-11-21T08:30:28.6379814Z Title prefix: [incomplete]
+2026-11-21T08:30:28.6380557Z Default labels: agentic-workflows
+2026-11-21T08:30:28.6381515Z Max count: 1
+2026-11-21T08:30:28.6382518Z ✓ Loaded and initialized handler for: create_report_incomplete_issue
+2026-11-21T08:30:28.6391120Z Loaded 6 handler(s)
+2026-11-21T08:30:28.8159810Z ℹ️ Rate-limit headroom: 4972/5000 requests remaining (99%) [safe_outputs_pre_check]
+2026-11-21T08:30:28.8168145Z Collected 0 missing tool(s), 0 missing data item(s), 0 noop message(s), and 1 incomplete signal(s)
+2026-11-21T08:30:28.8169205Z Processing 1 message(s) in order of appearance...
+2026-11-21T08:30:28.8176711Z Processing message 1/1: report_incomplete
+2026-11-21T08:30:28.8195890Z ##[warning]report_incomplete: task completion unconfirmed
+2026-11-21T08:30:28.8204134Z ✓ Message 1 (report_incomplete) completed successfully
+2026-11-21T08:30:28.8204784Z Stored 0 missing tool(s), 0 missing data item(s), 0 noop message(s), and 1 incomplete signal(s) for footer generation
+2026-11-21T08:30:28.8214578Z 📝 Safe output summaries written to step summary
+2026-11-21T08:30:28.8215479Z 
+2026-11-21T08:30:28.8215670Z === Processing Summary ===
+2026-11-21T08:30:28.8216108Z Total messages: 1
+2026-11-21T08:30:28.8216463Z Status: success
+2026-11-21T08:30:28.8216740Z Successful: 1
+2026-11-21T08:30:28.8216940Z Failed: 0
+2026-11-21T08:30:28.8217154Z Temporary IDs registered: 0
+2026-11-21T08:30:28.8217462Z Synthetic updates: 0
+2026-11-21T08:30:28.8217935Z Wrote temporary ID map to file for artifact upload
+2026-11-21T08:30:28.8229726Z Safe Output Handler Manager completed
+2026-11-21T08:30:28.8424114Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:30:28.8424562Z with:
+2026-11-21T08:30:28.8424789Z   name: safe-outputs-items
+2026-11-21T08:30:28.8425455Z   path: /tmp/gh-aw/safe-output-items.jsonl
+/tmp/gh-aw/safe-output-outcomes.jsonl
+/tmp/gh-aw/temporary-id-map.json
+/tmp/gh-aw/safe-output-errors.json
+
+2026-11-21T08:30:28.8426156Z   if-no-files-found: ignore
+2026-11-21T08:30:28.8426431Z   retention-days: 0
+2026-11-21T08:30:28.8426655Z   compression-level: 6
+2026-11-21T08:30:28.8426889Z   overwrite: false
+2026-11-21T08:30:28.8427113Z   include-hidden-files: false
+2026-11-21T08:30:28.8427370Z   archive: true
+2026-11-21T08:30:28.8427578Z env:
+2026-11-21T08:30:28.8427792Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:28.8428061Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:28.8428341Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:28.8429507Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:28.8430385Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:28.8430652Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:28.8430904Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:28.8431194Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:28.8431689Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:28.8431949Z   GH_AW_AGENT_AIC: 14.4076
+2026-11-21T08:30:28.8432183Z   GH_AW_AIC: 14.4076
+2026-11-21T08:30:28.8432414Z   GH_AW_AMBIENT_CONTEXT: 24255
+2026-11-21T08:30:28.8432783Z   GH_AW_CALLER_WORKFLOW_ID: vanduc2514/agent-tkst-hanoi-2026/sync-festival
+2026-11-21T08:30:28.8433189Z   GH_AW_DETECTION_CONCLUSION: success
+2026-11-21T08:30:28.8433468Z   GH_AW_DETECTION_REASON: 
+2026-11-21T08:30:28.8433713Z   GH_AW_DETECTION_THREAT_KINDS: 
+2026-11-21T08:30:28.8433978Z   GH_AW_ENGINE_ID: copilot
+2026-11-21T08:30:28.8434219Z   GH_AW_ENGINE_MODEL: gpt-4.1
+2026-11-21T08:30:28.8434492Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:30:28.8434765Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:30:28.8435032Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:30:28.8435304Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:30:28.8435573Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:28.8435817Z   GH_AW_RUN_DETECTION: true
+2026-11-21T08:30:28.8436073Z   GH_AW_THREAT_DETECTION_AIC: 22.1606
+2026-11-21T08:30:28.8436364Z   GH_AW_WORKFLOW_ID: sync-festival
+2026-11-21T08:30:28.8436669Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:28.8437287Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:28.8437931Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:28.8438310Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 1f9d84ea4962121b
+2026-11-21T08:30:28.8438641Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249827127
+2026-11-21T08:30:28.8438929Z   GH_HOST: github.com
+2026-11-21T08:30:28.8439343Z ##[endgroup]
+2026-11-21T08:30:28.9884846Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:30:28.9887280Z The least common ancestor is /tmp/gh-aw. This will be the root directory of the artifact
+2026-11-21T08:30:28.9888155Z With the provided path, there will be 3 files uploaded
+2026-11-21T08:30:28.9900355Z Artifact name is valid!
+2026-11-21T08:30:28.9900943Z Root directory input is valid!
+2026-11-21T08:30:29.2253208Z Uploading artifact: safe-outputs-items.zip
+2026-11-21T08:30:29.2290589Z Beginning upload of artifact content to blob storage
+2026-11-21T08:30:29.3030829Z Uploaded bytes 574
+2026-11-21T08:30:29.3167843Z Finished uploading artifact content to blob storage!
+2026-11-21T08:30:29.3168814Z SHA256 digest of uploaded artifact is 312ad1d39c06a982d762ebaea91f1575c83b13d41b627458643093245014b99b
+2026-11-21T08:30:29.3169669Z Finalizing artifact upload
+2026-11-21T08:30:29.6655743Z Artifact safe-outputs-items successfully finalized. Artifact ID 14699377416
+2026-11-21T08:30:29.6657570Z Artifact safe-outputs-items has been successfully uploaded! Final size is 574 bytes. Artifact ID is 14699377416
+2026-11-21T08:30:29.6660067Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44884734460/artifacts/14699377416
+2026-11-21T08:30:29.6836863Z Post job cleanup.
+2026-11-21T08:30:29.7573862Z [info] [otlp] sending conclusion span "gh-aw.safe_outputs.conclusion" to configured endpoints
+2026-11-21T08:30:29.7683144Z [info] [otlp] conclusion span export attempted
+2026-11-21T08:30:29.7684221Z Warning: leaving shared /tmp/gh-aw untouched; per-invocation ownership cannot be established.
+2026-11-21T08:30:29.7794674Z Evaluate and set job outputs
+2026-11-21T08:30:29.7802096Z Set output 'code_push_failure_count'
+2026-11-21T08:30:29.7803875Z Set output 'create_discussion_error_count'
+2026-11-21T08:30:29.7804772Z Set output 'process_safe_outputs_items_applied'
+2026-11-21T08:30:29.7805243Z Set output 'process_safe_outputs_items_cancelled'
+2026-11-21T08:30:29.7805687Z Set output 'process_safe_outputs_items_deferred'
+2026-11-21T08:30:29.7806123Z Set output 'process_safe_outputs_items_failed'
+2026-11-21T08:30:29.7806559Z Set output 'process_safe_outputs_items_skipped'
+2026-11-21T08:30:29.7807002Z Set output 'process_safe_outputs_items_succeeded'
+2026-11-21T08:30:29.7807434Z Set output 'process_safe_outputs_items_warnings'
+2026-11-21T08:30:29.7808104Z Set output 'process_safe_outputs_processed_count'
+2026-11-21T08:30:29.7808532Z Set output 'process_safe_outputs_status'
+2026-11-21T08:30:29.7809624Z Cleaning up orphan processes

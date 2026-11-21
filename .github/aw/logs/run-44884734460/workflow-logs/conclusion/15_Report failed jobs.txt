@@ -1,0 +1,41 @@
+﻿2026-11-21T08:30:49.7771802Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:30:49.7774111Z with:
+2026-11-21T08:30:49.7785317Z   github-token: ***
+2026-11-21T08:30:49.7794787Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'report_failed_jobs.cjs'));
+await main();
+
+2026-11-21T08:30:49.7812567Z   debug: false
+2026-11-21T08:30:49.7813939Z   user-agent: actions/github-script
+2026-11-21T08:30:49.7815333Z   result-encoding: json
+2026-11-21T08:30:49.7817132Z   retries: 0
+2026-11-21T08:30:49.7818587Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:30:49.7820070Z env:
+2026-11-21T08:30:49.7821097Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:49.7822432Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:49.7823972Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:49.7827890Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:49.7831838Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:49.7833123Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:49.7834521Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:49.7835920Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:49.7837469Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:49.7840209Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:30:49.7844988Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"success"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:30:49.7848858Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:30:49.7851250Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:49.7852690Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:49.7856915Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: f99f45858c3a5230
+2026-11-21T08:30:49.7861056Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249842242
+2026-11-21T08:30:49.7862705Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-11-21T08:30:49.7864637Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:30:49.7867365Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/blob/main/.github/workflows/sync-festival.md
+2026-11-21T08:30:49.7870608Z   GH_AW_RUN_URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44884734460
+2026-11-21T08:30:49.7872728Z   GH_AW_REPORT_FAILED_JOBS: true
+2026-11-21T08:30:49.7874154Z ##[endgroup]
+2026-11-21T08:30:49.9600537Z Checking GitHub API rate limit before querying jobs
+2026-11-21T08:30:50.2279034Z Checking GitHub API rate limit after querying jobs
+2026-11-21T08:30:50.3526260Z No failed non-builtin jobs found, skipping issue creation

@@ -1,0 +1,284 @@
+﻿2026-11-21T08:28:30.9951370Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:28:30.9951688Z with:
+2026-11-21T08:28:30.9952488Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'parse_copilot_log.cjs'));
+await main();
+
+2026-11-21T08:28:30.9955488Z   github-token: ***
+2026-11-21T08:28:30.9955682Z   debug: false
+2026-11-21T08:28:30.9955863Z   user-agent: actions/github-script
+2026-11-21T08:28:30.9956078Z   result-encoding: json
+2026-11-21T08:28:30.9956264Z   retries: 0
+2026-11-21T08:28:30.9956448Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:28:30.9956681Z env:
+2026-11-21T08:28:30.9956845Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:28:30.9957161Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:28:30.9957368Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:28:30.9957994Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:28:30.9958581Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:28:30.9958781Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:28:30.9958975Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:28:30.9959190Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:28:30.9959421Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:28:30.9959617Z   DEFAULT_BRANCH: main
+2026-11-21T08:28:30.9959795Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:28:30.9959990Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:28:30.9960166Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:28:30.9960392Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:28:30.9960631Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:28:30.9960837Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:28:30.9961041Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:28:30.9961245Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:28:30.9961445Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:28:30.9961634Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:28:30.9961835Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:28:30.9962018Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:28:30.9962205Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:28:30.9962390Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:28:30.9962563Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:28:30.9962736Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:28:30.9962925Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:28:30.9963191Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:28:30.9963457Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7c2369934a8f5e23
+2026-11-21T08:28:30.9963938Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249503374
+2026-11-21T08:28:30.9964193Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:28:30.9964439Z   GH_AW_RUNTIME_TMP_ID: 64512:8279374:1001
+2026-11-21T08:28:30.9964669Z   TMPDIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:28:30.9965023Z   GH_AW_COPILOT_SDK_MCP_CONFIG_SHA256: 6002bcf216913aad878adbd6c0c24f2e239e8255f2056b8752df58934f918de2
+2026-11-21T08:28:30.9965480Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:28:30.9965828Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/sandbox/agent/logs/
+2026-11-21T08:28:30.9966142Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-11-21T08:28:30.9966422Z ##[endgroup]
+2026-11-21T08:28:31.6294821Z Using Copilot session log from: copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6356061Z [log-parser] Wrote Copilot result entry to agent-stdio.log: num_turns=7
+2026-11-21T08:28:31.6461070Z [log-parser] Persisted 55 canonical session events
+2026-11-21T08:28:31.6683968Z === Unified session ===
+2026-11-21T08:28:31.6684296Z Records: 54 (agent=54)
+2026-11-21T08:28:31.6684432Z 
+2026-11-21T08:28:31.6684693Z Agent source: agent/copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6685368Z Model: gpt-4.1
+2026-11-21T08:28:31.6685602Z Initialization:
+2026-11-21T08:28:31.6685838Z   Engine: copilot
+2026-11-21T08:28:31.6686087Z   Session ID: 2170384d-0ac0-4f9a-a4de-5206725eb42b
+2026-11-21T08:28:31.6686520Z   Working Directory: /home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026
+2026-11-21T08:28:31.6686830Z 
+2026-11-21T08:28:31.6686926Z Statistics:
+2026-11-21T08:28:31.6687150Z   Turns: 7
+2026-11-21T08:28:31.6687356Z   Duration: 33s
+2026-11-21T08:28:31.6687584Z   Tools: 2/6 succeeded
+2026-11-21T08:28:31.6687812Z   Failed Tools: 4
+2026-11-21T08:28:31.6688069Z   Tokens: 194,672 total (194,206 in / 466 out)
+2026-11-21T08:28:31.6688410Z   Cache Read Tokens: 165,376
+2026-11-21T08:28:31.6688664Z   Cache Creation Tokens: 0
+2026-11-21T08:28:31.6688816Z 
+2026-11-21T08:28:31.6689034Z Chronological trace (user prompts omitted; untimed observations follow):
+2026-11-21T08:28:31.6689503Z 
+2026-11-21T08:28:31.6690002Z [1] agent/agent session.start model=gpt-4.1 sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +0s
+2026-11-21T08:28:31.6690924Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b
+2026-11-21T08:28:31.6691424Z 
+2026-11-21T08:28:31.6691950Z [2] agent/agent session.init sourceEngine=copilot model=gpt-4.1 sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b cwd=/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026 +0s
+2026-11-21T08:28:31.6692930Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b
+2026-11-21T08:28:31.6693262Z 
+2026-11-21T08:28:31.6693506Z [3] agent/agent session.info message=Integration ID overridden via environment variable: agentic-workflows +0.007s
+2026-11-21T08:28:31.6694222Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6694453Z 
+2026-11-21T08:28:31.6694601Z [5] agent/agent system.message [system instructions omitted] +0.161s
+2026-11-21T08:28:31.6694967Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6695186Z 
+2026-11-21T08:28:31.6695410Z [6] agent/agent assistant.turn_start turnId=0 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0.003s
+2026-11-21T08:28:31.6695839Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6696061Z 
+2026-11-21T08:28:31.6696209Z [7] agent/agent session.usage_record [extension payload omitted] +2.93s
+2026-11-21T08:28:31.6696563Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6696786Z 
+2026-11-21T08:28:31.6696876Z [8] agent/agent assistant.message +0.005s
+2026-11-21T08:28:31.6697171Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6697397Z 
+2026-11-21T08:28:31.6697660Z [9] agent/agent tool.execution_start toolName=view toolCallId=call_mdVWLbGFMP1JFwM0zazOAKdE [started] +0.001s
+2026-11-21T08:28:31.6698108Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6698469Z ? view(path: /home/runner/work/agent-tkst-hanoi-2026/...) [pending]
+2026-11-21T08:28:31.6698665Z 
+2026-11-21T08:28:31.6698668Z 
+2026-11-21T08:28:31.6698914Z [10] agent/agent tool.execution_complete toolName=view toolCallId=call_mdVWLbGFMP1JFwM0zazOAKdE [succeeded] +0.005s
+2026-11-21T08:28:31.6699389Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6699983Z ✓ view(path: /home/runner/work/agent-tkst-hanoi-2026/...)
+2026-11-21T08:28:31.6700296Z    ├ ---
+2026-11-21T08:28:31.6700504Z    └ name: sync-festival (+ 199 more)
+2026-11-21T08:28:31.6700646Z 
+2026-11-21T08:28:31.6700648Z 
+2026-11-21T08:28:31.6700759Z [11] agent/agent assistant.turn_end turnId=0 +0.009s
+2026-11-21T08:28:31.6701080Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6701398Z 
+2026-11-21T08:28:31.6701605Z [12] agent/agent assistant.turn_start turnId=1 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0s
+2026-11-21T08:28:31.6702070Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6702286Z 
+2026-11-21T08:28:31.6702426Z [13] agent/agent session.usage_record [extension payload omitted] +5.236s
+2026-11-21T08:28:31.6702784Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6702996Z 
+2026-11-21T08:28:31.6703081Z [14] agent/agent assistant.message +0.003s
+2026-11-21T08:28:31.6703377Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6703735Z 
+2026-11-21T08:28:31.6703964Z [15] agent/agent tool.execution_start toolName=bash toolCallId=call_SlaVa6ccnp50IH1vsaaBcvLG [started] +0.002s
+2026-11-21T08:28:31.6704524Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6705419Z ? $ python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch && python3 .agents/skills/sync-festival/scripts/sync_festival.py diff && python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write && python3 .agents/skills/sync-festival/scripts/sync_festival.py apply [pending]
+2026-11-21T08:28:31.6706582Z    Arguments: command: python3 .agents/skills/sync-festival/scr..., description: Run festival sync: fetch, diff, enrich, ...
+2026-11-21T08:28:31.6706924Z 
+2026-11-21T08:28:31.6706927Z 
+2026-11-21T08:28:31.6707171Z [16] agent/agent tool.execution_complete toolName=bash toolCallId=call_SlaVa6ccnp50IH1vsaaBcvLG [succeeded] +0.094s
+2026-11-21T08:28:31.6707635Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6708599Z ✗ $ python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch && python3 .agents/skills/sync-festival/scripts/sync_festival.py diff && python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write && python3 .agents/skills/sync-festival/scripts/sync_festival.py apply
+2026-11-21T08:28:31.6709749Z    Arguments: command: python3 .agents/skills/sync-festival/scr..., description: Run festival sync: fetch, diff, enrich, ...
+2026-11-21T08:28:31.6710204Z    ├ Traceback (most recent call last):
+2026-11-21T08:28:31.6710616Z    └   File "/home/runner/work/agent-tkst-hanoi-2026/agent-tkst-hanoi-2026/.agents/sk... (+ 20 more)
+2026-11-21T08:28:31.6710886Z 
+2026-11-21T08:28:31.6710890Z 
+2026-11-21T08:28:31.6711001Z [17] agent/agent assistant.turn_end turnId=1 +0.009s
+2026-11-21T08:28:31.6711338Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6711552Z 
+2026-11-21T08:28:31.6711756Z [18] agent/agent assistant.turn_start turnId=2 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0s
+2026-11-21T08:28:31.6712173Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6712390Z 
+2026-11-21T08:28:31.6712542Z [19] agent/agent session.usage_record [extension payload omitted] +9.923s
+2026-11-21T08:28:31.6712901Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6713108Z 
+2026-11-21T08:28:31.6713200Z [20] agent/agent assistant.message +0.004s
+2026-11-21T08:28:31.6713492Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6713842Z 
+2026-11-21T08:28:31.6714074Z [21] agent/agent tool.execution_start toolName=bash toolCallId=call_Al0ioUpisuIYnPIvvafUrYUV [started] +0.002s
+2026-11-21T08:28:31.6714513Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6715390Z ? $ mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch && mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py diff && mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write && mise exec -- python3 .agents/skills/sync... [pending]
+2026-11-21T08:28:31.6716439Z    Arguments: command: mise exec -- python3 .agents/skills/sync..., description: Run festival sync with APIFY_TOKEN via m...
+2026-11-21T08:28:31.6716748Z 
+2026-11-21T08:28:31.6716751Z 
+2026-11-21T08:28:31.6717180Z [22] agent/agent permission.requested requestId=8f383e49-d3d9-46fd-a0e0-dbac0ea34c42 agentMode=interactive permissionMode=manual kind=shell toolCallId=call_Al0ioUpisuIYnPIvvafUrYUV +0.006s
+2026-11-21T08:28:31.6717824Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6718038Z 
+2026-11-21T08:28:31.6718575Z [23] agent/agent permission.completed requestId=8f383e49-d3d9-46fd-a0e0-dbac0ea34c42 toolCallId=call_Al0ioUpisuIYnPIvvafUrYUV decisionSource=unattended_fallback kind=denied-no-approval-rule-and-could-not-request-from-user +0.001s
+2026-11-21T08:28:31.6719327Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6719585Z 
+2026-11-21T08:28:31.6719815Z [24] agent/agent tool.execution_complete toolName=bash toolCallId=call_Al0ioUpisuIYnPIvvafUrYUV [failed] +0.002s
+2026-11-21T08:28:31.6720276Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6721264Z ✗ $ mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch && mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py diff && mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py enrich --write && mise exec -- python3 .agents/skills/sync...
+2026-11-21T08:28:31.6722223Z    Arguments: command: mise exec -- python3 .agents/skills/sync..., description: Run festival sync with APIFY_TOKEN via m...
+2026-11-21T08:28:31.6722815Z    Error: └ denied: Permission denied because no interactive user response was available. Re...
+2026-11-21T08:28:31.6723084Z 
+2026-11-21T08:28:31.6723087Z 
+2026-11-21T08:28:31.6723196Z [25] agent/agent assistant.turn_end turnId=2 +0.007s
+2026-11-21T08:28:31.6723510Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6723870Z 
+2026-11-21T08:28:31.6724093Z [26] agent/agent assistant.turn_start turnId=3 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0.001s
+2026-11-21T08:28:31.6724518Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6724740Z 
+2026-11-21T08:28:31.6724889Z [27] agent/agent session.usage_record [extension payload omitted] +2.081s
+2026-11-21T08:28:31.6725247Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6725464Z 
+2026-11-21T08:28:31.6725557Z [28] agent/agent assistant.message +0.003s
+2026-11-21T08:28:31.6725855Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6726071Z 
+2026-11-21T08:28:31.6726297Z [29] agent/agent tool.execution_start toolName=bash toolCallId=call_nRaO5guef0BEPBpyBvF0A0jq [started] +0.001s
+2026-11-21T08:28:31.6726741Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6727146Z ? $ mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch [pending]
+2026-11-21T08:28:31.6727641Z    Arguments: command: mise exec -- python3 .agents/skills/sync..., description: Run fetch with APIFY_TOKEN via mise exec
+2026-11-21T08:28:31.6727949Z 
+2026-11-21T08:28:31.6727952Z 
+2026-11-21T08:28:31.6728365Z [30] agent/agent permission.requested requestId=7f5e4358-ea1a-4abc-9504-aacdb968b7f3 agentMode=interactive permissionMode=manual kind=shell toolCallId=call_nRaO5guef0BEPBpyBvF0A0jq +0.005s
+2026-11-21T08:28:31.6729003Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6729221Z 
+2026-11-21T08:28:31.6729760Z [31] agent/agent permission.completed requestId=7f5e4358-ea1a-4abc-9504-aacdb968b7f3 toolCallId=call_nRaO5guef0BEPBpyBvF0A0jq decisionSource=unattended_fallback kind=denied-no-approval-rule-and-could-not-request-from-user +0.001s
+2026-11-21T08:28:31.6730499Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6730770Z 
+2026-11-21T08:28:31.6730999Z [32] agent/agent tool.execution_complete toolName=bash toolCallId=call_nRaO5guef0BEPBpyBvF0A0jq [failed] +0.002s
+2026-11-21T08:28:31.6731443Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6731882Z ✗ $ mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch
+2026-11-21T08:28:31.6732344Z    Arguments: command: mise exec -- python3 .agents/skills/sync..., description: Run fetch with APIFY_TOKEN via mise exec
+2026-11-21T08:28:31.6732882Z    Error: └ denied: Permission denied because no interactive user response was available. Re...
+2026-11-21T08:28:31.6733193Z 
+2026-11-21T08:28:31.6733196Z 
+2026-11-21T08:28:31.6733315Z [33] agent/agent assistant.turn_end turnId=3 +0.01s
+2026-11-21T08:28:31.6733763Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6734071Z 
+2026-11-21T08:28:31.6734296Z [34] agent/agent assistant.turn_start turnId=4 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0s
+2026-11-21T08:28:31.6734731Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6734960Z 
+2026-11-21T08:28:31.6735121Z [35] agent/agent session.usage_record [extension payload omitted] +5.362s
+2026-11-21T08:28:31.6735488Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6735717Z 
+2026-11-21T08:28:31.6735822Z [36] agent/agent assistant.message +0.003s
+2026-11-21T08:28:31.6736132Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6736360Z 
+2026-11-21T08:28:31.6736600Z [37] agent/agent tool.execution_start toolName=bash toolCallId=call_Za9OlvfJsPSRa5al0oDYZCKd [started] +0.002s
+2026-11-21T08:28:31.6737065Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6737396Z ? $ env | grep APIFY_TOKEN [pending]
+2026-11-21T08:28:31.6737762Z    Arguments: command: env | grep APIFY_TOKEN, description: Check if APIFY_TOKEN is available in the...
+2026-11-21T08:28:31.6738044Z 
+2026-11-21T08:28:31.6738046Z 
+2026-11-21T08:28:31.6738484Z [38] agent/agent permission.requested requestId=aa4ccc2e-3277-4432-a51b-51a5aa768b68 agentMode=interactive permissionMode=manual kind=shell toolCallId=call_Za9OlvfJsPSRa5al0oDYZCKd +0.004s
+2026-11-21T08:28:31.6739131Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6739358Z 
+2026-11-21T08:28:31.6739895Z [39] agent/agent permission.completed requestId=aa4ccc2e-3277-4432-a51b-51a5aa768b68 toolCallId=call_Za9OlvfJsPSRa5al0oDYZCKd decisionSource=unattended_fallback kind=denied-no-approval-rule-and-could-not-request-from-user +0s
+2026-11-21T08:28:31.6740648Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6740887Z 
+2026-11-21T08:28:31.6741133Z [40] agent/agent tool.execution_complete toolName=bash toolCallId=call_Za9OlvfJsPSRa5al0oDYZCKd [failed] +0.002s
+2026-11-21T08:28:31.6741598Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6741946Z ✗ $ env | grep APIFY_TOKEN
+2026-11-21T08:28:31.6742290Z    Arguments: command: env | grep APIFY_TOKEN, description: Check if APIFY_TOKEN is available in the...
+2026-11-21T08:28:31.6742818Z    Error: └ denied: Permission denied because no interactive user response was available. Re...
+2026-11-21T08:28:31.6743076Z 
+2026-11-21T08:28:31.6743078Z 
+2026-11-21T08:28:31.6743198Z [41] agent/agent assistant.turn_end turnId=4 +0.008s
+2026-11-21T08:28:31.6743635Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6743870Z 
+2026-11-21T08:28:31.6744141Z [42] agent/agent assistant.turn_start turnId=5 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0.001s
+2026-11-21T08:28:31.6778616Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6779051Z 
+2026-11-21T08:28:31.6779500Z [43] agent/agent session.usage_record [extension payload omitted] +4.301s
+2026-11-21T08:28:31.6780101Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6780443Z 
+2026-11-21T08:28:31.6780587Z [44] agent/agent assistant.message +0.003s
+2026-11-21T08:28:31.6781063Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6781397Z 
+2026-11-21T08:28:31.6781988Z [45] agent/agent tool.execution_start toolName=safeoutputs-report_incomplete mcpServerName=safeoutputs toolCallId=call_2OxifIRAwjyQx0bvkdwA5pxY [started] +0.002s
+2026-11-21T08:28:31.6782940Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6784101Z ? safeoutputs-safeoutputs-report_incomplete(reason: APIFY_TOKEN is not available in the envi..., details: The sync-festival workflow requires APIF...) [pending]
+2026-11-21T08:28:31.6784885Z 
+2026-11-21T08:28:31.6784891Z 
+2026-11-21T08:28:31.6785514Z [46] agent/agent tool.execution_complete toolName=safeoutputs-report_incomplete mcpServerName=safeoutputs toolCallId=call_2OxifIRAwjyQx0bvkdwA5pxY [succeeded] +0.193s
+2026-11-21T08:28:31.6786467Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6787589Z ✓ safeoutputs-safeoutputs-report_incomplete(reason: APIFY_TOKEN is not available in the envi..., details: The sync-festival workflow requires APIF...)
+2026-11-21T08:28:31.6788453Z    └ {"result":"success","output_id":"so_ErsN2D7jT8eJ"}
+2026-11-21T08:28:31.6788723Z 
+2026-11-21T08:28:31.6788729Z 
+2026-11-21T08:28:31.6788895Z [47] agent/agent assistant.turn_end turnId=5 +0.01s
+2026-11-21T08:28:31.6789486Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6789870Z 
+2026-11-21T08:28:31.6790226Z [48] agent/agent assistant.turn_start turnId=6 interactionId=043ff021-3393-4d62-a686-ecb92d3ee499 +0.001s
+2026-11-21T08:28:31.6790932Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6791312Z 
+2026-11-21T08:28:31.6791527Z [49] agent/agent session.usage_record [extension payload omitted] +2.875s
+2026-11-21T08:28:31.6792091Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6792435Z 
+2026-11-21T08:28:31.6792555Z [50] agent/agent assistant.message +0.003s
+2026-11-21T08:28:31.6793011Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6796222Z ◆ The sync-festival workflow cannot proceed because APIFY_TOKEN is not available in this non-interactive session. Please retry in an interactive session or ensure the token is accessible to the agent. No changes were made.
+2026-11-21T08:28:31.6797122Z 
+2026-11-21T08:28:31.6797127Z 
+2026-11-21T08:28:31.6797290Z [51] agent/agent assistant.turn_end turnId=6 +0.001s
+2026-11-21T08:28:31.6797776Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6798141Z 
+2026-11-21T08:28:31.6798640Z [52] agent/agent session.shutdown shutdownType=routine currentModel=gpt-4.1 premiumRequests=0 totalApiDurationMs=32633 totalNanoAiu=0 +0.024s
+2026-11-21T08:28:31.6799484Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl
+2026-11-21T08:28:31.6799843Z 
+2026-11-21T08:28:31.6800000Z [53] agent/agent session.result durationMs=33374 +0s
+2026-11-21T08:28:31.6800679Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b
+2026-11-21T08:28:31.6801223Z 
+2026-11-21T08:28:31.6801363Z [54] agent/agent session.result numTurns=7 +0s
+2026-11-21T08:28:31.6802018Z   path=copilot-session-state/2170384d-0ac0-4f9a-a4de-5206725eb42b/events.jsonl sessionId=2170384d-0ac0-4f9a-a4de-5206725eb42b
+2026-11-21T08:28:31.6802552Z 
+2026-11-21T08:28:31.6802664Z Safe Outputs Preview:
+2026-11-21T08:28:31.6802923Z   Total: 1 entry
+2026-11-21T08:28:31.6803071Z 
+2026-11-21T08:28:31.6803180Z   [1] report_incomplete
+2026-11-21T08:28:31.6803908Z       Reason: APIFY_TOKEN is not available in the environment for non-interactive sessions, bl...

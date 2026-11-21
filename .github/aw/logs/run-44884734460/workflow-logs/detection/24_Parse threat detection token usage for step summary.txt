@@ -1,0 +1,62 @@
+﻿2026-11-21T08:30:14.8249271Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:30:14.8249652Z with:
+2026-11-21T08:30:14.8250568Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'parse_token_usage.cjs'));
+await main();
+
+2026-11-21T08:30:14.8253922Z   github-token: ***
+2026-11-21T08:30:14.8254134Z   debug: false
+2026-11-21T08:30:14.8254504Z   user-agent: actions/github-script
+2026-11-21T08:30:14.8254754Z   result-encoding: json
+2026-11-21T08:30:14.8254952Z   retries: 0
+2026-11-21T08:30:14.8255161Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:30:14.8255440Z env:
+2026-11-21T08:30:14.8255622Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:30:14.8255854Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:30:14.8256075Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:30:14.8256765Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:30:14.8257433Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:30:14.8257651Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:30:14.8257863Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:30:14.8258105Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:30:14.8258358Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:30:14.8258570Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:30:14.8258817Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:30:14.8259113Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 5807a1bb6969b08a
+2026-11-21T08:30:14.8259379Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249731688
+2026-11-21T08:30:14.8259647Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:30:14.8259932Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-v491kP
+2026-11-21T08:30:14.8260207Z   GH_AW_RUNTIME_TMP_ID: 66305:8305591:1001
+2026-11-21T08:30:14.8260449Z   TMPDIR: /tmp/gh-aw-runtime-v491kP
+2026-11-21T08:30:14.8260805Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:30:14.8261202Z   GH_AW_TOKEN_USAGE_SUMMARY_TITLE: Threat Detection Token Usage
+2026-11-21T08:30:14.8261489Z   GH_AW_PHASE: detection
+2026-11-21T08:30:14.8261770Z   GH_AW_AGENT_USAGE_PATH: /tmp/gh-aw/threat-detection/detection_usage.json
+2026-11-21T08:30:14.8262160Z   GH_AW_AGENT_USAGE_JSONL_PATH: /tmp/gh-aw/threat-detection/detection_usage.jsonl
+2026-11-21T08:30:14.8262485Z   GH_AW_WRITE_EMPTY_USAGE: true
+2026-11-21T08:30:14.8262693Z ##[endgroup]
+2026-11-21T08:30:14.9370265Z Parsing token usage from 1 file(s): /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl (6291 bytes)
+2026-11-21T08:30:14.9642561Z Threat Detection Token Usage
+2026-11-21T08:30:14.9642892Z 
+2026-11-21T08:30:14.9643634Z # | Alias | Input | Output | Cache Read | Cache Write | ΔAI Credits | AI Credits | Duration 
+2026-11-21T08:30:14.9643944Z 
+2026-11-21T08:30:14.9644102Z  1 | gpt41 | 30,527 | 33 | 0 | 0 | 6.1318 | 6.1318 | 2.6s 
+2026-11-21T08:30:14.9644667Z  2 | gpt41 | 133 | 27 | 30,464 | 0 | 1.5714 | 7.7032 | 1.4s 
+2026-11-21T08:30:14.9645017Z  3 | gpt41 | 272 | 39 | 30,464 | 0 | 1.6088 | 9.312 | 1.5s 
+2026-11-21T08:30:14.9645332Z  4 | gpt41 | 180 | 30 | 30,720 | 0 | 1.596 | 10.908 | 1.5s 
+2026-11-21T08:30:14.9645647Z  5 | gpt41 | 3,840 | 14 | 30,848 | 0 | 2.3216 | 13.2296 | 3.2s 
+2026-11-21T08:30:14.9645965Z  6 | gpt41 | 155 | 14 | 34,560 | 0 | 1.7702 | 14.9998 | 1.3s 
+2026-11-21T08:30:14.9646269Z  7 | gpt41 | 182 | 14 | 34,560 | 0 | 1.7756 | 16.7754 | 1.2s 
+2026-11-21T08:30:14.9646568Z  8 | gpt41 | 81 | 14 | 34,688 | 0 | 1.7618 | 18.5372 | 1.2s 
+2026-11-21T08:30:14.9647097Z  9 | gpt41 | 108 | 16 | 34,688 | 0 | 1.7688 | 20.306 | 1.1s 
+2026-11-21T08:30:14.9647405Z  10 | gpt41 | 137 | 116 | 34,688 | 0 | 1.8546 | 22.1606 | 3.0s 
+2026-11-21T08:30:14.9647714Z  Total |  | 35,615 | 317 | 295,680 | 0 |  | 22.1606 | 18.0s 
+2026-11-21T08:30:14.9648057Z 
+2026-11-21T08:30:14.9648752Z Legend: `Alias` shows the model shorthand used in the table. `ΔAI Credits` is the per-request cost, and `AI Credits` is the running total mirrored from AWF fields for reporting.
+2026-11-21T08:30:14.9649704Z Token usage summary appended to step summary
+2026-11-21T08:30:14.9650157Z Primary model: gpt-4.1-2025-04-14
+2026-11-21T08:30:14.9650516Z AI Credits: 22.1606
+2026-11-21T08:30:14.9651211Z Ambient context: 30527

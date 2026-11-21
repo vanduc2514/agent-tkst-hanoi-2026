@@ -1,0 +1,193 @@
+﻿2026-11-21T08:27:10.0541819Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:27:10.0542136Z with:
+2026-11-21T08:27:10.0542987Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'generate_safe_outputs_tools.cjs'));
+await main();
+
+2026-11-21T08:27:10.0546257Z   github-token: ***
+2026-11-21T08:27:10.0546444Z   debug: false
+2026-11-21T08:27:10.0546629Z   user-agent: actions/github-script
+2026-11-21T08:27:10.0546849Z   result-encoding: json
+2026-11-21T08:27:10.0547031Z   retries: 0
+2026-11-21T08:27:10.0547229Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:27:10.0547460Z env:
+2026-11-21T08:27:10.0547624Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:27:10.0548017Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:27:10.0548227Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:27:10.0548866Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44884734460,github.run_id=44884734460,gh-aw.engine.id=copilot
+2026-11-21T08:27:10.0549570Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:27:10.0549779Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:27:10.0549977Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:27:10.0550207Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:27:10.0550448Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:27:10.0550650Z   DEFAULT_BRANCH: main
+2026-11-21T08:27:10.0550855Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-11-21T08:27:10.0551046Z   GH_AW_ASSETS_BRANCH: 
+2026-11-21T08:27:10.0551238Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-11-21T08:27:10.0551462Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-11-21T08:27:10.0551711Z   GH_AW_OBJECT_PACK_FETCH_DEPTHS: 
+2026-11-21T08:27:10.0551923Z   GH_AW_OBJECT_PACK_MAX_BYTES: 
+2026-11-21T08:27:10.0552124Z   GH_AW_OBJECT_PACK_MAX_OBJECTS: 
+2026-11-21T08:27:10.0552330Z   GH_AW_OBJECT_PACK_TIMEOUT_MS: 
+2026-11-21T08:27:10.0552538Z   GH_AW_PR_HEAD_BASE_BRANCH: 
+2026-11-21T08:27:10.0552731Z   GH_AW_PR_HEAD_BASE_PR_NUMBER: 
+2026-11-21T08:27:10.0552926Z   GH_AW_PR_HEAD_BASE_REF: 
+2026-11-21T08:27:10.0553116Z   GH_AW_PR_HEAD_BASE_REPO: 
+2026-11-21T08:27:10.0553304Z   GH_AW_PR_HEAD_BASE_SHA: 
+2026-11-21T08:27:10.0553490Z   GH_AW_PR_HEAD_REPO: 
+2026-11-21T08:27:10.0553845Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:27:10.0554034Z   GH_AW_TARGET_REPO_SLUG: 
+2026-11-21T08:27:10.0554243Z   GH_AW_WORKFLOW_ID_SANITIZED: syncfestival
+2026-11-21T08:27:10.0554507Z   GITHUB_AW_OTEL_TRACE_ID: c95629dc157460cb6f7774b50f90c2af
+2026-11-21T08:27:10.0554781Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 7c2369934a8f5e23
+2026-11-21T08:27:10.0555034Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249503374
+2026-11-21T08:27:10.0555285Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:27:10.0555538Z   GH_AW_RUNTIME_TMP_ID: 64512:8279374:1001
+2026-11-21T08:27:10.0555759Z   TMPDIR: /tmp/gh-aw-runtime-RjdtEw
+2026-11-21T08:27:10.0556522Z   GH_AW_TOOLS_META_JSON: {
+  "description_suffixes": {
+    "create_pull_request": " CONSTRAINTS: Maximum 1 pull request(s) can be created. Title will be prefixed with \"[sync] \". Labels [\"festival-sync\"] will be automatically added."
+  },
+  "repo_params": {},
+  "dynamic_tools": []
+}
+
+2026-11-21T08:27:10.0561327Z   GH_AW_VALIDATION_JSON: {
+  "create_pull_request": {
+    "defaultMax": 1,
+    "fields": {
+      "base": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      },
+      "body": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      },
+      "branch": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "dependencies": {
+        "type": "array",
+        "itemType": "string",
+        "itemSanitize": true,
+        "itemMaxLength": 256
+      },
+      "draft": {
+        "type": "boolean"
+      },
+      "labels": {
+        "type": "array",
+        "itemType": "string",
+        "itemSanitize": true,
+        "itemMaxLength": 128
+      },
+      "repo": {
+        "type": "string",
+        "maxLength": 256
+      },
+      "stack_position": {
+        "optionalPositiveInteger": true
+      },
+      "stack_root": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "temporary_id": {
+        "type": "string",
+        "pattern": "^#?aw_[A-Za-z0-9_]{3,12}$"
+      },
+      "title": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      }
+    }
+  },
+  "noop": {
+    "defaultMax": 2,
+    "fields": {
+      "message": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      }
+    }
+  },
+  "report_incomplete": {
+    "defaultMax": 5,
+    "fields": {
+      "details": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 65000
+      },
+      "reason": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 1024
+      }
+    }
+  },
+  "report_missing_data": {
+    "defaultMax": 20,
+    "fields": {
+      "alternatives": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "context": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "data_type": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      },
+      "reason": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      }
+    }
+  },
+  "report_missing_tool": {
+    "defaultMax": 20,
+    "fields": {
+      "alternatives": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 512
+      },
+      "reason": {
+        "required": true,
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 256
+      },
+      "tool": {
+        "type": "string",
+        "sanitize": true,
+        "maxLength": 128
+      }
+    }
+  }
+}
+
+2026-11-21T08:27:10.0566201Z ##[endgroup]
