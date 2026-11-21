@@ -1,0 +1,38 @@
+﻿2026-11-21T08:10:41.4964744Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:10:41.4966000Z with:
+2026-11-21T08:10:41.4968333Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'check_version_updates.cjs'));
+await main();
+
+2026-11-21T08:10:41.4974611Z   github-token: ***
+2026-11-21T08:10:41.4975112Z   debug: false
+2026-11-21T08:10:41.4975867Z   user-agent: actions/github-script
+2026-11-21T08:10:41.4976462Z   result-encoding: json
+2026-11-21T08:10:41.4976977Z   retries: 0
+2026-11-21T08:10:41.4977483Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:10:41.4978103Z env:
+2026-11-21T08:10:41.4978551Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:10:41.4979111Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:10:41.4979677Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:10:41.4982286Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:10:41.4983928Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:10:41.4984471Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:10:41.4985007Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:10:41.4985813Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:10:41.4986475Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:10:41.4987038Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:10:41.4987604Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:10:41.4988207Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:10:41.4988939Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 43692895caf62fc2
+2026-11-21T08:10:41.4989585Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248636169
+2026-11-21T08:10:41.4990210Z   GH_AW_COMPILED_VERSION: v1.2.2
+2026-11-21T08:10:41.4990770Z   GH_AW_HAS_SAFE_OUTPUTS: true
+2026-11-21T08:10:41.4991363Z   GH_AW_BLOCKED_VERSION_REPORT_AS_ISSUE: true
+2026-11-21T08:10:41.4992036Z   GH_AW_WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:10:41.4992672Z ##[endgroup]
+2026-11-21T08:10:41.8246717Z Checking compile-agentic version: v1.2.2
+2026-11-21T08:10:41.8248650Z Fetching update configuration from: https://raw.githubusercontent.com/github/gh-aw-actions/main/.github/aw/compat.json
+2026-11-21T08:10:41.8250095Z ✅ Version check passed: v1.2.2

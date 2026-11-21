@@ -1,0 +1,33 @@
+﻿2026-11-21T08:10:43.0390826Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:10:43.0391773Z with:
+2026-11-21T08:10:43.0395290Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'skill_inventory.cjs'));
+await main();
+
+2026-11-21T08:10:43.0428970Z   github-token: ***
+2026-11-21T08:10:43.0429735Z   debug: false
+2026-11-21T08:10:43.0430225Z   user-agent: actions/github-script
+2026-11-21T08:10:43.0430813Z   result-encoding: json
+2026-11-21T08:10:43.0431477Z   retries: 0
+2026-11-21T08:10:43.0474307Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:10:43.0475157Z env:
+2026-11-21T08:10:43.0475827Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:10:43.0476403Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:10:43.0476983Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:10:43.0478787Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:10:43.0480488Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:10:43.0481024Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:10:43.0481550Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:10:43.0482142Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:10:43.0482790Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:10:43.0483339Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:10:43.0483901Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:10:43.0484517Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:10:43.0485267Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 43692895caf62fc2
+2026-11-21T08:10:43.0486128Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248636169
+2026-11-21T08:10:43.0486756Z   GH_AW_SKILL_DIR: .github/skills
+2026-11-21T08:10:43.0487304Z ##[endgroup]
+2026-11-21T08:10:43.3661704Z Inventoried 1 skills; 0 conflict(s)

@@ -1,0 +1,35 @@
+﻿2026-11-21T08:15:23.2648032Z ##[group]Run actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333
+2026-11-21T08:15:23.2648430Z with:
+2026-11-21T08:15:23.2648662Z   name: activation
+2026-11-21T08:15:23.2648903Z   path: /tmp/gh-aw
+2026-11-21T08:15:23.2649177Z   merge-multiple: false
+2026-11-21T08:15:23.2649490Z   repository: vanduc2514/agent-tkst-hanoi-2026
+2026-11-21T08:15:23.2649793Z   run-id: 44883610936
+2026-11-21T08:15:23.2650082Z   skip-decompress: false
+2026-11-21T08:15:23.2650328Z   digest-mismatch: error
+2026-11-21T08:15:23.2650591Z env:
+2026-11-21T08:15:23.2650810Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:15:23.2651101Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:15:23.2651375Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:15:23.2652035Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:15:23.2652693Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:15:23.2653396Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:15:23.2654070Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:15:23.2654377Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:15:23.2654682Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:15:23.2655061Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:15:23.2655346Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:15:23.2655682Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: b516654d2bfc6b10
+2026-11-21T08:15:23.2656133Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248923213
+2026-11-21T08:15:23.2656439Z ##[endgroup]
+2026-11-21T08:15:23.3962189Z Downloading single artifact
+2026-11-21T08:15:23.4877777Z Preparing to download the following artifacts:
+2026-11-21T08:15:23.4878468Z - activation (ID: 14698679069, Size: 2603653, Expected Digest: sha256:febbf3fa6f6a9b5a1d8fc48ff545d85570bf1b30e9c976a4db7aa486c48c56ab)
+2026-11-21T08:15:23.6166302Z Redirecting to blob download url: https://productionresultssa0.blob.core.windows.net/actions-results/6a52ed60-e221-4d85-ad42-707d485eeb9f/workflow-job-run-b4cfa1fb-ab0f-5953-ba82-2ce20ade3a78/artifacts/b15526c9c0e75acea3d1f8055de216c85f0330baf8604e13d8c6ce90fb90d6d7.zip
+2026-11-21T08:15:23.6167277Z Starting download of artifact to: /tmp/gh-aw
+2026-11-21T08:15:23.6743526Z (node:4585) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-21T08:15:23.6744616Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-21T08:15:23.7534516Z SHA256 digest of downloaded artifact is febbf3fa6f6a9b5a1d8fc48ff545d85570bf1b30e9c976a4db7aa486c48c56ab
+2026-11-21T08:15:23.7535297Z Artifact download completed successfully.
+2026-11-21T08:15:23.7535616Z Total of 1 artifact(s) downloaded
+2026-11-21T08:15:23.7537131Z Download artifact has finished successfully

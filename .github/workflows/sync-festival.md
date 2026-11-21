@@ -3,17 +3,15 @@ on:
   schedule: daily
   workflow_dispatch:
 engine: copilot
+# The fine-grained PAT behind COPILOT_GITHUB_TOKEN is entitled to the GPT chat
+# models only; the default `auto` resolves to Sonnet, which the API answers with
+# 502 because no fallback model can be dispatched.
+model: gpt-4.1
 permissions:
   contents: read
 network:
   allowed:
     - defaults
-    # The engine's own API is not in `defaults`; without it the sandbox proxy
-    # answers every model call with 502.
-    - copilot
-    - github
-    - api.apify.com
-    - lehoithietkesangtao.vn
 tools:
   bash:
     - python3

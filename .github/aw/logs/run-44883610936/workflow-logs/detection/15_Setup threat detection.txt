@@ -1,0 +1,40 @@
+﻿2026-11-21T08:15:31.7704004Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:15:31.7704318Z with:
+2026-11-21T08:15:31.7705148Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'setup_threat_detection.cjs'));
+await main();
+
+2026-11-21T08:15:31.7707771Z   github-token: ***
+2026-11-21T08:15:31.7707985Z   debug: false
+2026-11-21T08:15:31.7708190Z   user-agent: actions/github-script
+2026-11-21T08:15:31.7708437Z   result-encoding: json
+2026-11-21T08:15:31.7708640Z   retries: 0
+2026-11-21T08:15:31.7708848Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:15:31.7709110Z env:
+2026-11-21T08:15:31.7709281Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:15:31.7709508Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:15:31.7709734Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:15:31.7710388Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:15:31.7711029Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:15:31.7711238Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:15:31.7711447Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:15:31.7711676Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:15:31.7711928Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:15:31.7712140Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:15:31.7712502Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:15:31.7712790Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: b516654d2bfc6b10
+2026-11-21T08:15:31.7713207Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248923213
+2026-11-21T08:15:31.7713464Z   WORKFLOW_NAME: Sync the festival programme
+2026-11-21T08:15:31.7713727Z   WORKFLOW_DESCRIPTION: No description provided
+2026-11-21T08:15:31.7713974Z   HAS_PATCH: false
+2026-11-21T08:15:31.7714179Z   GH_AW_DETECTION_CONTINUE_ON_ERROR: true
+2026-11-21T08:15:31.7714417Z   GH_AW_DETECTION_SKIP_PROMPT_SUMMARY: true
+2026-11-21T08:15:31.7714667Z ##[endgroup]
+2026-11-21T08:15:31.8473567Z Removed framework system prompt block from /tmp/gh-aw/threat-detection/aw-prompts/prompt.txt
+2026-11-21T08:15:31.8474390Z Prompt file found: /tmp/gh-aw/threat-detection/aw-prompts/prompt.txt (2133 bytes)
+2026-11-21T08:15:31.8474957Z Agent output file found: /tmp/gh-aw/threat-detection/agent_output.json (1297 bytes)
+2026-11-21T08:15:31.8479423Z Skipping threat detection prompt step summary (external detector renders its own prompt)
+2026-11-21T08:15:31.8479987Z Threat detection setup completed

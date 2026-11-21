@@ -1,0 +1,42 @@
+﻿2026-11-21T08:16:37.3601240Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-11-21T08:16:37.3601579Z with:
+2026-11-21T08:16:37.3602450Z   script: const path = require('path');
+const actionsDir = path.join(process.env.RUNNER_TEMP, 'gh-aw', 'actions');
+const { setupGlobals } = require(path.join(actionsDir, 'setup_globals.cjs'));
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require(path.join(actionsDir, 'parse_token_usage.cjs'));
+await main();
+
+2026-11-21T08:16:37.3605066Z   github-token: ***
+2026-11-21T08:16:37.3605260Z   debug: false
+2026-11-21T08:16:37.3605452Z   user-agent: actions/github-script
+2026-11-21T08:16:37.3605686Z   result-encoding: json
+2026-11-21T08:16:37.3605877Z   retries: 0
+2026-11-21T08:16:37.3606070Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-11-21T08:16:37.3606320Z env:
+2026-11-21T08:16:37.3606493Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:16:37.3606729Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:16:37.3606948Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:16:37.3607583Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:16:37.3608254Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:16:37.3608469Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:16:37.3608672Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:16:37.3608901Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:16:37.3609143Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:16:37.3609349Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:16:37.3609585Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:16:37.3609864Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: b516654d2bfc6b10
+2026-11-21T08:16:37.3610109Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248923213
+2026-11-21T08:16:37.3610366Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:16:37.3610634Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-U31pRp
+2026-11-21T08:16:37.3610889Z   GH_AW_RUNTIME_TMP_ID: 64512:8301860:1001
+2026-11-21T08:16:37.3611120Z   TMPDIR: /tmp/gh-aw-runtime-U31pRp
+2026-11-21T08:16:37.3611446Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:16:37.3611821Z   GH_AW_TOKEN_USAGE_SUMMARY_TITLE: Threat Detection Token Usage
+2026-11-21T08:16:37.3612102Z   GH_AW_PHASE: detection
+2026-11-21T08:16:37.3612374Z   GH_AW_AGENT_USAGE_PATH: /tmp/gh-aw/threat-detection/detection_usage.json
+2026-11-21T08:16:37.3612743Z   GH_AW_AGENT_USAGE_JSONL_PATH: /tmp/gh-aw/threat-detection/detection_usage.jsonl
+2026-11-21T08:16:37.3613247Z   GH_AW_WRITE_EMPTY_USAGE: true
+2026-11-21T08:16:37.3613458Z ##[endgroup]
+2026-11-21T08:16:37.4576474Z Recorded unavailable token usage evidence
+2026-11-21T08:16:37.4576927Z No token usage data found, skipping summary

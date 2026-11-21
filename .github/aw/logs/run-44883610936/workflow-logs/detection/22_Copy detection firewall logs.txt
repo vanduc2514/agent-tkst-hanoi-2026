@@ -1,0 +1,25 @@
+﻿2026-11-21T08:16:36.9893851Z ##[group]Run mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall
+2026-11-21T08:16:36.9894248Z [36;1mmkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall[0m
+2026-11-21T08:16:36.9894885Z [36;1mif [ -d /tmp/gh-aw/sandbox/firewall/logs ]; then mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall/logs && cp -r /tmp/gh-aw/sandbox/firewall/logs/. /tmp/gh-aw/threat-detection/sandbox/firewall/logs/; fi[0m
+2026-11-21T08:16:36.9895965Z [36;1mif [ -d /tmp/gh-aw/sandbox/firewall/audit ]; then mkdir -p /tmp/gh-aw/threat-detection/sandbox/firewall/audit && cp -r /tmp/gh-aw/sandbox/firewall/audit/. /tmp/gh-aw/threat-detection/sandbox/firewall/audit/; fi[0m
+2026-11-21T08:16:36.9918858Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:16:36.9919112Z env:
+2026-11-21T08:16:36.9919294Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:16:36.9919510Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:16:36.9919733Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:16:36.9920347Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:16:36.9920978Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:16:36.9921196Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:16:36.9921407Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:16:36.9921644Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:16:36.9921894Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:16:36.9922089Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:16:36.9922326Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:16:36.9922605Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: b516654d2bfc6b10
+2026-11-21T08:16:36.9922997Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248923213
+2026-11-21T08:16:36.9923283Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-11-21T08:16:36.9923541Z   GH_AW_RUNTIME_TMP_DIR: /tmp/gh-aw-runtime-U31pRp
+2026-11-21T08:16:36.9923799Z   GH_AW_RUNTIME_TMP_ID: 64512:8301860:1001
+2026-11-21T08:16:36.9924039Z   TMPDIR: /tmp/gh-aw-runtime-U31pRp
+2026-11-21T08:16:36.9924357Z   AWF_TOKEN_USAGE_LOG: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs/token-usage.jsonl
+2026-11-21T08:16:36.9924681Z ##[endgroup]

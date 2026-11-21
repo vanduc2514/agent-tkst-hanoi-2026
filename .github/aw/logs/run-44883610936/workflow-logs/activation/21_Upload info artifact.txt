@@ -1,0 +1,38 @@
+﻿2026-11-21T08:10:43.4024588Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:10:43.4026042Z with:
+2026-11-21T08:10:43.4026498Z   name: info
+2026-11-21T08:10:43.4026999Z   path: /tmp/gh-aw/aw_info.json
+2026-11-21T08:10:43.4027580Z   if-no-files-found: ignore
+2026-11-21T08:10:43.4028106Z   retention-days: 0
+2026-11-21T08:10:43.4028590Z   compression-level: 6
+2026-11-21T08:10:43.4029079Z   overwrite: false
+2026-11-21T08:10:43.4029561Z   include-hidden-files: false
+2026-11-21T08:10:43.4030102Z   archive: true
+2026-11-21T08:10:43.4030593Z env:
+2026-11-21T08:10:43.4031040Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:10:43.4031598Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:10:43.4032168Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:10:43.4033974Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:10:43.4035960Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:10:43.4054171Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:10:43.4054736Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:10:43.4055339Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:10:43.4056325Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:10:43.4056890Z   GH_AW_MAX_DAILY_AI_CREDITS: 5000
+2026-11-21T08:10:43.4057442Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:10:43.4058049Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:10:43.4058780Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 43692895caf62fc2
+2026-11-21T08:10:43.4059436Z   GITHUB_AW_OTEL_JOB_START_MS: 1795248636169
+2026-11-21T08:10:43.4060024Z ##[endgroup]
+2026-11-21T08:10:44.2228922Z With the provided path, there will be 1 file uploaded
+2026-11-21T08:10:44.2230000Z Artifact name is valid!
+2026-11-21T08:10:44.2230748Z Root directory input is valid!
+2026-11-21T08:10:44.2236568Z Uploading artifact: info.zip
+2026-11-21T08:10:44.2237559Z Beginning upload of artifact content to blob storage
+2026-11-21T08:10:44.2238936Z Uploaded bytes 805
+2026-11-21T08:10:44.2240424Z Finished uploading artifact content to blob storage!
+2026-11-21T08:10:44.2242185Z SHA256 digest of uploaded artifact is 1f5b1aef961042ef4c7cf4f4cd2ffedb53f1051e614608e59091dc6796c98842
+2026-11-21T08:10:44.2243210Z Finalizing artifact upload
+2026-11-21T08:10:44.5001237Z Artifact info successfully finalized. Artifact ID 14698558171
+2026-11-21T08:10:44.5002441Z Artifact info has been successfully uploaded! Final size is 805 bytes. Artifact ID is 14698558171
+2026-11-21T08:10:44.5003886Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44883610936/artifacts/14698558171

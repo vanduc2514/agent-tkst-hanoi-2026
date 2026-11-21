@@ -1,0 +1,68 @@
+﻿2026-11-21T08:17:23.4443897Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-21T08:17:23.4444831Z with:
+2026-11-21T08:17:23.4445303Z   name: usage
+2026-11-21T08:17:23.4451673Z   path: /tmp/gh-aw/usage/aw_session.jsonl
+/tmp/gh-aw/usage/aw_info.json
+/tmp/gh-aw/usage/aw-info.jsonl
+/tmp/gh-aw/usage/agent_usage.json
+/tmp/gh-aw/usage/agent_usage.jsonl
+/tmp/gh-aw/usage/detection_usage.jsonl
+/tmp/gh-aw/usage/evals.jsonl
+/tmp/gh-aw/usage/graders/grader_manifest.json
+/tmp/gh-aw/usage/graders/grader_results.json
+/tmp/gh-aw/usage/github_rate_limits.jsonl
+/tmp/gh-aw/usage/agent/token_usage.jsonl
+/tmp/gh-aw/usage/agent/model-routing.jsonl
+/tmp/gh-aw/usage/agent/execution.json
+/tmp/gh-aw/usage/agent/harness_retry.json
+/tmp/gh-aw/usage/agent/durable-session.jsonl
+/tmp/gh-aw/usage/detection/token_usage.jsonl
+/tmp/gh-aw/usage/detection/execution.json
+/tmp/gh-aw/usage/detection/harness_retry.json
+/tmp/gh-aw/usage/detection/detection_result.json
+/tmp/gh-aw/usage/evals/token_usage.jsonl
+/tmp/gh-aw/usage/evals/execution.json
+/tmp/gh-aw/usage/evals/evals_status.json
+/tmp/gh-aw/usage/experiment/state.jsonl
+/tmp/gh-aw/usage/experiment/state.json
+/tmp/gh-aw/usage/experiment/assignments.json
+/tmp/gh-aw/usage/activity/summary.json
+
+2026-11-21T08:17:23.4458396Z   if-no-files-found: ignore
+2026-11-21T08:17:23.4458957Z   retention-days: 0
+2026-11-21T08:17:23.4459478Z   compression-level: 6
+2026-11-21T08:17:23.4460233Z   overwrite: false
+2026-11-21T08:17:23.4460757Z   include-hidden-files: false
+2026-11-21T08:17:23.4461315Z   archive: true
+2026-11-21T08:17:23.4461787Z env:
+2026-11-21T08:17:23.4462263Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:17:23.4462843Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:17:23.4463448Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:17:23.4465011Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:17:23.4466566Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:17:23.4467143Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:17:23.4467703Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:17:23.4468318Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:17:23.4468989Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:17:23.4470312Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:17:23.4473298Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:17:23.4474971Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:17:23.4476037Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:17:23.4477273Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:17:23.4478078Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c91c9bc5f6ed3262
+2026-11-21T08:17:23.4478802Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249031583
+2026-11-21T08:17:23.4479433Z ##[endgroup]
+2026-11-21T08:17:24.4404541Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-11-21T08:17:24.4415524Z The least common ancestor is /tmp/gh-aw/usage. This will be the root directory of the artifact
+2026-11-21T08:17:24.4416579Z With the provided path, there will be 13 files uploaded
+2026-11-21T08:17:24.4418504Z Artifact name is valid!
+2026-11-21T08:17:24.4419095Z Root directory input is valid!
+2026-11-21T08:17:24.4446848Z Uploading artifact: usage.zip
+2026-11-21T08:17:24.4447928Z Beginning upload of artifact content to blob storage
+2026-11-21T08:17:24.4452064Z Uploaded bytes 61818
+2026-11-21T08:17:24.4452775Z Finished uploading artifact content to blob storage!
+2026-11-21T08:17:24.4455026Z SHA256 digest of uploaded artifact is 5081addfa6cff8c9fa760269658d3a7ed77dd05de700a090e88a8d94b8088270
+2026-11-21T08:17:24.4456143Z Finalizing artifact upload
+2026-11-21T08:17:24.7915902Z Artifact usage successfully finalized. Artifact ID 14699008351
+2026-11-21T08:17:24.7917623Z Artifact usage has been successfully uploaded! Final size is 61818 bytes. Artifact ID is 14699008351
+2026-11-21T08:17:24.7919118Z Artifact download URL: https://github.com/vanduc2514/agent-tkst-hanoi-2026/actions/runs/44883610936/artifacts/14699008351

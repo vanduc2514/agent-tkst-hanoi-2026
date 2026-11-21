@@ -1,0 +1,22 @@
+﻿2026-11-21T08:17:13.8573096Z ##[group]Run echo "::warning::Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs."
+2026-11-21T08:17:13.8574924Z [36;1mecho "::warning::Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs."[0m
+2026-11-21T08:17:13.8581301Z shell: /usr/bin/bash -e {0}
+2026-11-21T08:17:13.8582298Z env:
+2026-11-21T08:17:13.8582783Z   OTEL_EXPORTER_OTLP_ENDPOINT: 
+2026-11-21T08:17:13.8583369Z   OTEL_EXPORTER_OTLP_PROTOCOL: 
+2026-11-21T08:17:13.8583964Z   OTEL_SERVICE_NAME: gh-aw.sync-festival
+2026-11-21T08:17:13.8585501Z   OTEL_RESOURCE_ATTRIBUTES: gh-aw.workflow.name=Sync%20the%20festival%20programme,gh-aw.repository=vanduc2514/agent-tkst-hanoi-2026,gh-aw.run.id=44883610936,github.run_id=44883610936,gh-aw.engine.id=copilot
+2026-11-21T08:17:13.8587046Z   OTEL_EXPORTER_OTLP_HEADERS: 
+2026-11-21T08:17:13.8587612Z   GH_AW_OTLP_LOGS_ENABLED: 
+2026-11-21T08:17:13.8588139Z   GH_AW_OTLP_LOGS_MAX_BYTES: 
+2026-11-21T08:17:13.8589128Z   GH_AW_OTLP_ENDPOINTS: [{"url":"","headers":""}]
+2026-11-21T08:17:13.8590071Z   GH_AW_OTLP_IF_MISSING: ignore
+2026-11-21T08:17:13.8591202Z   GH_AW_JOB_DISPLAY_NAMES: {"activation":"activation","agent":"agent","conclusion":"conclusion","detection":"detection","safe_outputs":"safe_outputs"}
+2026-11-21T08:17:13.8592926Z   GH_AW_JOB_RESULTS: {"activation":{"result":"success"},"agent":{"result":"failure"},"detection":{"result":"success"},"safe_outputs":{"result":"success"}}
+2026-11-21T08:17:13.8594880Z   GH_AW_JOB_TIMING_ELIGIBLE: {"activation":true,"agent":true,"conclusion":true,"detection":true,"safe_outputs":true}
+2026-11-21T08:17:13.8595909Z   GH_AW_RUNTIME_FEATURES: 
+2026-11-21T08:17:13.8596539Z   GITHUB_AW_OTEL_TRACE_ID: 75730810a6eb887c318d3a49859bfff4
+2026-11-21T08:17:13.8597279Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: c91c9bc5f6ed3262
+2026-11-21T08:17:13.8597957Z   GITHUB_AW_OTEL_JOB_START_MS: 1795249031583
+2026-11-21T08:17:13.8598558Z ##[endgroup]
+2026-11-21T08:17:13.8646453Z ##[warning]Threat detection produced no security verdict. Review the detection job logs before trusting the agent outputs.
