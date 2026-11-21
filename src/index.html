@@ -478,9 +478,6 @@
     .welcome-eyebrow { margin: 16px 0 6px; color: #8b9791; font-size: 9.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
     .welcome-title { margin: 0; font: 800 22px/1.25 Manrope, sans-serif; letter-spacing: -.7px; }
     .welcome-copy { margin: 9px 0 0; color: #6d7a74; font-size: 12px; line-height: 1.6; }
-    .welcome-stats { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; }
-    .welcome-stat { display: inline-flex; align-items: center; gap: 6px; border-radius: 99px; padding: 5px 10px; color: #52645b; background: #f2f7f3; font-size: 10px; font-weight: 700; }
-    .welcome-stat i { color: var(--green); font-size: 10px; }
     .welcome-actions { display: grid; gap: 8px; margin-top: 16px; }
     .welcome-action {
       display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 12px;
@@ -596,23 +593,22 @@
       <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       <span class="welcome-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
       <p class="welcome-eyebrow">Lễ hội Thiết kế Sáng tạo Hà Nội 2026</p>
-      <h2 class="welcome-title" id="welcome-title">Tìm hoạt động, dựng lộ trình, hỏi AI</h2>
-      <p class="welcome-copy" id="welcome-copy">Bản đồ gom toàn bộ chương trình chính thức: chọn một điểm để xem chi tiết, thêm vào lộ trình đi bộ, hoặc để AI gợi ý buổi đi hợp với bạn.</p>
-      <div class="welcome-stats" id="welcome-stats"></div>
+      <h2 class="welcome-title" id="welcome-title">Khám phá, hỏi AI, dựng lộ trình</h2>
+      <p class="welcome-copy" id="welcome-copy">Bản đồ gom toàn bộ chương trình chính thức: chọn một điểm để xem chi tiết, hỏi AI để được gợi ý, hoặc tự dựng lộ trình đi bộ.</p>
       <div class="welcome-actions">
-        <button class="welcome-action" id="welcome-today" type="button">
-          <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
-          <span><strong>Hôm nay có gì</strong><small>Chỉ hiện hoạt động còn mở trong hôm nay</small></span>
-          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
-        </button>
-        <button class="welcome-action" id="welcome-route" type="button">
-          <i class="fa-solid fa-route" aria-hidden="true"></i>
-          <span><strong>Dựng lộ trình</strong><small>Bắt đầu từ hành trình gợi ý có sẵn</small></span>
+        <button class="welcome-action" id="welcome-explore" type="button">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <span><strong>Khám phá</strong><small>Tìm theo tên, địa điểm hoặc ngày</small></span>
           <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
         </button>
         <button class="welcome-action" id="welcome-ai" type="button">
           <i class="fa-solid fa-comment-dots" aria-hidden="true"></i>
           <span><strong>Hỏi AI</strong><small>Prompt sẵn cho ChatGPT, Claude, Gemini</small></span>
+          <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
+        </button>
+        <button class="welcome-action" id="welcome-route" type="button">
+          <i class="fa-solid fa-route" aria-hidden="true"></i>
+          <span><strong>Lộ trình</strong><small>Bắt đầu từ hành trình gợi ý có sẵn</small></span>
           <i class="fa-solid fa-arrow-right welcome-action-arrow" aria-hidden="true"></i>
         </button>
       </div>
@@ -2235,26 +2231,10 @@
           try { localStorage.setItem(WELCOME_KEY, "seen"); } catch { /* storage blocked */ }
         }
 
-        function renderWelcomeStats() {
-          const today = hanoiDateTime(new Date()).date;
-          const stats = [
-            ["fa-calendar-check", `${events.length} hoạt động`],
-            ["fa-layer-group", `${Object.keys(clusters).length} cụm`],
-            ["fa-clock", `${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`]
-          ];
-          if (today >= FESTIVAL_START && today <= FESTIVAL_END) {
-            stats.splice(1, 0, ["fa-bolt", `${eventsOnDate(today).length} hôm nay`]);
-          }
-          $("#welcome-stats").innerHTML = stats.map(([icon, text]) =>
-            `<span class="welcome-stat"><i class="fa-solid ${icon}" aria-hidden="true"></i>${escapeHtml(text)}</span>`
-          ).join("");
-        }
-
         function openWelcome(returnFocus) {
           const overlay = $("#welcome");
           if (!overlay || overlay.classList.contains("visible")) return;
           welcomeReturnFocus = returnFocus || document.activeElement;
-          renderWelcomeStats();
           overlay.classList.add("visible");
           overlay.setAttribute("aria-hidden", "false");
           overlay.inert = false;
@@ -2276,10 +2256,10 @@
 
         function runWelcomeAction(kind) {
           closeWelcome();
-          const tab = kind === "today" ? "explore" : kind === "route" ? "route" : "prompts";
+          const tab = kind === "explore" ? "explore" : kind === "route" ? "route" : "prompts";
           setTab(tab);
           if (isNarrowViewport()) openMobileSidebar();
-          if (kind === "today") {
+          if (kind === "explore") {
             if (!$("#live-toggle").disabled) setLive(true, { quiet: true });
             const today = hanoiDateTime(new Date()).date;
             const openToday = today >= FESTIVAL_START && today <= FESTIVAL_END && eventsOnDate(today).length > 0;
@@ -2301,9 +2281,9 @@
           });
           $("#welcome-close").addEventListener("click", () => closeWelcome());
           $("#welcome-start").addEventListener("click", () => closeWelcome());
-          $("#welcome-today").addEventListener("click", () => runWelcomeAction("today"));
-          $("#welcome-route").addEventListener("click", () => runWelcomeAction("route"));
+          $("#welcome-explore").addEventListener("click", () => runWelcomeAction("explore"));
           $("#welcome-ai").addEventListener("click", () => runWelcomeAction("ai"));
+          $("#welcome-route").addEventListener("click", () => runWelcomeAction("route"));
           $("#help-toggle").addEventListener("click", () => openWelcome($("#help-toggle")));
           document.addEventListener("keydown", (event) => {
             if (event.key === "Escape" && overlay.classList.contains("visible")) closeWelcome();
