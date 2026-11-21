@@ -40,9 +40,8 @@ another file.
 
 - Never deploy directly by pushing Docker images to the registry
 - Trigger CI action, skip if it is triggered automatically. Then wait for the CI action to complete
-- GitHub is the primary remote (`origin`); Forgejo (`forgejo`) is the secondary mirror. A push
-  to `main` builds and pushes the image to `ghcr.io`, and the `Mirror to Forgejo` workflow
-  copies the branch and tags to `git.nvduc.lab`.
+- GitHub is the primary remote (`origin`). A push to `main` builds and pushes the image to
+  `ghcr.io`.
 
 ### Scheduled festival sync
 
@@ -52,8 +51,6 @@ generated — edit the `.md` and run `gh aw compile`, never the lock file.
 
 Required repository secrets: `APIFY_TOKEN` and `COPILOT_GITHUB_TOKEN`. The Copilot secret must be
 a fine-grained PAT (`github_pat_…`) with Copilot access; OAuth tokens (`gho_…`) are rejected.
-`FORGEJO_TOKEN` is needed for the mirror and is optional — the mirror skips with a warning when
-it is absent.
 
 ## Conventions
 - There is no test suite, linter, or package manager. Verify changes by serving the page and open the page via browser
