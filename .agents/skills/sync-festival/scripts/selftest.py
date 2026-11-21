@@ -423,43 +423,55 @@ class Report(unittest.TestCase):
         self.assertIn("| Event | id | Difference |", text)
         self.assertIn(f"| {event['title']} | `{event['id']}` | end 17:00 → 17:30 | facebook · 2026-11-20 |", text)
 
-    def test_a_post_row_links_the_post(self):
-        data = {"clusters": {}, "places": [], "events": [{
-            "id": "e001", "title": "Pavilion Hồ Gương", "date": "2026-11-13",
-            "dateEnd": "2026-11-28", "startTime": "09:00", "endTime": "19:00"}]}
-        proposals = [{
-            "eventId": "e001", "title": "Pavilion Hồ Gương", "dates": ["2026-11-20"],
-            "startTime": "10:00", "endTime": "18:00", "network": "facebook",
-            "postedAt": "2026-11-20", "postUrl": "https://example.test/post"}]
-        text = cli.render(data, [{"kind": "same"}], [], [], None, proposals, None)
-        self.assertIn("| Event | id | Difference |", text)
-        self.assertIn("start differs: ours 09:00", text)
-        self.assertIn("[facebook post, 2026-11-20](https://example.test/post)", text)
-        self.assertIn("a session on 2026-11-20 inside our run", text)
-        self.assertNotIn("date differs", text, "a session date is not a reschedule")
+    def event(self, **extra):
+        event = {"id": "e001", "title": "A", "date": "2026-11-14", "dateEnd": "2026-11-14",
+                 "startTime": "09:00", "endTime": "17:00",
+                 "officialUrl": "https://lehoithietkesangtao.vn/su-kien/a.html"}
+        event.update(extra)
+        return {"clusters": {}, "places": [], "events": [event]}
 
-    def test_an_official_site_row_links_the_domain(self):
-        data = {"clusters": {}, "places": [], "events": [{
-            "id": "e001", "title": "A", "date": "2026-11-14", "dateEnd": "2026-11-14",
-            "startTime": "09:00", "endTime": "17:00",
-            "officialUrl": "https://lehoithietkesangtao.vn/su-kien/a.html"}]}
-        rows = [{"kind": "changed", "id": "e001", "changes": [],
-                 "dates": [{"field": "end", "was": "2026-11-14 17:00", "site": "2026-11-14 18:00"}]}]
-        text = cli.render(data, rows, [], [], None, None, None)
-        self.assertIn("end differs: ours 2026-11-14 17:00, "
+    def row(self, field="end", was="2026-11-14 17:00", site="2026-11-14 18:00"):
+        return {"kind": "changed", "id": "e001", "changes": [],
+                "dates": [{"field": field, "was": was, "site": site}]}
+
+    def test_a_single_day_correction_is_left_to_apply(self):
+        text = cli.render(self.event(), [self.row()], [], [], None, None, None)
+        self.assertIn("1 correction(s) `apply` will write", text)
+        self.assertIn("| — | — | nothing to decide |", text)
+
+    def test_a_multi_day_window_is_reviewed_with_the_domain(self):
+        data = self.event(dateEnd="2026-11-28")
+        text = cli.render(data, [self.row()], [], [], None, None, None)
+        self.assertIn("end differs: ours 17:00, "
                       "[lehoithietkesangtao.vn](https://lehoithietkesangtao.vn/su-kien/a.html) "
-                      "says 2026-11-14 18:00", text)
+                      "says 18:00 — one window cannot describe a multi-day run", text)
 
-    def test_the_report_never_says_listing(self):
-        data = load()
-        remote = [{"slug": "a", "title": data["events"][0]["title"], "eventType": "Talk",
-                   "startAt": "2026-11-14T02:00:00", "endAt": "2026-11-14T03:00:00",
-                   "venueName": data["events"][0].get("officialVenue")}]
-        rows = cli.compare(data, remote)["rows"]
+    def test_a_post_that_contradicts_the_site_is_reviewed(self):
+        proposals = [{"eventId": "e001", "title": "A", "dates": ["2026-11-14"],
+                      "startTime": "09:00", "endTime": "19:00", "network": "facebook",
+                      "postedAt": "2026-11-20", "postUrl": "https://example.test/post"}]
+        text = cli.render(self.event(), [self.row()], [], [], None, proposals, None)
+        self.assertIn("end differs: ours 17:00", text)
+        self.assertIn("[lehoithietkesangtao.vn](https://lehoithietkesangtao.vn/su-kien/a.html) says 18:00", text)
+        self.assertIn("[facebook post, 2026-11-20](https://example.test/post) says 19:00", text)
+        self.assertIn("the post and the site disagree", text)
+        self.assertNotIn("correction(s) `apply` will write", text)
+
+    def test_a_minimal_title_change_is_applied(self):
+        data = self.event(title="Giúp nhau làm nghề, Craft Toolkit")
+        rows = [{"kind": "changed", "id": "e001", "dates": [],
+                 "changes": [{"field": "title", "was": "Giúp nhau làm nghề, Craft Toolkit",
+                              "site": "Giúp nhau làm nghề - Craft ToolKit"}]}]
         text = cli.render(data, rows, [], [], None, None, None)
-        self.assertNotIn("listing", text.lower())
-        self.assertIn("official site", text)
-        self.assertIn("lehoithietkesangtao.vn", text)
+        self.assertIn("1 correction(s) `apply` will write", text)
+        self.assertIn("| — | — | nothing to decide |", text)
+
+    def test_a_rewritten_title_is_reviewed(self):
+        data = self.event(title="A")
+        rows = [{"kind": "changed", "id": "e001", "dates": [],
+                 "changes": [{"field": "title", "was": "A", "site": "Something else entirely"}]}]
+        text = cli.render(data, rows, [], [], None, None, None)
+        self.assertIn("the titles name different things", text)
 
     def test_without_a_ledger(self):
         text = cli.render(load(), [{"kind": "same"}], [], [], None, None, None)

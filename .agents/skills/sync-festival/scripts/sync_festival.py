@@ -17,6 +17,7 @@ failed.
 """
 
 import argparse
+import difflib
 import json
 import sys
 import urllib.request
@@ -30,10 +31,18 @@ from config import EVENTS, FESTIVAL_END, FESTIVAL_START, PUBLIC_API, WORK
 from events_model import (
     known_slugs, load, new_event, next_number, renumber, save, validate, within_festival,
 )
-from extract import html_to_text, same_text, vn_parts
+from extract import fold, html_to_text, same_text, vn_parts
 from match import best_place, official_url, slug_of
 
 UA = "Mozilla/5.0 (compatible; tkst-sync/2.0)"
+ALL_DAY = "00:00"
+MINIMAL_TITLE = 0.9
+
+
+def _ratio(left, right):
+    return difflib.SequenceMatcher(None, left, right).ratio()
+
+
 META = {"officialType", "officialVenue", "officialVenueAddress", "officialUrl", "officialSummary", "title"}
 
 
@@ -132,7 +141,7 @@ def compare(data, remote):
 
 
 def social_schedule(data, proposals):
-    """Split the post claims into the ones a post may override and the ones to review."""
+    """Split post claims into what a post may still write and what is kept as is."""
     events = {event["id"]: event for event in data["events"]}
     applied, review = [], []
     for proposal in proposals or []:
@@ -142,11 +151,98 @@ def social_schedule(data, proposals):
         changes = schedule.schedule_changes(event, proposal)
         if not changes:
             continue
-        if schedule.can_override(event, proposal):
-            applied.append((event, proposal, changes))
-        else:
-            review.append((event, proposal, changes))
+        (applied if schedule.can_override(event, proposal) else review).append((event, proposal, changes))
     return applied, review
+
+
+def _parts(value):
+    """`2026-11-28 19:30` to its date and time halves."""
+    date, _, time = (value or "").partition(" ")
+    return date, (time or None)
+
+
+def _singleday(event):
+    return (event.get("dateEnd") or event.get("date")) == event.get("date")
+
+
+def _close_title(site, ours):
+    return fold(site) == fold(ours) or _ratio(fold(site), fold(ours)) >= MINIMAL_TITLE
+
+
+def _conflict(event, field, ours, site, claim=None, reason="sources disagree"):
+    return {
+        "eventId": event["id"],
+        "title": event["title"],
+        "field": field,
+        "ours": ours,
+        "site": site,
+        "post": claim,
+        "reason": reason,
+    }
+
+
+def site_fixes(data, rows, proposals):
+    """What `apply` writes from the site, and what it must leave to a human."""
+    events = {event["id"]: event for event in data["events"]}
+    claims = {proposal["eventId"]: proposal for proposal in proposals or []}
+    fixes, conflicts = [], []
+    for row in rows:
+        if row["kind"] != "changed":
+            continue
+        event = events.get(row.get("id"))
+        if not event:
+            continue
+        claim = claims.get(event["id"])
+        for change in row["changes"]:
+            if change["field"] != "title":
+                continue
+            if _close_title(change["site"], change["was"]):
+                fixes.append({"eventId": event["id"], "title": change["was"], "field": "title",
+                              "was": change["was"], "now": change["site"]})
+            else:
+                conflicts.append(_conflict(event, "title", change["was"], change["site"],
+                                           reason="the titles name different things"))
+
+        drift = [date for date in row["dates"] if not date.get("curated")]
+        if not drift:
+            continue
+        if event.get("slots") or event.get("lineup") or event.get("days"):
+            conflicts.append(_conflict(event, "schedule", "curated per-day schedule",
+                                       ", ".join(date["site"] for date in drift),
+                                       reason="a curated per-day schedule is richer than one value"))
+            continue
+
+        for date in drift:
+            start = date["field"] == "start"
+            was_date, was_time = _parts(date["was"])
+            site_date, site_time = _parts(date["site"])
+            if site_date and site_date != was_date:
+                if claim and claim.get("dates"):
+                    theirs = claim["dates"][0] if start else claim["dates"][-1]
+                    if theirs != site_date:
+                        conflicts.append(_conflict(event, "date" if start else "dateEnd",
+                                                   was_date, site_date, claim, "the post and the site disagree"))
+                        site_date = None
+                if site_date:
+                    fixes.append({"eventId": event["id"], "title": event["title"],
+                                  "field": "date" if start else "dateEnd",
+                                  "was": was_date, "now": site_date})
+            if not site_time or site_time == was_time or site_time == ALL_DAY:
+                continue
+            if claim:
+                theirs = claim["startTime"] if start else claim["endTime"]
+                if theirs and theirs != site_time:
+                    conflicts.append(_conflict(event, "startTime" if start else "endTime",
+                                               was_time, site_time, claim, "the post and the site disagree"))
+                    continue
+            if not _singleday(event):
+                conflicts.append(_conflict(event, "startTime" if start else "endTime", was_time,
+                                           site_time, reason="one window cannot describe a multi-day run"))
+                continue
+            fixes.append({"eventId": event["id"], "title": event["title"],
+                          "field": "startTime" if start else "endTime",
+                          "was": was_time, "now": site_time})
+    return fixes, conflicts
 
 
 FIELD_LABEL = {
@@ -174,42 +270,21 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     """Two sections: what `apply` wrote, and what a human has to decide."""
     lines = []
     add = lines.append
+    events = {event["id"]: event for event in data["events"]}
     changed = [row for row in rows if row["kind"] == "changed"]
     same = [row for row in rows if row["kind"] == "same"]
     new_in = [row for row in rows if row["kind"] == "new"
               and within_festival({"date": (row["start"] or {}).get("date", ""),
                                    "dateEnd": (row["end"] or {}).get("date")})]
     new_out = [row for row in rows if row["kind"] == "new" and row not in new_in]
-    overrides, review = social_schedule(data, schedule_proposals)
+    fixes, conflicts = site_fixes(data, rows, schedule_proposals)
+    overrides, social_review = social_schedule(data, schedule_proposals)
+    fixed_ids = {fix["eventId"] for fix in fixes}
+    conflicted_ids = {conflict["eventId"] for conflict in conflicts}
 
-    # Social first, field by field: a post that states a field is the remote source
-    # for it. The site is only consulted for what the posts left unsaid.
-    covered = {}
-    for proposal in schedule_proposals or []:
-        fields = {"startTime", "endTime"}
-        if proposal.get("dates"):
-            fields |= {"date", "dateEnd"}
-        covered[proposal["eventId"]] = covered.get(proposal["eventId"], set()) | fields
-
-    human, explained = [], 0
-    for row in changed:
-        if not (any(change["field"] == "title" for change in row["changes"])
-                or any(not date.get("curated") for date in row["dates"])):
-            continue
-        theirs = covered.get(row["id"], set())
-        changes = [change for change in row["changes"] if change["field"] not in theirs]
-        dates = [date for date in row["dates"] if not date.get("curated")]
-        if {"date", "dateEnd"} <= theirs:
-            dates = []
-        if not changes and not dates:
-            explained += 1
-            continue
-        human.append({"row": row, "changes": changes, "dates": dates})
-
-    review_ids = {entry["row"]["id"] for entry in human}
-    others = [row for row in changed if row["id"] not in review_ids and row["id"] not in covered]
-    fills = [row for row in others if any(c.get("empty") for c in row["changes"])]
-    kept = [row for row in others if row not in fills]
+    kept = [row for row in changed if row["id"] not in fixed_ids and row["id"] not in conflicted_ids
+            and any(change["field"] != "title" and not change.get("empty") for change in row["changes"])]
+    fills = [row for row in changed if any(change.get("empty") for change in row["changes"])]
     curated = sum(1 for row in rows if any(d.get("curated") for d in row.get("dates", [])))
     notes = [row for row in rows if row.get("venueNote")]
 
@@ -224,42 +299,40 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         add("| Event | id | Change | Source |")
         add("|---|---|---|---|")
         for item in written:
-            add(f"| {item['title']} | `{item['eventId']}` | {item['change']} | {item['source']} |")
+            title = events[item["eventId"]]["title"] if item["eventId"] in events else item["title"]
+            add(f"| {title} | `{item['eventId']}` | {item['change']} | {item['source']} |")
     else:
         add("Nothing written yet — run `sync_festival.py apply`.")
     add("")
 
     add("## Needs your review\n")
-    add("`Difference` is ours against the remote value, and names where the remote value came from.\n")
+    add("Only what two sources contradict, or what `apply` cannot settle alone.\n")
     add("| Event | id | Difference |")
     add("|---|---|---|")
     pending = 0
-    for entry in human:
-        row = entry["row"]
-        event = next((e for e in data["events"] if e["id"] == row["id"]), {})
-        title = event.get("title") or row["id"]
-        for change in entry["changes"]:
-            if change["field"] == "title":
-                add(f"| {title} | `{row['id']}` | title differs: ours \"{change['was']}\", "
-                    f"{_site(event)} says \"{change['site']}\" |")
-                pending += 1
-        for date in entry["dates"]:
-            add(f"| {title} | `{row['id']}` | {_label(date['field'])} differs: ours {date['was']}, "
-                f"{_site(event)} says {date['site']} |")
-            pending += 1
-    for event, proposal, changes in review:
-        label = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
-        source = _source(label, proposal.get("postUrl"))
-        note = ""
-        if not schedule.can_override(event, proposal):
-            # The post names one session inside a longer run, not a reschedule.
-            session = (proposal.get("dates") or [""])[0]
-            changes = [change for change in changes if change["field"] in ("startTime", "endTime")]
-            note = f", a session on {session} inside our run"
-        for change in changes:
-            add(f"| {event['title']} | `{event['id']}` | {_label(change['field'])} differs: "
-                f"ours {change['was']}, {source} {change['social']}{note} |")
-            pending += 1
+    for conflict in conflicts:
+        event = events[conflict["eventId"]]
+        ours, theirs = conflict["ours"], conflict["site"]
+        post = conflict.get("post")
+        if conflict["field"] == "title":
+            detail = (f"title differs: ours \"{ours}\", {_site(event)} says \"{theirs}\" "
+                      f"— {conflict['reason']}")
+            ours = theirs = ""
+        elif conflict["field"] == "schedule":
+            detail = f"per-day schedule differs: ours {ours}, {_site(event)} says {theirs}"
+        else:
+            label = _label(conflict["field"])
+            detail = f"{label} differs: ours {ours}, {_site(event)} says {theirs}"
+            if post:
+                said = (post.get("startTime") if conflict["field"] == "startTime"
+                        else post.get("endTime") if conflict["field"] == "endTime"
+                        else post["dates"][0] if conflict["field"] == "date"
+                        else post["dates"][-1] if post.get("dates") else "")
+                said_source = _source(f"{post['network']} post, {post['postedAt']}", post.get("postUrl"))
+                detail += f", {said_source} says {said}"
+            detail += f" — {conflict['reason']}"
+        add(f"| {event['title']} | `{event['id']}` | {detail} |")
+        pending += 1
     for row in new_in:
         start = row["start"] or {}
         when = f"{start.get('date', '—')} {start.get('time', '')}".strip()
@@ -277,6 +350,10 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
     add("")
 
     quiet = []
+    if fixes:
+        quiet.append(f"{len(fixes)} correction(s) `apply` will write")
+    if social_review:
+        quiet.append(f"{len(social_review)} post claim(s) kept as they are")
     if overrides:
         quiet.append(f"{len(overrides)} schedule override(s) waiting for `apply`")
     if fills:
@@ -285,8 +362,6 @@ def render(data, rows, missing, unlinked, social_drafts=None, schedule_proposals
         quiet.append(f"{len(kept)} curated official value(s) kept")
     if curated:
         quiet.append(f"{curated} curated per-day schedule(s) left alone")
-    if explained:
-        quiet.append(f"{explained} event(s) whose post already covers every differing field")
     if notes:
         quiet.append(f"{len(notes)} venue labels differing from the pin")
     if new_out:
@@ -439,22 +514,39 @@ def cmd_diff(args):
 
 def cmd_apply(args):
     data = load()
-    diff = compare(data, site_events())
+    remote = site_events()
+    diff = compare(data, remote)
+    posts = read_social() or []
+    proposals = [] if args.no_social else schedule.schedule_proposals(posts, data["events"])
+
+    fixes, conflicts = site_fixes(data, diff["rows"], proposals)
+    events = {event["id"]: event for event in data["events"]}
+    for fix in fixes:
+        events[fix["eventId"]][fix["field"]] = fix["now"]
+
+    # Posts only fill what the site left unsaid: an event with a page is not theirs
+    # to overrule.
+    unlisted = [proposal for proposal in proposals if not events[proposal["eventId"]].get("officialUrl")]
+    applied_schedule, review_schedule = schedule.apply_schedules(data, unlisted)
+
     filled, kept = apply_safe(data, diff["rows"])
     inserted, skipped = [], []
-    applied_schedule, review_schedule = [], []
-    posts = read_social() or []
-    if not args.no_social:
-        applied_schedule, review_schedule = schedule.apply_schedules(
-            data, schedule.schedule_proposals(posts, data["events"]))
     if args.insert_social:
         drafts = [social.build_draft(post, data["events"], data["places"]) for post in posts]
         inserted, skipped = apply_social(data, drafts)
     save(data)
 
     written = []
+    for fix in fixes:
+        written.append({
+            "eventId": fix["eventId"],
+            "title": events[fix["eventId"]]["title"],
+            "change": (f"title \"{fix['was']}\" → \"{fix['now']}\"" if fix["field"] == "title"
+                       else f"{_label(fix['field'])} {fix['was']} → {fix['now']}"),
+            "source": _site(events[fix["eventId"]]),
+        })
     for event, proposal, changes in applied_schedule:
-        posted = f"{proposal['network'] or 'post'} · {proposal['postedAt'] or '—'}"
+        posted = f"{proposal['network'] or 'post'} post, {proposal['postedAt'] or '—'}"
         for change in changes:
             written.append({
                 "eventId": event["id"],
@@ -462,13 +554,12 @@ def cmd_apply(args):
                 "change": f"{_label(change['field'])} {change['was']} → {change['social']}",
                 "source": _source(posted, proposal.get("postUrl")),
             })
-    events = {event["id"]: event for event in data["events"]}
     for event_id, field in filled:
         written.append({
             "eventId": event_id,
             "title": events[event_id]["title"],
             "change": f"{_label(field)} filled in",
-            "source": "official site",
+            "source": _site(events[event_id]),
         })
     for event_id, title in inserted:
         written.append({
@@ -480,19 +571,22 @@ def cmd_apply(args):
     if written:
         write_ledger(written)
 
-    proposals = None if args.no_social else schedule.schedule_proposals(posts, data["events"])
     drafts = [social.build_draft(post, data["events"], data["places"]) for post in posts] if posts else None
+    after = compare(data, remote)
     (WORK / "report.md").write_text(
-        render(data, diff["rows"], diff["missing"], diff["unlinked"], drafts, proposals, read_ledger()),
+        render(data, after["rows"], after["missing"], after["unlinked"], drafts,
+               proposals or None, read_ledger()),
         encoding="utf-8")
 
-    print(f"filled {len(filled)} · kept curated {len(kept)} · social schedule {len(applied_schedule)} · "
-          f"inserted {len(inserted)}")
+    print(f"site corrections {len(fixes)} · conflicts {len(conflicts)} · social {len(applied_schedule)} · "
+          f"filled {len(filled)} · inserted {len(inserted)}")
+    for fix in fixes:
+        print(f"  {fix['eventId']}: {_label(fix['field'])} {fix['was']} → {fix['now']}")
+    for conflict in conflicts[:10]:
+        print(f"  review {conflict['eventId']}: {_label(conflict['field'])} — {conflict['reason']}")
     for event, proposal, changes in applied_schedule:
         detail = ", ".join(f"{_label(c['field'])} {c['was']}→{c['social']}" for c in changes)
         print(f"  social {event['id']}: {detail}")
-    for event, proposal, changes in review_schedule[:10]:
-        print(f"  review {event['id']}: a single session of a longer run, left alone")
     for eid, field, kept_value, site_value in kept[:10]:
         print(f"  kept {eid} {field}={kept_value!r} (site {site_value!r})")
     for eid, title in inserted:

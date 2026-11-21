@@ -24,16 +24,20 @@ only overrides `date`, `dateEnd`, `startTime` and `endTime`.
    the Apify REST API; no browser driving, no HTML scraping, no manual paste.
 2. **The site is JSON, not HTML.** `/su-kien/` is a client-side app; its data is
    `/api/public/events`. Read the API.
-3. **The site's dates are coarse.** `startAt`/`endAt` are UTC listing values and
-   often contradict the event's own prose. They surface in the report; they are
-   never applied.
-4. **Social first, the site second.** The accounts post the real hours and any
-   change, and they post it later than the site is edited. A post that names exactly
-   one event and carries its own schedule wins `date`, `dateEnd`, `startTime` and
-   `endTime`; the site is consulted only for the fields no post covers. Precedence is
-   per field, not per event: a post that states the hours but not the date leaves the
-   date to the site. The report states every override before `apply` writes it.
-5. **Two field classes.** `official*` belongs to the organiser and may be
+3. **The site's dates are coarse, but they are the reference.** `startAt`/`endAt`
+   are UTC values; a `00:00` time means "no hours published" and is ignored. Dates
+   are written as given. Hours are written for single-day events; for a multi-day run
+   one window cannot describe the programme, so those go to review
+4. **The site leads, and the run fixes itself.** `apply` writes what the site says
+   instead of asking: a single-day event takes its `startTime`/`endTime`, every event
+   takes its `date`/`dateEnd`, and a title is corrected when the change is cosmetic
+   (punctuation, casing, spacing). Empty organiser fields are filled the same way.
+   Posts only fill what the site leaves unsaid, and never overrule a page that exists.
+5. **Raise only what cannot be settled.** The review table is for real conflicts —
+   the site and a post stating different values, a curated per-day schedule the site
+   contradicts, a new event that needs a map pin, a listing that vanished. Everything
+   else is corrected silently and appears under "Changes made".
+6. **Two field classes.** `official*` belongs to the organiser and may be
    refreshed. `slots`, `lineup`, `days`, `placeId`, `clusterId`, `tags`,
    `spotlight` and `number` are curated and only change by hand — a curated
    per-day schedule is richer than one post, so an event that has one is never
@@ -65,8 +69,8 @@ The report has exactly two sections, both keyed by event name then id:
 
 | Section | Rows | Action |
 |---|---|---|
-| Changes made | what the last `apply` wrote, with the linked post or `lehoithietkesangtao.vn` it came from | none, it is a record |
-| Needs your review | the field that differs and both values, social first | read the row, then edit by hand or run `apply` |
+| Changes made | what the last `apply` wrote on its own, with the linked page or post it came from | none, it is a record |
+| Needs your review | contradictions and items only a human can settle | read the row, then edit by hand |
 
 "Changes made" uses `| Event | id | Change | Source |`, where the source is the post
 it came from, linked, or `lehoithietkesangtao.vn`. "Needs your review" uses
@@ -89,17 +93,21 @@ python3 .agents/skills/sync-festival/scripts/sync_festival.py apply --no-social
 python3 .agents/skills/sync-festival/scripts/sync_festival.py apply --insert-social
 ```
 
-`apply` writes the social schedule overrides first, then fills empty organiser
-fields, and reports what it kept. `--no-social` skips the overrides when the
-fetched posts are stale. Add `--insert-social` to insert drafts that carry a date,
-a time, a resolvable place and an event-like title, and that are not duplicates or
-outside 13–28/11.
+`apply` resolves the site first, in this order:
 
-An override only happens when the post names exactly one event, carries its own
-`Thời gian`/`Time` line (or a sentence with a time range), and either gives a date
-range or targets a single-day event. A single date inside a longer run is one
-session, not a reschedule: it lands in "social needs a review" instead. The newest
-post per event wins.
+1. **Site corrections.** `date`, `dateEnd`, and `startTime`/`endTime` on single-day
+   events; a `00:00` site time is treated as "no hours" and skipped. A title is
+   rewritten only when the site's version folds to the same words or is 90% similar —
+   a cosmetic fix, not a different event.
+2. **Post fills.** A post writes `date`, `dateEnd`, `startTime` and `endTime` only for
+   events that have no official page. It must name exactly one event and carry its own
+   `Thời gian`/`Time` line; the newest post per event wins.
+3. **Empty organiser fields**, filled from the API.
+
+Anything the site and a post disagree about is not written: the event is reported for
+review. `--no-social` skips the post fills when the fetch is stale. `--insert-social`
+adds drafts that carry a date, a time, a resolvable place and an event-like title, and
+that are not duplicates or outside 13–28/11.
 
 ### 4. Check
 
@@ -111,7 +119,7 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 44 offline tests over the
+`dateEnd < date` and broken numbering. `selftest.py` is 46 offline tests over the
 parsers, matcher, diff, schedule override and inserter; it must pass before any
 edit is committed.
 
@@ -138,11 +146,11 @@ The file is generated by `render()`; do not hand-write it. Its shape is fixed:
 
 ## Needs your review
 
-`Difference` is ours against the remote value, and names where the remote value came from.
+Only what two sources contradict, or what `apply` cannot settle alone.
 
 | Event | id | Difference |
 |---|---|---|
-| … | `e154` | start differs: ours 2026-11-28 19:30, [lehoithietkesangtao.vn](…page…) says 2026-11-28 19:00 |
+| … | `e130` | end differs: ours 11:00, [lehoithietkesangtao.vn](…page…) says 12:00, [threads post, 2026-11-21](…post…) says 11:00 — the post and the site disagree |
 
 Nothing to do: …
 No official page, so unverifiable: …
@@ -159,11 +167,13 @@ Rules the format enforces:
 4. A difference reads `<field> differs: ours <value>, <source> says <value>`. Titles
    are quoted. A missing event reads `not in events.json: <source> has it starting …`;
    a delisted one reads `we still list it: <source> dropped the slug and the sitemap`.
-5. Social is the preferred remote source: when a post covers the field, the row cites
-   the post, not the site. A post whose date is one session inside our longer run says
-   so in the row.
-6. Anything the sync deliberately leaves alone stays in the single "Nothing to do"
-   line. Do not add sections, notes or commentary between the tables.
+5. A review row exists only for a contradiction or an unresolvable item: the site and
+   a post disagreeing, a curated per-day schedule the site contradicts, a slug that
+   needs a map pin, a page that disappeared. Cite every source that speaks, the site
+   first, then the post.
+6. Anything the sync deliberately leaves alone, and anything `apply` is about to
+   write, stays in the single "Nothing to do" line. Do not add sections, notes or
+   commentary between the tables.
 
 ## Commands
 
@@ -225,7 +235,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 44 offline tests |
+| `scripts/selftest.py` | 46 offline tests |
 | `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
@@ -242,4 +252,5 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | many `announcement` drafts | the organiser posts updates, not events | normal; only `ready` drafts are insertable |
 | `needs a human` rows repeat | the site is coarser than the curated value | leave them; the report is a triage sheet, not a work list |
 | a schedule override looks wrong | the post describes one session of a run, or a stale fetch | check the post URL in the report; rerun with `--no-social` to skip |
+| `apply` rewrote a title into something odd | the site's title drifted past a cosmetic change | restore from git; the 90% guard is in `site_fixes` |
 | the answer has prose but no tables | step 5 skipped | paste `tmp/sync/report.md` in full |
