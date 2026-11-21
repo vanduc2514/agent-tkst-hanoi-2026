@@ -23,6 +23,19 @@ python3 -m http.server 8080 --directory src                        # start local
 node tools/build-agent-files.mjs --base https://tkst.nvduc.dev     # generate markdown + HTML agent files
 ```
 
+### Apify through mise
+`mise.toml` pins the Apify CLI; the gitignored `mise.local.toml` holds `APIFY_TOKEN` as an
+environment variable. Run the sync skill through `mise exec` so the token reaches the process:
+
+```sh
+mise install                                                       # once per machine, installs apify-cli
+mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch
+mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py diff
+```
+
+`mise env` lists the exported variables. Never pass the token as an argument or copy it into
+another file.
+
 ## Deployment
 
 - Never deploy directly by pushing Docker images to the registry
