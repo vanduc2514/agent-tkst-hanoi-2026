@@ -42,7 +42,8 @@ pin goes.
 | `slots` | `[{date,start,end}]` | repo | manual |
 | `lineup` | `[{date,start,end,act}]` | repo | manual |
 | `title` | string | organiser | manual |
-| `image` | string | repo | manual; a promotion photo from the organiser's site or their social posts in `images/events/`, otherwise `images/kinds/<kind>.svg` |
+| `image` | string | repo | manual; the cover, always the first entry of `images` |
+| `images` | `string[]` | repo | manual; up to 8 promotion photos from the organiser's site, media albums and social posts, stored in `images/events/`; absent when the event has none and `image` points at `images/kinds/<kind>.svg` |
 | `placeId` | `pNN` | repo | manual |
 | `clusterId` | `gN` | repo | manual |
 | `spotlight` | bool | repo | manual |
