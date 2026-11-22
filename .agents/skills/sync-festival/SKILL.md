@@ -45,6 +45,14 @@ only overrides `date`, `dateEnd`, `startTime` and `endTime`.
 
 ## Workflow
 
+> **When this runs from CI.** `.github/workflows/sync-festival.md` executes steps
+> 1–3 below in frontmatter `steps`, with `APIFY_TOKEN` in that step's environment
+> only. The agent that follows starts at step 4: `tmp/sync/report.md` is already on
+> disk, `src/events.json` is already resolved, and `APIFY_TOKEN` is deliberately
+> absent from the agent's environment. Do not re-run `fetch`, do not look for the
+> token, and do not use `mise` — it is not installed on the runner. The Apify spend
+> for the run has already been made.
+
 ### 1. Fetch
 
 ```sh
