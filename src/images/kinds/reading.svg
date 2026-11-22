@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Đọc sách - Lễ hội Thiết kế Sáng tạo Hà Nội 2026">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7d6a4a"/>
+      <stop offset="1" stop-color="#483d2a"/>
+    </linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#ffffff" opacity="0.11"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#dots)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.15">
+    <circle cx="1050" cy="620" r="150" stroke-width="2"/>
+    <circle cx="1050" cy="620" r="215" stroke-width="2"/>
+    <circle cx="1050" cy="620" r="280" stroke-width="2"/>
+  </g>
+  <g transform="translate(360 196) scale(1.02)" fill="none" stroke="#ffffff" stroke-width="9"
+     stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.95">
+      <path d="M120 72 C92 50 58 50 34 62 V186 C58 174 92 174 120 196 C148 174 182 174 206 186 V62 C182 50 148 50 120 72 Z"/>
+      <path d="M120 72 V196"/>
+  </g>
+  <g transform="translate(696 300)">
+    <rect x="0" y="-78" width="64" height="6" rx="3" fill="#ffffff" opacity="0.7"/>
+    <text x="0" y="4" font-family="Helvetica Neue, Arial, sans-serif" font-size="66" font-weight="700" fill="#ffffff">Đọc sách</text>
+    <text x="0" y="60" font-family="Helvetica Neue, Arial, sans-serif" font-size="24" fill="#ffffff" opacity="0.82">Lễ hội Thiết kế Sáng tạo Hà Nội 2026</text>
+  </g>
+</svg>

@@ -185,8 +185,12 @@
     .cluster-chip { display: inline-flex; align-items: center; gap: 6px; color: #6f7b76; font-size: 10px; }
     .cluster-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
     .event-list { display: grid; gap: 9px; padding: 0 20px 22px; }
-    .event-card { position: relative; border: 1px solid #e9eeeb; border-radius: 12px; padding: 13px 13px 12px; background: #fff; transition: border-color .15s, box-shadow .15s, transform .15s; }
+    .event-card { position: relative; display: grid; grid-template-columns: 62px minmax(0, 1fr); column-gap: 11px; align-items: start; border: 1px solid #e9eeeb; border-radius: 12px; padding: 13px 13px 12px; background: #fff; transition: border-color .15s, box-shadow .15s, transform .15s; }
     .event-card:hover { transform: translateY(-1px); border-color: #cad9d1; box-shadow: 0 5px 16px rgb(29 51 42 / 5%); }
+    .event-thumb { width: 62px; height: 62px; border-radius: 9px; object-fit: cover; background: #eef2ef; }
+    /* Kind posters put the icon left of centre; photos read best centred. */
+    .event-thumb.poster { object-position: 3% center; }
+    .event-body { min-width: 0; }
     .event-topline { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .event-date { color: #73817a; font-size: 10px; font-weight: 700; }
     .event-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 7px; }
@@ -393,6 +397,7 @@
     .detail-close { position: absolute; top: 12px; right: 12px; display: grid; width: 32px; height: 30px; place-items: center; border: 1px solid #e4eae6; border-radius: 7px; color: #66736d; background: #fff; font-size: 12px; }
     .detail-close:hover { border-color: #bfd2c7; color: var(--green); }
     .detail-body { padding: 14px 17px 17px; }
+    .detail-hero { display: block; width: 100%; aspect-ratio: 16 / 7; margin-bottom: 14px; border-radius: 10px; object-fit: cover; background: #eef2ef; }
     .detail-facts { display: grid; gap: 10px; }
     .detail-fact { display: flex; align-items: flex-start; gap: 10px; font-size: 11px; line-height: 1.5; }
     .detail-fact i { width: 16px; margin-top: 2px; color: var(--cluster, var(--green)); text-align: center; }
@@ -948,6 +953,18 @@
           if (key) return EVENT_TYPES[key];
         }
         return null;
+      }
+
+      // Every event carries a poster: the organiser's photo where one exists, otherwise
+      // the generated image for its kind. Broken remote images fall back to the festival
+      // poster so a card never shows an empty box.
+      const DEFAULT_IMAGE = "images/kinds/festival.svg";
+
+      function eventImage(event) {
+        if (event.image) return event.image;
+        const type = eventType(event);
+        const kind = type ? Object.keys(EVENT_TYPES).find((key) => EVENT_TYPES[key] === type) : null;
+        return kind ? `images/kinds/${kind}.svg` : DEFAULT_IMAGE;
       }
 
       // Live mode keeps only what a visitor can still reach today: events that are on
@@ -1857,6 +1874,8 @@
           const dayLabel = scheduleLabel(event);
           const type = eventType(event);
           return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="Xem chi tiết ${escapeHtml(event.title)}">
+              <img class="event-thumb ${event.image && event.image.startsWith("images/events/") ? "" : "poster"}" src="${escapeHtml(eventImage(event))}" alt="${escapeHtml(event.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'">
+              <div class="event-body">
               <div class="event-topline"><span class="event-date">${escapeHtml(dayLabel)}</span>
                 ${type ? `<span class="event-type" style="--type:${type.color}"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>` : ""}</div>
               <h3 class="event-name"><span class="event-index" style="background:${cluster.color}">${event.number}</span>${escapeHtml(event.title)}</h3>
@@ -1867,7 +1886,7 @@
               <div class="event-bottom">
                 <div class="card-actions"><button class="small-button detail-button" type="button"><i class="fa-regular fa-eye"></i>Chi tiết</button>
                   <button class="icon-button ${saved ? "saved" : "primary"} add-route" type="button" aria-label="${saved ? "Đã lưu tuyến" : "Thêm vào tuyến"}">${saved ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-plus"></i>'}</button></div>
-              </div></article>`;
+              </div></div></article>`;
         }
 
         function bindCard(card) {
@@ -1964,6 +1983,7 @@
               <h2 id="detail-title">${escapeHtml(event.title)}</h2>`;
           $("#detail-content").innerHTML = `
             <div class="detail-body">
+              <img class="detail-hero" src="${escapeHtml(eventImage(event))}" alt="${escapeHtml(event.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'">
               <div class="detail-facts">
                 <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !event.slots?.length ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
                 <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(place.kind)}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>

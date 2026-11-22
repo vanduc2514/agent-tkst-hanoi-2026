@@ -11,7 +11,8 @@ interactive map, a route planner, and agent-readable Markdown.
   `src/llms.txt`, plus browser-readable `src/index.md.html` and `src/llms.txt.html` wrappers.
 - `src/` is the folder that gets served and copied into the image, so it holds the page, the
   data files and the generated output. `images/` sits at the root and is only used by the
-  README, not by the site.
+  README, not by the site; `src/images/kinds/` holds the default posters the page falls back
+  to when an event has no photo.
 - `.agents/skills/sync-festival/` keeps `src/events.json` in step with the organiser. It reads
   the official JSON API and pulls Facebook, Instagram and Threads through Apify, then reports
   drift before anything is written. Read its `SKILL.md` first; the Python scripts live next to it.

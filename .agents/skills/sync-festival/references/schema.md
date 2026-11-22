@@ -42,6 +42,7 @@ pin goes.
 | `slots` | `[{date,start,end}]` | repo | manual |
 | `lineup` | `[{date,start,end,act}]` | repo | manual |
 | `title` | string | organiser | manual |
+| `image` | string | repo | manual; an organiser photo URL when one exists, otherwise `images/kinds/<kind>.svg` |
 | `placeId` | `pNN` | repo | manual |
 | `clusterId` | `gN` | repo | manual |
 | `spotlight` | bool | repo | manual |
