@@ -34,7 +34,7 @@ Thông tin về hoạt động, thời gian, địa điểm và mô tả đượ
 
 [lehoithietkesangtao.vn](https://lehoithietkesangtao.vn)
 
-Ảnh sự kiện lấy từ chính website của ban tổ chức và được thu nhỏ cho nhẹ trang. Những hoạt động chưa có ảnh dùng poster do trang tự tạo theo loại hình.
+Ảnh sự kiện do ban tổ chức công bố trên website và các kênh Facebook, Instagram, đã được thu nhỏ cho nhẹ trang. Những hoạt động chưa có ảnh dùng poster do trang tự tạo theo loại hình.
 
 Nền bản đồ sử dụng [OpenFreeMap](https://openfreemap.org), với dữ liệu bản đồ © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).
 
