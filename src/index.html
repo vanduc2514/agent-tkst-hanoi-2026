@@ -324,10 +324,10 @@
        showing rather than that something is running right now. */
     .nearby-toggle.is-on { color: #1d4ed8; border-color: #d7e3fb; }
     .nearby-toggle.is-on .live-dot { background: #3b82f6; animation: none; }
-    /* Visited venues are greyed out by default; this toggle brings their cluster
+    /* Participated events are greyed out by default; this toggle brings their cluster
        colour back. It is a view switch only, never a filter. */
-    .visited-toggle.is-on { color: #4b5563; border-color: #d9dfe2; }
-    .visited-toggle.is-on .live-dot { background: #6b7280; animation: none; }
+    .participated-toggle.is-on { color: #4b5563; border-color: #d9dfe2; }
+    .participated-toggle.is-on .live-dot { background: #6b7280; animation: none; }
     .live-toggle.is-hidden { display: none; }
     @keyframes live-pulse {
       0% { box-shadow: 0 0 0 0 rgb(34 197 94 / 55%); }
@@ -374,15 +374,15 @@
 
     .event-pin.in-route:hover .event-pin-body,
     .event-pin.in-route.selected .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 6px 16px #173a2e66; }
-    /* A visited venue keeps its pin so the place stays readable, but loses its cluster
-       colour and stops advertising itself as ongoing. */
-    .event-pin.is-visited .event-pin-body { background: #9aa5a0; box-shadow: 0 3px 8px #173a2e33; }
-    .event-pin.is-visited::after { background: #173a2e22; }
-    .event-pin.is-visited:hover .event-pin-body { background: #8b9691; box-shadow: 0 5px 14px #173a2e55; }
-    .event-pin.is-visited.now-live::before { display: none; }
-    .event-pin.is-visited.selected .event-pin-body { box-shadow: 0 0 0 4px #fff, 0 0 0 7px #9aa5a0, 0 6px 16px #173a2e66; }
-    .event-pin.is-visited.in-route .event-pin-body,
-    .event-pin.is-visited.in-route:hover .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #5f6b65, 0 4px 10px #173a2e66; }
+    /* A participated event keeps its pin so the place stays readable, but loses its
+       cluster colour and stops advertising itself as ongoing. */
+    .event-pin.is-participated .event-pin-body { background: #9aa5a0; box-shadow: 0 3px 8px #173a2e33; }
+    .event-pin.is-participated::after { background: #173a2e22; }
+    .event-pin.is-participated:hover .event-pin-body { background: #8b9691; box-shadow: 0 5px 14px #173a2e55; }
+    .event-pin.is-participated.now-live::before { display: none; }
+    .event-pin.is-participated.selected .event-pin-body { box-shadow: 0 0 0 4px #fff, 0 0 0 7px #9aa5a0, 0 6px 16px #173a2e66; }
+    .event-pin.is-participated.in-route .event-pin-body,
+    .event-pin.is-participated.in-route:hover .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #5f6b65, 0 4px 10px #173a2e66; }
     .route-badge {
       position: absolute; z-index: 2; top: -6px; right: -6px; display: grid; min-width: 17px; height: 17px; padding: 0 3px;
       place-items: center; border: 2px solid #fff; border-radius: 9px; color: #fff; background: #1c3f35;
@@ -455,7 +455,7 @@
     .detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 13px; border-top: 1px solid #eef2ef; }
     .detail-actions .small-button, .detail-actions .directions-button { min-height: 39px; font-size: 10.5px; }
     .detail-actions .small-button.saved { border-color: #d5e8dc; color: #237148; background: #f1f8f3; }
-    .detail-actions .detail-visited { grid-column: 1 / -1; }
+    .detail-actions .detail-participated { grid-column: 1 / -1; }
     .detail-times { margin-top: 13px; border: 1px solid #e8eee9; border-radius: 10px; padding: 10px 12px; background: #fbfdfb; }
     .detail-times-title { margin: 0 0 7px; color: #47584f; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
     .detail-times-title i { margin-right: 5px; color: var(--green); }
@@ -797,8 +797,8 @@
             <span class="live-label">Lân Cận</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
-          <button class="live-toggle visited-toggle is-hidden" id="visited-toggle" type="button" aria-pressed="false" title="Các địa điểm bạn đã ghé được làm mờ trên bản đồ. Bấm để hiện lại đầy đủ màu.">
-            <span class="live-label">Đã ghé</span>
+          <button class="live-toggle participated-toggle is-hidden" id="participated-toggle" type="button" aria-pressed="false" title="Các hoạt động bạn đã tham gia được làm mờ trên bản đồ. Bấm để hiện lại đầy đủ màu.">
+            <span class="live-label">Đã tham gia</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
         </div>
@@ -1456,29 +1456,33 @@
         }
         const eventLayer = [];
         const markerByEvent = new Map();
-        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, nearby: true, visited: new Set(), showVisited: false, filters: { query: "", date: "", cluster: "" } };
+        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, nearby: true, participated: new Set(), showParticipated: false, filters: { query: "", date: "", cluster: "" } };
         const $ = (selector) => document.querySelector(selector);
         // filters is the user's query/date/cluster; live mode is its own flag, so the
         // two are combined here instead of keeping a second copy in filters.
         const activeFilters = () => ({ ...state.filters, live: state.live });
 
-        // Visits are personal, so they stay in this browser. The set holds place ids, so
-        // saving one venue greys every event pinned there. It never feeds into
-        // filterEvents: the date, cluster and nearby rules keep seeing a visited event
-        // like any other. Only the pin styling changes.
-        const VISITED_KEY = "tkst:visited:v1";
+        // Participation is personal, so it stays in this browser. The set holds event ids
+        // (never place ids): only the event you took part in greys out, and its siblings at
+        // the same venue stay untouched. It never feeds into filterEvents: the date,
+        // cluster and nearby rules keep seeing a participated event like any other. Only
+        // the pin styling changes.
+        const PARTICIPATED_KEY = "tkst:participated:v1";
 
-        function loadVisited() {
+        function loadParticipated() {
+          // The first release stored place ids under a different key; that level of
+          // detail is gone, so drop it rather than guess which event to hide.
+          try { localStorage.removeItem("tkst:visited:v1"); } catch { /* storage blocked */ }
           try {
-            const saved = JSON.parse(localStorage.getItem(VISITED_KEY) || "[]");
-            return new Set(Array.isArray(saved) ? saved.filter((id) => typeof id === "string" && placesById[id]) : []);
+            const saved = JSON.parse(localStorage.getItem(PARTICIPATED_KEY) || "[]");
+            return new Set(Array.isArray(saved) ? saved.filter((id) => typeof id === "string" && eventById[id]) : []);
           } catch {
             return new Set();
           }
         }
 
-        function persistVisited() {
-          try { localStorage.setItem(VISITED_KEY, JSON.stringify([...state.visited])); } catch { /* storage blocked */ }
+        function persistParticipated() {
+          try { localStorage.setItem(PARTICIPATED_KEY, JSON.stringify([...state.participated])); } catch { /* storage blocked */ }
         }
         const $$ = (selector) => [...document.querySelectorAll(selector)];
         let toastTimer;
@@ -1774,7 +1778,7 @@
           const pin = host.firstElementChild;
           pin.setAttribute("aria-label", event.title);
           pin.title = event.title;
-          pin.classList.toggle("is-visited", state.visited.has(event.placeId) && !state.showVisited);
+          pin.classList.toggle("is-participated", state.participated.has(event.id) && !state.showParticipated);
           const hoverHtml = `<strong>${escapeHtml(event.title)}</strong><br><span>${escapeHtml(eventTimeLabel(event))} · ${escapeHtml(place.name)}</span>`;
           const activate = () => {
             suppressMapCloseUntil = performance.now() + 450;
@@ -2148,7 +2152,7 @@
           const place = placesById[event.placeId];
           const cluster = clusters[event.clusterId];
           const inRoute = state.route.includes(event.id);
-          const visited = state.visited.has(event.placeId);
+          const participated = state.participated.has(event.id);
           const photos = eventGallery(event);
           const timeRows = eventTimeRows(event);
           const type = eventType(event);
@@ -2195,7 +2199,7 @@
               <div class="detail-actions">
                 <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${inRoute ? "Bỏ khỏi tuyến" : "Thêm vào tuyến"}</button>
                 <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>Chỉ đường</a>
-                <button class="small-button detail-visited ${visited ? "saved" : ""}" type="button" aria-pressed="${visited}"><i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Địa điểm đã ghé thăm" : "Đánh dấu địa điểm đã ghé"}</button>
+                <button class="small-button detail-participated ${participated ? "saved" : ""}" type="button" aria-pressed="${participated}"><i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${participated ? "Đã tham gia" : "Đánh dấu đã tham gia"}</button>
               </div>
               <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
             </div>`;
@@ -2203,8 +2207,8 @@
             if (inRoute) removeFromRoute(event.id);
             else addToRoute(event.id);
           });
-          $("#detail-content").querySelector(".detail-visited").addEventListener("click", () => {
-            setVisited(event.placeId, !state.visited.has(event.placeId));
+          $("#detail-content").querySelector(".detail-participated").addEventListener("click", () => {
+            setParticipated(event.id, !state.participated.has(event.id));
           });
           const hero = $("#detail-content .detail-hero");
           if (hero) hero.addEventListener("click", () => openGallery(photos, 0));
@@ -2399,54 +2403,53 @@
           });
         }
 
-        // The "Đã ghé" toggle appears once this browser has saved a visit. It swaps the
-        // grey visited pins for their normal cluster colour without touching filters.
-        function updateVisitedButton() {
-          const button = $("#visited-toggle");
+        // The "Đã tham gia" toggle appears once this browser has saved a participation.
+        // It swaps the grey pins for their normal cluster colour without touching filters.
+        function updateParticipatedButton() {
+          const button = $("#participated-toggle");
           if (!button) return;
-          const count = state.visited.size;
+          const count = state.participated.size;
           const available = count > 0;
-          const on = available && !!state.showVisited;
+          const on = available && !!state.showParticipated;
           button.classList.toggle("is-hidden", !available);
           button.disabled = !available;
           button.classList.toggle("is-on", on);
           button.setAttribute("aria-pressed", String(on));
           const label = button.querySelector(".live-label");
-          if (label) label.textContent = available ? `Đã ghé ${count}` : "Đã ghé";
+          if (label) label.textContent = available ? `Đã tham gia ${count}` : "Đã tham gia";
           button.title = !available
-            ? "Đánh dấu một địa điểm đã ghé trong thẻ chi tiết để dùng chế độ này."
+            ? "Đánh dấu một hoạt động đã tham gia trong thẻ chi tiết để dùng chế độ này."
             : on
-              ? "Đang bật: các địa điểm đã ghé hiện đầy đủ màu. Bấm để làm mờ chúng."
-              : "Đang tắt: các địa điểm đã ghé được làm mờ. Bấm để hiện lại đầy đủ màu.";
-          button.setAttribute("aria-label", `Địa điểm đã ghé: ${on ? "đang hiện đầy đủ" : "đang làm mờ"}. ${button.title}`);
+              ? "Đang bật: các hoạt động đã tham gia hiện đầy đủ màu. Bấm để làm mờ chúng."
+              : "Đang tắt: các hoạt động đã tham gia được làm mờ. Bấm để hiện lại đầy đủ màu.";
+          button.setAttribute("aria-label", `Hoạt động đã tham gia: ${on ? "đang hiện đầy đủ" : "đang làm mờ"}. ${button.title}`);
         }
 
-        function syncVisitedPins() {
+        function syncParticipatedPins() {
           markerByEvent.forEach((marker, eventId) => {
             const pin = pinElement(marker);
             const event = eventById[eventId];
             if (!pin || !event) return;
-            pin.classList.toggle("is-visited", state.visited.has(event.placeId) && !state.showVisited);
+            pin.classList.toggle("is-participated", state.participated.has(event.id) && !state.showParticipated);
           });
         }
 
-        // Saving a visit only rewrites the pin styling, the toggle and this card's button;
-        // the list, the counts and the route keep treating the event as normal.
-        function setVisited(placeId, visited) {
-          if (!placesById[placeId]) return;
-          if (visited) state.visited.add(placeId);
-          else state.visited.delete(placeId);
-          persistVisited();
-          updateVisitedButton();
-          syncVisitedPins();
-          const openEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
-          const detailButton = $("#detail-content .detail-visited");
-          if (detailButton && openEvent && openEvent.placeId === placeId) {
-            detailButton.classList.toggle("saved", visited);
-            detailButton.setAttribute("aria-pressed", String(visited));
-            detailButton.innerHTML = `<i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Địa điểm đã ghé thăm" : "Đánh dấu địa điểm đã ghé"}`;
+        // Saving a participation only rewrites the pin styling, the toggle and this card's
+        // button; the list, the counts and the route keep treating the event as normal.
+        function setParticipated(eventId, participated) {
+          if (!eventById[eventId]) return;
+          if (participated) state.participated.add(eventId);
+          else state.participated.delete(eventId);
+          persistParticipated();
+          updateParticipatedButton();
+          syncParticipatedPins();
+          const detailButton = $("#detail-content .detail-participated");
+          if (detailButton && state.selectedEventId === eventId) {
+            detailButton.classList.toggle("saved", participated);
+            detailButton.setAttribute("aria-pressed", String(participated));
+            detailButton.innerHTML = `<i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${participated ? "Đã tham gia" : "Đánh dấu đã tham gia"}`;
           }
-          showToast(visited ? "Đã lưu địa điểm này vào danh sách đã ghé." : "Đã bỏ đánh dấu địa điểm này.");
+          showToast(participated ? "Đã lưu hoạt động này vào danh sách đã tham gia." : "Đã bỏ đánh dấu hoạt động này.");
         }
 
         // Reuse the event pins for the route: mark the pins already on the map and add
@@ -3334,14 +3337,14 @@
             }
             setNearby(!state.nearby, { quiet: false });
           });
-          $("#visited-toggle").addEventListener("click", () => {
-            if ($("#visited-toggle").disabled) return;
-            state.showVisited = !state.showVisited;
-            updateVisitedButton();
-            syncVisitedPins();
-            showMapNote(state.showVisited
-              ? "Đang hiện đầy đủ các địa điểm đã ghé."
-              : "Các địa điểm đã ghé được làm mờ.");
+          $("#participated-toggle").addEventListener("click", () => {
+            if ($("#participated-toggle").disabled) return;
+            state.showParticipated = !state.showParticipated;
+            updateParticipatedButton();
+            syncParticipatedPins();
+            showMapNote(state.showParticipated
+              ? "Đang hiện đầy đủ các hoạt động đã tham gia."
+              : "Các hoạt động đã tham gia được làm mờ.");
           });
           $("#share-route").addEventListener("click", shareRoute);
           $("#cluster-filter").addEventListener("change", (event) => {
@@ -3390,10 +3393,10 @@
         // carries the visitor somewhere specific, so the welcome tour stays closed.
         const hasDeepLink = window.location.search.length > 0;
         const initialTab = applyUrlState();
-        state.visited = loadVisited();
+        state.participated = loadParticipated();
         state.tab = initialTab;
         renderFilters();
-        updateVisitedButton();
+        updateParticipatedButton();
         $("#brand-sub").innerHTML = `<strong>${events.length} hoạt động</strong> · ${Object.keys(clusters).length} cụm · ${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`;
         renderEventMarkers();
         buildPresets();

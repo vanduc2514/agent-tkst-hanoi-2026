@@ -20,7 +20,7 @@ Trang mở ra ở tab Khám phá. Bên trái là danh sách hoạt động với
 
 Bấm vào một pin hoặc một thẻ trong danh sách sẽ mở bảng chi tiết: địa chỉ, khung giờ, loại hình, phần giới thiệu của ban tổ chức và đường dẫn tới trang gốc. Từ bảng này có thể thêm hoạt động vào lộ trình hoặc mở chỉ đường.
 
-Trong bảng chi tiết cũng có nút đánh dấu địa điểm đã ghé. Danh sách này chỉ lưu trong trình duyệt của bạn: lần sau mở lại, pin của những địa điểm đó chuyển sang màu xám, và nút "Đã ghé" cạnh Live hiện lại đầy đủ màu khi cần. Việc làm mờ chỉ là lớp hiển thị, không ảnh hưởng bộ lọc ngày, bộ lọc cụm hay chế độ Lân Cận.
+Trong bảng chi tiết cũng có nút đánh dấu hoạt động đã tham gia. Danh sách này chỉ lưu trong trình duyệt của bạn: lần sau mở lại, riêng pin của hoạt động đó chuyển sang màu xám, các hoạt động khác cùng địa điểm vẫn giữ nguyên, và nút "Đã tham gia" cạnh Live hiện lại đầy đủ màu khi cần. Việc làm mờ chỉ là lớp hiển thị, không ảnh hưởng bộ lọc ngày, bộ lọc cụm hay chế độ Lân Cận.
 
 ![Tab lộ trình](images/route.png)
 
