@@ -666,31 +666,31 @@
     <div class="welcome-backdrop" data-welcome-dismiss></div>
     <div class="welcome-card" role="document" tabindex="-1">
       <div class="welcome-head">
-        <h2 class="welcome-title" id="welcome-title">Cách dùng bản đồ</h2>
-        <button class="welcome-close" id="welcome-close" type="button" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <h2 class="welcome-title" id="welcome-title" data-i18n="welcome.title">Cách dùng bản đồ</h2>
+        <button class="welcome-close" id="welcome-close" type="button" data-i18n-attr="aria-label:welcome.closeAria" aria-label="Đóng hướng dẫn"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <p class="welcome-copy" id="welcome-copy">Bấm một điểm trên bản đồ để xem chi tiết, hoặc chọn một mục bên dưới.</p>
+      <p class="welcome-copy" id="welcome-copy" data-i18n="welcome.copy">Bấm một điểm trên bản đồ để xem chi tiết, hoặc chọn một mục bên dưới.</p>
       <div class="welcome-links">
-        <button class="welcome-link" id="welcome-explore" type="button"><span class="welcome-link-label"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Khám phá chương trình</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-        <button class="welcome-link" id="welcome-ai" type="button"><span class="welcome-link-label"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Hỏi AI</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
-        <button class="welcome-link" id="welcome-route" type="button"><span class="welcome-link-label"><i class="fa-solid fa-route" aria-hidden="true"></i>Lên lộ trình</span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-explore" type="button"><span class="welcome-link-label"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><span data-i18n="welcome.explore">Khám phá chương trình</span></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-ai" type="button"><span class="welcome-link-label"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i><span data-i18n="welcome.ai">Hỏi AI</span></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button class="welcome-link" id="welcome-route" type="button"><span class="welcome-link-label"><i class="fa-solid fa-route" aria-hidden="true"></i><span data-i18n="welcome.route">Lên lộ trình</span></span><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
       </div>
-      <p class="welcome-foot">Mở lại bằng <span class="welcome-foot-btn"><i class="fa-regular fa-circle-question" aria-hidden="true"></i>Hướng dẫn</span> trên bản đồ.</p>
+      <p class="welcome-foot"><span data-i18n="welcome.footBefore">Mở lại bằng</span> <span class="welcome-foot-btn"><i class="fa-regular fa-circle-question" aria-hidden="true"></i><span data-i18n="map.help">Hướng dẫn</span></span> <span data-i18n="welcome.footAfter">trên bản đồ.</span></p>
     </div>
   </div>
   <main class="app-shell">
-    <aside class="sidebar" id="sidebar" aria-label="Bảng điều khiển bản đồ">
+    <aside class="sidebar" id="sidebar" data-i18n-attr="aria-label:brand.sidebarAria" aria-label="Bảng điều khiển bản đồ">
       <header class="brand-bar">
         <div class="brand-row">
           <div class="flex items-center gap-3">
             <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-map-location-dot"></i></span>
             <div>
-              <h1 class="brand-title">Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026</h1>
-              <p class="brand-sub" id="brand-sub">Lịch chính thức · bản đồ · lộ trình · gợi ý AI</p>
+              <h1 class="brand-title" data-i18n="brand.title">Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026</h1>
+              <p class="brand-sub" id="brand-sub" data-i18n="brand.sub">Lịch chính thức · bản đồ · lộ trình · gợi ý AI</p>
             </div>
           </div>
         </div>
-        <p class="agent-hint">
+        <p class="agent-hint" data-i18n-html="agent.html">
           <strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại
           <a href="/index.md">/index.md</a> · chỉ mục tệp tại <a href="/llms.txt">/llms.txt</a>.
           Trang này cần JavaScript để hiển thị bản đồ và danh sách.
@@ -698,38 +698,38 @@
         </p>
       </header>
 
-      <nav class="tabs" role="tablist" aria-label="Các bảng điều khiển">
-        <button class="tab-button active" id="tab-explore" role="tab" aria-selected="true" aria-controls="panel-explore" data-tab="explore"><i class="fa-solid fa-magnifying-glass"></i><span>Khám phá</span></button>
-        <button class="tab-button" id="tab-prompts" role="tab" aria-selected="false" aria-controls="panel-prompts" data-tab="prompts"><i class="fa-solid fa-comment-dots"></i><span>Hỏi AI</span></button>
-        <button class="tab-button" id="tab-route" role="tab" aria-selected="false" aria-controls="panel-route" data-tab="route"><i class="fa-solid fa-route"></i><span>Lộ trình <b id="route-count">0</b></span></button>
+      <nav class="tabs" role="tablist" data-i18n-attr="aria-label:tabs.aria" aria-label="Các bảng điều khiển">
+        <button class="tab-button active" id="tab-explore" role="tab" aria-selected="true" aria-controls="panel-explore" data-tab="explore"><i class="fa-solid fa-magnifying-glass"></i><span data-i18n="tabs.explore">Khám phá</span></button>
+        <button class="tab-button" id="tab-prompts" role="tab" aria-selected="false" aria-controls="panel-prompts" data-tab="prompts"><i class="fa-solid fa-comment-dots"></i><span data-i18n="tabs.prompts">Hỏi AI</span></button>
+        <button class="tab-button" id="tab-route" role="tab" aria-selected="false" aria-controls="panel-route" data-tab="route"><i class="fa-solid fa-route"></i><span><span data-i18n="tabs.route">Lộ trình</span> <b id="route-count">0</b></span></button>
       </nav>
 
       <section class="tab-panel active" id="panel-explore" role="tabpanel" aria-labelledby="tab-explore">
         <div class="panel-scroll">
           <div class="panel-pad">
             <div class="filter-heading">
-              <p class="section-eyebrow">Tìm trải nghiệm</p>
+              <p class="section-eyebrow" data-i18n="explore.eyebrow">Tìm trải nghiệm</p>
               <span class="result-count" id="result-count">154 hoạt động</span>
             </div>
             <label class="search-wrap" for="search-input">
               <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
-              <input class="search-input" id="search-input" type="search" placeholder="Tên, nghệ sĩ, địa điểm, từ khóa — không cần dấu..." autocomplete="off">
+              <input class="search-input" id="search-input" type="search" data-i18n-attr="placeholder:search.placeholder" placeholder="Tên, nghệ sĩ, địa điểm, từ khóa — không cần dấu..." autocomplete="off">
             </label>
             <div class="filter-grid">
               <label>
-                <span class="sr-only">Chọn ngày</span>
-                <select class="filter-select" id="date-filter" aria-label="Lọc theo ngày">
-                  <option value="">Tất cả ngày</option>
+                <span class="sr-only" data-i18n="filters.dateSr">Chọn ngày</span>
+                <select class="filter-select" id="date-filter" data-i18n-attr="aria-label:filters.dateAria" aria-label="Lọc theo ngày">
+                  <option value="" data-i18n="filters.dateAll">Tất cả ngày</option>
                 </select>
               </label>
               <label>
-                <span class="sr-only">Chọn cụm</span>
-                <select class="filter-select" id="cluster-filter" aria-label="Lọc theo cụm">
-                  <option value="">Tất cả cụm</option>
+                <span class="sr-only" data-i18n="filters.clusterSr">Chọn cụm</span>
+                <select class="filter-select" id="cluster-filter" data-i18n-attr="aria-label:filters.clusterAria" aria-label="Lọc theo cụm">
+                  <option value="" data-i18n="filters.clusterAll">Tất cả cụm</option>
                 </select>
               </label>
             </div>
-            <div class="cluster-key" id="cluster-key" aria-label="Chú giải màu sắc cụm"></div>
+            <div class="cluster-key" id="cluster-key" data-i18n-attr="aria-label:clusterKey.aria" aria-label="Chú giải màu sắc cụm"></div>
           </div>
           <div class="event-list" id="event-list" aria-live="polite"></div>
         </div>
@@ -737,47 +737,47 @@
 
       <section class="tab-panel" id="panel-route" role="tabpanel" aria-labelledby="tab-route">
         <div class="route-intro">
-          <h2>Lộ trình của tôi</h2>
-          <p>Thêm hoạt động từ Khám phá, sắp xếp điểm dừng và mở chỉ đường.</p>
+          <h2 data-i18n="route.title">Lộ trình của tôi</h2>
+          <p data-i18n="route.intro">Thêm hoạt động từ Khám phá, sắp xếp điểm dừng và mở chỉ đường.</p>
         </div>
         <details class="preset-wrap" id="preset-disclosure">
           <summary class="preset-summary">
-            <span class="section-eyebrow">Hành trình gợi ý</span>
+            <span class="section-eyebrow" data-i18n="route.presetsEyebrow">Hành trình gợi ý</span>
             <span class="preset-arrow" aria-hidden="true"></span>
           </summary>
           <div class="preset-select" id="preset-list"></div>
         </details>
-        <div class="route-summary"><span><strong id="route-stops">0 điểm dừng</strong></span><span id="route-distance">Chưa có tuyến</span></div>
+        <div class="route-summary"><span><strong id="route-stops" data-i18n="route.stops">0 điểm dừng</strong></span><span id="route-distance" data-i18n="route.distanceEmpty">Chưa có tuyến</span></div>
         <div class="route-tools">
-          <button class="small-button" id="optimize-route" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i>Tối ưu gần nhất</button>
-          <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i>Chia sẻ</button>
-          <button class="small-button" id="clear-route" type="button"><i class="fa-regular fa-trash-can"></i>Xóa tuyến</button>
+          <button class="small-button" id="optimize-route" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n="route.optimize">Tối ưu gần nhất</span></button>
+          <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i><span data-i18n="route.share">Chia sẻ</span></button>
+          <button class="small-button" id="clear-route" type="button"><i class="fa-regular fa-trash-can"></i><span data-i18n="route.clear">Xóa tuyến</span></button>
         </div>
         <div class="panel-scroll"><div class="route-list" id="route-list"></div></div>
-        <div class="route-bottom"><a class="directions-button" id="directions-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i>Mở chỉ đường Google Maps</a></div>
+        <div class="route-bottom"><a class="directions-button" id="directions-link" href="#" target="_blank" rel="noopener noreferrer" aria-disabled="true"><i class="fa-solid fa-arrow-up-right-from-square"></i><span data-i18n="route.directions">Mở chỉ đường Google Maps</span></a></div>
       </section>
 
       <section class="tab-panel" id="panel-prompts" role="tabpanel" aria-labelledby="tab-prompts">
         <div class="panel-scroll">
           <div class="panel-pad">
             <div class="filter-heading">
-              <p class="section-eyebrow">Hỏi AI về lễ hội</p>
+              <p class="section-eyebrow" data-i18n="prompts.eyebrow">Hỏi AI về lễ hội</p>
               <span class="result-count" id="prompt-count"></span>
             </div>
-            <p class="prompts-intro">Nhập câu hỏi riêng, hoặc chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini. Phần ngữ cảnh website luôn được giữ và tự cập nhật theo giờ, ngày, vị trí; bạn chỉ sửa được câu hỏi bên dưới. Bản sửa được lưu trên thiết bị này.</p>
+            <p class="prompts-intro" data-i18n="prompts.intro">Nhập câu hỏi riêng, hoặc chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini. Phần ngữ cảnh website luôn được giữ và tự cập nhật theo giờ, ngày, vị trí; bạn chỉ sửa được câu hỏi bên dưới. Bản sửa được lưu trên thiết bị này.</p>
             <section class="ai-custom" aria-labelledby="ai-custom-title">
               <div class="ai-custom-row">
-                <h3 class="ai-prompt-group-title" id="ai-custom-title">Prompt của bạn</h3>
-                <button class="ai-prompt-copy" id="ai-custom-copy" type="button" aria-label="Sao chép prompt của bạn"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span></button>
+                <h3 class="ai-prompt-group-title" id="ai-custom-title" data-i18n="prompts.yourTitle">Prompt của bạn</h3>
+                <button class="ai-prompt-copy" id="ai-custom-copy" type="button" data-i18n-attr="aria-label:prompts.copyOwnAria" aria-label="Sao chép prompt của bạn"><i class="fa-regular fa-copy" aria-hidden="true"></i><span data-i18n="prompts.copy">Sao chép</span></button>
               </div>
-              <p class="ai-custom-hint" id="ai-custom-hint">Nhập câu hỏi của riêng bạn. Ngữ cảnh website ở trên là cố định.</p>
+              <p class="ai-custom-hint" id="ai-custom-hint" data-i18n="prompts.hint">Nhập câu hỏi của riêng bạn. Ngữ cảnh website ở trên là cố định.</p>
               <p class="ai-prompt-context" id="ai-custom-context"><i class="fa-solid fa-lock" aria-hidden="true"></i><span></span></p>
-              <textarea class="ai-prompt-text" id="ai-custom-text" rows="3" placeholder="Ví dụ: Tối nay có gì cho trẻ nhỏ quanh Hồ Gươm?" aria-describedby="ai-custom-hint"></textarea>
-              <div class="ai-prompt-actions" id="ai-custom-actions" role="group" aria-label="Mở prompt của bạn bằng dịch vụ AI"></div>
+              <textarea class="ai-prompt-text" id="ai-custom-text" rows="3" data-i18n-attr="placeholder:prompts.placeholder" placeholder="Ví dụ: Tối nay có gì cho trẻ nhỏ quanh Hồ Gươm?" aria-describedby="ai-custom-hint"></textarea>
+              <div class="ai-prompt-actions" id="ai-custom-actions" role="group" data-i18n-attr="aria-label:prompts.actionsAria" aria-label="Mở prompt của bạn bằng dịch vụ AI"></div>
               <p class="ai-prompt-status" id="ai-custom-status" aria-live="polite"></p>
             </section>
             <div class="ai-prompt-list" id="ai-prompt-list">
-              <p class="ai-prompts-loading">Đang tải prompt…</p>
+              <p class="ai-prompts-loading" data-i18n="prompts.loading">Đang tải prompt…</p>
             </div>
           </div>
         </div>
@@ -785,43 +785,44 @@
     </aside>
 
     <div class="mobile-scrim" id="mobile-scrim" aria-hidden="true"></div>
-    <section class="map-area" aria-label="Bản đồ sự kiện">
-      <div id="map" role="application" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
+    <section class="map-area" data-i18n-attr="aria-label:map.areaAria" aria-label="Bản đồ sự kiện">
+      <div id="map" role="application" data-i18n-attr="aria-label:map.canvasAria" aria-label="Bản đồ tương tác các sự kiện tại Hà Nội"></div>
       <div class="map-bottom-controls">
         <div class="map-toggles">
-          <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
-            <span class="live-label">Live</span>
+          <button class="live-toggle" id="live-toggle" type="button" aria-pressed="true" data-i18n-attr="title:live.titleOn" title="Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.">
+            <span class="live-label" data-i18n="live.label">Live</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
-          <button class="live-toggle nearby-toggle is-hidden" id="nearby-toggle" type="button" aria-pressed="true" title="Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng trong lộ trình.">
-            <span class="live-label">Lân Cận</span>
+          <button class="live-toggle nearby-toggle is-hidden" id="nearby-toggle" type="button" aria-pressed="true" data-i18n-attr="title:nearby.titleOn" title="Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng trong lộ trình.">
+            <span class="live-label" data-i18n="nearby.label">Lân Cận</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
-          <button class="live-toggle participated-toggle is-hidden" id="participated-toggle" type="button" aria-pressed="false" title="Các hoạt động bạn đã tham gia được làm mờ trên bản đồ. Bấm để hiện lại đầy đủ màu.">
-            <span class="live-label">Đã tham gia</span>
+          <button class="live-toggle participated-toggle is-hidden" id="participated-toggle" type="button" aria-pressed="false" data-i18n-attr="title:participated.titleOff" title="Các hoạt động bạn đã tham gia được làm mờ trên bản đồ. Bấm để hiện lại đầy đủ màu.">
+            <span class="live-label" data-i18n="participated.label">Đã tham gia</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
         </div>
         <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
       </div>
       <footer class="map-footer">
-        <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" aria-label="Mã nguồn trên GitHub">
+        <a class="map-repo-link" href="https://github.com/vanduc2514/agent-tkst-hanoi-2026" target="_blank" rel="noopener noreferrer" data-i18n-attr="aria-label:map.repoAria" aria-label="Mã nguồn trên GitHub">
           <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
         </a>
         <div class="map-attribution"><a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · OpenMapTiles</div>
       </footer>
       <div class="map-topbar">
-        <button class="map-pill map-toggle" id="mobile-menu" type="button" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span>Khám phá</span></button>
-        <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status">154 sự kiện</span></div>
+        <button class="map-pill map-toggle" id="mobile-menu" type="button" data-i18n-attr="aria-label:brand.sidebarAria" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span data-i18n="tabs.mobileExplore">Khám phá</span></button>
+        <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status" data-i18n="map.statusInitial">Đang tải sự kiện</span></div>
         <div class="map-actions">
-          <button class="map-pill" id="help-toggle" type="button" aria-label="Mở hướng dẫn sử dụng"><i class="fa-regular fa-circle-question" aria-hidden="true"></i><span>Hướng dẫn</span></button>
-          <button class="map-pill" id="show-all" type="button" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline">Toàn cảnh</span></button>
+          <button class="map-pill lang-toggle" id="lang-toggle" type="button" data-i18n-attr="aria-label:lang.switch;title:lang.switch" aria-label="Chuyển sang tiếng Anh" title="Chuyển sang tiếng Anh"><i class="fa-solid fa-globe" aria-hidden="true"></i><span id="lang-toggle-label">EN</span></button>
+          <button class="map-pill" id="help-toggle" type="button" data-i18n-attr="aria-label:map.helpAria" aria-label="Mở hướng dẫn sử dụng"><i class="fa-regular fa-circle-question" aria-hidden="true"></i><span data-i18n="map.help">Hướng dẫn</span></button>
+          <button class="map-pill" id="show-all" type="button" data-i18n-attr="aria-label:map.showAllAria" aria-label="Hiện tất cả sự kiện"><i class="fa-solid fa-expand"></i><span class="hidden sm:inline" data-i18n="map.showAll">Toàn cảnh</span></button>
         </div>
       </div>
       <aside class="event-detail" id="event-detail" role="dialog" aria-labelledby="detail-title" aria-hidden="true">
         <header class="detail-head" id="detail-head">
           <div id="detail-head-info"></div>
-          <button class="detail-close" id="detail-close" type="button" aria-label="Đóng chi tiết"><i class="fa-solid fa-xmark"></i></button>
+          <button class="detail-close" id="detail-close" type="button" data-i18n-attr="aria-label:detail.closeAria" aria-label="Đóng chi tiết"><i class="fa-solid fa-xmark"></i></button>
         </header>
         <div class="detail-scroll" id="detail-content"></div>
       </aside>
@@ -829,28 +830,29 @@
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <div class="gallery-viewer" id="gallery-viewer" role="dialog" aria-modal="true" aria-label="Ảnh hoạt động" aria-hidden="true">
-    <button class="gallery-close" id="gallery-close" type="button" aria-label="Đóng ảnh"><i class="fa-solid fa-xmark"></i></button>
-    <button class="gallery-prev" id="gallery-prev" type="button" aria-label="Ảnh trước"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="gallery-viewer" id="gallery-viewer" role="dialog" aria-modal="true" data-i18n-attr="aria-label:gallery.aria" aria-label="Ảnh hoạt động" aria-hidden="true">
+    <button class="gallery-close" id="gallery-close" type="button" data-i18n-attr="aria-label:gallery.closeAria" aria-label="Đóng ảnh"><i class="fa-solid fa-xmark"></i></button>
+    <button class="gallery-prev" id="gallery-prev" type="button" data-i18n-attr="aria-label:gallery.prevAria" aria-label="Ảnh trước"><i class="fa-solid fa-chevron-left"></i></button>
     <img id="gallery-image" alt="">
-    <button class="gallery-next" id="gallery-next" type="button" aria-label="Ảnh sau"><i class="fa-solid fa-chevron-right"></i></button>
+    <button class="gallery-next" id="gallery-next" type="button" data-i18n-attr="aria-label:gallery.nextAria" aria-label="Ảnh sau"><i class="fa-solid fa-chevron-right"></i></button>
     <span class="gallery-counter" id="gallery-counter"></span>
   </div>
 
   <div class="location-prompt" id="location-prompt" role="dialog" aria-modal="false" aria-labelledby="location-prompt-title" aria-hidden="true">
     <div class="location-prompt-card">
       <span class="location-prompt-icon" aria-hidden="true"><i class="fa-solid fa-location-crosshairs"></i></span>
-      <h2 id="location-prompt-title">Chia sẻ vị trí của bạn?</h2>
-      <p>Cho phép trang dùng vị trí hiện tại để hiển thị bạn trên bản đồ và tính khoảng cách tới các hoạt động. Vị trí chỉ được xử lý trong trình duyệt và không được lưu lại.</p>
+      <h2 id="location-prompt-title" data-i18n="location.title">Chia sẻ vị trí của bạn?</h2>
+      <p data-i18n="location.body">Cho phép trang dùng vị trí hiện tại để hiển thị bạn trên bản đồ và tính khoảng cách tới các hoạt động. Vị trí chỉ được xử lý trong trình duyệt và không được lưu lại.</p>
       <div class="location-prompt-actions">
-        <button class="small-button" id="location-deny" type="button">Để sau</button>
-        <button class="small-button" id="location-pick-map" type="button"><i class="fa-solid fa-map-pin"></i>Chọn điểm trên bản đồ</button>
-        <button class="directions-button" id="location-allow" type="button"><i class="fa-solid fa-crosshairs"></i>Chia sẻ vị trí</button>
+        <button class="small-button" id="location-deny" type="button" data-i18n="location.later">Để sau</button>
+        <button class="small-button" id="location-pick-map" type="button"><i class="fa-solid fa-map-pin"></i><span data-i18n="location.pick">Chọn điểm trên bản đồ</span></button>
+        <button class="directions-button" id="location-allow" type="button"><i class="fa-solid fa-crosshairs"></i><span data-i18n="location.share">Chia sẻ vị trí</span></button>
       </div>
       <p class="location-prompt-status" id="location-prompt-status" aria-live="polite"></p>
     </div>
   </div>
 
+  <script src="i18n.js"></script>
   <script data-cfasync="false" src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script data-cfasync="false">
     (() => {
@@ -869,6 +871,13 @@
       // Swapped for the stub if the CDN script or WebGL is unavailable at map creation.
       let ml = window.maplibregl || createMaplibreStub();
 
+      // Every user-facing string comes from i18n/vi.json or i18n/en.json. Data vocabularies
+      // (cluster names, venue kinds) are looked up by their source value so events.json
+      // stays the single source of truth.
+      const t = (key, params) => window.I18n.t(key, params);
+      const clusterName = (id) => window.I18n.vocab("cluster", id);
+      const placeKind = (kind) => window.I18n.vocab("kind", kind);
+
       function haversineKm(pointA, pointB) {
         const toRadians = (degrees) => degrees * Math.PI / 180;
         const lat1 = toRadians(pointA.lat);
@@ -880,12 +889,20 @@
         return 6371.0088 * 2 * Math.atan2(Math.sqrt(value), Math.sqrt(1 - value));
       }
 
-      const SHORT_WEEKDAY = new Intl.DateTimeFormat("vi-VN", {
-        timeZone: "Asia/Ho_Chi_Minh", weekday: "short", day: "2-digit", month: "2-digit"
-      });
-      const LONG_WEEKDAY = new Intl.DateTimeFormat("vi-VN", {
-        timeZone: "Asia/Ho_Chi_Minh", weekday: "long", day: "2-digit", month: "long", year: "numeric"
-      });
+      let SHORT_WEEKDAY;
+      let LONG_WEEKDAY;
+
+      // Weekday names follow the active locale; both re-created on a language switch.
+      function updateDateFormatters() {
+        const locale = window.I18n.localeTag;
+        SHORT_WEEKDAY = new Intl.DateTimeFormat(locale, {
+          timeZone: "Asia/Ho_Chi_Minh", weekday: "short", day: "2-digit", month: "2-digit"
+        });
+        LONG_WEEKDAY = new Intl.DateTimeFormat(locale, {
+          timeZone: "Asia/Ho_Chi_Minh", weekday: "long", day: "2-digit", month: "long", year: "numeric"
+        });
+      }
+      updateDateFormatters();
 
       const HANOI_CLOCK = new Intl.DateTimeFormat("en-CA", {
         timeZone: "Asia/Ho_Chi_Minh",
@@ -991,17 +1008,23 @@
         e140: "tour" // Ngày Di sản SIS: hành trình di sản
       };
 
-      function eventType(event) {
-        if (EVENT_TYPE_OVERRIDES[event.id]) return EVENT_TYPES[EVENT_TYPE_OVERRIDES[event.id]];
+      function eventTypeKey(event) {
+        const override = EVENT_TYPE_OVERRIDES[event.id];
+        if (override) return override;
         const title = event.title || "";
         for (const [key, pattern] of EVENT_TYPE_RULES) {
-          if (pattern.test(title)) return EVENT_TYPES[key];
+          if (pattern.test(title)) return key;
         }
         for (const tag of event.tags || []) {
           const key = TYPE_BY_TAG[String(tag).trim().toLowerCase()];
-          if (key) return EVENT_TYPES[key];
+          if (key) return key;
         }
         return null;
+      }
+
+      function eventType(event) {
+        const key = eventTypeKey(event);
+        return key ? { ...EVENT_TYPES[key], label: t(`eventType.${key}`) } : null;
       }
 
       // Every event carries a poster: the organiser's photo where one exists, otherwise
@@ -1151,7 +1174,7 @@
         const days = [...new Set(event.slots.map((slot) => slot.date))];
         const patterns = new Set(days.map(rangesFor));
         const ranges = [...new Set(event.slots.map((slot) => `${slot.start}–${slot.end}`))].sort();
-        return patterns.size > 1 ? `${ranges.join(", ")} (theo ngày)` : ranges.join(", ");
+        return patterns.size > 1 ? `${ranges.join(", ")} ${t("schedule.byDaySuffix")}` : ranges.join(", ");
       }
 
       // Vietnamese search tolerates missing diacritics: "trien lam" has to find
@@ -1365,9 +1388,9 @@
         note.className = "map-fallback";
         note.innerHTML = `
           <i class="fa-solid fa-map" aria-hidden="true"></i>
-          <strong>Bản đồ tương tác chưa tải được</strong>
-          <p>Trình duyệt đang chặn WebGL hoặc CDN. Danh sách hoạt động, bộ lọc và lộ trình vẫn dùng bình thường.</p>
-          <button type="button" id="map-fallback-open"><i class="fa-solid fa-list" aria-hidden="true"></i>Mở danh sách hoạt động</button>`;
+          <strong>${t("map.fallbackTitle")}</strong>
+          <p>${t("map.fallbackBody")}</p>
+          <button type="button" id="map-fallback-open"><i class="fa-solid fa-list" aria-hidden="true"></i>${t("map.fallbackOpen")}</button>`;
         area.append(note);
         const open = note.querySelector("#map-fallback-open");
         if (open) open.addEventListener("click", () => {
@@ -1400,7 +1423,7 @@
             pitchWithRotate: false
           });
         } catch (error) {
-          console.warn("Bản đồ không khởi tạo được, chuyển sang chế độ danh sách.", error);
+          console.warn(t("map.fallbackLog"), error);
           ml = createMaplibreStub();
           map = new ml.Map({ container: "map" });
           showMapFallback();
@@ -1411,8 +1434,8 @@
         locateButton.id = "locate-me";
         locateButton.type = "button";
         locateButton.className = "maplibregl-ctrl-icon maplibregl-ctrl-location";
-        locateButton.setAttribute("aria-label", "Hiển thị vị trí hiện tại của tôi");
-        locateButton.title = "Vị trí hiện tại";
+        locateButton.setAttribute("aria-label", t("map.locateAria"));
+        locateButton.title = t("map.locateTitle");
         locateButton.innerHTML = '<i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>';
         if (navigationGroup) navigationGroup.prepend(locateButton);
         else map.getContainer().append(locateButton);
@@ -1536,7 +1559,7 @@
           const time = withTime ? ` · ${eventTimeLabel(event)}` : "";
           if (event.days) return `${formatDayList(event.days)}${time}`;
           if (event.dateEnd !== event.date) {
-            const suffix = !withTime ? "" : (event.slots?.length ? time : `${time} hằng ngày`);
+            const suffix = !withTime ? "" : (event.slots?.length ? time : `${time} ${t("detail.daily")}`);
             return `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}${suffix}`;
           }
           return `${formatDate(event.date)}${event.slots?.length ? ` · ${eventTimeLabel(event, event.date)}` : time}`;
@@ -1590,12 +1613,12 @@
         }
 
         function renderClusterKey(target) {
-          $(target).innerHTML = Object.entries(clusters).map(([id, cluster]) =>
-            `<span class="cluster-chip"><i class="cluster-dot" style="background:${cluster.color}"></i>${escapeHtml(cluster.name)}</span>`
+          $(target).innerHTML = Object.keys(clusters).map((id) =>
+            `<span class="cluster-chip"><i class="cluster-dot" style="background:${clusters[id].color}"></i>${escapeHtml(clusterName(id))}</span>`
           ).join("");
         }
 
-        function renderFilters() {
+        function festivalDates() {
           const dates = [];
           const cursor = new Date(`${FESTIVAL_START}T12:00:00+07:00`);
           const last = new Date(`${FESTIVAL_END}T12:00:00+07:00`);
@@ -1603,11 +1626,32 @@
             dates.push(cursor.toISOString().slice(0, 10));
             cursor.setUTCDate(cursor.getUTCDate() + 1);
           }
-          const active = dates.filter((date) => eventsOnDate(date).length > 0);
-          $("#date-filter").innerHTML = '<option value="">Tất cả ngày</option>' +
-            active.map((date) => `<option value="${date}">${escapeHtml(formatDate(date))}</option>`).join("");
-          $("#cluster-filter").innerHTML = '<option value="">Tất cả cụm</option>' +
-            Object.entries(clusters).map(([id, cluster]) => `<option value="${id}">${escapeHtml(cluster.name)}</option>`).join("");
+          return { dates, active: dates.filter((date) => eventsOnDate(date).length > 0) };
+        }
+
+        // Rebuilds the translated <option> labels without touching the visitor's current
+        // selection; renderFilters() below adds the first-visit defaults on top.
+        function refreshFilterOptions() {
+          const { active } = festivalDates();
+          const dateSelect = $("#date-filter");
+          if (dateSelect) {
+            dateSelect.innerHTML = `<option value="">${t("filters.dateAll")}</option>` +
+              active.map((date) => `<option value="${date}">${escapeHtml(formatDate(date))}</option>`).join("");
+            dateSelect.value = state.filters.date;
+            if (dateSelect.value !== state.filters.date) dateSelect.value = "";
+          }
+          const clusterSelect = $("#cluster-filter");
+          if (clusterSelect) {
+            clusterSelect.innerHTML = `<option value="">${t("filters.clusterAll")}</option>` +
+              Object.keys(clusters).map((id) => `<option value="${id}">${escapeHtml(clusterName(id))}</option>`).join("");
+            clusterSelect.value = state.filters.cluster;
+          }
+          renderClusterKey("#cluster-key");
+          return active;
+        }
+
+        function renderFilters() {
+          const active = refreshFilterOptions();
           const today = hanoiDateTime(new Date()).date;
           const liveAvailable = today >= FESTIVAL_START && today <= FESTIVAL_END && active.includes(today);
           const defaultDate = liveAvailable ? today : active[active.length - 1] || "";
@@ -1617,7 +1661,6 @@
           state.live = liveAvailable;
           $("#date-filter").value = defaultDate;
           updateLiveButton();
-          renderClusterKey("#cluster-key");
         }
 
         function updateLiveButton() {
@@ -1630,19 +1673,14 @@
           button.classList.toggle("is-on", on);
           button.setAttribute("aria-pressed", String(on));
           const label = button.querySelector(".live-label");
-          if (label) label.textContent = "Live";
+          if (label) label.textContent = t("live.label");
           if (!available) {
-            button.title = "Hôm nay không có hoạt động trong lễ hội nên chế độ trực tiếp đang tắt.";
-            button.setAttribute("aria-label", "Chế độ trực tiếp: hôm nay không có hoạt động");
+            button.title = t("live.titleUnavailable");
+            button.setAttribute("aria-label", t("live.ariaUnavailable"));
             return;
           }
-          const offText = state.filters.date
-            ? "Đang tắt: đang hiện mọi hoạt động của ngày đã chọn. Bấm để quay lại chế độ trực tiếp hôm nay."
-            : "Đang tắt: đang hiện toàn bộ hoạt động. Bấm để quay lại chế độ trực tiếp hôm nay.";
-          button.title = on
-            ? "Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch."
-            : offText;
-          button.setAttribute("aria-label", `Chế độ trực tiếp: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
+          button.title = on ? t("live.titleOn") : state.filters.date ? t("live.titleOffDate") : t("live.titleOffAll");
+          button.setAttribute("aria-label", t(on ? "live.ariaOn" : "live.ariaOff", { title: button.title }));
         }
 
         // "Lân Cận" decides what surrounds a route on the map: with the toggle on the
@@ -1664,13 +1702,13 @@
           button.classList.toggle("is-on", on);
           button.setAttribute("aria-pressed", String(on));
           button.title = !available
-            ? "Thêm điểm dừng vào lộ trình để dùng chế độ lân cận."
+            ? t("nearby.titleUnavailable")
             : !onRouteTab
-              ? "Mở lộ trình và xem các hoạt động xung quanh các điểm dừng."
+              ? t("nearby.titleEntry")
               : on
-                ? "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng."
-                : "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.";
-          button.setAttribute("aria-label", `Chế độ lân cận: ${on ? "đang bật" : "đang tắt"}. ${button.title}`);
+                ? t("nearby.titleOn")
+                : t("nearby.titleOff");
+          button.setAttribute("aria-label", t(on ? "nearby.ariaOn" : "nearby.ariaOff", { title: button.title }));
           centerMapNote();
         }
 
@@ -1680,9 +1718,7 @@
           updateNearbyButton();
           applyFilters();
           if (!quiet) {
-            showMapNote(state.nearby
-              ? "Đang hiện các hoạt động quanh lộ trình."
-              : "Chỉ hiện các điểm dừng trong lộ trình.");
+            showMapNote(t(state.nearby ? "nearby.noteOn" : "nearby.noteOff"));
           }
         }
 
@@ -1702,9 +1738,9 @@
           applyFilters();
           refreshPromptFields();
           if (!quiet) {
-            if (state.live) showMapNote("Đang hiện các hoạt động còn mở hôm nay.");
-            else if (state.filters.date) showMapNote("Đang hiện mọi hoạt động của ngày đã chọn.");
-            else showMapNote("Đang hiện toàn bộ hoạt động.");
+            if (state.live) showMapNote(t("live.noteOn"));
+            else if (state.filters.date) showMapNote(t("live.noteDate"));
+            else showMapNote(t("live.noteAll"));
           }
         }
 
@@ -1760,12 +1796,12 @@
           updateNearbyButton();
           // The pill describes what the map is showing: Live is "đang và sẽ diễn ra", a
           // chosen date is "trong ngày", and everything else is the whole programme.
-          const label = stopsOnly
-            ? "điểm dừng trong lộ trình"
+          const statusKey = stopsOnly
+            ? "status.routeStops"
             : state.live
-              ? "sự kiện đang và sẽ diễn ra"
-              : state.filters.date ? "sự kiện trong ngày" : "sự kiện";
-          $("#map-status").textContent = `${displayed.length} ${label}`;
+              ? "status.live"
+              : state.filters.date ? "status.day" : "status.all";
+          $("#map-status").textContent = t(statusKey, { count: displayed.length });
         }
 
         function addEventMarker(event, lngLat) {
@@ -2015,34 +2051,34 @@
           const place = placesById[event.placeId];
           const blocks = [];
           for (const row of eventTimeRows(event)) {
-            blocks.push(`<p><span class="event-more-label">Thời gian:</span> ${escapeHtml(row.when)} · ${escapeHtml(row.time)}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.time")}</span> ${escapeHtml(row.when)} · ${escapeHtml(row.time)}</p>`);
           }
           if (place.address) {
-            blocks.push(`<p><span class="event-more-label">Địa chỉ:</span> ${escapeHtml(place.address)}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.address")}</span> ${escapeHtml(place.address)}</p>`);
           }
           if (event.officialType) {
-            blocks.push(`<p><span class="event-more-label">Loại hoạt động:</span> ${escapeHtml(event.officialType)}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.type")}</span> ${escapeHtml(event.officialType)}</p>`);
           }
           if (event.officialDetail) {
             // Cards show a short preview; the full write-up lives in the enlarged panel.
             const preview = event.officialDetail.length > 320
               ? `${event.officialDetail.slice(0, 320).trimEnd()}…`
               : event.officialDetail;
-            blocks.push(`<p><span class="event-more-label">Thông tin từ ban tổ chức:</span> ${escapeHtml(preview)}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.official")}</span> ${escapeHtml(preview)}</p>`);
             if (event.officialDetail.length > 320) {
-              blocks.push(`<p class="event-more-more"><button class="event-more-open" type="button">Xem đầy đủ ${event.officialDetail.length.toLocaleString("vi-VN")} ký tự</button></p>`);
+              blocks.push(`<p class="event-more-more"><button class="event-more-open" type="button">${t("more.showAll", { count: event.officialDetail.length, total: event.officialDetail.length.toLocaleString(window.I18n.localeTag) })}</button></p>`);
             }
           }
           if (event.registrationRequired) {
-            blocks.push(`<p><span class="event-more-label">Cần đăng ký trước.</span>${event.registrationDeadline ? ` Hạn đăng ký: ${escapeHtml(formatShortDate(event.registrationDeadline.slice(0, 10)))}.` : ""}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.register")}</span>${event.registrationDeadline ? ` ${t("more.deadline", { date: escapeHtml(formatShortDate(event.registrationDeadline.slice(0, 10))) })}` : ""}</p>`);
           }
           if (event.tags && event.tags.length) {
-            blocks.push(`<p><span class="event-more-label">Từ khoá:</span> ${escapeHtml(event.tags.join(", "))}</p>`);
+            blocks.push(`<p><span class="event-more-label">${t("more.tags")}</span> ${escapeHtml(event.tags.join(", "))}</p>`);
           }
           if (event.officialUrl) {
-            blocks.push(`<a class="event-more-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Xem trên trang chính thức</a>`);
+            blocks.push(`<a class="event-more-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>${t("more.officialLink")}</a>`);
           }
-          return `<button class="event-more-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-circle-info"></i><span class="event-more-text">Thông tin chi tiết</span></button>
+          return `<button class="event-more-toggle" type="button" aria-expanded="false"><i class="fa-solid fa-circle-info"></i><span class="event-more-text">${t("more.toggleOpen")}</span></button>
             <div class="event-more" hidden>${blocks.join("")}</div>`;
         }
 
@@ -2052,10 +2088,10 @@
           const saved = state.route.includes(event.id);
           const dayLabel = scheduleLabel(event);
           const type = eventType(event);
-          return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="Xem chi tiết ${escapeHtml(event.title)}">
+          return `<article class="event-card" data-event-id="${event.id}" tabindex="0" role="button" aria-label="${escapeHtml(t("card.detailAria", { title: event.title }))}">
               <div class="event-cover">
                 <img class="${isCard(eventImage(event)) ? "is-card" : ""}" src="${escapeHtml(eventImage(event))}" alt="${escapeHtml(event.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'">
-                ${event.spotlight ? '<div class="event-cover-top"><span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span></div>' : ""}
+                ${event.spotlight ? `<div class="event-cover-top"><span class="spotlight-badge"><i class="fa-solid fa-star"></i>${t("detail.spotlight")}</span></div>` : ""}
                 <div class="event-cover-bottom"><span class="event-cover-date">${escapeHtml(dayLabel)}</span>
                   ${type ? `<span class="event-type" style="--type:${type.color}"><i class="fa-solid ${type.icon}" aria-hidden="true"></i>${escapeHtml(type.label)}</span>` : ""}</div>
               </div>
@@ -2065,8 +2101,8 @@
               <p class="event-desc">${escapeHtml(event.description)}</p>
               ${moreInfoHtml(event)}
               <div class="event-bottom">
-                <div class="card-actions"><button class="small-button detail-button" type="button"><i class="fa-regular fa-eye"></i>Chi tiết</button>
-                  <button class="icon-button ${saved ? "saved" : "primary"} add-route" type="button" aria-label="${saved ? "Đã lưu tuyến" : "Thêm vào tuyến"}">${saved ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-plus"></i>'}</button></div>
+                <div class="card-actions"><button class="small-button detail-button" type="button"><i class="fa-regular fa-eye"></i>${t("card.detail")}</button>
+                  <button class="icon-button ${saved ? "saved" : "primary"} add-route" type="button" aria-label="${saved ? t("card.savedRoute") : t("card.addRoute")}">${saved ? '<i class="fa-solid fa-check"></i>' : '<i class="fa-solid fa-plus"></i>'}</button></div>
               </div></div></article>`;
         }
 
@@ -2093,7 +2129,7 @@
               const expanded = moreToggle.getAttribute("aria-expanded") === "true";
               moreToggle.setAttribute("aria-expanded", String(!expanded));
               more.hidden = expanded;
-              moreToggle.querySelector(".event-more-text").textContent = expanded ? "Thông tin chi tiết" : "Thu gọn thông tin";
+              moreToggle.querySelector(".event-more-text").textContent = t(expanded ? "more.toggleOpen" : "more.toggleClose");
             });
           }
           card.addEventListener("click", (clickEvent) => {
@@ -2119,12 +2155,12 @@
             .map((event) => ({ event, at: eventStartMoment(event, view) }))
             .sort((a, b) => a.at.localeCompare(b.at) || a.event.number - b.event.number)
             .map((entry) => entry.event);
-          $("#result-count").textContent = `${matching.length} hoạt động`;
+          $("#result-count").textContent = t("explore.count", { count: matching.length });
           const list = $("#event-list");
           if (!matching.length) {
             list.innerHTML = state.live
-              ? '<div class="empty-state"><i class="fa-regular fa-clock"></i>Hôm nay không còn hoạt động nào đang mở.<br>Tắt Live để xem toàn bộ lịch.</div>'
-              : '<div class="empty-state"><i class="fa-regular fa-calendar-xmark"></i>Không tìm thấy hoạt động phù hợp.<br>Thử đổi ngày hoặc từ khóa nhé.</div>';
+              ? `<div class="empty-state"><i class="fa-regular fa-clock"></i>${t("empty.liveTitle")}<br>${t("empty.liveHint")}</div>`
+              : `<div class="empty-state"><i class="fa-regular fa-calendar-xmark"></i>${t("empty.searchTitle")}<br>${t("empty.searchHint")}</div>`;
             return;
           }
           list.innerHTML = ordered.map(cardHtml).join("");
@@ -2162,46 +2198,46 @@
           $("#event-detail").style.setProperty("--cluster", cluster.color);
           $("#detail-head").style.background = `linear-gradient(135deg, ${cluster.color}1f, #fff 72%)`;
           $("#detail-head-info").innerHTML = `
-              <div class="detail-kicker"><span class="detail-number" aria-hidden="true" style="background:${cluster.color}">${event.number}</span><span>Sự kiện ${event.number}/${events.length} · ${escapeHtml(cluster.name)}</span></div>
+              <div class="detail-kicker"><span class="detail-number" aria-hidden="true" style="background:${cluster.color}">${event.number}</span><span>${escapeHtml(t("detail.kicker", { number: event.number, total: events.length }))} · ${escapeHtml(clusterName(event.clusterId))}</span></div>
               <h2 id="detail-title">${escapeHtml(event.title)}</h2>`;
           $("#detail-content").innerHTML = `
             <div class="detail-body">
               <div class="detail-gallery">
                 <img class="detail-hero ${isCard(eventGallery(event)[0]) ? "is-card" : ""}" src="${escapeHtml(eventGallery(event)[0])}" alt="${escapeHtml(event.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'">
-                ${photos.length > 1 ? `<span class="detail-gallery-count"><i class="fa-regular fa-images" aria-hidden="true"></i>${photos.length} ảnh</span>` : ""}
+                ${photos.length > 1 ? `<span class="detail-gallery-count"><i class="fa-regular fa-images" aria-hidden="true"></i>${t("detail.photos", { count: photos.length })}</span>` : ""}
               </div>
-              ${photos.length > 1 ? `<div class="detail-thumbs">${photos.map((photo, index) => `<button class="detail-thumb ${isCard(photo) ? "is-card" : ""} ${index ? "" : "active"}" type="button" data-photo="${index}" aria-label="Ảnh ${index + 1}"><img src="${escapeHtml(photo)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"></button>`).join("")}</div>` : ""}
+              ${photos.length > 1 ? `<div class="detail-thumbs">${photos.map((photo, index) => `<button class="detail-thumb ${isCard(photo) ? "is-card" : ""} ${index ? "" : "active"}" type="button" data-photo="${index}" aria-label="${escapeHtml(t("detail.thumbAria", { index: index + 1 }))}"><img src="${escapeHtml(photo)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"></button>`).join("")}</div>` : ""}
               <div class="detail-facts">
-                <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !event.slots?.length ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
-                <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(place.kind)}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>
+                <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !event.slots?.length ? ` ${t("detail.daily")}` : ""} · ${t("detail.hanoiTime")}</span></div></div>
+                <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(placeKind(place.kind))}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>
               </div>
               ${timeRows.length > 1 ? `<section class="detail-times">
-                <h3 class="detail-times-title"><i class="fa-regular fa-clock"></i>Giờ mở theo ngày</h3>
+                <h3 class="detail-times-title"><i class="fa-regular fa-clock"></i>${t("detail.hoursByDay")}</h3>
                 ${timeRows.map((row) => `<p class="detail-times-row"><span>${escapeHtml(row.when)}</span><strong>${escapeHtml(row.time)}</strong></p>`).join("")}
               </section>` : ""}
               ${lineup.length ? `<section class="detail-times">
-                <h3 class="detail-times-title"><i class="fa-solid fa-music"></i>Lịch biểu diễn</h3>
+                <h3 class="detail-times-title"><i class="fa-solid fa-music"></i>${t("detail.lineup")}</h3>
                 ${lineup.map((slot) => `<p class="detail-times-row"><span>${escapeHtml(formatDayList([slot.date]))} · ${escapeHtml(slot.start)}–${escapeHtml(slot.end)}</span><strong>${escapeHtml(slot.act)}</strong></p>`).join("")}
               </section>` : ""}
               ${event.registrationRequired || event.registrationUrl ? `<p class="detail-register-line">
                 ${event.registrationUrl
-                  ? `<a class="detail-official-link" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-to-square"></i>Đăng ký tham dự</a>`
-                  : `<span class="detail-official-link detail-register-missing"><i class="fa-solid fa-link-slash"></i>Chưa có link đăng ký</span>`}
+                  ? `<a class="detail-official-link" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-pen-to-square"></i>${t("detail.register")}</a>`
+                  : `<span class="detail-official-link detail-register-missing"><i class="fa-solid fa-link-slash"></i>${t("detail.noRegister")}</span>`}
               </p>` : ""}
               ${event.officialDetail || event.officialType || event.officialUrl ? `<section class="detail-official">
-                <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>Thông tin từ ban tổ chức</h3>
-                ${type ? `<p class="detail-official-row"><span>Loại hoạt động</span><strong><i class="fa-solid ${type.icon}" aria-hidden="true"></i> ${escapeHtml(type.label)}</strong></p>` : ""}
+                <h3 class="detail-official-title"><i class="fa-solid fa-circle-info"></i>${t("detail.officialTitle")}</h3>
+                ${type ? `<p class="detail-official-row"><span>${t("detail.activityType")}</span><strong><i class="fa-solid ${type.icon}" aria-hidden="true"></i> ${escapeHtml(type.label)}</strong></p>` : ""}
                 ${event.officialDetail ? `<p class="detail-official-text">${escapeHtml(event.officialDetail)}</p>` : ""}
-                ${event.officialUrl ? `<a class="detail-official-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Xem trên trang chính thức</a>` : ""}
+                ${event.officialUrl ? `<a class="detail-official-link" href="${event.officialUrl}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>${t("detail.officialLink")}</a>` : ""}
               </section>` : ""}
-              <div class="detail-badges">${event.spotlight ? '<span class="spotlight-badge"><i class="fa-solid fa-star"></i>Suất đặc biệt</span>' : ""}</div>
+              <div class="detail-badges">${event.spotlight ? `<span class="spotlight-badge"><i class="fa-solid fa-star"></i>${t("detail.spotlight")}</span>` : ""}</div>
               <div class="detail-tags">${event.tags.map((tag) => `<span class="detail-tag">#${escapeHtml(tag)}</span>`).join("")}</div>
               <div class="detail-actions">
-                <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${inRoute ? "Bỏ khỏi tuyến" : "Thêm vào tuyến"}</button>
-                <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>Chỉ đường</a>
-                <button class="small-button detail-participated ${participated ? "saved" : ""}" type="button" aria-pressed="${participated}"><i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${participated ? "Đã tham gia" : "Đánh dấu đã tham gia"}</button>
+                <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${t(inRoute ? "detail.removeRoute" : "detail.addRoute")}</button>
+                <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>${t("detail.directions")}</a>
+                <button class="small-button detail-participated ${participated ? "saved" : ""}" type="button" aria-pressed="${participated}"><i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${t(participated ? "detail.participated" : "detail.markParticipated")}</button>
               </div>
-              <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
+              <p class="detail-note">${t("detail.note")}</p>
             </div>`;
           $("#detail-content").querySelector(".detail-route").addEventListener("click", () => {
             if (inRoute) removeFromRoute(event.id);
@@ -2416,13 +2452,13 @@
           button.classList.toggle("is-on", on);
           button.setAttribute("aria-pressed", String(on));
           const label = button.querySelector(".live-label");
-          if (label) label.textContent = available ? `Đã tham gia ${count}` : "Đã tham gia";
+          if (label) label.textContent = available ? t("participated.labelCount", { count }) : t("participated.label");
           button.title = !available
-            ? "Đánh dấu một hoạt động đã tham gia trong thẻ chi tiết để dùng chế độ này."
+            ? t("participated.titleUnavailable")
             : on
-              ? "Đang bật: các hoạt động đã tham gia hiện đầy đủ màu. Bấm để làm mờ chúng."
-              : "Đang tắt: các hoạt động đã tham gia được làm mờ. Bấm để hiện lại đầy đủ màu.";
-          button.setAttribute("aria-label", `Hoạt động đã tham gia: ${on ? "đang hiện đầy đủ" : "đang làm mờ"}. ${button.title}`);
+              ? t("participated.titleOn")
+              : t("participated.titleOff");
+          button.setAttribute("aria-label", t(on ? "participated.ariaOn" : "participated.ariaOff", { title: button.title }));
         }
 
         function syncParticipatedPins() {
@@ -2447,9 +2483,9 @@
           if (detailButton && state.selectedEventId === eventId) {
             detailButton.classList.toggle("saved", participated);
             detailButton.setAttribute("aria-pressed", String(participated));
-            detailButton.innerHTML = `<i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${participated ? "Đã tham gia" : "Đánh dấu đã tham gia"}`;
+            detailButton.innerHTML = `<i class="fa-solid ${participated ? "fa-circle-check" : "fa-bookmark"}"></i>${t(participated ? "detail.participated" : "detail.markParticipated")}`;
           }
-          showToast(participated ? "Đã lưu hoạt động này vào danh sách đã tham gia." : "Đã bỏ đánh dấu hoạt động này.");
+          showToast(t(participated ? "participated.savedToast" : "participated.removedToast"));
         }
 
         // Reuse the event pins for the route: mark the pins already on the map and add
@@ -2475,7 +2511,7 @@
               pin.append(badge);
             }
             badge.textContent = String(stop);
-            pin.setAttribute("aria-label", `${marker.__label || ""} — điểm dừng ${stop}`);
+            pin.setAttribute("aria-label", t("route.stopBadge", { label: marker.__label || "", stop }));
           });
         }
 
@@ -3474,13 +3510,16 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         bindGallery();
-        loadFestivalData()
+        const translations = window.I18n ? window.I18n.load() : Promise.resolve();
+        translations
+          .catch((error) => console.error("Could not load the translations", error))
+          .then(loadFestivalData)
           .then(() => {
             try {
               init();
             } catch (error) {
               // Data is fine; only the map failed. Keep the list usable.
-              console.error("Không khởi tạo được giao diện", error);
+              console.error(window.I18n ? window.I18n.t("error.initLog") : "Could not start the interface", error);
               showMapFallback();
             }
           })

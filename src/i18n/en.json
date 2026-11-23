@@ -1,0 +1,356 @@
+{
+  "meta": {
+    "title": "Hanoi Festival of Creative Design 2026 — festival map",
+    "description": "Explore the Hanoi Festival of Creative Design 2026 — official schedule, venues and route ideas."
+  },
+  "lang": {
+    "switch": "Switch to Vietnamese",
+    "current": "Language: English",
+    "code": "EN"
+  },
+  "welcome": {
+    "title": "How to use the map",
+    "copy": "Tap a pin on the map for details, or pick a shortcut below.",
+    "explore": "Browse the programme",
+    "ai": "Ask AI",
+    "route": "Plan a route",
+    "closeAria": "Close the guide",
+    "footBefore": "Reopen it with",
+    "footAfter": "on the map."
+  },
+  "brand": {
+    "title": "Hanoi Festival of Creative Design 2026 discovery map",
+    "sub": "Official schedule · map · routes · AI prompts",
+    "summary": "<strong>{events} events</strong> · {clusters} clusters · {dates}",
+    "sidebarAria": "Map controls"
+  },
+  "agent": {
+    "html": "<strong>For AI agents:</strong> the full programme as Markdown at <a href=\"/index.md\">/index.md</a> · file index at <a href=\"/llms.txt\">/llms.txt</a>.<br>Bản dành cho AI agent: toàn bộ chương trình ở dạng Markdown tại /index.md, chỉ mục tệp tại /llms.txt.",
+    "noscript": "This page needs JavaScript to show the map and the list."
+  },
+  "tabs": {
+    "aria": "Panels",
+    "explore": "Explore",
+    "prompts": "Ask AI",
+    "route": "Route",
+    "mobileExplore": "Explore",
+    "mobileRoute": "Route",
+    "mobilePrompts": "Ask AI"
+  },
+  "explore": {
+    "eyebrow": "Find something to do",
+    "count": {
+      "one": "{count} event",
+      "other": "{count} events"
+    }
+  },
+  "search": {
+    "placeholder": "Name, artist, venue, keyword — accents optional..."
+  },
+  "filters": {
+    "dateSr": "Pick a date",
+    "dateAria": "Filter by date",
+    "dateAll": "All days",
+    "clusterSr": "Pick a cluster",
+    "clusterAria": "Filter by cluster",
+    "clusterAll": "All clusters"
+  },
+  "clusterKey": {
+    "aria": "Cluster colour legend"
+  },
+  "route": {
+    "title": "My route",
+    "intro": "Add events from Explore, reorder the stops and open directions.",
+    "presetsEyebrow": "Suggested itineraries",
+    "stops": {
+      "one": "{count} stop",
+      "other": "{count} stops"
+    },
+    "distanceEmpty": "No route yet",
+    "distanceOne": "1 stop · no legs yet",
+    "distanceKm": "{km} km",
+    "optimize": "Optimise nearest first",
+    "share": "Share",
+    "clear": "Clear route",
+    "directions": "Open directions in Google Maps",
+    "shareTitle": "Share the route with apps on this device",
+    "shareUnsupported": "This browser cannot use system sharing.",
+    "empty": "No stops yet.",
+    "emptyHint": "Add events from Explore or pick a suggested itinerary.",
+    "liveAria": "Happening now",
+    "moveUp": "Move {title} up",
+    "moveDown": "Move {title} down",
+    "remove": "Remove {title} from the route",
+    "stopBadge": "{label} — stop {stop}",
+    "startPoint": "Starting point",
+    "currentLocation": "Your current location",
+    "mapPick": "Selected point on the map",
+    "toastAdded": "Added to the route.",
+    "toastExists": "This event is already in the route.",
+    "toastOptimized": "Stops reordered by nearest distance.",
+    "toastPreset": "Loaded the “{name}” itinerary."
+  },
+  "prompts": {
+    "eyebrow": "Ask AI about the festival",
+    "intro": "Type your own question, or pick a suggested prompt to open in ChatGPT, Claude or Gemini. The website context is always kept and updated with the current time, date and location; only the question below is editable. Edits are saved on this device.",
+    "yourTitle": "Your prompt",
+    "copy": "Copy",
+    "copyOwnAria": "Copy your prompt",
+    "hint": "Type your own question. The website context above is fixed.",
+    "placeholder": "e.g. What is there for kids around Hoan Kiem Lake tonight?",
+    "actionsAria": "Open your prompt in an AI service",
+    "loading": "Loading prompts…",
+    "count": {
+      "one": "{count} prompt",
+      "other": "{count} prompts"
+    },
+    "resetAria": "Restore the original prompt",
+    "reset": "Reset",
+    "copyAria": "Copy the prompt",
+    "questionAria": "Question for the prompt: {title}",
+    "saved": "Saved on this device.",
+    "reverted": "Back to the original prompt.",
+    "openWith": "Open in {provider}",
+    "copied": "Prompt copied. Paste it into the app's chat box.",
+    "copyFailed": "Could not copy automatically; select the text and copy it manually.",
+    "blockedTab": "The browser blocked the new tab. ",
+    "orCopy": " or use the Copy button.",
+    "opened": "Opened {provider} with the prompt filled in.",
+    "enterFirst": "Type your question first.",
+    "resetToast": "Restored the original prompt.",
+    "loadFailed": "Could not load prompts. ",
+    "openFile": "Open prompts.json",
+    "contextAria": "Fixed prompt context"
+  },
+  "map": {
+    "areaAria": "Event map",
+    "canvasAria": "Interactive map of festival events in Hanoi",
+    "repoAria": "Source code on GitHub",
+    "menu": "Explore",
+    "help": "Guide",
+    "helpAria": "Open the guide",
+    "showAll": "Whole map",
+    "showAllAria": "Show all events",
+    "locateAria": "Show my current location",
+    "locateTitle": "Current location",
+    "fallbackTitle": "The interactive map could not load",
+    "fallbackBody": "The browser is blocking WebGL or the CDN. The event list, filters and route planner still work.",
+    "fallbackOpen": "Open the event list",
+    "fallbackLog": "The map could not start; switching to the list view.",
+    "statusInitial": "Loading events"
+  },
+  "live": {
+    "label": "Live",
+    "titleUnavailable": "No festival events today, so Live is off.",
+    "ariaUnavailable": "Live mode: no events today",
+    "titleOffDate": "Off: showing every event on the selected day. Tap to return to Live today.",
+    "titleOffAll": "Off: showing the whole programme. Tap to return to Live today.",
+    "titleOn": "On: showing events that are open today, refreshed in Hanoi time. Tap to see the full schedule.",
+    "ariaOn": "Live mode: on. {title}",
+    "ariaOff": "Live mode: off. {title}",
+    "noteOn": "Showing events that are still open today.",
+    "noteDate": "Showing every event on the selected day.",
+    "noteAll": "Showing the whole programme.",
+    "noteNoEvents": "No events today; showing the whole programme."
+  },
+  "nearby": {
+    "label": "Nearby",
+    "titleUnavailable": "Add stops to the route to use Nearby.",
+    "titleEntry": "Open the route and see the programme around its stops.",
+    "titleOn": "On: showing every event around the route. Tap to show only the stops.",
+    "titleOff": "Off: showing only the route stops. Tap to bring in nearby events.",
+    "ariaOn": "Nearby mode: on. {title}",
+    "ariaOff": "Nearby mode: off. {title}",
+    "noteOn": "Showing events around the route.",
+    "noteOff": "Showing only the route stops."
+  },
+  "participated": {
+    "label": "Attended",
+    "labelCount": {
+      "one": "Attended {count}",
+      "other": "Attended {count}"
+    },
+    "titleUnavailable": "Mark an event as attended in its detail card to use this view.",
+    "titleOn": "On: attended events show their normal colours. Tap to dim them.",
+    "titleOff": "Off: attended events are dimmed. Tap to show them in full colour.",
+    "ariaOn": "Attended events: shown in full. {title}",
+    "ariaOff": "Attended events: dimmed. {title}",
+    "noteOn": "Showing attended events in full colour.",
+    "noteOff": "Attended events are dimmed.",
+    "savedToast": "Saved this event to your attended list.",
+    "removedToast": "Removed the attended mark."
+  },
+  "status": {
+    "routeStops": {
+      "one": "{count} route stop",
+      "other": "{count} route stops"
+    },
+    "live": {
+      "one": "{count} event happening now or upcoming",
+      "other": "{count} events happening now or upcoming"
+    },
+    "day": {
+      "one": "{count} event on the selected day",
+      "other": "{count} events on the selected day"
+    },
+    "all": {
+      "one": "{count} event",
+      "other": "{count} events"
+    }
+  },
+  "detail": {
+    "closeAria": "Close details",
+    "kicker": "Event {number} of {total}",
+    "photos": {
+      "one": "{count} photo",
+      "other": "{count} photos"
+    },
+    "thumbAria": "Photo {index}",
+    "hanoiTime": "Hanoi time (UTC+7)",
+    "daily": "daily",
+    "hoursByDay": "Opening hours by day",
+    "lineup": "Performance schedule",
+    "register": "Register to attend",
+    "noRegister": "No registration link yet",
+    "officialTitle": "From the organiser",
+    "activityType": "Activity type",
+    "officialLink": "View on the official page",
+    "spotlight": "Featured",
+    "removeRoute": "Remove from route",
+    "addRoute": "Add to route",
+    "directions": "Directions",
+    "participated": "Attended",
+    "markParticipated": "Mark as attended",
+    "note": "Information comes from the festival calendar published at lehoithietkesangtao.vn (updated 18/11/2026). Please check with the organiser before attending."
+  },
+  "gallery": {
+    "aria": "Event photo",
+    "closeAria": "Close photo",
+    "prevAria": "Previous photo",
+    "nextAria": "Next photo"
+  },
+  "location": {
+    "title": "Share your location?",
+    "body": "Let the page use your current location to show you on the map and measure distances to events. Your location is processed in the browser only and is never stored.",
+    "later": "Later",
+    "pick": "Pick a point on the map",
+    "share": "Share location",
+    "unsupported": "This browser does not support GPS location.",
+    "insecure": "Location sharing only works over HTTPS or on localhost.",
+    "fetching": "Getting your location…",
+    "approximate": "No precise GPS yet, trying an approximate location…",
+    "failed": "Could not get your current location.",
+    "denied": "Location access is not allowed. Enable location for this site in your browser settings.",
+    "unavailable": "Could not determine your current location.",
+    "timeout": "The location request timed out. Try again.",
+    "shownToast": "Your location is now on the map.",
+    "tapMapToast": "Tap the map to choose a starting point.",
+    "pickedToast": "Starting point selected on the map."
+  },
+  "card": {
+    "detailAria": "View details for {title}",
+    "detail": "Details",
+    "savedRoute": "Saved to route",
+    "addRoute": "Add to route"
+  },
+  "more": {
+    "time": "Time:",
+    "address": "Address:",
+    "type": "Activity type:",
+    "official": "From the organiser:",
+    "showAll": {
+      "one": "Show all {count} character",
+      "other": "Show all {count} characters"
+    },
+    "register": "Registration required.",
+    "deadline": "Deadline: {date}.",
+    "tags": "Tags:",
+    "officialLink": "View on the official page",
+    "toggleOpen": "More information",
+    "toggleClose": "Less information"
+  },
+  "empty": {
+    "liveTitle": "No events are open today.",
+    "liveHint": "Turn Live off to see the full schedule.",
+    "searchTitle": "No matching events.",
+    "searchHint": "Try another day or keyword."
+  },
+  "toast": {
+    "hiddenByFilter": "This event is hidden by the current filter."
+  },
+  "share": {
+    "title": "Hanoi Festival of Creative Design 2026 route",
+    "text": "A {count}-stop route at the Hanoi Festival of Creative Design 2026"
+  },
+  "schedule": {
+    "byDaySuffix": "(by day)"
+  },
+  "eventType": {
+    "exhibition": "Exhibition",
+    "workshop": "Workshop",
+    "talk": "Talk",
+    "tour": "Tour",
+    "fair": "Fair",
+    "film": "Film screening",
+    "performance": "Performance",
+    "class": "Class",
+    "game": "Game",
+    "reading": "Reading",
+    "food": "Food",
+    "award": "Awards"
+  },
+  "error": {
+    "dataStatus": "Could not load the event data",
+    "dataBody": "Could not load the event data.<br>Reload the page.",
+    "dataLog": "Could not load the event data",
+    "initLog": "Could not start the interface"
+  },
+  "vocab": {
+    "cluster": {
+      "g1": "Hoan Kiem Lake & Trang Tien",
+      "g2": "Dong Xuan Market & Hang Dau",
+      "g3": "Old Quarter temples & relics",
+      "g4": "Thong Nhat Park & surroundings",
+      "g5": "Satellite venues"
+    },
+    "kind": {
+      "Chợ truyền thống": "Traditional market",
+      "Quần thể di tích": "Heritage complex",
+      "Không gian đi bộ": "Pedestrian space",
+      "Không gian sáng tạo": "Creative space",
+      "Công viên cộng đồng": "Community park",
+      "Bảo tàng & kiến trúc": "Museum & architecture",
+      "Cơ quan văn hoá": "Cultural institution",
+      "Rạp hát": "Playhouse",
+      "Nhà hát": "Theatre",
+      "Di sản công nghiệp": "Industrial heritage",
+      "Làng nghề truyền thống": "Traditional craft village",
+      "Di sản kiến trúc": "Architectural heritage",
+      "Không gian đô thị": "Urban space",
+      "Tuyến phố di sản": "Heritage street route",
+      "Đình cổ phố cổ": "Old-quarter temple",
+      "Không gian văn hoá": "Cultural space",
+      "Không gian trưng bày": "Exhibition space",
+      "Không gian ẩm thực": "Food space",
+      "Không gian công cộng": "Public space",
+      "Tổ hợp sáng tạo": "Creative complex",
+      "Không gian hội thảo": "Seminar space",
+      "Di tích hội quán": "Guild-hall relic",
+      "Không gian ven sông": "Riverside space",
+      "Di tích quốc gia đặc biệt": "National special relic",
+      "Trung tâm triển lãm": "Exhibition centre",
+      "Biệt thự di sản": "Heritage villa",
+      "Không gian nghệ thuật": "Art space",
+      "Nhà di sản": "Heritage house",
+      "Trung tâm văn hoá": "Cultural centre",
+      "Sắp đặt ngoài trời": "Outdoor installation",
+      "Sân trong chợ": "Market courtyard",
+      "Khu kiot trong chợ": "Market kiosk",
+      "Sân mái trong chợ": "Market roof yard",
+      "Không gian trong chợ": "Market hall",
+      "Khu trải nghiệm": "Activity zone",
+      "Tuyến phố cổ": "Old-quarter street route",
+      "Tuyến di tích": "Heritage route"
+    }
+  }
+}

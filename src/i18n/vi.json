@@ -1,0 +1,317 @@
+{
+  "meta": {
+    "title": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026",
+    "description": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026 — lịch chính thức, địa điểm và gợi ý tuyến."
+  },
+  "lang": {
+    "switch": "Chuyển sang tiếng Anh",
+    "current": "Ngôn ngữ: Tiếng Việt",
+    "code": "VI"
+  },
+  "welcome": {
+    "title": "Cách dùng bản đồ",
+    "copy": "Bấm một điểm trên bản đồ để xem chi tiết, hoặc chọn một mục bên dưới.",
+    "explore": "Khám phá chương trình",
+    "ai": "Hỏi AI",
+    "route": "Lên lộ trình",
+    "closeAria": "Đóng hướng dẫn",
+    "footBefore": "Mở lại bằng",
+    "footAfter": "trên bản đồ."
+  },
+  "brand": {
+    "title": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026",
+    "sub": "Lịch chính thức · bản đồ · lộ trình · gợi ý AI",
+    "summary": "<strong>{events} hoạt động</strong> · {clusters} cụm · {dates}",
+    "sidebarAria": "Bảng điều khiển bản đồ"
+  },
+  "agent": {
+    "html": "<strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại <a href=\"/index.md\">/index.md</a> · chỉ mục tệp tại <a href=\"/llms.txt\">/llms.txt</a>.<br>For AI agents: full programme in Markdown at /index.md, file index at /llms.txt.",
+    "noscript": "Trang này cần JavaScript để hiển thị bản đồ và danh sách."
+  },
+  "tabs": {
+    "aria": "Các bảng điều khiển",
+    "explore": "Khám phá",
+    "prompts": "Hỏi AI",
+    "route": "Lộ trình",
+    "mobileExplore": "Khám phá",
+    "mobileRoute": "Lộ trình",
+    "mobilePrompts": "Hỏi AI"
+  },
+  "explore": {
+    "eyebrow": "Tìm trải nghiệm",
+    "count": {
+      "one": "{count} hoạt động",
+      "other": "{count} hoạt động"
+    }
+  },
+  "search": {
+    "placeholder": "Tên, nghệ sĩ, địa điểm, từ khóa — không cần dấu..."
+  },
+  "filters": {
+    "dateSr": "Chọn ngày",
+    "dateAria": "Lọc theo ngày",
+    "dateAll": "Tất cả ngày",
+    "clusterSr": "Chọn cụm",
+    "clusterAria": "Lọc theo cụm",
+    "clusterAll": "Tất cả cụm"
+  },
+  "clusterKey": {
+    "aria": "Chú giải màu sắc cụm"
+  },
+  "route": {
+    "title": "Lộ trình của tôi",
+    "intro": "Thêm hoạt động từ Khám phá, sắp xếp điểm dừng và mở chỉ đường.",
+    "presetsEyebrow": "Hành trình gợi ý",
+    "stops": {
+      "one": "{count} điểm dừng",
+      "other": "{count} điểm dừng"
+    },
+    "distanceEmpty": "Chưa có tuyến",
+    "distanceOne": "1 điểm · chưa có chặng",
+    "distanceKm": "{km} km",
+    "optimize": "Tối ưu gần nhất",
+    "share": "Chia sẻ",
+    "clear": "Xóa tuyến",
+    "directions": "Mở chỉ đường Google Maps",
+    "shareTitle": "Chia sẻ lộ trình qua ứng dụng trên thiết bị",
+    "shareUnsupported": "Trình duyệt này không hỗ trợ chia sẻ hệ thống.",
+    "empty": "Chưa có điểm dừng.",
+    "emptyHint": "Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.",
+    "liveAria": "Đang diễn ra",
+    "moveUp": "Di chuyển {title} lên",
+    "moveDown": "Di chuyển {title} xuống",
+    "remove": "Xóa {title} khỏi tuyến",
+    "stopBadge": "{label} — điểm dừng {stop}",
+    "startPoint": "Điểm bắt đầu",
+    "currentLocation": "Vị trí hiện tại của bạn",
+    "mapPick": "Điểm đã chọn trên bản đồ",
+    "toastAdded": "Đã thêm vào lộ trình.",
+    "toastExists": "Hoạt động này đã có trong lộ trình.",
+    "toastOptimized": "Đã sắp xếp các điểm dừng theo khoảng cách gần nhất.",
+    "toastPreset": "Đã tải tuyến “{name}”."
+  },
+  "prompts": {
+    "eyebrow": "Hỏi AI về lễ hội",
+    "intro": "Nhập câu hỏi riêng, hoặc chọn một prompt gợi ý để mở với ChatGPT, Claude hoặc Gemini. Phần ngữ cảnh website luôn được giữ và tự cập nhật theo giờ, ngày, vị trí; bạn chỉ sửa được câu hỏi bên dưới. Bản sửa được lưu trên thiết bị này.",
+    "yourTitle": "Prompt của bạn",
+    "copy": "Sao chép",
+    "copyOwnAria": "Sao chép prompt của bạn",
+    "hint": "Nhập câu hỏi của riêng bạn. Ngữ cảnh website ở trên là cố định.",
+    "placeholder": "Ví dụ: Tối nay có gì cho trẻ nhỏ quanh Hồ Gươm?",
+    "actionsAria": "Mở prompt của bạn bằng dịch vụ AI",
+    "loading": "Đang tải prompt…",
+    "count": {
+      "one": "{count} gợi ý",
+      "other": "{count} gợi ý"
+    },
+    "resetAria": "Khôi phục prompt gốc",
+    "reset": "Đặt lại",
+    "copyAria": "Sao chép prompt",
+    "questionAria": "Câu hỏi của prompt: {title}",
+    "saved": "Đã lưu trên thiết bị này.",
+    "reverted": "Đã trở về prompt gốc.",
+    "openWith": "Mở bằng {provider}",
+    "copied": "Đã sao chép prompt. Dán vào khung chat của ứng dụng.",
+    "copyFailed": "Không thể sao chép tự động; hãy chọn nội dung và sao chép thủ công.",
+    "blockedTab": "Trình duyệt đã chặn tab mới. ",
+    "orCopy": " hoặc dùng nút Sao chép.",
+    "opened": "Đã mở {provider} với prompt điền sẵn.",
+    "enterFirst": "Hãy nhập câu hỏi của bạn trước.",
+    "resetToast": "Đã khôi phục prompt gốc.",
+    "loadFailed": "Không tải được prompt. ",
+    "openFile": "Mở tệp prompts.json",
+    "contextAria": "Ngữ cảnh cố định của prompt"
+  },
+  "map": {
+    "areaAria": "Bản đồ sự kiện",
+    "canvasAria": "Bản đồ tương tác các sự kiện tại Hà Nội",
+    "repoAria": "Mã nguồn trên GitHub",
+    "menu": "Khám phá",
+    "help": "Hướng dẫn",
+    "helpAria": "Mở hướng dẫn sử dụng",
+    "showAll": "Toàn cảnh",
+    "showAllAria": "Hiện tất cả sự kiện",
+    "locateAria": "Hiển thị vị trí hiện tại của tôi",
+    "locateTitle": "Vị trí hiện tại",
+    "fallbackTitle": "Bản đồ tương tác chưa tải được",
+    "fallbackBody": "Trình duyệt đang chặn WebGL hoặc CDN. Danh sách hoạt động, bộ lọc và lộ trình vẫn dùng bình thường.",
+    "fallbackOpen": "Mở danh sách hoạt động",
+    "fallbackLog": "Bản đồ không khởi tạo được, chuyển sang chế độ danh sách.",
+    "statusInitial": "Đang tải sự kiện"
+  },
+  "live": {
+    "label": "Live",
+    "titleUnavailable": "Hôm nay không có hoạt động trong lễ hội nên chế độ trực tiếp đang tắt.",
+    "ariaUnavailable": "Chế độ trực tiếp: hôm nay không có hoạt động",
+    "titleOffDate": "Đang tắt: đang hiện mọi hoạt động của ngày đã chọn. Bấm để quay lại chế độ trực tiếp hôm nay.",
+    "titleOffAll": "Đang tắt: đang hiện toàn bộ hoạt động. Bấm để quay lại chế độ trực tiếp hôm nay.",
+    "titleOn": "Đang bật: chỉ hiện các hoạt động hôm nay chưa kết thúc, cập nhật theo giờ Hà Nội. Bấm để xem toàn bộ lịch.",
+    "ariaOn": "Chế độ trực tiếp: đang bật. {title}",
+    "ariaOff": "Chế độ trực tiếp: đang tắt. {title}",
+    "noteOn": "Đang hiện các hoạt động còn mở hôm nay.",
+    "noteDate": "Đang hiện mọi hoạt động của ngày đã chọn.",
+    "noteAll": "Đang hiện toàn bộ hoạt động.",
+    "noteNoEvents": "Hôm nay không có hoạt động; đang hiện toàn bộ chương trình."
+  },
+  "nearby": {
+    "label": "Lân Cận",
+    "titleUnavailable": "Thêm điểm dừng vào lộ trình để dùng chế độ lân cận.",
+    "titleEntry": "Mở lộ trình và xem các hoạt động xung quanh các điểm dừng.",
+    "titleOn": "Đang bật: hiện mọi hoạt động quanh lộ trình. Bấm để chỉ hiện các điểm dừng.",
+    "titleOff": "Đang tắt: chỉ hiện các điểm dừng trong lộ trình. Bấm để xem thêm các hoạt động xung quanh.",
+    "ariaOn": "Chế độ lân cận: đang bật. {title}",
+    "ariaOff": "Chế độ lân cận: đang tắt. {title}",
+    "noteOn": "Đang hiện các hoạt động quanh lộ trình.",
+    "noteOff": "Chỉ hiện các điểm dừng trong lộ trình."
+  },
+  "participated": {
+    "label": "Đã tham gia",
+    "labelCount": {
+      "one": "Đã tham gia {count}",
+      "other": "Đã tham gia {count}"
+    },
+    "titleUnavailable": "Đánh dấu một hoạt động đã tham gia trong thẻ chi tiết để dùng chế độ này.",
+    "titleOn": "Đang bật: các hoạt động đã tham gia hiện đầy đủ màu. Bấm để làm mờ chúng.",
+    "titleOff": "Đang tắt: các hoạt động đã tham gia được làm mờ. Bấm để hiện lại đầy đủ màu.",
+    "ariaOn": "Hoạt động đã tham gia: đang hiện đầy đủ. {title}",
+    "ariaOff": "Hoạt động đã tham gia: đang làm mờ. {title}",
+    "noteOn": "Đang hiện đầy đủ các hoạt động đã tham gia.",
+    "noteOff": "Các hoạt động đã tham gia được làm mờ.",
+    "savedToast": "Đã lưu hoạt động này vào danh sách đã tham gia.",
+    "removedToast": "Đã bỏ đánh dấu hoạt động này."
+  },
+  "status": {
+    "routeStops": {
+      "one": "{count} điểm dừng trong lộ trình",
+      "other": "{count} điểm dừng trong lộ trình"
+    },
+    "live": {
+      "one": "{count} sự kiện đang và sẽ diễn ra",
+      "other": "{count} sự kiện đang và sẽ diễn ra"
+    },
+    "day": {
+      "one": "{count} sự kiện trong ngày",
+      "other": "{count} sự kiện trong ngày"
+    },
+    "all": {
+      "one": "{count} sự kiện",
+      "other": "{count} sự kiện"
+    }
+  },
+  "detail": {
+    "closeAria": "Đóng chi tiết",
+    "kicker": "Sự kiện {number}/{total}",
+    "photos": {
+      "one": "{count} ảnh",
+      "other": "{count} ảnh"
+    },
+    "thumbAria": "Ảnh {index}",
+    "hanoiTime": "giờ Hà Nội (UTC+7)",
+    "daily": "hằng ngày",
+    "hoursByDay": "Giờ mở theo ngày",
+    "lineup": "Lịch biểu diễn",
+    "register": "Đăng ký tham dự",
+    "noRegister": "Chưa có link đăng ký",
+    "officialTitle": "Thông tin từ ban tổ chức",
+    "activityType": "Loại hoạt động",
+    "officialLink": "Xem trên trang chính thức",
+    "spotlight": "Suất đặc biệt",
+    "removeRoute": "Bỏ khỏi tuyến",
+    "addRoute": "Thêm vào tuyến",
+    "directions": "Chỉ đường",
+    "participated": "Đã tham gia",
+    "markParticipated": "Đánh dấu đã tham gia",
+    "note": "Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự."
+  },
+  "gallery": {
+    "aria": "Ảnh hoạt động",
+    "closeAria": "Đóng ảnh",
+    "prevAria": "Ảnh trước",
+    "nextAria": "Ảnh sau"
+  },
+  "location": {
+    "title": "Chia sẻ vị trí của bạn?",
+    "body": "Cho phép trang dùng vị trí hiện tại để hiển thị bạn trên bản đồ và tính khoảng cách tới các hoạt động. Vị trí chỉ được xử lý trong trình duyệt và không được lưu lại.",
+    "later": "Để sau",
+    "pick": "Chọn điểm trên bản đồ",
+    "share": "Chia sẻ vị trí",
+    "unsupported": "Trình duyệt này không hỗ trợ định vị GPS.",
+    "insecure": "Chia sẻ vị trí chỉ hoạt động trên trang HTTPS hoặc localhost.",
+    "fetching": "Đang lấy vị trí…",
+    "approximate": "Chưa lấy được GPS chính xác, đang thử vị trí gần đúng…",
+    "failed": "Không thể lấy vị trí hiện tại.",
+    "denied": "Bạn chưa cấp quyền truy cập vị trí. Hãy bật quyền vị trí cho trang này trong cài đặt trình duyệt.",
+    "unavailable": "Không xác định được vị trí hiện tại.",
+    "timeout": "Lấy vị trí quá thời gian. Hãy thử lại.",
+    "shownToast": "Đã hiển thị vị trí của bạn trên bản đồ.",
+    "tapMapToast": "Chạm vào bản đồ để chọn điểm xuất phát.",
+    "pickedToast": "Đã chọn điểm xuất phát trên bản đồ."
+  },
+  "card": {
+    "detailAria": "Xem chi tiết {title}",
+    "detail": "Chi tiết",
+    "savedRoute": "Đã lưu tuyến",
+    "addRoute": "Thêm vào tuyến"
+  },
+  "more": {
+    "time": "Thời gian:",
+    "address": "Địa chỉ:",
+    "type": "Loại hoạt động:",
+    "official": "Thông tin từ ban tổ chức:",
+    "showAll": {
+      "one": "Xem đầy đủ {count} ký tự",
+      "other": "Xem đầy đủ {count} ký tự"
+    },
+    "register": "Cần đăng ký trước.",
+    "deadline": "Hạn đăng ký: {date}.",
+    "tags": "Từ khoá:",
+    "officialLink": "Xem trên trang chính thức",
+    "toggleOpen": "Thông tin chi tiết",
+    "toggleClose": "Thu gọn thông tin"
+  },
+  "empty": {
+    "liveTitle": "Hôm nay không còn hoạt động nào đang mở.",
+    "liveHint": "Tắt Live để xem toàn bộ lịch.",
+    "searchTitle": "Không tìm thấy hoạt động phù hợp.",
+    "searchHint": "Thử đổi ngày hoặc từ khóa nhé."
+  },
+  "toast": {
+    "hiddenByFilter": "Sự kiện này đang bị ẩn bởi bộ lọc."
+  },
+  "share": {
+    "title": "Lộ trình Lễ hội Thiết kế Sáng tạo Hà Nội 2026",
+    "text": "Lộ trình {count} điểm dừng tại Lễ hội Thiết kế Sáng tạo Hà Nội 2026"
+  },
+  "schedule": {
+    "byDaySuffix": "(theo ngày)"
+  },
+  "eventType": {
+    "exhibition": "Triển lãm",
+    "workshop": "Workshop",
+    "talk": "Toạ đàm",
+    "tour": "Tour",
+    "fair": "Hội chợ",
+    "film": "Chiếu phim",
+    "performance": "Biểu diễn",
+    "class": "Lớp học",
+    "game": "Trò chơi",
+    "reading": "Đọc sách",
+    "food": "Ẩm thực",
+    "award": "Trao giải"
+  },
+  "error": {
+    "dataStatus": "Không tải được dữ liệu sự kiện",
+    "dataBody": "Không tải được dữ liệu sự kiện.<br>Hãy tải lại trang.",
+    "dataLog": "Không tải được dữ liệu sự kiện",
+    "initLog": "Không khởi tạo được giao diện"
+  },
+  "vocab": {
+    "cluster": {
+      "g1": "Hồ Gươm & Tràng Tiền",
+      "g2": "Chợ Đồng Xuân & Hàng Đậu",
+      "g3": "Đình & Di tích Phố Cổ",
+      "g4": "Công viên Thống Nhất & Lân cận",
+      "g5": "Điểm Vệ tinh"
+    }
+  }
+}
