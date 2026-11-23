@@ -62,15 +62,24 @@
     .brand-sub strong { color: var(--green); font-weight: 700; }
     .prompts-intro { margin: 0 0 12px; color: #718078; font-size: 10.5px; line-height: 1.5; }
     .ai-prompt-list { display: grid; gap: 18px; }
-    .ai-prompt-group { display: grid; gap: 9px; }
-    .ai-prompt-group-title { margin: 0; color: #74817d; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .ai-prompt-group-list { display: grid; gap: 12px; }
+    .ai-prompt-group { display: grid; gap: 10px; }
+    .ai-prompt-group-title { margin: 0; color: #55645d; font: 800 10.5px Manrope, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    /* A short accent bar anchors each group so the heading reads as a section, not a label. */
+    .ai-prompt-group > .ai-prompt-group-title { display: flex; align-items: center; gap: 7px; }
+    .ai-prompt-group > .ai-prompt-group-title::before {
+      content: ""; width: 3px; height: 12px; flex: 0 0 auto; border-radius: 2px; background: var(--green);
+    }
+    .ai-prompt-group-list { display: grid; gap: 10px; }
     .ai-prompts-loading { margin: 0; color: #718078; font-size: 10px; line-height: 1.5; }
     .ai-prompts-loading a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
-    .ai-prompt { border-top: 1px solid #e4ece6; padding-top: 10px; }
-    .ai-prompt:first-child { border-top: 0; padding-top: 0; }
-    .ai-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
-    .ai-prompt-head strong { color: #34443b; font-size: 10px; }
+    /* Each predefined prompt is its own card, so its title stays the loudest line
+       even though the context box and the field below it carry more text. */
+    .ai-prompt {
+      border: 1px solid #e4ece6; border-radius: 12px; padding: 11px 12px; background: #fff;
+      box-shadow: 0 1px 2px rgb(30 45 38 / 4%);
+    }
+    .ai-prompt-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .ai-prompt-head strong { color: #22352c; font: 800 12.5px/1.35 Manrope, sans-serif; letter-spacing: -.1px; overflow-wrap: anywhere; }
     .ai-prompt-copy {
       display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 0 9px;
       border: 1px solid #dce7df; border-radius: 7px; color: var(--green); background: #fff;
@@ -129,6 +138,8 @@
     .ai-prompt-reset:hover { border-color: #b7cfc0; color: var(--green); background: #eef7f0; }
     .ai-prompt-reset[hidden] { display: none; }
     .ai-prompt-text.is-edited { border-color: #b7cfc0; background: #fbfdfb; }
+    .ai-prompt .ai-prompt-text { background: #fbfcfb; }
+    .ai-prompt .ai-prompt-text:focus { background: #fff; }
     .ai-custom {
       display: grid; gap: 8px; margin-bottom: 18px;
       border: 1px solid #dbe9e0; border-radius: 14px; padding: 13px; background: #fbfdfb;
@@ -633,8 +644,9 @@
       .map-topbar { top: 12px; right: 12px; left: 12px; gap: 6px; }
       .map-toggle { display: inline-flex; }
       .map-actions { gap: 6px; }
-      .map-actions .lang-toggle { min-width: 38px; justify-content: center; gap: 0; padding: 0 8px; }
-      .map-actions .lang-toggle i { display: none; }
+      .map-actions .lang-toggle { min-width: 39px; gap: 0; justify-content: center; padding: 0; }
+      .map-actions .lang-toggle span { display: none; }
+      .map-actions .lang-toggle i { display: block; font-size: 14px; }
       .pin-host { width: 26px; height: 32px; }
       .event-pin { width: 26px; height: 32px; }
       .event-pin-body { width: 24px; height: 24px; }
