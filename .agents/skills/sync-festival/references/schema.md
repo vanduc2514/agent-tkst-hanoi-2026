@@ -43,7 +43,7 @@ pin goes.
 | `lineup` | `[{date,start,end,act}]` | repo | manual |
 | `title` | string | organiser | manual |
 | `image` | string | repo | manual; the cover, always the first entry of `images` |
-| `images` | `string[]` | repo | manual; up to 8 promotion images, cover first: a designed programme card in `images/cards/` when the organiser published one for the event, then photos from the site, its media albums and the social posts in `images/events/`; absent when the event has none and `image` points at `images/kinds/<kind>.svg` |
+| `images` | `string[]` | repo | manual; up to 10 promotion images, cover first: images that print information (a designed card, a poster with hours and venue, read by OCR) in `images/cards/`, then photos in `images/events/`; absent when the event has none and `image` points at `images/kinds/<kind>.svg` |
 | `placeId` | `pNN` | repo | manual |
 | `clusterId` | `gN` | repo | manual |
 | `spotlight` | bool | repo | manual |

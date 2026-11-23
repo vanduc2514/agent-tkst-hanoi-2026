@@ -324,6 +324,10 @@
        showing rather than that something is running right now. */
     .nearby-toggle.is-on { color: #1d4ed8; border-color: #d7e3fb; }
     .nearby-toggle.is-on .live-dot { background: #3b82f6; animation: none; }
+    /* Visited venues are greyed out by default; this toggle brings their cluster
+       colour back. It is a view switch only, never a filter. */
+    .visited-toggle.is-on { color: #4b5563; border-color: #d9dfe2; }
+    .visited-toggle.is-on .live-dot { background: #6b7280; animation: none; }
     .live-toggle.is-hidden { display: none; }
     @keyframes live-pulse {
       0% { box-shadow: 0 0 0 0 rgb(34 197 94 / 55%); }
@@ -370,6 +374,15 @@
 
     .event-pin.in-route:hover .event-pin-body,
     .event-pin.in-route.selected .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #1c3f35, 0 6px 16px #173a2e66; }
+    /* A visited venue keeps its pin so the place stays readable, but loses its cluster
+       colour and stops advertising itself as ongoing. */
+    .event-pin.is-visited .event-pin-body { background: #9aa5a0; box-shadow: 0 3px 8px #173a2e33; }
+    .event-pin.is-visited::after { background: #173a2e22; }
+    .event-pin.is-visited:hover .event-pin-body { background: #8b9691; box-shadow: 0 5px 14px #173a2e55; }
+    .event-pin.is-visited.now-live::before { display: none; }
+    .event-pin.is-visited.selected .event-pin-body { box-shadow: 0 0 0 4px #fff, 0 0 0 7px #9aa5a0, 0 6px 16px #173a2e66; }
+    .event-pin.is-visited.in-route .event-pin-body,
+    .event-pin.is-visited.in-route:hover .event-pin-body { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #5f6b65, 0 4px 10px #173a2e66; }
     .route-badge {
       position: absolute; z-index: 2; top: -6px; right: -6px; display: grid; min-width: 17px; height: 17px; padding: 0 3px;
       place-items: center; border: 2px solid #fff; border-radius: 9px; color: #fff; background: #1c3f35;
@@ -401,13 +414,14 @@
     .detail-close { position: absolute; top: 12px; right: 12px; display: grid; width: 32px; height: 30px; place-items: center; border: 1px solid #e4eae6; border-radius: 7px; color: #66736d; background: #fff; font-size: 12px; }
     .detail-close:hover { border-color: #bfd2c7; color: var(--green); }
     .detail-body { padding: 14px 17px 17px; }
-    .detail-hero { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; object-fit: cover; background: #eef2ef; box-shadow: 0 6px 18px rgb(20 45 34 / 12%); }
+    .detail-hero { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; object-fit: cover; background: #eef2ef; box-shadow: 0 6px 18px rgb(20 45 34 / 12%); touch-action: pan-y; user-select: none; }
     .detail-gallery { position: relative; margin-bottom: 12px; }
     .detail-gallery .detail-hero { cursor: zoom-in; }
     .detail-gallery .detail-hero.is-card { object-fit: contain; background: #cfc6ff; }
     .detail-gallery-count { position: absolute; right: 9px; bottom: 9px; display: inline-flex; align-items: center; gap: 5px; border: 0; border-radius: 99px; padding: 4px 9px; color: #fff; background: rgb(14 32 24 / 62%); backdrop-filter: blur(6px); font: 700 9.5px/1.2 "DM Sans", sans-serif; }
-    .detail-thumbs { display: grid; grid-auto-columns: 64px; grid-auto-flow: column; gap: 7px; margin: -2px 0 14px; padding-bottom: 3px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
-    .detail-thumb { width: 64px; height: 46px; border: 2px solid transparent; border-radius: 8px; padding: 0; overflow: hidden; background: #eef2ef; transition: border-color .15s, transform .15s; }
+    .detail-thumbs { display: grid; grid-auto-columns: 64px; grid-auto-flow: column; gap: 7px; margin: -2px 0 14px; padding-bottom: 3px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+    .detail-thumb { width: 64px; height: 46px; border: 2px solid transparent; border-radius: 8px; padding: 0; overflow: hidden; background: #eef2ef; scroll-snap-align: start; transition: border-color .15s, transform .15s; }
+    .detail-thumb.is-card img { object-fit: contain; background: #cfc6ff; }
     .detail-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
     .detail-thumb:hover { transform: translateY(-1px); }
     .detail-thumb.active { border-color: var(--cluster, var(--green)); }
@@ -441,6 +455,7 @@
     .detail-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; padding-top: 13px; border-top: 1px solid #eef2ef; }
     .detail-actions .small-button, .detail-actions .directions-button { min-height: 39px; font-size: 10.5px; }
     .detail-actions .small-button.saved { border-color: #d5e8dc; color: #237148; background: #f1f8f3; }
+    .detail-actions .detail-visited { grid-column: 1 / -1; }
     .detail-times { margin-top: 13px; border: 1px solid #e8eee9; border-radius: 10px; padding: 10px 12px; background: #fbfdfb; }
     .detail-times-title { margin: 0 0 7px; color: #47584f; font-size: 10px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
     .detail-times-title i { margin-right: 5px; color: var(--green); }
@@ -782,6 +797,10 @@
             <span class="live-label">Lân Cận</span>
             <span class="live-dot" aria-hidden="true"></span>
           </button>
+          <button class="live-toggle visited-toggle is-hidden" id="visited-toggle" type="button" aria-pressed="false" title="Các địa điểm bạn đã ghé được làm mờ trên bản đồ. Bấm để hiện lại đầy đủ màu.">
+            <span class="live-label">Đã ghé</span>
+            <span class="live-dot" aria-hidden="true"></span>
+          </button>
         </div>
         <p class="map-status-note" id="map-status-note" role="status" aria-live="polite"></p>
       </div>
@@ -1060,6 +1079,46 @@
           if (keyEvent.key === "Escape") { keyEvent.preventDefault(); closeGallery(); }
           if (keyEvent.key === "ArrowLeft") { keyEvent.preventDefault(); stepGallery(-1); }
           if (keyEvent.key === "ArrowRight") { keyEvent.preventDefault(); stepGallery(1); }
+        });
+
+        // Swipe the photo left or right, on a touch screen or with a dragged mouse.
+        const SWIPE = 45;
+        let startX = null;
+        let startY = null;
+        q("#gallery-viewer").addEventListener("pointerdown", (event) => {
+          if (event.target.closest("button")) return;
+          startX = event.clientX;
+          startY = event.clientY;
+        });
+        q("#gallery-viewer").addEventListener("pointerup", (event) => {
+          if (startX === null) return;
+          const dx = event.clientX - startX;
+          const dy = event.clientY - startY;
+          startX = null;
+          if (Math.abs(dx) < SWIPE || Math.abs(dx) < Math.abs(dy)) return;
+          stepGallery(dx < 0 ? 1 : -1);
+        });
+        q("#gallery-viewer").addEventListener("pointercancel", () => { startX = null; });
+
+        // The detail panel's photo also swipes, so the strip works without opening the viewer.
+        const hero = () => q("#detail-content .detail-hero");
+        q("#detail-content").addEventListener("pointerdown", (event) => {
+          if (!event.target.classList.contains("detail-hero")) return;
+          startX = event.clientX;
+          startY = event.clientY;
+        });
+        q("#detail-content").addEventListener("pointerup", (event) => {
+          if (startX === null || !event.target.classList.contains("detail-hero")) return;
+          const dx = event.clientX - startX;
+          const dy = event.clientY - startY;
+          startX = null;
+          if (Math.abs(dx) < SWIPE || Math.abs(dx) < Math.abs(dy)) return;
+          const thumbs = [...q("#detail-content").querySelectorAll(".detail-thumb")];
+          if (!thumbs.length) return;
+          const current = Math.max(0, thumbs.findIndex((thumb) => thumb.classList.contains("active")));
+          const next = (current + (dx < 0 ? 1 : -1) + thumbs.length) % thumbs.length;
+          thumbs[next].click();
+          thumbs[next].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
         });
       }
 
@@ -1397,11 +1456,30 @@
         }
         const eventLayer = [];
         const markerByEvent = new Map();
-        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, nearby: true, filters: { query: "", date: "", cluster: "" } };
+        const state = { tab: "explore", origin: null, pickingOrigin: false, route: [], selectedEventId: null, live: true, nearby: true, visited: new Set(), showVisited: false, filters: { query: "", date: "", cluster: "" } };
         const $ = (selector) => document.querySelector(selector);
         // filters is the user's query/date/cluster; live mode is its own flag, so the
         // two are combined here instead of keeping a second copy in filters.
         const activeFilters = () => ({ ...state.filters, live: state.live });
+
+        // Visits are personal, so they stay in this browser. The set holds place ids, so
+        // saving one venue greys every event pinned there. It never feeds into
+        // filterEvents: the date, cluster and nearby rules keep seeing a visited event
+        // like any other. Only the pin styling changes.
+        const VISITED_KEY = "tkst:visited:v1";
+
+        function loadVisited() {
+          try {
+            const saved = JSON.parse(localStorage.getItem(VISITED_KEY) || "[]");
+            return new Set(Array.isArray(saved) ? saved.filter((id) => typeof id === "string" && placesById[id]) : []);
+          } catch {
+            return new Set();
+          }
+        }
+
+        function persistVisited() {
+          try { localStorage.setItem(VISITED_KEY, JSON.stringify([...state.visited])); } catch { /* storage blocked */ }
+        }
         const $$ = (selector) => [...document.querySelectorAll(selector)];
         let toastTimer;
         let suppressMapCloseUntil = 0;
@@ -1696,6 +1774,7 @@
           const pin = host.firstElementChild;
           pin.setAttribute("aria-label", event.title);
           pin.title = event.title;
+          pin.classList.toggle("is-visited", state.visited.has(event.placeId) && !state.showVisited);
           const hoverHtml = `<strong>${escapeHtml(event.title)}</strong><br><span>${escapeHtml(eventTimeLabel(event))} · ${escapeHtml(place.name)}</span>`;
           const activate = () => {
             suppressMapCloseUntil = performance.now() + 450;
@@ -2069,6 +2148,7 @@
           const place = placesById[event.placeId];
           const cluster = clusters[event.clusterId];
           const inRoute = state.route.includes(event.id);
+          const visited = state.visited.has(event.placeId);
           const photos = eventGallery(event);
           const timeRows = eventTimeRows(event);
           const type = eventType(event);
@@ -2086,7 +2166,7 @@
                 <img class="detail-hero ${isCard(eventGallery(event)[0]) ? "is-card" : ""}" src="${escapeHtml(eventGallery(event)[0])}" alt="${escapeHtml(event.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'">
                 ${photos.length > 1 ? `<span class="detail-gallery-count"><i class="fa-regular fa-images" aria-hidden="true"></i>${photos.length} ảnh</span>` : ""}
               </div>
-              ${photos.length > 1 ? `<div class="detail-thumbs">${photos.map((photo, index) => `<button class="detail-thumb ${index ? "" : "active"}" type="button" data-photo="${index}" aria-label="Ảnh ${index + 1}"><img src="${escapeHtml(photo)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"></button>`).join("")}</div>` : ""}
+              ${photos.length > 1 ? `<div class="detail-thumbs">${photos.map((photo, index) => `<button class="detail-thumb ${isCard(photo) ? "is-card" : ""} ${index ? "" : "active"}" type="button" data-photo="${index}" aria-label="Ảnh ${index + 1}"><img src="${escapeHtml(photo)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_IMAGE}'"></button>`).join("")}</div>` : ""}
               <div class="detail-facts">
                 <div class="detail-fact"><i class="fa-regular fa-calendar"></i><div><strong>${escapeHtml(event.days ? formatDayList(event.days) : event.dateEnd !== event.date ? `${formatShortDate(event.date)} – ${formatShortDate(event.dateEnd)}` : formatLongDate(event.date))}</strong><span>${escapeHtml(eventTimeLabel(event))}${event.dateEnd !== event.date && !event.days && !event.slots?.length ? " hằng ngày" : ""} · giờ Hà Nội (UTC+7)</span></div></div>
                 <div class="detail-fact"><i class="fa-solid fa-location-dot"></i><div><strong>${escapeHtml(place.name)}</strong><span>${escapeHtml(place.kind)}${place.address ? ` · ${escapeHtml(place.address)}` : ""}</span></div></div>
@@ -2115,12 +2195,16 @@
               <div class="detail-actions">
                 <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${inRoute ? "Bỏ khỏi tuyến" : "Thêm vào tuyến"}</button>
                 <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>Chỉ đường</a>
+                <button class="small-button detail-visited ${visited ? "saved" : ""}" type="button" aria-pressed="${visited}"><i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Đã ghé thăm" : "Đánh dấu đã ghé"}</button>
               </div>
               <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
             </div>`;
           $("#detail-content").querySelector(".detail-route").addEventListener("click", () => {
             if (inRoute) removeFromRoute(event.id);
             else addToRoute(event.id);
+          });
+          $("#detail-content").querySelector(".detail-visited").addEventListener("click", () => {
+            setVisited(event.placeId, !state.visited.has(event.placeId));
           });
           const hero = $("#detail-content .detail-hero");
           if (hero) hero.addEventListener("click", () => openGallery(photos, 0));
@@ -2313,6 +2397,56 @@
             const event = eventById[eventId];
             pin.classList.toggle("now-live", liveOn && !!event && eventHappeningNow(event, now));
           });
+        }
+
+        // The "Đã ghé" toggle appears once this browser has saved a visit. It swaps the
+        // grey visited pins for their normal cluster colour without touching filters.
+        function updateVisitedButton() {
+          const button = $("#visited-toggle");
+          if (!button) return;
+          const count = state.visited.size;
+          const available = count > 0;
+          const on = available && !!state.showVisited;
+          button.classList.toggle("is-hidden", !available);
+          button.disabled = !available;
+          button.classList.toggle("is-on", on);
+          button.setAttribute("aria-pressed", String(on));
+          const label = button.querySelector(".live-label");
+          if (label) label.textContent = available ? `Đã ghé ${count}` : "Đã ghé";
+          button.title = !available
+            ? "Đánh dấu một địa điểm đã ghé trong thẻ chi tiết để dùng chế độ này."
+            : on
+              ? "Đang bật: các địa điểm đã ghé hiện đầy đủ màu. Bấm để làm mờ chúng."
+              : "Đang tắt: các địa điểm đã ghé được làm mờ. Bấm để hiện lại đầy đủ màu.";
+          button.setAttribute("aria-label", `Địa điểm đã ghé: ${on ? "đang hiện đầy đủ" : "đang làm mờ"}. ${button.title}`);
+        }
+
+        function syncVisitedPins() {
+          markerByEvent.forEach((marker, eventId) => {
+            const pin = pinElement(marker);
+            const event = eventById[eventId];
+            if (!pin || !event) return;
+            pin.classList.toggle("is-visited", state.visited.has(event.placeId) && !state.showVisited);
+          });
+        }
+
+        // Saving a visit only rewrites the pin styling, the toggle and this card's button;
+        // the list, the counts and the route keep treating the event as normal.
+        function setVisited(placeId, visited) {
+          if (!placesById[placeId]) return;
+          if (visited) state.visited.add(placeId);
+          else state.visited.delete(placeId);
+          persistVisited();
+          updateVisitedButton();
+          syncVisitedPins();
+          const openEvent = state.selectedEventId ? eventById[state.selectedEventId] : null;
+          const detailButton = $("#detail-content .detail-visited");
+          if (detailButton && openEvent && openEvent.placeId === placeId) {
+            detailButton.classList.toggle("saved", visited);
+            detailButton.setAttribute("aria-pressed", String(visited));
+            detailButton.innerHTML = `<i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Đã ghé thăm" : "Đánh dấu đã ghé"}`;
+          }
+          showToast(visited ? "Đã lưu địa điểm này vào danh sách đã ghé." : "Đã bỏ đánh dấu địa điểm này.");
         }
 
         // Reuse the event pins for the route: mark the pins already on the map and add
@@ -3200,6 +3334,15 @@
             }
             setNearby(!state.nearby, { quiet: false });
           });
+          $("#visited-toggle").addEventListener("click", () => {
+            if ($("#visited-toggle").disabled) return;
+            state.showVisited = !state.showVisited;
+            updateVisitedButton();
+            syncVisitedPins();
+            showMapNote(state.showVisited
+              ? "Đang hiện đầy đủ các địa điểm đã ghé."
+              : "Các địa điểm đã ghé được làm mờ.");
+          });
           $("#share-route").addEventListener("click", shareRoute);
           $("#cluster-filter").addEventListener("change", (event) => {
             state.filters.cluster = event.target.value;
@@ -3247,8 +3390,10 @@
         // carries the visitor somewhere specific, so the welcome tour stays closed.
         const hasDeepLink = window.location.search.length > 0;
         const initialTab = applyUrlState();
+        state.visited = loadVisited();
         state.tab = initialTab;
         renderFilters();
+        updateVisitedButton();
         $("#brand-sub").innerHTML = `<strong>${events.length} hoạt động</strong> · ${Object.keys(clusters).length} cụm · ${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`;
         renderEventMarkers();
         buildPresets();

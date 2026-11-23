@@ -34,7 +34,7 @@ Thông tin về hoạt động, thời gian, địa điểm và mô tả đượ
 
 [lehoithietkesangtao.vn](https://lehoithietkesangtao.vn)
 
-Ảnh sự kiện do ban tổ chức công bố trên website, các album ảnh và các kênh Facebook, Instagram, đã được thu nhỏ cho nhẹ trang. Những chương trình có thiệp giới thiệu riêng của ban tổ chức thì dùng chính thiệp đó làm ảnh bìa. Mỗi hoạt động có thể có nhiều ảnh: bảng chi tiết hiện ảnh bìa kèm dải ảnh nhỏ, bấm vào ảnh để mở chế độ xem toàn màn hình với phím mũi tên. Những hoạt động chưa có ảnh dùng poster do trang tự tạo theo loại hình.
+Ảnh sự kiện do ban tổ chức công bố trên website, các album ảnh và các kênh Facebook, Instagram, đã được thu nhỏ cho nhẹ trang. Những chương trình có thiệp giới thiệu riêng của ban tổ chức thì dùng chính thiệp đó làm ảnh bìa. Mỗi hoạt động có thể có nhiều ảnh: bảng chi tiết hiện ảnh bìa kèm dải ảnh nhỏ, vuốt ngang hoặc bấm vào ảnh để xem các ảnh còn lại, và mở được chế độ xem toàn màn hình (vuốt, phím mũi tên). Ảnh có chữ của ban tổ chức — thiệp chương trình, poster có giờ và địa điểm — được ưu tiên làm ảnh bìa. Những hoạt động chưa có ảnh dùng poster do trang tự tạo theo loại hình.
 
 Nền bản đồ sử dụng [OpenFreeMap](https://openfreemap.org), với dữ liệu bản đồ © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).
 
