@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Bộ hành &quot;Phố cổ Thong dong&quot;">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6c7d33"/>
+      <stop offset="1" stop-color="#38411a"/>
+    </linearGradient>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="750" fill="url(#bg)"/>
+  <rect width="1200" height="750" fill="url(#dots)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.14">
+    <circle cx="1040" cy="140" r="170" stroke-width="2"/>
+    <circle cx="1040" cy="140" r="240" stroke-width="2"/>
+    <circle cx="1040" cy="140" r="310" stroke-width="2"/>
+  </g>
+  <text x="1128" y="300" text-anchor="end" font-family="Helvetica Neue, Arial, sans-serif"
+        font-size="300" font-weight="700" fill="#ffffff" opacity="0.10">88</text>
+  <g transform="translate(96 476)">
+    <rect x="0" y="-34" width="74" height="34" rx="17" fill="#ffffff" opacity="0.16"/>
+    <text x="13" y="-10" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" font-weight="700"
+          fill="#ffffff" opacity="0.95">Tour</text>
+  </g>
+    <text x="96" y="572" font-family="Helvetica Neue, Arial, sans-serif" font-size="58" font-weight="700" fill="#ffffff">Bộ hành &quot;Phố cổ Thong dong&quot;</text>
+  <rect x="96" y="606" width="72" height="5" rx="2.5" fill="#ffffff" opacity="0.62"/>
+  <text x="96" y="646" font-family="Helvetica Neue, Arial, sans-serif" font-size="26"
+        fill="#ffffff" opacity="0.92">17–24.11.2026 · Khu Phố cổ, Đồng Xuân</text>
+  <text x="96" y="704" font-family="Helvetica Neue, Arial, sans-serif" font-size="17"
+        letter-spacing="2" fill="#ffffff" opacity="0.6">LỄ HỘI THIẾT KẾ SÁNG TẠO HÀ NỘI 2026</text>
+  <text x="1104" y="704" text-anchor="end" font-family="Helvetica Neue, Arial, sans-serif"
+        font-size="17" letter-spacing="2" fill="#ffffff" opacity="0.6">BẢN ĐỒ TỔNG HỢP</text>
+</svg>

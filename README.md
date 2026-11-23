@@ -14,7 +14,7 @@ Bạn có thể sử dụng bản đồ để tìm kiếm hoạt động theo s�
 
 ![Bản đồ tổng quan](images/overview.png)
 
-Trang mở ra ở tab Khám phá. Bên trái là danh sách hoạt động với ô tìm kiếm, bộ lọc ngày và bộ lọc cụm; bên phải là bản đồ. Mỗi cụm có một màu pin riêng nên nhìn màu là đoán được khu vực. Mỗi thẻ có ảnh bìa lấy từ ảnh do ban tổ chức công bố, còn lại là poster theo loại hình của hoạt động. Chế độ Live bật sẵn và chỉ giữ những hoạt động còn mở trong ngày, con số trên thanh trên cùng cho biết đang có bao nhiêu hoạt động như vậy.
+Trang mở ra ở tab Khám phá. Bên trái là danh sách hoạt động với ô tìm kiếm, bộ lọc ngày và bộ lọc cụm; bên phải là bản đồ. Mỗi cụm có một màu pin riêng nên nhìn màu là đoán được khu vực. Mỗi thẻ có ảnh bìa lấy từ ảnh do ban tổ chức công bố, còn lại là poster riêng của hoạt động, vẽ theo loại hình của nó. Chế độ Live bật sẵn và chỉ giữ những hoạt động còn mở trong ngày, con số trên thanh trên cùng cho biết đang có bao nhiêu hoạt động như vậy.
 
 ![Chi tiết hoạt động](images/detail.png)
 
@@ -42,7 +42,7 @@ Thông tin về hoạt động, thời gian, địa điểm và mô tả đượ
 
 [lehoithietkesangtao.vn](https://lehoithietkesangtao.vn)
 
-Ảnh sự kiện do ban tổ chức công bố trên website, các album ảnh và các kênh Facebook, Instagram, đã được thu nhỏ cho nhẹ trang. Những chương trình có thiệp giới thiệu riêng của ban tổ chức thì dùng chính thiệp đó làm ảnh bìa. Mỗi hoạt động có thể có nhiều ảnh: bảng chi tiết hiện ảnh bìa kèm dải ảnh nhỏ, vuốt ngang hoặc bấm vào ảnh để xem các ảnh còn lại, và mở được chế độ xem toàn màn hình (vuốt, phím mũi tên). Ảnh có chữ của ban tổ chức — thiệp chương trình, poster có giờ và địa điểm — được ưu tiên làm ảnh bìa. Những hoạt động chưa có ảnh dùng poster do trang tự tạo theo loại hình.
+Ảnh sự kiện do ban tổ chức công bố trên website, các album ảnh và các kênh Facebook, Instagram, đã được thu nhỏ cho nhẹ trang. Những chương trình có thiệp giới thiệu riêng của ban tổ chức thì dùng chính thiệp đó làm ảnh bìa. Mỗi hoạt động có thể có nhiều ảnh: bảng chi tiết hiện ảnh bìa kèm dải ảnh nhỏ, vuốt ngang hoặc bấm vào ảnh để xem các ảnh còn lại, và mở được chế độ xem toàn màn hình (vuốt, phím mũi tên). Ảnh có chữ của ban tổ chức — thiệp chương trình, poster có giờ và địa điểm — được ưu tiên làm ảnh bìa. Những hoạt động chưa có ảnh dùng poster do trang tự tạo: một tấm thiệp riêng cho từng hoạt động, ghi tên, thời gian và địa điểm, tô màu theo loại hình.
 
 Nền bản đồ sử dụng [OpenFreeMap](https://openfreemap.org), với dữ liệu bản đồ © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).
 

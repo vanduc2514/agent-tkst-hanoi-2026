@@ -36,7 +36,7 @@ from pathlib import Path
 
 from config import (
     CARD_DIR, EVENTS, IMAGE_URL_CARDS, IMAGE_URL_EVENTS, MAX_IMAGES_PER_EVENT,
-    OCR_BIN, OCR_SOURCE, PHOTO_DIR, SITE, SCAN_DIR, UA,
+    OCR_BIN, OCR_SOURCE, PHOTO_DIR, POSTER_DIR, SITE, SCAN_DIR, SRC, UA,
 )
 
 try:  # Pillow is only needed when images are actually harvested
@@ -119,6 +119,14 @@ def fold(text):
 
 def tokens(text):
     return {word for word in fold(text).split() if word}
+
+
+def fallback_image(event):
+    """A generated poster when one exists, else the tile for the event's kind."""
+    poster = POSTER_DIR / f"{event['id']}.svg"
+    if (SRC / "images" / "posters" / poster.name).exists():
+        return f"images/posters/{poster.name}"
+    return f"images/kinds/{kind_of(event)}.svg"
 
 
 def kind_of(event):
@@ -326,7 +334,7 @@ def apply(data, kept):
             event["image"] = photos[0]
         else:
             had = bool(event.pop("images", None))
-            event["image"] = f"images/kinds/{kind_of(event)}.svg"
+            event["image"] = fallback_image(event)
             if had:
                 cleared.append(event["id"])
     return cleared
@@ -399,9 +407,13 @@ def social_candidates(posts, collected, names):
     """Candidates from posts whose opening line names an event."""
     candidates = []
     for post in posts:
-        # The opening block, not the whole caption: a roundup names events deep inside.
-        lead = (post["text"] or "")[:220]
-        event_ids = names.decisive(lead)
+        # A post is evidence when its opening block names an event, or when the whole
+        # post is about exactly one. A roundup that names several is not evidence.
+        text = post["text"] or ""
+        event_ids = names.decisive(text[:220])
+        if not event_ids:
+            whole = names.decisive(text)
+            event_ids = whole if len(whole) == 1 else []
         if not event_ids:
             continue
         urls = post_images(post, collected)
@@ -459,12 +471,26 @@ def site_candidates(collected, names):
         if project.get("coverImageUrl"):
             add(names.decisive(project.get("title") or ""), SITE + project["coverImageUrl"])
 
-    for article in _get_json("/content?page=1&pageSize=5000"):
-        if not isinstance(article, dict) or not article.get("coverImageUrl"):
-            continue
-        if article.get("contentType") == "Page":
-            continue
-        add(names.decisive(article.get("title") or ""), SITE + article["coverImageUrl"])
+    # The content endpoint is paged and has changed shape once already, so accept
+    # either a bare list or the {items, totalPages} envelope.
+    page = 1
+    while page <= 12:
+        payload = _get_json(f"/content?page={page}&pageSize=50")
+        if isinstance(payload, dict):
+            articles = payload.get("items") or []
+            pages = payload.get("totalPages") or 1
+        else:
+            articles = payload or []
+            pages = 1
+        for article in articles:
+            if not isinstance(article, dict) or not article.get("coverImageUrl"):
+                continue
+            if article.get("contentType") == "Page":
+                continue
+            add(names.decisive(article.get("title") or ""), SITE + article["coverImageUrl"])
+        if page >= pages:
+            break
+        page += 1
     return candidates
 
 

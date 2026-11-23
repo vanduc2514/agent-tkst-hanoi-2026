@@ -18,14 +18,18 @@ interactive map, a route planner, and agent-readable Markdown.
   `src/llms.txt`, plus browser-readable `src/index.md.html` and `src/llms.txt.html` wrappers.
 - `src/` is the folder that gets served and copied into the image, so it holds the page, the
   data files and the generated output. `images/` sits at the root and is only used by the
-  README, not by the site; `src/images/kinds/` holds the default posters the page falls back
-  to when an event has no photo.
+  README, not by the site. `src/images/kinds/` holds the tile for each kind, used when an
+  image fails to load; `src/images/events/` and `src/images/cards/` hold the organiser's own
+  pictures; `src/images/posters/` holds the generated card for every event that has none.
 - `.agents/skills/sync-festival/` keeps `src/events.json` in step with the organiser. It reads
   the official JSON API and pulls Facebook, Instagram and Threads through Apify, then reports
   drift before anything is written. Read its `SKILL.md` first; the Python scripts live next to it.
   Its `images` command gathers promotion photos and designed cards, reads each one with OCR to
   prove which event it shows, and stores the winners under `src/images`; it runs locally, not
   in CI, because it needs Pillow and Apple's Vision framework.
+- `tools/build-event-posters.py` draws one poster per event that has no photograph:
+  title, date and venue, in the colour of its kind. It is committed output, so rerun it
+  (or `--check` in CI) after any title, date or venue change.
 - Generated files are gitignored. CI regenerates them, then builds the nginx image.
 - Use`tmp` in this workspace to store temporary script, artifact or anything that is not included in the app or in build process
 ## Local Development

@@ -50,6 +50,7 @@ FILL_WHEN_EMPTY = ("officialType", "officialVenue", "officialVenueAddress", "off
 # src/images/cards, and the generated kind posters in src/images/kinds.
 PHOTO_DIR = SRC / "images" / "events"
 CARD_DIR = SRC / "images" / "cards"
+POSTER_DIR = SRC / "images" / "posters"
 IMAGE_URL_EVENTS = "images/events"
 IMAGE_URL_CARDS = "images/cards"
 MAX_IMAGES_PER_EVENT = 10

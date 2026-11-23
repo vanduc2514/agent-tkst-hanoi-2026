@@ -55,6 +55,7 @@ steps:
     run: |
       python3 .agents/skills/sync-festival/scripts/sync_festival.py check
       python3 .agents/skills/sync-festival/scripts/selftest.py
+      python3 tools/build-event-posters.py
       node tools/build-agent-files.mjs --base https://tkst.nvduc.dev
 ---
 

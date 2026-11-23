@@ -8,7 +8,8 @@ served by nginx from `src` and a CDN URL expires within days.
 |---|---|---|
 | `src/images/events/` | photos of the event itself | whenever the organiser published one |
 | `src/images/cards/` | designed cards: title, dates, hours, venue | the card names the event |
-| `src/images/kinds/` | generated posters per kind | the event has no truthful photo |
+| `src/images/posters/` | a generated card per event: title, dates, venue | the event has no truthful photo |
+| `src/images/kinds/` | one tile per kind | last resort, when an image fails to load |
 
 Files are content-addressed (`<sha1 of the jpeg payload>.jpg`), so a picture used
 by two events is stored once and re-running the harvest does not churn git.
@@ -46,6 +47,15 @@ by two events is stored once and re-running the harvest does not churn git.
 
 Nothing is inferred from an image's colours or filename: the OCR text and the post
 are the only evidence.
+
+## When an event has no photo
+
+`images` never invents one. It points the event at
+`images/posters/<id>.svg`, drawn by `tools/build-event-posters.py`, which prints
+the event's own title, dates and venue in the colour of its kind. Run that script
+after any title, date or venue change; `--check` reports drift and the sync
+workflow runs it as part of validation. The kind tiles stay only as the browser's
+fallback when a file fails to load.
 
 ## Adding a card deck
 
