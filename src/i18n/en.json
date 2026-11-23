@@ -167,11 +167,11 @@
       "other": "Attended {count}"
     },
     "titleUnavailable": "Mark an event as attended in its detail card to use this view.",
-    "titleOn": "On: attended events show their normal colours. Tap to dim them.",
-    "titleOff": "Off: attended events are dimmed. Tap to show them in full colour.",
+    "titleOn": "On: attended events are shown normally. Tap to dim them.",
+    "titleOff": "Off: attended events are dimmed. Tap to show them normally.",
     "ariaOn": "Attended events: shown in full. {title}",
     "ariaOff": "Attended events: dimmed. {title}",
-    "noteOn": "Showing attended events in full colour.",
+    "noteOn": "Showing attended events.",
     "noteOff": "Attended events are dimmed.",
     "savedToast": "Saved this event to your attended list.",
     "removedToast": "Removed the attended mark."

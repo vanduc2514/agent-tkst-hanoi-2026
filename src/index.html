@@ -60,21 +60,6 @@
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
     .brand-sub { margin: 7px 0 0; color: #78857f; font-size: 10.5px; font-weight: 500; line-height: 1.5; }
     .brand-sub strong { color: var(--green); font-weight: 700; }
-    /* Phones cannot fit a fifth pill in the map top bar, so the language switch moves
-       into the drawer header and the top-bar copy is hidden there. */
-    .brand-lang {
-      display: none; flex: 0 0 auto; align-items: center; gap: 6px; min-height: 32px;
-      border: 1px solid #e1e8e3; border-radius: 9px; padding: 0 9px;
-      color: #52605a; background: #fff; font: 800 10px "DM Sans", sans-serif;
-      cursor: pointer;
-    }
-    .brand-lang i { color: var(--green); font-size: 11px; }
-    .brand-lang:hover { border-color: #bfd2c7; }
-    .brand-lang:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
-    @media (max-width: 760px) {
-      .brand-lang { display: inline-flex; }
-      .map-actions .lang-toggle { display: none; }
-    }
     .prompts-intro { margin: 0 0 12px; color: #718078; font-size: 10.5px; line-height: 1.5; }
     .ai-prompt-list { display: grid; gap: 18px; }
     .ai-prompt-group { display: grid; gap: 9px; }
@@ -645,8 +630,11 @@
       .sidebar.mobile-open { transform: translateX(0); }
       .mobile-scrim { position: absolute; z-index: 1100; inset: 0; display: block; background: rgb(17 33 28 / 36%); opacity: 0; pointer-events: none; transition: opacity .2s; }
       .mobile-scrim.visible { opacity: 1; pointer-events: auto; }
-      .map-topbar { top: 12px; right: 12px; left: 12px; }
+      .map-topbar { top: 12px; right: 12px; left: 12px; gap: 6px; }
       .map-toggle { display: inline-flex; }
+      .map-actions { gap: 6px; }
+      .map-actions .lang-toggle { min-width: 38px; justify-content: center; gap: 0; padding: 0 8px; }
+      .map-actions .lang-toggle i { display: none; }
       .pin-host { width: 26px; height: 32px; }
       .event-pin { width: 26px; height: 32px; }
       .event-pin-body { width: 24px; height: 24px; }
@@ -704,7 +692,6 @@
               <p class="brand-sub" id="brand-sub" data-i18n="brand.sub">Lịch chính thức · bản đồ · lộ trình · gợi ý AI</p>
             </div>
           </div>
-          <button class="brand-lang" id="lang-toggle-sidebar" type="button" data-i18n-attr="aria-label:lang.switch;title:lang.switch" aria-label="Chuyển sang tiếng Anh" title="Chuyển sang tiếng Anh"><i class="fa-solid fa-globe" aria-hidden="true"></i><span id="lang-toggle-sidebar-label">EN</span></button>
         </div>
         <p class="agent-hint" data-i18n-html="agent.html">
           <strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại
@@ -3389,15 +3376,12 @@
         }
 
         function updateLangButton() {
-          const code = window.I18n.locale === "vi" ? "EN" : "VI";
-          ["lang-toggle", "lang-toggle-sidebar"].forEach((id) => {
-            const button = document.getElementById(id);
-            if (!button) return;
-            button.title = t("lang.switch");
-            button.setAttribute("aria-label", t("lang.switch"));
-            const label = button.querySelector("span");
-            if (label) label.textContent = code;
-          });
+          const button = $("#lang-toggle");
+          if (!button) return;
+          const label = button.querySelector("span");
+          if (label) label.textContent = window.I18n.locale === "vi" ? "EN" : "VI";
+          button.title = t("lang.switch");
+          button.setAttribute("aria-label", t("lang.switch"));
         }
 
         function toggleLanguage() {
@@ -3482,7 +3466,6 @@
             renderAll();
           });
           $("#lang-toggle").addEventListener("click", toggleLanguage);
-          $("#lang-toggle-sidebar").addEventListener("click", toggleLanguage);
           document.addEventListener("i18n:change", applyLocale);
           $("#show-all").addEventListener("click", showAllPlaces);
           $("#detail-close").addEventListener("click", closeEventDetail);

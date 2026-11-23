@@ -167,11 +167,11 @@
       "other": "Đã tham gia {count}"
     },
     "titleUnavailable": "Đánh dấu một hoạt động đã tham gia trong thẻ chi tiết để dùng chế độ này.",
-    "titleOn": "Đang bật: các hoạt động đã tham gia hiện đầy đủ màu. Bấm để làm mờ chúng.",
-    "titleOff": "Đang tắt: các hoạt động đã tham gia được làm mờ. Bấm để hiện lại đầy đủ màu.",
+    "titleOn": "Đang bật: các hoạt động đã tham gia hiện bình thường. Bấm để làm mờ chúng.",
+    "titleOff": "Đang tắt: các hoạt động đã tham gia được làm mờ. Bấm để hiện lại bình thường.",
     "ariaOn": "Hoạt động đã tham gia: đang hiện đầy đủ. {title}",
     "ariaOff": "Hoạt động đã tham gia: đang làm mờ. {title}",
-    "noteOn": "Đang hiện đầy đủ các hoạt động đã tham gia.",
+    "noteOn": "Đang hiện các hoạt động đã tham gia.",
     "noteOff": "Các hoạt động đã tham gia được làm mờ.",
     "savedToast": "Đã lưu hoạt động này vào danh sách đã tham gia.",
     "removedToast": "Đã bỏ đánh dấu hoạt động này."
