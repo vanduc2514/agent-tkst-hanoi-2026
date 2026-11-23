@@ -45,3 +45,19 @@ GENRE = {
 ORGANISER_FIELDS = ("officialUrl", "officialType", "officialSummary", "officialDetail",
                     "officialVenue", "officialVenueAddress")
 FILL_WHEN_EMPTY = ("officialType", "officialVenue", "officialVenueAddress", "officialUrl")
+
+# Promotion images. Photos live in src/images/events, designed cards in
+# src/images/cards, and the generated kind posters in src/images/kinds.
+PHOTO_DIR = SRC / "images" / "events"
+CARD_DIR = SRC / "images" / "cards"
+IMAGE_URL_EVENTS = "images/events"
+IMAGE_URL_CARDS = "images/cards"
+MAX_IMAGES_PER_EVENT = 10
+
+# OCR: Apple's Vision framework reads the text printed on a card. The helper is
+# compiled on first use, so Linux runners (no Vision) simply skip it.
+SCAN_DIR = WORK / "scan"
+OCR_SOURCE = Path(__file__).resolve().parent / "ocr.swift"
+OCR_BIN = WORK / "ocr"
+
+UA = "Mozilla/5.0 (compatible; tkst-sync/2.0)"

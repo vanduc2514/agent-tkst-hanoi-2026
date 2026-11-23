@@ -10,6 +10,7 @@ API. Nothing here scrapes HTML pages or drives a browser.
     python3 sync_festival.py enrich --write   # registration links from posts
     python3 sync_festival.py apply            # write the safe fills
     python3 sync_festival.py apply --insert-social   # also add new events from drafts
+    python3 sync_festival.py images           # promotion images for every event
     python3 sync_festival.py check            # validate events.json only
 
 Exit codes: 0 fine, 1 something to review or a validation problem, 2 retrieval
@@ -25,9 +26,11 @@ from datetime import datetime
 
 import apify
 import enrich
+import images
 import schedule
 import social
-from config import EVENTS, FESTIVAL_END, FESTIVAL_START, PUBLIC_API, WORK
+from config import (CARD_DIR, EVENTS, FESTIVAL_END, FESTIVAL_START, PHOTO_DIR, PUBLIC_API,
+                    WORK)
 from events_model import (
     known_slugs, load, new_event, next_number, renumber, save, validate, within_festival,
 )
@@ -658,6 +661,49 @@ def cmd_social(args):
     return 0
 
 
+def cmd_images(args):
+    """Collect, verify and store the promotion images for every event."""
+    data = load()
+    posts = read_social()
+    collected = None
+    social_path = WORK / "social.json"
+    if social_path.exists():
+        collected = json.loads(social_path.read_text(encoding="utf-8")).get("collected", {})
+    if posts is None or collected is None:
+        print("no social.json yet — running with the site's own images only", file=sys.stderr)
+        posts, collected = [], {}
+
+    kept, stats = images.harvest(data, posts, collected,
+                                max_per_event=args.max_per_event,
+                                use_ocr=not args.no_ocr)
+    print(f"candidates {stats['candidates']} · downloaded {stats['downloaded']} · "
+          f"events with images {len(kept)} · images {sum(len(v) for v in kept.values())} · "
+          f"ocr {'on' if stats['ocr'] else 'off'}")
+
+    provenance = {event_id: [(photo["url"], photo["source"], photo["info"]) for photo in photos]
+                  for event_id, photos in kept.items()}
+    WORK.mkdir(parents=True, exist_ok=True)
+    (WORK / "images.json").write_text(json.dumps(provenance, ensure_ascii=False, indent=1) + "\n",
+                                      encoding="utf-8")
+
+    if args.dry_run:
+        for event_id, photos in sorted(kept.items(), key=lambda pair: (-len(pair[1]), pair[0])):
+            cards = sum(1 for photo in photos if photo["info"] >= 3)
+            title = next(event["title"] for event in data["events"] if event["id"] == event_id)
+            print(f"  {event_id} {len(photos):2d} cards={cards}  {title[:58]}")
+        print(f"dry run — rerun without --dry-run to write (provenance {WORK / 'images.json'})")
+        return 0
+
+    paths = images.save_photos(kept, PHOTO_DIR, CARD_DIR)
+    cleared = images.apply(data, paths)
+    save(data)
+    problems, _ = validate(data)
+    print(f"wrote {sum(len(v) for v in paths.values())} entries across {len(paths)} events"
+          + (f" · cleared {len(cleared)} stale gallery/galleries" if cleared else ""))
+    print("validation clean" if not problems else f"validation: {len(problems)} problem(s)")
+    return 1 if problems else 0
+
+
 def cmd_check(args):
     data = load()
     problems, notes = validate(data)
@@ -691,6 +737,13 @@ def main(argv=None):
 
     social_cmd = sub.add_parser("social", help="turn the fetched posts into drafts")
     social_cmd.set_defaults(func=cmd_social)
+
+    images_cmd = sub.add_parser("images", help="collect promotion images for every event")
+    images_cmd.add_argument("--dry-run", action="store_true", help="report without writing")
+    images_cmd.add_argument("--no-ocr", action="store_true",
+                            help="skip OCR, so cards cannot be verified and only post photos are used")
+    images_cmd.add_argument("--max-per-event", type=int, default=10, help="images kept per event (default 10)")
+    images_cmd.set_defaults(func=cmd_images)
 
     check = sub.add_parser("check", help="validate events.json")
     check.set_defaults(func=cmd_check)

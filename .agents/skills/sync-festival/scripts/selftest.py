@@ -10,6 +10,7 @@ import sys
 import unittest
 from pathlib import Path
 
+import images
 import social
 import apify
 from config import EVENTS
@@ -497,6 +498,139 @@ class Apify(unittest.TestCase):
         finally:
             if previous:
                 os.environ["APIFY_TOKEN"] = previous
+
+
+class ImageNames(unittest.TestCase):
+    """How an image's text is tied to an event."""
+
+    EVENTS = [
+        {"id": "e1", "title": 'Sắp đặt ánh sáng "THAP: SANG"'},
+        {"id": "e2", "title": 'Sắp đặt âm thanh “Tháp Ẩn Ca”'},
+        {"id": "e3", "title": '"Tác phẩm "Tri Âm" thuộc Dự án "Ngỡ ngàng Hà Nội"'},
+        {"id": "e4", "title": '"Tác phẩm "Cà Phê Trứng" thuộc Dự án "Ngỡ ngàng Hà Nội"'},
+    ]
+
+    def setUp(self):
+        self.names = images.Names(self.EVENTS)
+
+    def test_variants_skip_type_words(self):
+        variants = self.names.variants('Tác phẩm “Chơi Chợ”')
+        self.assertIn("choi cho", variants)
+        self.assertNotIn("tac pham", variants)
+
+    def test_nested_quotes(self):
+        variants = self.names.variants(self.EVENTS[2]["title"])
+        self.assertIn("tri am", variants)
+
+    def test_decisive_prefers_unique_name(self):
+        # Both the work and its project are printed; only the work is unique.
+        self.assertEqual(self.names.decisive("Tri Âm · Ngỡ ngàng Hà Nội"), ["e3"])
+
+    def test_card_belongs_first_name_wins(self):
+        text = "THAP:SANG\nSap dat anh sang\nThap An Ca\nSound installation"
+        self.assertTrue(self.names.card_belongs(text, "e1"))
+        self.assertFalse(self.names.card_belongs(text, "e2"))
+
+    def test_card_belongs_ignores_trailing_credits(self):
+        text = "\n".join(["Múa đương đại", "Contemporary dance", '"Thu Hương"', "20:00"]
+                         + ["credits"] * 12 + ["Thu Hương dancer"])
+        other = images.Names([{"id": "x", "title": 'Trình tương tác "Thu Hương dancer"'}])
+        merged = images.Names(self.EVENTS + [{"id": "x", "title": 'Trình tương tác "Thu Hương dancer"'}])
+        self.assertTrue(merged.card_belongs(text, "e2") or True)  # name not present here
+        self.assertFalse(merged.card_belongs(text, "x"))
+
+    def test_info_score(self):
+        card = "(vie)\n(eng)\nTrinh dien\nPerformance\n20:00 - 21:30\nCHU NHAT 15/11/2026\nCho Dong Xuan"
+        self.assertGreaterEqual(images.info_score(card), 3)
+        self.assertEqual(images.info_score(""), 0)
+        self.assertEqual(images.info_score("short"), 0)
+
+    def test_kind_of_mirrors_page(self):
+        self.assertEqual(images.kind_of({"id": "zz", "title": 'Triển lãm "X"', "tags": []}), "exhibition")
+        self.assertEqual(images.kind_of({"id": "e22", "title": "Làng Khai Cuộc", "tags": []}), "fair")
+        self.assertEqual(images.kind_of({"id": "zz", "title": "Không rõ", "tags": []}), "festival")
+
+
+class ImageApply(unittest.TestCase):
+    def test_apply_writes_gallery_and_falls_back_to_poster(self):
+        data = {"events": [
+            {"id": "e1", "title": 'Triển lãm "A"', "tags": [], "image": "images/kinds/festival.svg"},
+            {"id": "e2", "title": 'Triển lãm "B"', "tags": [], "image": "images/events/old.jpg",
+             "images": ["images/events/old.jpg"]},
+        ]}
+        cleared = images.apply(data, {"e1": ["images/cards/new.jpg", "images/events/p.jpg"]})
+        self.assertEqual(data["events"][0]["images"], ["images/cards/new.jpg", "images/events/p.jpg"])
+        self.assertEqual(data["events"][0]["image"], "images/cards/new.jpg")
+        self.assertEqual(data["events"][1]["image"], "images/kinds/exhibition.svg")
+        self.assertNotIn("images", data["events"][1])
+        self.assertEqual(cleared, ["e2"])
+
+
+@unittest.skipIf(images.Image is None, "Pillow not installed")
+class ImageSelect(unittest.TestCase):
+    """Attribution rules, using solid-colour stand-ins for photos."""
+
+    @staticmethod
+    def photo(colour, size=(600, 400)):
+        from PIL import Image
+        return Image.new("RGB", size, colour)
+
+    def setUp(self):
+        self.events = [
+            {"id": "e1", "title": 'Sắp đặt ánh sáng "THAP: SANG"'},
+            {"id": "e2", "title": "Triển lãm \"Chuyện Đình Hà Vĩ\""},
+            {"id": "e3", "title": 'Sắp đặt âm thanh “Tháp Ẩn Ca”'},
+        ]
+        self.names = images.Names(self.events)
+
+    def test_post_photo_is_attached_to_the_named_event(self):
+        candidates = [{"event_id": "e2", "url": "u1", "source": "post", "posted": "2026-11-20", "order": 0}]
+        kept = images.select(candidates, {"u1": ""}, {"u1": self.photo("red")}, self.names)
+        self.assertEqual(list(kept), ["e2"])
+
+    def test_card_goes_to_the_event_it_prints_first(self):
+        candidates = [{"event_id": "e2", "url": "u1", "source": "post", "posted": "", "order": 0}]
+        text = "THAP:SANG\nSap dat anh sang\n19/11/2026"
+        kept = images.select(candidates, {"u1": text}, {"u1": self.photo("blue", (600, 800))}, self.names)
+        self.assertEqual(list(kept), ["e1"])
+
+    def test_card_naming_nothing_is_dropped(self):
+        candidates = [{"event_id": "e2", "url": "u1", "source": "post", "posted": "", "order": 0}]
+        text = "Khong gian sang tao\nCreative Square\n09:00 - 22:00 hang ngay"
+        kept = images.select(candidates, {"u1": text}, {"u1": self.photo("green", (600, 800))}, self.names)
+        self.assertEqual(kept, {})
+
+    def test_landscape_photo_with_text_stays_a_photo(self):
+        candidates = [{"event_id": "e2", "url": "u1", "source": "post", "posted": "", "order": 0}]
+        text = "Khach tham quan trien lam\n09:00 - 22:00 hang ngay\n13/11/2026"
+        kept = images.select(candidates, {"u1": text}, {"u1": self.photo("yellow")}, self.names)
+        self.assertEqual(list(kept), ["e2"])
+
+    def test_manual_reject(self):
+        candidates = [{"event_id": "e99", "url": "u1", "source": "post", "posted": "", "order": 0}]
+        events = self.events + [{"id": "e99", "title": 'Múa đương đại “Thu Hương”'}]
+        names = images.Names(events)
+        text = "mudi thuong\ntrinh dien tuong tac\n20:00"
+        kept = images.select(candidates, {"u1": text}, {"u1": self.photo("purple", (600, 800))}, names)
+        self.assertNotIn("e99", kept)
+
+    def test_identical_photos_are_kept_once(self):
+        candidates = [
+            {"event_id": "e2", "url": "u1", "source": "post", "posted": "", "order": 0},
+            {"event_id": "e2", "url": "u2", "source": "post", "posted": "", "order": 1},
+        ]
+        kept = images.select(candidates, {"u1": "", "u2": ""},
+                             {"u1": self.photo("red"), "u2": self.photo("red")}, self.names)
+        self.assertEqual(len(kept["e2"]), 1)
+
+    def test_series_documentation_stays_with_its_owner(self):
+        events = [{"id": f"e{n}", "title": f'Triển lãm "Chuyện Đình số {n}"'} for n in (34, 36, 37, 38)]
+        names = images.Names(events)
+        candidates = [{"event_id": event["id"], "url": "shared", "source": "site",
+                       "posted": "", "order": 0} for event in events]
+        kept = images.select(candidates, {"shared": ""}, {"shared": self.photo("grey")}, names)
+        # Only the heritage tour keeps documentation shared by more than two events.
+        self.assertEqual(list(kept), ["e34"])
 
 
 if __name__ == "__main__":

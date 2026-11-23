@@ -3,7 +3,7 @@
 import json
 import re
 
-from config import EVENTS, FESTIVAL_END, FESTIVAL_START, GENRE
+from config import EVENTS, FESTIVAL_END, FESTIVAL_START, GENRE, SRC
 from match import slug_of
 
 _TIME = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
@@ -65,6 +65,22 @@ def validate(data):
                 problems.append(f"{eid}: bad slot {slot}")
             if not _DATE.match(slot.get("date") or ""):
                 problems.append(f"{eid}: bad slot date {slot.get('date')}")
+
+        # Every image must be a file the container will serve, under src/.
+        gallery = [event.get("image")] if event.get("image") else []
+        gallery += event.get("images") or []
+        for path in dict.fromkeys(item for item in gallery if item):
+            if path.startswith("http"):
+                problems.append(f"{eid}: image is a remote URL {path[:48]}")
+            elif "/kinds/" in path:
+                if not path.startswith("images/kinds/"):
+                    problems.append(f"{eid}: kind poster outside images/kinds {path}")
+                elif not (SRC / path).exists():
+                    problems.append(f"{eid}: missing kind poster {path}")
+            elif not (SRC / path).exists():
+                problems.append(f"{eid}: missing image {path}")
+        if event.get("images") and event.get("image") != event["images"][0]:
+            problems.append(f"{eid}: image is not the first of images")
 
         for act in event.get("lineup") or []:
             if not _TIME.match(act.get("start") or "") or not _TIME.match(act.get("end") or ""):

@@ -42,8 +42,8 @@ pin goes.
 | `slots` | `[{date,start,end}]` | repo | manual |
 | `lineup` | `[{date,start,end,act}]` | repo | manual |
 | `title` | string | organiser | manual |
-| `image` | string | repo | manual; the cover, always the first entry of `images` |
-| `images` | `string[]` | repo | manual; up to 10 promotion images, cover first: images that print information (a designed card, a poster with hours and venue, read by OCR) in `images/cards/`, then photos in `images/events/`; absent when the event has none and `image` points at `images/kinds/<kind>.svg` |
+| `image` | string | repo | `images`; the cover, always the first entry of `images` |
+| `images` | `string[]` | repo | `images`; up to 10 promotion images, cover first: images that print information (a designed card, a poster with hours and venue, read by OCR) in `images/cards/`, then photos in `images/events/`; absent when the event has none and `image` points at `images/kinds/<kind>.svg` |
 | `placeId` | `pNN` | repo | manual |
 | `clusterId` | `gN` | repo | manual |
 | `spotlight` | bool | repo | manual |
@@ -58,6 +58,10 @@ listing publishes no hours (`e102`, `e140`); `check` reports them as notes.
 The organiser's posts are the freshest schedule, so `apply` lets them override
 `date`, `dateEnd`, `startTime` and `endTime`. An event that carries `slots`,
 `lineup` or `days` is skipped: a curated per-day schedule is richer than one post.
+
+Images are described in [images.md](./images.md): where they come from, the
+attribution rules, and how to add a card deck. `check` also fails when an `image`
+or `images` path is not a file under `src/`, so a remote URL cannot slip in.
 
 ## Extending the schema
 

@@ -1,7 +1,7 @@
 ---
 name: sync-festival
 description: Refresh src/events.json from the Hanoi Design Festival's official site and from the organiser's Facebook, Instagram and Threads accounts, retrieved through Apify. Use when events may have been added, moved, renamed or cancelled, before a deploy, or when a poster or social post disagrees with the local data. The organiser's posts win every date and time conflict, because they are the freshest source; map pins and curated per-day schedules are never overwritten.
-argument-hint: "[fetch|diff|apply|check]"
+argument-hint: "[fetch|diff|apply|images|check]"
 ---
 
 # Sync the festival programme
@@ -12,8 +12,8 @@ Two sources, two jobs:
 
 | Source | Retrieved with | Provides |
 |---|---|---|
-| `lehoithietkesangtao.vn` | its public JSON API | titles, types, venues, detail prose |
-| Facebook, Instagram, Threads | **Apify actors** | changes, additions and the real schedule |
+| `lehoithietkesangtao.vn` | its public JSON API | titles, types, venues, detail prose, media library, albums, covers |
+| Facebook, Instagram, Threads | **Apify actors** | changes, additions, the real schedule, promotion photos and cards |
 
 The map pins, clusters and per-day schedules in the repo are curated here. A post
 only overrides `date`, `dateEnd`, `startTime` and `endTime`.
@@ -37,7 +37,12 @@ only overrides `date`, `dateEnd`, `startTime` and `endTime`.
    the site and a post stating different values, a curated per-day schedule the site
    contradicts, a new event that needs a map pin, a listing that vanished. Everything
    else is corrected silently and appears under "Changes made".
-6. **Two field classes.** `official*` belongs to the organiser and may be
+6. **An image must show its own event.** `images` reads the text printed on every
+   candidate (OCR) before attaching it: a designed card belongs to the event whose
+   name it prints first, near the top. A roundup, a venue card, or another
+   programme's card is not evidence. When nothing is truthful, the event keeps its
+   generated kind poster rather than a misleading photo.
+7. **Two field classes.** `official*` belongs to the organiser and may be
    refreshed. `slots`, `lineup`, `days`, `placeId`, `clusterId`, `tags`,
    `spotlight` and `number` are curated and only change by hand — a curated
    per-day schedule is richer than one post, so an event that has one is never
@@ -47,10 +52,12 @@ only overrides `date`, `dateEnd`, `startTime` and `endTime`.
 
 > **When this runs from CI.** `.github/workflows/sync-festival.md` executes steps
 > 1–3 below in frontmatter `steps`, with `APIFY_TOKEN` in that step's environment
-> only. The agent that follows starts at step 4: `tmp/sync/report.md` is already on
+> only. The agent that follows starts at step 5: `tmp/sync/report.md` is already on
 > disk, `src/events.json` is already resolved, and `APIFY_TOKEN` is deliberately
 > absent from the agent's environment. Do not re-run `fetch`, do not look for the
-> token, and do not use `mise` — it is not installed on the runner. The Apify spend
+> token, and do not use `mise` — it is not installed on the runner. `images` is not
+part of the CI run either: it needs a fresh `fetch`, Pillow and (for card
+verification) Apple's Vision OCR, none of which the runner has. The Apify spend
 > for the run has already been made.
 
 ### 1. Fetch
@@ -117,7 +124,39 @@ review. `--no-social` skips the post fills when the fetch is stale. `--insert-so
 adds drafts that carry a date, a time, a resolvable place and an event-like title, and
 that are not duplicates or outside 13–28/11.
 
-### 4. Check
+### 4. Images
+
+```sh
+python3 .agents/skills/sync-festival/scripts/sync_festival.py images --dry-run
+python3 .agents/skills/sync-festival/scripts/sync_festival.py images
+```
+
+Runs on the machine that made the fetch, because it needs Pillow (`python3 -m pip
+install pillow`) and, to verify cards, Apple's Vision framework through
+`scripts/ocr.swift` (compiled once into `tmp/sync/ocr`). It:
+
+1. gathers candidates from the site's media library, its 14 media albums, project
+   and article covers, the fetched posts and the known card decks;
+2. downloads each image once into `tmp/sync/scan`, skipping anything under 320px;
+3. reads the text printed on it, and keeps the image only where that text (or the
+   post's opening line) names this event;
+4. ranks printed information first, so a designed card is the cover and photos
+   follow; de-duplicates by perceptual hash; caps each gallery at
+   `--max-per-event` (default 10);
+5. writes the winners into `src/images/events` and `src/images/cards`,
+   content-addressed, then sets `image` and `images` on every event.
+
+`--no-ocr` skips step 3's verification, which means cards cannot be trusted and
+only post photos are kept. `--dry-run` prints what would change and writes
+`tmp/sync/images.json` (per-event source URLs and information scores) without
+touching `events.json`.
+
+Two things expire, so re-run `fetch` first when the run reports far fewer images
+than the last time: the posts are only as fresh as the last fetch, and Facebook
+and Instagram CDN URLs stop working within days. The site's own images do not
+expire.
+
+### 5. Check
 
 ```sh
 python3 .agents/skills/sync-festival/scripts/sync_festival.py check
@@ -127,11 +166,12 @@ python3 -m http.server 8080 --directory src
 ```
 
 `check` catches duplicate ids, unknown places/clusters, malformed times,
-`dateEnd < date` and broken numbering. `selftest.py` is 46 offline tests over the
-parsers, matcher, diff, schedule override and inserter; it must pass before any
-edit is committed.
+`dateEnd < date`, broken numbering, and an `image` or `images` entry whose file is
+not on disk. `selftest.py` is 61 offline tests over the parsers, matcher, diff,
+schedule override, inserter and the image attribution rules; it must pass before
+any edit is committed.
 
-### 5. Report
+### 6. Report
 
 Every run ends by pasting `tmp/sync/report.md` into the answer, unchanged and in
 full, as Markdown. Not a summary of it, not a link to it — the tables themselves,
@@ -192,6 +232,7 @@ Rules the format enforces:
 | `enrich [--write]` | registration links from the fetched posts → `registrationUrl` |
 | `social` | rebuild drafts from `social.json` without touching the site |
 | `apply [--no-social] [--insert-social]` | write social schedule overrides + safe fills |
+| `images [--dry-run] [--no-ocr] [--max-per-event N]` | verify and store promotion images → `image`, `images` |
 | `check` | validate `events.json`, no network |
 
 `apply` also writes `tmp/sync/applied.json`, the ledger the "Changes made"
@@ -212,6 +253,7 @@ retrieval failed.
 | `slots`, `lineup`, `days` | curated | manual |
 | `placeId`, `clusterId` | curated map pins | manual |
 | `tags`, `description`, `spotlight`, `number` | curated | `apply --insert-social` adds, then renumbers |
+| `image`, `images` | organiser (the pictures) | `images`, which may only pick from what the organiser published |
 
 Schema details and how to extend it: [references/schema.md](./references/schema.md).
 Wiring a new field into the page: [references/ui-checklist.md](./references/ui-checklist.md).
@@ -234,7 +276,7 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 
 | Path | Purpose |
 |---|---|
-| `scripts/sync_festival.py` | CLI: fetch, diff, apply, check |
+| `scripts/sync_festival.py` | CLI: fetch, diff, apply, images, check |
 | `scripts/apify.py` | Apify REST client: run actor, poll, read dataset |
 | `scripts/social.py` | dataset shapes → drafts (pure) |
 | `scripts/enrich.py` | registration links from posts (pure) |
@@ -243,11 +285,16 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `scripts/match.py` | venue lookup, duplicate detection, slugs (pure) |
 | `scripts/events_model.py` | load, validate, save, build events (pure) |
 | `scripts/config.py` | accounts, actors, prices, festival window |
-| `scripts/selftest.py` | 46 offline tests |
+| `scripts/images.py` | candidate gathering, OCR ranking, image selection (pure `select`) |
+| `scripts/ocr.swift` | Apple Vision OCR helper, compiled to `tmp/sync/ocr` on first use |
+| `scripts/selftest.py` | 61 offline tests |
 | `tmp/sync/applied.json` | the ledger the "Changes made" table is built from |
+| `tmp/sync/images.json` | per-event image provenance and information scores, from the last run |
+| `tmp/sync/scan/` | download and OCR cache, safe to delete (a rerun refetches) |
 | `references/apify.md` | actors, inputs, pricing, dataset shapes |
 | `references/schema.md` | field ownership and extension procedure |
 | `references/ui-checklist.md` | wiring new metadata into the page |
+| `references/images.md` | where images come from, the attribution rules, adding a card deck |
 
 ## Failure modes
 
@@ -261,4 +308,10 @@ each announcement. Prices and plan limits: [references/apify.md](./references/ap
 | `needs a human` rows repeat | the site is coarser than the curated value | leave them; the report is a triage sheet, not a work list |
 | a schedule override looks wrong | the post describes one session of a run, or a stale fetch | check the post URL in the report; rerun with `--no-social` to skip |
 | `apply` rewrote a title into something odd | the site's title drifted past a cosmetic change | restore from git; the 90% guard is in `site_fixes` |
-| the answer has prose but no tables | step 5 skipped | paste `tmp/sync/report.md` in full |
+| the answer has prose but no tables | step 6 skipped | paste `tmp/sync/report.md` in full |
+| `images` keeps far fewer images than last time | stale posts or expired CDN URLs | re-run `fetch` first; the site's own images never expire |
+| `ApifyError: ... platform-feature-disabled` | the monthly $5 free quota is spent | wait for the reset, or run `site`-only sources; `images` still works offline from the site |
+| `images` exits with "Pillow is required" | Pillow missing | `python3 -m pip install pillow` |
+| `images` reports `ocr off` | no Swift/`swiftc` (Linux) or compile failed | expected off macOS; cards cannot be verified, so only post photos are kept |
+| a card lands on the wrong event | the card prints the name late, or OCR misreads it | add the event and a regex to `MANUAL_REJECT` in `scripts/images.py`; the run is repeatable |
+| `check` reports `image is a remote URL` | a hand edit pointed at a CDN | run `images`, which stores files under `src/images` |

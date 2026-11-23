@@ -37,6 +37,18 @@ looks empty.
 | Facebook | one item per post: `text`, `time`, `url`, `pageName` | some rows are event links with empty `text`; they are dropped |
 | Threads | **one item per profile** with `latestPosts[]` nested | a profile sweep is a single cheap result, not one per post |
 
+## Media URLs expire
+
+The `images` arrays and `media[].image.uri` values are `fbcdn` / `cdninstagram`
+URLs with an `oe=` expiry. They stop working within days, which is why
+`images` stores every picture under `src/images` and why a stale `social.json`
+reports far fewer usable images. Re-run `fetch` before `images` when that
+happens; a full sweep costs about $1 at `--limit 150`, or $0.04 at the default.
+
+The free plan's $5 monthly credit blocks every actor once spent, with
+`platform-feature-disabled`. That only stops retrieval: `images` still works
+against the site's own library, whose URLs do not expire.
+
 ## Cost
 
 The free plan needs no card and includes **$5 of usage per month**; unused credit

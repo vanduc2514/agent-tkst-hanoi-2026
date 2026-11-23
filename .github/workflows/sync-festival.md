@@ -81,6 +81,11 @@ So `tmp/sync/report.md` and the resolved `src/events.json` are on disk. That
 retrieval is finished: do not repeat it, and do not look for `APIFY_TOKEN`. It is
 not in your environment on purpose, and the Apify spend is already made.
 
+`images` is not part of this run. It needs Pillow and Apple's Vision OCR to verify
+which picture belongs to which event, and the runner has neither, so the image
+fields stay exactly as committed here. Do not edit `image` or `images`, and do not
+attach a picture you did not verify.
+
 ## Your job
 
 1. Read `tmp/sync/report.md`. That is the report for this run.

@@ -23,6 +23,9 @@ interactive map, a route planner, and agent-readable Markdown.
 - `.agents/skills/sync-festival/` keeps `src/events.json` in step with the organiser. It reads
   the official JSON API and pulls Facebook, Instagram and Threads through Apify, then reports
   drift before anything is written. Read its `SKILL.md` first; the Python scripts live next to it.
+  Its `images` command gathers promotion photos and designed cards, reads each one with OCR to
+  prove which event it shows, and stores the winners under `src/images`; it runs locally, not
+  in CI, because it needs Pillow and Apple's Vision framework.
 - Generated files are gitignored. CI regenerates them, then builds the nginx image.
 - Use`tmp` in this workspace to store temporary script, artifact or anything that is not included in the app or in build process
 ## Local Development
@@ -39,7 +42,12 @@ environment variable. Run the sync skill through `mise exec` so the token reache
 mise install                                                       # once per machine, installs apify-cli
 mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py fetch
 mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py diff
+mise exec -- python3 .agents/skills/sync-festival/scripts/sync_festival.py images
 ```
+
+`images` needs Pillow (`python3 -m pip install pillow`) and compiles
+`scripts/ocr.swift` on first use; without OCR it keeps only photos it can attribute
+and never guesses a card.
 
 `mise env` lists the exported variables. Never pass the token as an argument or copy it into
 another file.
