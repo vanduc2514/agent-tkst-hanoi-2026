@@ -20,6 +20,8 @@ Trang mở ra ở tab Khám phá. Bên trái là danh sách hoạt động với
 
 Bấm vào một pin hoặc một thẻ trong danh sách sẽ mở bảng chi tiết: địa chỉ, khung giờ, loại hình, phần giới thiệu của ban tổ chức và đường dẫn tới trang gốc. Từ bảng này có thể thêm hoạt động vào lộ trình hoặc mở chỉ đường.
 
+Trong bảng chi tiết cũng có nút đánh dấu địa điểm đã ghé. Danh sách này chỉ lưu trong trình duyệt của bạn: lần sau mở lại, pin của những địa điểm đó chuyển sang màu xám, và nút "Đã ghé" cạnh Live hiện lại đầy đủ màu khi cần. Việc làm mờ chỉ là lớp hiển thị, không ảnh hưởng bộ lọc ngày, bộ lọc cụm hay chế độ Lân Cận.
+
 ![Tab lộ trình](images/route.png)
 
 Tab Lộ trình giữ những điểm đã chọn và sắp xếp lại theo khoảng cách từ điểm xuất phát. Mỗi chặng có khoảng cách ước tính, và nút ở cuối đưa cả hành trình sang Google Maps. Đường nối giữa các điểm cũng được vẽ trên bản đồ.

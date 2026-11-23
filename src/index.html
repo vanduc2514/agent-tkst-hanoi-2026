@@ -2195,7 +2195,7 @@
               <div class="detail-actions">
                 <button class="small-button detail-route ${inRoute ? "saved" : "primary"}" type="button"><i class="fa-solid ${inRoute ? "fa-check" : "fa-plus"}"></i>${inRoute ? "Bỏ khỏi tuyến" : "Thêm vào tuyến"}</button>
                 <a class="directions-button" href="${googlePlaceDirectionsUrl(place)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right"></i>Chỉ đường</a>
-                <button class="small-button detail-visited ${visited ? "saved" : ""}" type="button" aria-pressed="${visited}"><i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Đã ghé thăm" : "Đánh dấu đã ghé"}</button>
+                <button class="small-button detail-visited ${visited ? "saved" : ""}" type="button" aria-pressed="${visited}"><i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Địa điểm đã ghé thăm" : "Đánh dấu địa điểm đã ghé"}</button>
               </div>
               <p class="detail-note">Thông tin lấy từ lịch sự kiện công bố trên lehoithietkesangtao.vn (cập nhật 18/11/2026). Vui lòng kiểm tra lại với ban tổ chức trước khi tham dự.</p>
             </div>`;
@@ -2444,7 +2444,7 @@
           if (detailButton && openEvent && openEvent.placeId === placeId) {
             detailButton.classList.toggle("saved", visited);
             detailButton.setAttribute("aria-pressed", String(visited));
-            detailButton.innerHTML = `<i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Đã ghé thăm" : "Đánh dấu đã ghé"}`;
+            detailButton.innerHTML = `<i class="fa-solid ${visited ? "fa-circle-check" : "fa-bookmark"}"></i>${visited ? "Địa điểm đã ghé thăm" : "Đánh dấu địa điểm đã ghé"}`;
           }
           showToast(visited ? "Đã lưu địa điểm này vào danh sách đã ghé." : "Đã bỏ đánh dấu địa điểm này.");
         }
