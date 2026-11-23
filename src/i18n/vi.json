@@ -1,12 +1,9 @@
 {
   "meta": {
     "title": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026",
-    "description": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026 — lịch chính thức, địa điểm và gợi ý tuyến."
-  },
-  "lang": {
-    "switch": "Chuyển sang tiếng Anh",
-    "current": "Ngôn ngữ: Tiếng Việt",
-    "code": "VI"
+    "description": "Bản đồ khám phá Lễ hội Thiết kế Sáng tạo Hà Nội năm 2026 — lịch chính thức, địa điểm và gợi ý tuyến.",
+    "markdownTitle": "Toàn bộ lịch lễ hội ở dạng Markdown",
+    "agentIndexTitle": "Chỉ mục tệp dành cho AI agent"
   },
   "welcome": {
     "title": "Cách dùng bản đồ",
@@ -25,8 +22,7 @@
     "sidebarAria": "Bảng điều khiển bản đồ"
   },
   "agent": {
-    "html": "<strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại <a href=\"/index.md\">/index.md</a> · chỉ mục tệp tại <a href=\"/llms.txt\">/llms.txt</a>.<br>For AI agents: full programme in Markdown at /index.md, file index at /llms.txt.",
-    "noscript": "Trang này cần JavaScript để hiển thị bản đồ và danh sách."
+    "html": "<strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại <a href=\"/index.md\">/index.md</a> · chỉ mục tệp tại <a href=\"/llms.txt\">/llms.txt</a>.<br>For AI agents: full programme in Markdown at /index.md, file index at /llms.txt."
   },
   "tabs": {
     "aria": "Các bảng điều khiển",
@@ -119,8 +115,7 @@
     "enterFirst": "Hãy nhập câu hỏi của bạn trước.",
     "resetToast": "Đã khôi phục prompt gốc.",
     "loadFailed": "Không tải được prompt. ",
-    "openFile": "Mở tệp prompts.json",
-    "contextAria": "Ngữ cảnh cố định của prompt"
+    "openFile": "Mở tệp prompts.json"
   },
   "map": {
     "areaAria": "Bản đồ sự kiện",
@@ -137,7 +132,8 @@
     "fallbackBody": "Trình duyệt đang chặn WebGL hoặc CDN. Danh sách hoạt động, bộ lọc và lộ trình vẫn dùng bình thường.",
     "fallbackOpen": "Mở danh sách hoạt động",
     "fallbackLog": "Bản đồ không khởi tạo được, chuyển sang chế độ danh sách.",
-    "statusInitial": "Đang tải sự kiện"
+    "statusInitial": "Đang tải sự kiện",
+    "menuAria": "Mở bảng điều khiển"
   },
   "live": {
     "label": "Live",
@@ -259,8 +255,8 @@
     "type": "Loại hoạt động:",
     "official": "Thông tin từ ban tổ chức:",
     "showAll": {
-      "one": "Xem đầy đủ {count} ký tự",
-      "other": "Xem đầy đủ {count} ký tự"
+      "one": "Xem đầy đủ {total} ký tự",
+      "other": "Xem đầy đủ {total} ký tự"
     },
     "register": "Cần đăng ký trước.",
     "deadline": "Hạn đăng ký: {date}.",
@@ -313,5 +309,8 @@
       "g4": "Công viên Thống Nhất & Lân cận",
       "g5": "Điểm Vệ tinh"
     }
+  },
+  "lang": {
+    "switch": "Chuyển sang tiếng Anh"
   }
 }

@@ -1,12 +1,9 @@
 {
   "meta": {
     "title": "Hanoi Festival of Creative Design 2026 — festival map",
-    "description": "Explore the Hanoi Festival of Creative Design 2026 — official schedule, venues and route ideas."
-  },
-  "lang": {
-    "switch": "Switch to Vietnamese",
-    "current": "Language: English",
-    "code": "EN"
+    "description": "Explore the Hanoi Festival of Creative Design 2026 — official schedule, venues and route ideas.",
+    "markdownTitle": "The whole festival schedule as Markdown",
+    "agentIndexTitle": "File index for AI agents"
   },
   "welcome": {
     "title": "How to use the map",
@@ -25,8 +22,7 @@
     "sidebarAria": "Map controls"
   },
   "agent": {
-    "html": "<strong>For AI agents:</strong> the full programme as Markdown at <a href=\"/index.md\">/index.md</a> · file index at <a href=\"/llms.txt\">/llms.txt</a>.<br>Bản dành cho AI agent: toàn bộ chương trình ở dạng Markdown tại /index.md, chỉ mục tệp tại /llms.txt.",
-    "noscript": "This page needs JavaScript to show the map and the list."
+    "html": "<strong>For AI agents:</strong> the full programme as Markdown at <a href=\"/index.md\">/index.md</a> · file index at <a href=\"/llms.txt\">/llms.txt</a>.<br>Bản dành cho AI agent: toàn bộ chương trình ở dạng Markdown tại /index.md, chỉ mục tệp tại /llms.txt."
   },
   "tabs": {
     "aria": "Panels",
@@ -119,8 +115,7 @@
     "enterFirst": "Type your question first.",
     "resetToast": "Restored the original prompt.",
     "loadFailed": "Could not load prompts. ",
-    "openFile": "Open prompts.json",
-    "contextAria": "Fixed prompt context"
+    "openFile": "Open prompts.json"
   },
   "map": {
     "areaAria": "Event map",
@@ -137,7 +132,8 @@
     "fallbackBody": "The browser is blocking WebGL or the CDN. The event list, filters and route planner still work.",
     "fallbackOpen": "Open the event list",
     "fallbackLog": "The map could not start; switching to the list view.",
-    "statusInitial": "Loading events"
+    "statusInitial": "Loading events",
+    "menuAria": "Open the control panel"
   },
   "live": {
     "label": "Live",
@@ -259,8 +255,8 @@
     "type": "Activity type:",
     "official": "From the organiser:",
     "showAll": {
-      "one": "Show all {count} character",
-      "other": "Show all {count} characters"
+      "one": "Show all {total} character",
+      "other": "Show all {total} characters"
     },
     "register": "Registration required.",
     "deadline": "Deadline: {date}.",
@@ -352,5 +348,8 @@
       "Tuyến phố cổ": "Old-quarter street route",
       "Tuyến di tích": "Heritage route"
     }
+  },
+  "lang": {
+    "switch": "Switch to Vietnamese"
   }
 }

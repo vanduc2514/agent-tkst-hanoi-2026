@@ -30,6 +30,12 @@ Tab Lộ trình giữ những điểm đã chọn và sắp xếp lại theo kho
 
 Tab Hỏi AI gom sẵn vài câu hỏi thường gặp về lịch, địa điểm và cách đi lại. Mỗi câu có nút mở thẳng trong ChatGPT, Claude hoặc Gemini với nội dung đã điền sẵn, thêm nút sao chép cho trường hợp muốn dán vào ứng dụng khác.
 
+## Ngôn ngữ
+
+Giao diện có hai bản tiếng Việt và tiếng Anh. Trang tự chọn theo ngôn ngữ trình duyệt và mặc định là tiếng Việt; nút đổi ngôn ngữ nằm trên thanh bản đồ (máy tính) hoặc trong bảng điều khiển (điện thoại), và lựa chọn được nhớ trong trình duyệt. Có thể mở thẳng bằng `?lang=en` hoặc `?lang=vi`.
+
+Bản dịch nằm trong `src/i18n/vi.json` và `src/i18n/en.json`, được `src/i18n.js` nạp và áp dụng. Tên hoạt động, mô tả, địa chỉ và nội dung do ban tổ chức công bố vẫn giữ nguyên tiếng Việt; phần được dịch là giao diện, nhãn, thông báo và các tên cụm/loại địa điểm cố định.
+
 ## Nguồn dữ liệu
 
 Thông tin về hoạt động, thời gian, địa điểm và mô tả được tổng hợp từ website chính thức của ban tổ chức:

@@ -7,6 +7,13 @@ interactive map, a route planner, and agent-readable Markdown.
 - `src/index.html` is the whole app: plain HTML, CSS, and vanilla JavaScript with no build step.
   MapLibre and Tailwind load from CDNs.
 - `src/events.json` is the single source of truth for all festival data.
+- User-facing copy lives in `src/i18n/vi.json` and `src/i18n/en.json`, loaded by
+  `src/i18n.js`: browser detection, Vietnamese as the default, `?lang=` override and a
+  stored choice. Add every key to both files and keep them in sync; the Dockerfile copies
+  these files next to the page, and event titles/descriptions stay as the organiser wrote
+  them in Vietnamese.
+- `src/events.json` is also the source for cluster names and venue kinds; their translations
+  sit in the `vocab` block of each locale file, keyed by the source value.
 - `tools/build-agent-files.mjs` reads `src/events.json` and writes `src/index.md` and
   `src/llms.txt`, plus browser-readable `src/index.md.html` and `src/llms.txt.html` wrappers.
 - `src/` is the folder that gets served and copied into the image, so it holds the page, the

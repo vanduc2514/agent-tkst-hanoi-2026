@@ -13,8 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="alternate" type="text/markdown" href="/index.md" title="Toàn bộ lịch lễ hội ở dạng Markdown">
-  <link rel="describedby" type="text/markdown" href="/llms.txt" title="Chỉ mục tệp dành cho AI agent">
+  <link rel="alternate" type="text/markdown" href="/index.md" data-i18n-attr="title:meta.markdownTitle" title="Toàn bộ lịch lễ hội ở dạng Markdown">
+  <link rel="describedby" type="text/markdown" href="/llms.txt" data-i18n-attr="title:meta.agentIndexTitle" title="Chỉ mục tệp dành cho AI agent">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
@@ -60,6 +60,21 @@
     .brand-title { margin: 0; font: 800 17px/1.2 Manrope, sans-serif; letter-spacing: -.5px; }
     .brand-sub { margin: 7px 0 0; color: #78857f; font-size: 10.5px; font-weight: 500; line-height: 1.5; }
     .brand-sub strong { color: var(--green); font-weight: 700; }
+    /* Phones cannot fit a fifth pill in the map top bar, so the language switch moves
+       into the drawer header and the top-bar copy is hidden there. */
+    .brand-lang {
+      display: none; flex: 0 0 auto; align-items: center; gap: 6px; min-height: 32px;
+      border: 1px solid #e1e8e3; border-radius: 9px; padding: 0 9px;
+      color: #52605a; background: #fff; font: 800 10px "DM Sans", sans-serif;
+      cursor: pointer;
+    }
+    .brand-lang i { color: var(--green); font-size: 11px; }
+    .brand-lang:hover { border-color: #bfd2c7; }
+    .brand-lang:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    @media (max-width: 760px) {
+      .brand-lang { display: inline-flex; }
+      .map-actions .lang-toggle { display: none; }
+    }
     .prompts-intro { margin: 0 0 12px; color: #718078; font-size: 10.5px; line-height: 1.5; }
     .ai-prompt-list { display: grid; gap: 18px; }
     .ai-prompt-group { display: grid; gap: 9px; }
@@ -689,6 +704,7 @@
               <p class="brand-sub" id="brand-sub" data-i18n="brand.sub">Lịch chính thức · bản đồ · lộ trình · gợi ý AI</p>
             </div>
           </div>
+          <button class="brand-lang" id="lang-toggle-sidebar" type="button" data-i18n-attr="aria-label:lang.switch;title:lang.switch" aria-label="Chuyển sang tiếng Anh" title="Chuyển sang tiếng Anh"><i class="fa-solid fa-globe" aria-hidden="true"></i><span id="lang-toggle-sidebar-label">EN</span></button>
         </div>
         <p class="agent-hint" data-i18n-html="agent.html">
           <strong>Bản dành cho AI agent:</strong> toàn bộ chương trình ở dạng Markdown tại
@@ -747,7 +763,7 @@
           </summary>
           <div class="preset-select" id="preset-list"></div>
         </details>
-        <div class="route-summary"><span><strong id="route-stops" data-i18n="route.stops">0 điểm dừng</strong></span><span id="route-distance" data-i18n="route.distanceEmpty">Chưa có tuyến</span></div>
+        <div class="route-summary"><span><strong id="route-stops">0</strong></span><span id="route-distance" data-i18n="route.distanceEmpty">Chưa có tuyến</span></div>
         <div class="route-tools">
           <button class="small-button" id="optimize-route" type="button"><i class="fa-solid fa-wand-magic-sparkles"></i><span data-i18n="route.optimize">Tối ưu gần nhất</span></button>
           <button class="small-button" id="share-route" type="button"><i class="fa-solid fa-link"></i><span data-i18n="route.share">Chia sẻ</span></button>
@@ -811,7 +827,7 @@
         <div class="map-attribution"><a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · OpenMapTiles</div>
       </footer>
       <div class="map-topbar">
-        <button class="map-pill map-toggle" id="mobile-menu" type="button" data-i18n-attr="aria-label:brand.sidebarAria" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span data-i18n="tabs.mobileExplore">Khám phá</span></button>
+        <button class="map-pill map-toggle" id="mobile-menu" type="button" data-i18n-attr="aria-label:map.menuAria" aria-label="Mở bảng điều khiển"><i class="fa-solid fa-bars"></i><span data-i18n="tabs.mobileExplore">Khám phá</span></button>
         <div class="map-pill"><i class="fa-solid fa-calendar-day"></i><span id="map-status" data-i18n="map.statusInitial">Đang tải sự kiện</span></div>
         <div class="map-actions">
           <button class="map-pill lang-toggle" id="lang-toggle" type="button" data-i18n-attr="aria-label:lang.switch;title:lang.switch" aria-label="Chuyển sang tiếng Anh" title="Chuyển sang tiếng Anh"><i class="fa-solid fa-globe" aria-hidden="true"></i><span id="lang-toggle-label">EN</span></button>
@@ -1796,11 +1812,15 @@
           updateNearbyButton();
           // The pill describes what the map is showing: Live is "đang và sẽ diễn ra", a
           // chosen date is "trong ngày", and everything else is the whole programme.
+          // Phones only have room for the bare count; the Live button already says
+          // whether the clock is in play.
           const statusKey = stopsOnly
             ? "status.routeStops"
-            : state.live
-              ? "status.live"
-              : state.filters.date ? "status.day" : "status.all";
+            : isNarrowViewport()
+              ? "status.all"
+              : state.live
+                ? "status.live"
+                : state.filters.date ? "status.day" : "status.all";
           $("#map-status").textContent = t(statusKey, { count: displayed.length });
         }
 
@@ -2295,7 +2315,7 @@
           if (!event) return;
           const visible = filterEvents(activeFilters()).some((item) => item.id === eventId);
           if (!visible && !state.route.includes(eventId)) {
-            showToast("Sự kiện này đang bị ẩn bởi bộ lọc.");
+            showToast(t("toast.hiddenByFilter"));
             return;
           }
           state.selectedEventId = eventId;
@@ -2343,11 +2363,13 @@
           const list = $("#route-list");
           const routeEvents = state.route.map((id) => eventById[id]).filter(Boolean);
           $("#route-count").textContent = routeEvents.length;
-          $("#route-stops").textContent = `${routeEvents.length} điểm dừng`;
+          $("#route-stops").textContent = t("route.stops", { count: routeEvents.length });
           const total = routeEvents.slice(1).reduce((sum, event, index) => {
             return sum + haversineKm(placesById[routeEvents[index].placeId], placesById[event.placeId]);
           }, 0);
-          $("#route-distance").textContent = routeEvents.length > 1 ? `${total.toFixed(1)} km` : (routeEvents.length ? "1 điểm · chưa có chặng" : "Chưa có tuyến");
+          $("#route-distance").textContent = routeEvents.length > 1
+            ? t("route.distanceKm", { km: total.toFixed(1) })
+            : routeEvents.length ? t("route.distanceOne") : t("route.distanceEmpty");
           const link = $("#directions-link");
           const url = googleDirectionsUrl(routeEvents, state.origin);
           link.href = url || "#";
@@ -2358,12 +2380,10 @@
           const shareSupported = typeof navigator.share === "function";
           $("#share-route").disabled = !routeEvents.length || !shareSupported;
           $("#share-route").style.opacity = routeEvents.length && shareSupported ? "1" : ".5";
-          $("#share-route").title = shareSupported
-            ? "Chia sẻ lộ trình qua ứng dụng trên thiết bị"
-            : "Trình duyệt này không hỗ trợ chia sẻ hệ thống.";
+          $("#share-route").title = t(shareSupported ? "route.shareTitle" : "route.shareUnsupported");
           updateNearbyButton();
           if (!routeEvents.length) {
-            list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-route"></i>Chưa có điểm dừng.<br>Thêm hoạt động từ Khám phá hoặc chọn hành trình mẫu.</div>';
+            list.innerHTML = `<div class="empty-state"><i class="fa-solid fa-route"></i>${t("route.empty")}<br>${t("route.emptyHint")}</div>`;
           } else {
             const now = hanoiDateTime(new Date());
             const liveOn = !!state.live;
@@ -2371,11 +2391,11 @@
               const place = placesById[event.placeId];
               const happening = liveOn && eventHappeningNow(event, now);
               return `<div class="route-item" data-index="${index}">
-                <span class="route-number">${index + 1}</span><div><div class="route-item-title"><span>${escapeHtml(event.title)}</span>${happening ? '<i class="route-live-dot" role="img" aria-label="Đang diễn ra"></i>' : ""}</div><div class="route-item-sub">${escapeHtml(place.name)} · ${escapeHtml(scheduleLabel(event, false))}</div></div>
+                <span class="route-number">${index + 1}</span><div><div class="route-item-title"><span>${escapeHtml(event.title)}</span>${happening ? `<i class="route-live-dot" role="img" aria-label="${t("route.liveAria")}"></i>` : ""}</div><div class="route-item-sub">${escapeHtml(place.name)} · ${escapeHtml(scheduleLabel(event, false))}</div></div>
                 <div class="route-item-actions">
-                  <button class="icon-button move-up" type="button" aria-label="Di chuyển ${escapeHtml(event.title)} lên" ${index === 0 ? "disabled" : ""}><i class="fa-solid fa-chevron-up"></i></button>
-                  <button class="icon-button move-down" type="button" aria-label="Di chuyển ${escapeHtml(event.title)} xuống" ${index === routeEvents.length - 1 ? "disabled" : ""}><i class="fa-solid fa-chevron-down"></i></button>
-                  <button class="icon-button remove-stop" type="button" aria-label="Xóa ${escapeHtml(event.title)} khỏi tuyến"><i class="fa-solid fa-xmark"></i></button>
+                  <button class="icon-button move-up" type="button" aria-label="${escapeHtml(t("route.moveUp", { title: event.title }))}" ${index === 0 ? "disabled" : ""}><i class="fa-solid fa-chevron-up"></i></button>
+                  <button class="icon-button move-down" type="button" aria-label="${escapeHtml(t("route.moveDown", { title: event.title }))}" ${index === routeEvents.length - 1 ? "disabled" : ""}><i class="fa-solid fa-chevron-down"></i></button>
+                  <button class="icon-button remove-stop" type="button" aria-label="${escapeHtml(t("route.remove", { title: event.title }))}"><i class="fa-solid fa-xmark"></i></button>
                 </div></div>`;
             }).join("");
             list.querySelectorAll(".route-item").forEach((item) => {
@@ -2535,12 +2555,12 @@
 
         function addToRoute(eventId) {
           if (state.route.includes(eventId)) {
-            showToast("Hoạt động này đã có trong lộ trình.");
+            showToast(t("route.toastExists"));
             return;
           }
           state.route.push(eventId);
           renderAll();
-          showToast("Đã thêm vào lộ trình.");
+          showToast(t("route.toastAdded"));
         }
 
         function removeFromRoute(eventId) {
@@ -2582,7 +2602,7 @@
           const [lat, lng] = value.split(",").map(Number);
           if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
           if (Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
-          return { id: "link", label: "Điểm bắt đầu", lat, lng };
+          return { id: "link", label: t("route.startPoint"), lat, lng };
         }
 
         function applyUrlState() {
@@ -2658,7 +2678,7 @@
             refreshPromptFields();
             requestAnimationFrame(sizePromptFields);
           }
-          if (window.innerWidth <= 760) $("#mobile-menu span").textContent = ({ explore: "Khám phá", route: "Lộ trình", prompts: "Hỏi AI" })[tabId];
+          if (window.innerWidth <= 760) setMobileMenuLabel(tabId);
           syncUrlState();
         }
 
@@ -2707,9 +2727,7 @@
             if (!$("#live-toggle").disabled) setLive(true, { quiet: true });
             const today = hanoiDateTime(new Date()).date;
             const openToday = today >= FESTIVAL_START && today <= FESTIVAL_END && eventsOnDate(today).length > 0;
-            showMapNote(openToday
-              ? "Đang hiện các hoạt động còn mở hôm nay."
-              : "Hôm nay không có hoạt động; đang hiện toàn bộ chương trình.");
+            showMapNote(t(openToday ? "live.noteOn" : "live.noteNoEvents"));
           } else if (kind === "route") {
             const disclosure = $("#preset-disclosure");
             if (disclosure) disclosure.open = true;
@@ -2774,7 +2792,7 @@
           }
         }
 
-        function renderUserLocation(lat, lng, label = "Vị trí hiện tại của bạn") {
+        function renderUserLocation(lat, lng, label = t("route.currentLocation")) {
           if (!userLocationMarker) {
             const element = document.createElement("div");
             element.className = "user-location-marker";
@@ -2791,9 +2809,9 @@
         }
 
         const geolocationErrorMessages = {
-          1: "Bạn chưa cấp quyền truy cập vị trí. Hãy bật quyền vị trí cho trang này trong cài đặt trình duyệt.",
-          2: "Không xác định được vị trí hiện tại.",
-          3: "Lấy vị trí quá thời gian. Hãy thử lại."
+          1: "location.denied",
+          2: "location.unavailable",
+          3: "location.timeout"
         };
 
         function setupLocationSharing() {
@@ -2807,7 +2825,7 @@
               navigator.geolocation.getCurrentPosition(
                 ({ coords }) => {
                   renderUserLocation(coords.latitude, coords.longitude);
-                  setOrigin({ id: "gps", label: "Vị trí hiện tại của bạn", lat: coords.latitude, lng: coords.longitude });
+                  setOrigin({ id: "gps", label: t("route.currentLocation"), lat: coords.latitude, lng: coords.longitude });
                 },
                 (error) => console.warn("Không thể cập nhật vị trí GPS đã được cấp quyền", error),
                 { enableHighAccuracy: false, timeout: 5000, maximumAge: 60000 }
@@ -2828,37 +2846,37 @@
           const requestLocation = () => {
             if (!navigator.geolocation) {
               showPrompt();
-              status.textContent = "Trình duyệt này không hỗ trợ định vị GPS.";
+              status.textContent = t("location.unsupported");
               return;
             }
             if (!window.isSecureContext) {
               showPrompt();
-              status.textContent = "Chia sẻ vị trí chỉ hoạt động trên trang HTTPS hoặc localhost.";
+              status.textContent = t("location.insecure");
               return;
             }
             if (asking) return;
             asking = true;
-            status.textContent = "Đang lấy vị trí…";
+            status.textContent = t("location.fetching");
             const showPosition = (position) => {
               asking = false;
               const { latitude, longitude } = position.coords;
               renderUserLocation(latitude, longitude);
-              setOrigin({ id: "gps", label: "Vị trí hiện tại của bạn", lat: latitude, lng: longitude });
+              setOrigin({ id: "gps", label: t("route.currentLocation"), lat: latitude, lng: longitude });
               map.flyTo({ center: [longitude, latitude], zoom: 15, duration: 600 });
               hidePrompt();
-              showToast("Đã hiển thị vị trí của bạn trên bản đồ.");
+              showToast(t("location.shownToast"));
             };
             const showLocationError = (error) => {
               asking = false;
               showPrompt();
-              status.textContent = geolocationErrorMessages[error.code] || "Không thể lấy vị trí hiện tại.";
+              status.textContent = t(geolocationErrorMessages[error.code] || "location.failed");
             };
             const retryApproximatePosition = (error) => {
               if (error.code !== 2 && error.code !== 3) {
                 showLocationError(error);
                 return;
               }
-              status.textContent = "Chưa lấy được GPS chính xác, đang thử vị trí gần đúng…";
+              status.textContent = t("location.approximate");
               navigator.geolocation.getCurrentPosition(
                 showPosition,
                 showLocationError,
@@ -2879,7 +2897,7 @@
             closeMobileSidebar();
             closeEventDetail();
             state.pickingOrigin = true;
-            showToast("Chạm vào bản đồ để chọn điểm xuất phát.");
+            showToast(t("location.tapMapToast"));
           });
           prompt.addEventListener("click", (event) => {
             if (event.target === prompt) hidePrompt();
@@ -2906,7 +2924,7 @@
           closeMobileSidebar();
           const disclosure = document.getElementById("preset-disclosure");
           if (disclosure) disclosure.open = false;
-          showToast(`Đã tải tuyến “${preset.name}”.`);
+          showToast(t("route.toastPreset", { name: preset.name }));
         }
 
         function buildPresets() {
@@ -2924,8 +2942,8 @@
           const url = window.location.href;
           if (typeof navigator.share !== "function") return;
           const payload = {
-            title: "Lộ trình Lễ hội Thiết kế Sáng tạo Hà Nội 2026",
-            text: `Lộ trình ${state.route.length} điểm dừng tại Lễ hội Thiết kế Sáng tạo Hà Nội 2026`,
+            title: t("share.title"),
+            text: t("share.text", { count: state.route.length }),
             url
           };
           if (typeof navigator.canShare === "function") {
@@ -3109,10 +3127,10 @@
         async function copyPromptText(text, status) {
           try {
             await navigator.clipboard.writeText(text);
-            status.textContent = "Đã sao chép prompt. Dán vào khung chat của ứng dụng.";
+            status.textContent = t("prompts.copied");
             return true;
           } catch {
-            status.textContent = "Không thể sao chép tự động; hãy chọn nội dung và sao chép thủ công.";
+            status.textContent = t("prompts.copyFailed");
             return false;
           }
         }
@@ -3126,13 +3144,13 @@
             link.href = url;
             link.target = "_blank";
             link.rel = "noopener noreferrer";
-            link.textContent = `Mở ${provider.name}`;
+            link.textContent = t("prompts.openWith", { provider: provider.name });
             status.textContent = "";
-            status.append("Trình duyệt đã chặn tab mới. ", link, " hoặc dùng nút Sao chép.");
+            status.append(t("prompts.blockedTab"), link, t("prompts.orCopy"));
             return false;
           }
           tab.opener = null;
-          status.textContent = `Đã mở ${provider.name} với prompt điền sẵn.`;
+          status.textContent = t("prompts.opened", { provider: provider.name });
           return true;
         }
 
@@ -3162,9 +3180,40 @@
               markPromptEdited(id, false);
               sizePromptFields();
               const status = button.closest(".ai-prompt").querySelector(".ai-prompt-status");
-              if (status) status.textContent = "Đã khôi phục prompt gốc.";
+              if (status) status.textContent = t("prompts.resetToast");
             });
           });
+        }
+
+        function requireCustomQuestion() {
+          const field = $("#ai-custom-text");
+          const status = $("#ai-custom-status");
+          if (!field || !status) return false;
+          if (field.value.trim()) return true;
+          status.textContent = t("prompts.enterFirst");
+          field.focus();
+          return false;
+        }
+
+        // Rebuilt on a language switch so the provider buttons keep translated labels.
+        function renderCustomPromptActions() {
+          const actions = $("#ai-custom-actions");
+          if (!actions) return;
+          actions.textContent = "";
+          PROMPT_ORDER.forEach((provider) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = `ai-open ai-open-${provider}`;
+            button.title = PROMPT_PROVIDERS[provider].name;
+            button.setAttribute("aria-label", t("prompts.openWith", { provider: PROMPT_PROVIDERS[provider].name }));
+            button.innerHTML = `${PROMPT_ICONS[provider]}<span class="ai-open-arrow" aria-hidden="true">↗</span>`;
+            button.addEventListener("click", () => {
+              if (!requireCustomQuestion()) return;
+              openPromptIn(provider, promptFieldText("ai-custom-text"), $("#ai-custom-status"));
+            });
+            actions.append(button);
+          });
+          actions.setAttribute("aria-label", t("prompts.actionsAria"));
         }
 
         function setupCustomPrompt() {
@@ -3175,26 +3224,8 @@
 
           const contextSpan = document.querySelector("#ai-custom-context span");
           if (contextSpan) contextSpan.textContent = promptContextLine();
-          const requireQuestion = () => {
-            if (field.value.trim()) return true;
-            status.textContent = "Hãy nhập câu hỏi của bạn trước.";
-            field.focus();
-            return false;
-          };
-
-          PROMPT_ORDER.forEach((provider) => {
-            const button = document.createElement("button");
-            button.type = "button";
-            button.className = `ai-open ai-open-${provider}`;
-            button.title = PROMPT_PROVIDERS[provider].name;
-            button.setAttribute("aria-label", `Mở bằng ${PROMPT_PROVIDERS[provider].name}`);
-            button.innerHTML = `${PROMPT_ICONS[provider]}<span class="ai-open-arrow" aria-hidden="true">↗</span>`;
-            button.addEventListener("click", () => {
-              if (!requireQuestion()) return;
-              openPromptIn(provider, promptFieldText("ai-custom-text"), status);
-            });
-            actions.append(button);
-          });
+          renderCustomPromptActions();
+          const requireQuestion = requireCustomQuestion;
 
           $("#ai-custom-copy")?.addEventListener("click", () => {
             if (!requireQuestion()) return;
@@ -3220,7 +3251,7 @@
           const list = $("#ai-prompt-list");
           if (!list) return;
           const count = $("#prompt-count");
-          if (count) count.textContent = `${prompts.length} gợi ý`;
+          if (count) count.textContent = t("prompts.count", { count: prompts.length });
           list.textContent = "";
           const groups = new Map();
           prompts.forEach((prompt) => {
@@ -3255,14 +3286,14 @@
                   reset.className = "ai-prompt-reset";
                   reset.dataset.resetPrompt = prompt.id;
                   reset.hidden = !Object.hasOwn(promptEdits, prompt.id);
-                  reset.setAttribute("aria-label", "Khôi phục prompt gốc");
-                  reset.innerHTML = '<i class="fa-solid fa-rotate-left" aria-hidden="true"></i><span>Đặt lại</span>';
+                  reset.setAttribute("aria-label", t("prompts.resetAria"));
+                  reset.innerHTML = `<i class="fa-solid fa-rotate-left" aria-hidden="true"></i><span>${t("prompts.reset")}</span>`;
                   const copy = document.createElement("button");
                   copy.type = "button";
                   copy.className = "ai-prompt-copy";
                   copy.dataset.copyPrompt = prompt.id;
-                  copy.setAttribute("aria-label", "Sao chép prompt");
-                  copy.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i><span>Sao chép</span>';
+                  copy.setAttribute("aria-label", t("prompts.copyAria"));
+                  copy.innerHTML = `<i class="fa-regular fa-copy" aria-hidden="true"></i><span>${t("prompts.copy")}</span>`;
                   tools.append(reset, copy);
                   head.append(title, tools);
 
@@ -3280,20 +3311,20 @@
                   textarea.className = "ai-prompt-text";
                   textarea.id = prompt.id;
                   textarea.spellcheck = false;
-                  textarea.setAttribute("aria-label", `Câu hỏi của prompt: ${prompt.title}`);
+                  textarea.setAttribute("aria-label", t("prompts.questionAria", { title: prompt.title }));
                   textarea.value = promptBodyText(prompt);
                   if (Object.hasOwn(promptEdits, prompt.id)) textarea.classList.add("is-edited");
                   textarea.addEventListener("input", () => {
                     const edited = savePromptEdit(prompt.id, textarea.value);
                     markPromptEdited(prompt.id, edited);
                     sizePromptFields();
-                    status.textContent = edited ? "Đã lưu trên thiết bị này." : "Đã trở về prompt gốc.";
+                    status.textContent = t(edited ? "prompts.saved" : "prompts.reverted");
                   });
 
                   const actions = document.createElement("div");
                   actions.className = "ai-prompt-actions";
                   actions.setAttribute("role", "group");
-                  actions.setAttribute("aria-label", "Mở prompt bằng dịch vụ AI");
+                  actions.setAttribute("aria-label", t("prompts.actionsAria"));
                   PROMPT_ORDER.forEach((provider) => {
                     const button = document.createElement("button");
                     button.type = "button";
@@ -3301,7 +3332,7 @@
                     button.dataset.openPrompt = prompt.id;
                     button.dataset.provider = provider;
                     button.title = PROMPT_PROVIDERS[provider].name;
-                    button.setAttribute("aria-label", `Mở bằng ${PROMPT_PROVIDERS[provider].name}`);
+                    button.setAttribute("aria-label", t("prompts.openWith", { provider: PROMPT_PROVIDERS[provider].name }));
                     button.innerHTML = `${PROMPT_ICONS[provider]}<span class="ai-open-arrow" aria-hidden="true">↗</span>`;
                     actions.append(button);
                   });
@@ -3326,20 +3357,75 @@
             loadedPrompts = prompts;
             renderPrompts(prompts);
           } catch (error) {
-            console.error("Không tải được prompt", error);
+            console.error(t("prompts.loadFailed"), error);
             const count = $("#prompt-count");
             if (count) count.textContent = "";
             if (!list) return;
             list.textContent = "";
             const message = document.createElement("p");
             message.className = "ai-prompts-loading";
-            message.append("Không tải được prompt. ");
+            message.append(t("prompts.loadFailed"));
             const link = document.createElement("a");
             link.href = "prompts.json";
-            link.textContent = "Mở tệp prompts.json";
+            link.textContent = t("prompts.openFile");
             message.append(link, ".");
             list.append(message);
           }
+        }
+
+        // Everything that depends on the active locale but lives outside the static
+        // markup: date formatters, generated labels, the list, the pins and the panels.
+        function refreshBrandSummary() {
+          $("#brand-sub").innerHTML = t("brand.summary", {
+            events: events.length,
+            clusters: Object.keys(clusters).length,
+            dates: `${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`
+          });
+        }
+
+        function setMobileMenuLabel(tabId) {
+          const key = { explore: "tabs.mobileExplore", route: "tabs.mobileRoute", prompts: "tabs.mobilePrompts" }[tabId];
+          $("#mobile-menu span").textContent = t(key || "tabs.mobileExplore");
+        }
+
+        function updateLangButton() {
+          const code = window.I18n.locale === "vi" ? "EN" : "VI";
+          ["lang-toggle", "lang-toggle-sidebar"].forEach((id) => {
+            const button = document.getElementById(id);
+            if (!button) return;
+            button.title = t("lang.switch");
+            button.setAttribute("aria-label", t("lang.switch"));
+            const label = button.querySelector("span");
+            if (label) label.textContent = code;
+          });
+        }
+
+        function toggleLanguage() {
+          window.I18n.setLocale(window.I18n.locale === "vi" ? "en" : "vi");
+          // The stored choice wins on the next visit, so a stale ?lang= from a shared
+          // link must not override it.
+          const params = new URLSearchParams(window.location.search);
+          params.delete("lang");
+          const query = params.toString();
+          window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
+        }
+
+        function applyLocale() {
+          updateDateFormatters();
+          updateLangButton();
+          refreshBrandSummary();
+          refreshFilterOptions();
+          renderEvents();
+          renderEventMarkers();
+          renderRoute();
+          syncDetailWithFilters();
+          updateLiveButton();
+          updateNearbyButton();
+          updateParticipatedButton();
+          if (loadedPrompts.length) renderPrompts(loadedPrompts);
+          renderCustomPromptActions();
+          refreshPromptFields();
+          if (window.innerWidth <= 760) setMobileMenuLabel(state.tab);
         }
 
         function bindControls() {
@@ -3378,9 +3464,7 @@
             state.showParticipated = !state.showParticipated;
             updateParticipatedButton();
             syncParticipatedPins();
-            showMapNote(state.showParticipated
-              ? "Đang hiện đầy đủ các hoạt động đã tham gia."
-              : "Các hoạt động đã tham gia được làm mờ.");
+            showMapNote(t(state.showParticipated ? "participated.noteOn" : "participated.noteOff"));
           });
           $("#share-route").addEventListener("click", shareRoute);
           $("#cluster-filter").addEventListener("change", (event) => {
@@ -3391,22 +3475,25 @@
             const origin = state.origin || (state.route.length ? placesById[eventById[state.route[0]].placeId] : null);
             state.route = optimizeNearest(state.route.map((id) => eventById[id]), origin).map((event) => event.id);
             renderAll();
-            showToast("Đã sắp xếp các điểm dừng theo khoảng cách gần nhất.");
+            showToast(t("route.toastOptimized"));
           });
           $("#clear-route").addEventListener("click", () => {
             state.route = [];
             renderAll();
           });
+          $("#lang-toggle").addEventListener("click", toggleLanguage);
+          $("#lang-toggle-sidebar").addEventListener("click", toggleLanguage);
+          document.addEventListener("i18n:change", applyLocale);
           $("#show-all").addEventListener("click", showAllPlaces);
           $("#detail-close").addEventListener("click", closeEventDetail);
           map.on("click", (event) => {
             if (state.pickingOrigin) {
               state.pickingOrigin = false;
               const { lat, lng } = event.lngLat;
-              const label = "Điểm đã chọn trên bản đồ";
+              const label = t("route.mapPick");
               renderUserLocation(lat, lng, label);
               setOrigin({ id: "map", label, lat, lng });
-              showToast("Đã chọn điểm xuất phát trên bản đồ.");
+              showToast(t("location.pickedToast"));
               return;
             }
             if (performance.now() < suppressMapCloseUntil) return;
@@ -3428,12 +3515,14 @@
         // Read the query before setTab() normalises it away: a shared link already
         // carries the visitor somewhere specific, so the welcome tour stays closed.
         const hasDeepLink = window.location.search.length > 0;
+        updateDateFormatters();
         const initialTab = applyUrlState();
         state.participated = loadParticipated();
         state.tab = initialTab;
         renderFilters();
         updateParticipatedButton();
-        $("#brand-sub").innerHTML = `<strong>${events.length} hoạt động</strong> · ${Object.keys(clusters).length} cụm · ${formatShortDate(FESTIVAL_START)}–${formatShortDate(FESTIVAL_END)}`;
+        updateLangButton();
+        refreshBrandSummary();
         renderEventMarkers();
         buildPresets();
         bindControls();
@@ -3499,12 +3588,13 @@
       }
 
       function showDataError(error) {
-        console.error("Không tải được dữ liệu sự kiện", error);
+        console.error(window.I18n ? window.I18n.t("error.dataLog") : "Could not load the event data", error);
         const status = document.querySelector("#map-status");
-        if (status) status.textContent = "Không tải được dữ liệu sự kiện";
+        if (status) status.textContent = window.I18n ? window.I18n.t("error.dataStatus") : "Could not load the event data";
         const list = document.querySelector("#event-list");
         if (list) {
-          list.innerHTML = '<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>Không tải được dữ liệu sự kiện.<br>Hãy tải lại trang.</div>';
+          const body = window.I18n ? window.I18n.t("error.dataBody") : "Could not load the event data.<br>Reload the page.";
+          list.innerHTML = `<div class="empty-state"><i class="fa-solid fa-triangle-exclamation"></i>${body}</div>`;
         }
       }
 
